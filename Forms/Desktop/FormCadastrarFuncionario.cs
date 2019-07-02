@@ -1,15 +1,6 @@
-﻿using Forms;
-using Forms.Entidades;
-using Correios.CEP;
+﻿using Forms.Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Forms.Views.Desktop
@@ -18,7 +9,6 @@ namespace Forms.Views.Desktop
 	public partial class FormCadastrarFuncionario : Form
 	{
 		public Funcionarios Func { get; set; }
-
 
 		public FormCadastrarFuncionario()
 		{
@@ -38,14 +28,7 @@ namespace Forms.Views.Desktop
 
 		private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			//nao deixa digitar letras, apenas numeros.
 			txtSalario.IsNumeros(e);
-
-		}
-
-		private void txtSalario_TextChanged(object sender, EventArgs e)
-		{
-
 		}
 
 		private void maskedCpf_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,7 +44,6 @@ namespace Forms.Views.Desktop
 		private void txtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			txtNrPontos.IsNumeros(e);
-
 		}
 
 		private void txtSalario_Enter(object sender, EventArgs e)
@@ -72,7 +54,6 @@ namespace Forms.Views.Desktop
 		private void txtSalario_Leave(object sender, EventArgs e)
 		{
 			txtSalario.IsDinheiro();
-
 		}
 
 		private void txtValor_Enter(object sender, EventArgs e)
@@ -83,7 +64,6 @@ namespace Forms.Views.Desktop
 		private void txtValor_Leave(object sender, EventArgs e)
 		{
 			txtValor.IsDinheiro();
-
 		}
 
 		private void maskedDataMulta_Leave(object sender, EventArgs e)
@@ -124,13 +104,11 @@ namespace Forms.Views.Desktop
 		private void maskedCpf_Leave(object sender, EventArgs e)
 		{
 			if (!Utilidades.IsCpf(maskedCpf.Text))
-
 			{
 				MessageBox.Show("CPF inválido, digite novamente");
 				maskedCpf.Text = "";
 				maskedCpf.Focus();
 			}
-
 		}
 
 		private void btnSalvar_Click_1(object sender, EventArgs e)
@@ -155,20 +133,14 @@ namespace Forms.Views.Desktop
 				{
 					escritor.WriteLine($"Nome: {Func.NOME}, Email: {Func.EMAIL} \n Endereço: {Func.LOGRADOURO}, {Func.NUM}. Bairro: {Func.BAIRRO}, " +
 										$"Cidade: {Func.CIDADE} UF: {Func.UF}");
-
 				}
+				this.Controls.LimparTextBoxes();
+				this.groupEndereco.Controls.LimparTextBoxes();
 			}
 			catch
 			{
 				MessageBox.Show("Favor adicionar o funcionário corretamente.", "Erro!");
 			}
-			finally
-			{
-				this.Controls.LimparTextBoxes();
-				this.groupEndereco.Controls.LimparTextBoxes();
-				this.Close();
-			}
-
 		}
 
 		private void maskedCEP_Leave(object sender, EventArgs e)

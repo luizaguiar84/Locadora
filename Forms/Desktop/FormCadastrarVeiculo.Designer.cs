@@ -483,42 +483,6 @@
 			// comboMontadora
 			// 
 			this.comboMontadora.FormattingEnabled = true;
-			this.comboMontadora.Items.AddRange(new object[] {
-            "Audi",
-            "Bentley",
-            "BMW",
-            "Chevrolet",
-            "Chrysler",
-            "Citroën",
-            "Daihatsu",
-            "Dodge",
-            "Ferrari",
-            "Fiat",
-            "Ford",
-            "General Motors",
-            "Honda",
-            "Hyundai",
-            "JAC Motors",
-            "Jaguar",
-            "Jeep",
-            "KIA",
-            "Land-Rover",
-            "Lexus",
-            "Mazda",
-            "Mercedes-Bens",
-            "Mitsubishi",
-            "Nissan",
-            "Peugeot",
-            "Porsche",
-            "RAM",
-            "Renault",
-            "Subaru",
-            "Suzuki",
-            "Tata Motors",
-            "Tesla",
-            "Toyota",
-            "Volkswagen",
-            "Volvo"});
 			this.comboMontadora.Location = new System.Drawing.Point(79, 59);
 			this.comboMontadora.Name = "comboMontadora";
 			this.comboMontadora.Size = new System.Drawing.Size(161, 21);
@@ -568,11 +532,13 @@
 			// 
 			// maskedTxtPlaca
 			// 
+			this.maskedTxtPlaca.HidePromptOnLeave = true;
 			this.maskedTxtPlaca.Location = new System.Drawing.Point(185, 104);
 			this.maskedTxtPlaca.Mask = "???-0000";
 			this.maskedTxtPlaca.Name = "maskedTxtPlaca";
 			this.maskedTxtPlaca.Size = new System.Drawing.Size(55, 20);
 			this.maskedTxtPlaca.TabIndex = 49;
+			this.maskedTxtPlaca.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// lblCor
 			// 

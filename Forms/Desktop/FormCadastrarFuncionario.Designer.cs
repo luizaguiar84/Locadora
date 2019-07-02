@@ -124,6 +124,7 @@
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(764, 426);
 			this.tabControl1.TabIndex = 0;
+			this.tabControl1.TabStop = false;
 			// 
 			// tabInfoFuncionarios
 			// 
@@ -261,7 +262,6 @@
 			this.txtSalario.Name = "txtSalario";
 			this.txtSalario.Size = new System.Drawing.Size(150, 20);
 			this.txtSalario.TabIndex = 297;
-			this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged);
 			this.txtSalario.Enter += new System.EventHandler(this.txtSalario_Enter);
 			this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
 			this.txtSalario.Leave += new System.EventHandler(this.txtSalario_Leave);
@@ -707,7 +707,7 @@
 			this.txtNome.Location = new System.Drawing.Point(92, 34);
 			this.txtNome.Name = "txtNome";
 			this.txtNome.Size = new System.Drawing.Size(377, 20);
-			this.txtNome.TabIndex = 291;
+			this.txtNome.TabIndex = 1;
 			this.txtNome.Tag = "";
 			// 
 			// btnSalvar
