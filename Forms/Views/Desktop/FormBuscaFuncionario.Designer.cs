@@ -28,8 +28,26 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscaFuncionario));
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cpfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.rgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.telResidencialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.telCelularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.salarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.admissaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ctpsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.pisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tituloEleitorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.demissaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cnhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.enderecoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.lblConsultarFuncionarios = new System.Windows.Forms.Label();
 			this.ComboFiltro = new System.Windows.Forms.ComboBox();
@@ -37,16 +55,140 @@
 			this.btnPesquisar = new System.Windows.Forms.Button();
 			this.lblFiltro = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AutoGenerateColumns = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(7, 160);
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.nomeDataGridViewTextBoxColumn,
+            this.cpfDataGridViewTextBoxColumn,
+            this.rgDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.telResidencialDataGridViewTextBoxColumn,
+            this.telCelularDataGridViewTextBoxColumn,
+            this.salarioDataGridViewTextBoxColumn,
+            this.admissaoDataGridViewTextBoxColumn,
+            this.ctpsDataGridViewTextBoxColumn,
+            this.pisDataGridViewTextBoxColumn,
+            this.tituloEleitorDataGridViewTextBoxColumn,
+            this.nascimentoDataGridViewTextBoxColumn,
+            this.demissaoDataGridViewTextBoxColumn,
+            this.cnhDataGridViewTextBoxColumn,
+            this.enderecoDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.funcionariosBindingSource;
+			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.Location = new System.Drawing.Point(0, 107);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(695, 254);
+			this.dataGridView1.Size = new System.Drawing.Size(722, 343);
 			this.dataGridView1.TabIndex = 13;
+			this.dataGridView1.Visible = false;
+			this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+			// 
+			// Id
+			// 
+			this.Id.DataPropertyName = "Id";
+			this.Id.HeaderText = "Id";
+			this.Id.Name = "Id";
+			// 
+			// nomeDataGridViewTextBoxColumn
+			// 
+			this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+			this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+			this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+			// 
+			// cpfDataGridViewTextBoxColumn
+			// 
+			this.cpfDataGridViewTextBoxColumn.DataPropertyName = "Cpf";
+			this.cpfDataGridViewTextBoxColumn.HeaderText = "Cpf";
+			this.cpfDataGridViewTextBoxColumn.Name = "cpfDataGridViewTextBoxColumn";
+			// 
+			// rgDataGridViewTextBoxColumn
+			// 
+			this.rgDataGridViewTextBoxColumn.DataPropertyName = "Rg";
+			this.rgDataGridViewTextBoxColumn.HeaderText = "Rg";
+			this.rgDataGridViewTextBoxColumn.Name = "rgDataGridViewTextBoxColumn";
+			// 
+			// emailDataGridViewTextBoxColumn
+			// 
+			this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+			this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+			this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+			// 
+			// telResidencialDataGridViewTextBoxColumn
+			// 
+			this.telResidencialDataGridViewTextBoxColumn.DataPropertyName = "TelResidencial";
+			this.telResidencialDataGridViewTextBoxColumn.HeaderText = "TelResidencial";
+			this.telResidencialDataGridViewTextBoxColumn.Name = "telResidencialDataGridViewTextBoxColumn";
+			// 
+			// telCelularDataGridViewTextBoxColumn
+			// 
+			this.telCelularDataGridViewTextBoxColumn.DataPropertyName = "TelCelular";
+			this.telCelularDataGridViewTextBoxColumn.HeaderText = "TelCelular";
+			this.telCelularDataGridViewTextBoxColumn.Name = "telCelularDataGridViewTextBoxColumn";
+			// 
+			// salarioDataGridViewTextBoxColumn
+			// 
+			this.salarioDataGridViewTextBoxColumn.DataPropertyName = "Salario";
+			this.salarioDataGridViewTextBoxColumn.HeaderText = "Salario";
+			this.salarioDataGridViewTextBoxColumn.Name = "salarioDataGridViewTextBoxColumn";
+			// 
+			// admissaoDataGridViewTextBoxColumn
+			// 
+			this.admissaoDataGridViewTextBoxColumn.DataPropertyName = "Admissao";
+			this.admissaoDataGridViewTextBoxColumn.HeaderText = "Admissao";
+			this.admissaoDataGridViewTextBoxColumn.Name = "admissaoDataGridViewTextBoxColumn";
+			// 
+			// ctpsDataGridViewTextBoxColumn
+			// 
+			this.ctpsDataGridViewTextBoxColumn.DataPropertyName = "Ctps";
+			this.ctpsDataGridViewTextBoxColumn.HeaderText = "Ctps";
+			this.ctpsDataGridViewTextBoxColumn.Name = "ctpsDataGridViewTextBoxColumn";
+			// 
+			// pisDataGridViewTextBoxColumn
+			// 
+			this.pisDataGridViewTextBoxColumn.DataPropertyName = "Pis";
+			this.pisDataGridViewTextBoxColumn.HeaderText = "Pis";
+			this.pisDataGridViewTextBoxColumn.Name = "pisDataGridViewTextBoxColumn";
+			// 
+			// tituloEleitorDataGridViewTextBoxColumn
+			// 
+			this.tituloEleitorDataGridViewTextBoxColumn.DataPropertyName = "TituloEleitor";
+			this.tituloEleitorDataGridViewTextBoxColumn.HeaderText = "TituloEleitor";
+			this.tituloEleitorDataGridViewTextBoxColumn.Name = "tituloEleitorDataGridViewTextBoxColumn";
+			// 
+			// nascimentoDataGridViewTextBoxColumn
+			// 
+			this.nascimentoDataGridViewTextBoxColumn.DataPropertyName = "Nascimento";
+			this.nascimentoDataGridViewTextBoxColumn.HeaderText = "Nascimento";
+			this.nascimentoDataGridViewTextBoxColumn.Name = "nascimentoDataGridViewTextBoxColumn";
+			// 
+			// demissaoDataGridViewTextBoxColumn
+			// 
+			this.demissaoDataGridViewTextBoxColumn.DataPropertyName = "Demissao";
+			this.demissaoDataGridViewTextBoxColumn.HeaderText = "Demissao";
+			this.demissaoDataGridViewTextBoxColumn.Name = "demissaoDataGridViewTextBoxColumn";
+			// 
+			// cnhDataGridViewTextBoxColumn
+			// 
+			this.cnhDataGridViewTextBoxColumn.DataPropertyName = "Cnh";
+			this.cnhDataGridViewTextBoxColumn.HeaderText = "Cnh";
+			this.cnhDataGridViewTextBoxColumn.Name = "cnhDataGridViewTextBoxColumn";
+			// 
+			// enderecoDataGridViewTextBoxColumn
+			// 
+			this.enderecoDataGridViewTextBoxColumn.DataPropertyName = "Endereco";
+			this.enderecoDataGridViewTextBoxColumn.HeaderText = "Endereco";
+			this.enderecoDataGridViewTextBoxColumn.Name = "enderecoDataGridViewTextBoxColumn";
+			// 
+			// funcionariosBindingSource
+			// 
+			this.funcionariosBindingSource.DataSource = typeof(Forms.Models.Funcionarios);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -109,6 +251,7 @@
 			this.btnPesquisar.TabIndex = 5;
 			this.btnPesquisar.Text = "Pesquisar...";
 			this.btnPesquisar.UseVisualStyleBackColor = true;
+			this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
 			// 
 			// lblFiltro
 			// 
@@ -122,6 +265,7 @@
 			// 
 			// FormBuscaFuncionario
 			// 
+			this.AcceptButton = this.btnPesquisar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(722, 450);
@@ -132,6 +276,7 @@
 			this.Text = "FormBuscaFuncionario";
 			this.Load += new System.EventHandler(this.FormBuscaFuncionario_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -147,5 +292,22 @@
 		private System.Windows.Forms.TextBox txtPesquisa;
 		private System.Windows.Forms.Button btnPesquisar;
 		private System.Windows.Forms.Label lblFiltro;
+		private System.Windows.Forms.BindingSource funcionariosBindingSource;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn cpfDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn rgDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn telResidencialDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn telCelularDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn salarioDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn admissaoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ctpsDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn pisDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn tituloEleitorDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nascimentoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn demissaoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn cnhDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn enderecoDataGridViewTextBoxColumn;
 	}
 }

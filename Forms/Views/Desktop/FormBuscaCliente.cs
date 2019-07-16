@@ -55,6 +55,7 @@ namespace Forms.Views.Desktop
 		private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			int clienteId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
+
 			var cliente = Teste.Single(x => x.Id == clienteId);
 
 			using (var contexto = new LocadoraContext())

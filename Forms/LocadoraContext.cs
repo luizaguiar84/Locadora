@@ -21,6 +21,8 @@ namespace Forms.Models
 		public DbSet<Sinistros> Sinistros { get; set; }
 		public DbSet<Usuarios> Usuarios { get; set; }
 		public DbSet<Veiculos> Veiculos { get; set; }
+		public DbSet<Modelos> Modelos { get; set; }
+		public DbSet<Montadora> Montadoras { get; set; }
 
 
 

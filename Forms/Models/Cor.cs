@@ -6,6 +6,12 @@ namespace Forms.Models
 	public class Cor
 	{
 		public int Id { get; set; }
-		public string Cores { get; set; }
+		public enum Cores
+		{
+			PRETO,
+			VERMELHO,
+			VERDE,
+			PRATA
+		} 
 	}
 }

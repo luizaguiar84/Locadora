@@ -85,6 +85,9 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="hbehr.FipeAPI, Version=1.1.6246.38181, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\hbehr.FipeAPI.1.1.0\lib\net461\hbehr.FipeAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
@@ -141,10 +144,16 @@
     <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.16\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -276,9 +285,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocadoraDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\20190712222233_MaisClasses.cs" />
     <Compile Include="Migrations\20190712222233_MaisClasses.designer.cs">
       <DependentUpon>20190712222233_MaisClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190716025011_AdicionandoMarcaseModelos.cs" />
+    <Compile Include="Migrations\20190716025011_AdicionandoMarcaseModelos.designer.cs">
+      <DependentUpon>20190716025011_AdicionandoMarcaseModelos.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Abastecimentos.cs" />
     <Compile Include="Models\Cnh.cs" />
@@ -471,8 +489,8 @@
     <Compile Include="Models\Funcionarios.cs" />
     <Compile Include="Models\Manutencao.cs" />
     <Compile Include="Arrumar\Manutencaopeca.cs" />
-    <Compile Include="Arrumar\Modelos.cs" />
-    <Compile Include="Arrumar\Montadora.cs" />
+    <Compile Include="Models\Modelos.cs" />
+    <Compile Include="Models\Montadora.cs" />
     <Compile Include="Models\Multas.cs" />
     <Compile Include="Models\Pecas.cs" />
     <Compile Include="Arrumar\Pneus.cs" />
@@ -597,7 +615,19 @@
     <None Include="LocadoraDataSet.xss">
       <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
     </None>
+    <None Include="LocadoraDataSet1.xsc">
+      <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LocadoraDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LocadoraDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LocadoraDataSet1.xss">
+      <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\Forms.Models.Cliente.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Funcionarios.datasource" />
     <None Include="Teste.xsc">
       <DependentUpon>Teste.xsd</DependentUpon>
     </None>

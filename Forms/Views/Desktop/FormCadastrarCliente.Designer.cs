@@ -220,12 +220,14 @@
 			// button2
 			// 
 			this.button2.AccessibleName = "Buscar Cliente";
+			this.button2.BackColor = System.Drawing.Color.Transparent;
 			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.button2.Image = global::Forms.Properties.Resources.lupa;
 			this.button2.Location = new System.Drawing.Point(364, 97);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(31, 20);
 			this.button2.TabIndex = 200;
-			this.button2.UseVisualStyleBackColor = true;
+			this.button2.UseVisualStyleBackColor = false;
 			this.button2.Click += new System.EventHandler(this.button2_Click_1);
 			// 
 			// groupEndereco

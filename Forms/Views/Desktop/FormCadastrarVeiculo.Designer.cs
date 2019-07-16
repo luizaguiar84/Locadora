@@ -31,13 +31,16 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarNovoVeiculo));
 			this.TabCadastroVeiculos = new System.Windows.Forms.TabControl();
 			this.tabInformacoes = new System.Windows.Forms.TabPage();
+			this.comboAno = new System.Windows.Forms.ComboBox();
 			this.txtValorDiaria = new System.Windows.Forms.TextBox();
+			this.label29 = new System.Windows.Forms.Label();
+			this.txtCombustivel = new System.Windows.Forms.TextBox();
+			this.numericLugares = new System.Windows.Forms.NumericUpDown();
+			this.lblLugares = new System.Windows.Forms.Label();
+			this.txtValorAtualCarro = new System.Windows.Forms.TextBox();
 			this.btnLocalizar = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
-			this.numericFab = new System.Windows.Forms.NumericUpDown();
-			this.numericMod = new System.Windows.Forms.NumericUpDown();
 			this.numericPortas = new System.Windows.Forms.NumericUpDown();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -55,7 +58,6 @@
 			this.comboMontadora = new System.Windows.Forms.ComboBox();
 			this.comboCor = new System.Windows.Forms.ComboBox();
 			this.lblAnoMod = new System.Windows.Forms.Label();
-			this.lblFab = new System.Windows.Forms.Label();
 			this.lblMontadora = new System.Windows.Forms.Label();
 			this.maskedTxtPlaca = new System.Windows.Forms.MaskedTextBox();
 			this.lblCor = new System.Windows.Forms.Label();
@@ -159,12 +161,9 @@
 			this.label25 = new System.Windows.Forms.Label();
 			this.maskedDataObrigacoes = new System.Windows.Forms.MaskedTextBox();
 			this.label24 = new System.Windows.Forms.Label();
-			this.numericLugares = new System.Windows.Forms.NumericUpDown();
-			this.lblLugares = new System.Windows.Forms.Label();
 			this.TabCadastroVeiculos.SuspendLayout();
 			this.tabInformacoes.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericFab)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericMod)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPortas)).BeginInit();
 			this.tabAbastecimentos.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -184,7 +183,6 @@
 			this.tabObrigacoes.SuspendLayout();
 			this.groupBox10.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// TabCadastroVeiculos
@@ -203,15 +201,16 @@
 			// tabInformacoes
 			// 
 			this.tabInformacoes.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.tabInformacoes.Controls.Add(this.comboAno);
+			this.tabInformacoes.Controls.Add(this.txtValorDiaria);
+			this.tabInformacoes.Controls.Add(this.label29);
+			this.tabInformacoes.Controls.Add(this.txtCombustivel);
 			this.tabInformacoes.Controls.Add(this.numericLugares);
 			this.tabInformacoes.Controls.Add(this.lblLugares);
-			this.tabInformacoes.Controls.Add(this.txtValorDiaria);
+			this.tabInformacoes.Controls.Add(this.txtValorAtualCarro);
 			this.tabInformacoes.Controls.Add(this.btnLocalizar);
 			this.tabInformacoes.Controls.Add(this.label4);
-			this.tabInformacoes.Controls.Add(this.numericFab);
-			this.tabInformacoes.Controls.Add(this.numericMod);
 			this.tabInformacoes.Controls.Add(this.numericPortas);
-			this.tabInformacoes.Controls.Add(this.comboBox2);
 			this.tabInformacoes.Controls.Add(this.label3);
 			this.tabInformacoes.Controls.Add(this.comboBox1);
 			this.tabInformacoes.Controls.Add(this.label2);
@@ -229,7 +228,6 @@
 			this.tabInformacoes.Controls.Add(this.comboMontadora);
 			this.tabInformacoes.Controls.Add(this.comboCor);
 			this.tabInformacoes.Controls.Add(this.lblAnoMod);
-			this.tabInformacoes.Controls.Add(this.lblFab);
 			this.tabInformacoes.Controls.Add(this.lblMontadora);
 			this.tabInformacoes.Controls.Add(this.maskedTxtPlaca);
 			this.tabInformacoes.Controls.Add(this.lblCor);
@@ -246,14 +244,79 @@
 			this.tabInformacoes.TabIndex = 0;
 			this.tabInformacoes.Text = "Informações do veículo";
 			// 
+			// comboAno
+			// 
+			this.comboAno.FormattingEnabled = true;
+			this.comboAno.Location = new System.Drawing.Point(467, 59);
+			this.comboAno.Name = "comboAno";
+			this.comboAno.Size = new System.Drawing.Size(121, 21);
+			this.comboAno.TabIndex = 84;
+			this.comboAno.TextChanged += new System.EventHandler(this.comboAno_TextChanged);
+			// 
 			// txtValorDiaria
 			// 
-			this.txtValorDiaria.Location = new System.Drawing.Point(332, 144);
+			this.txtValorDiaria.Location = new System.Drawing.Point(424, 144);
 			this.txtValorDiaria.MaxLength = 7;
 			this.txtValorDiaria.Name = "txtValorDiaria";
 			this.txtValorDiaria.Size = new System.Drawing.Size(85, 20);
-			this.txtValorDiaria.TabIndex = 78;
-			
+			this.txtValorDiaria.TabIndex = 83;
+			// 
+			// label29
+			// 
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(421, 127);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(100, 13);
+			this.label29.TabIndex = 82;
+			this.label29.Text = "Valor diário locação";
+			// 
+			// txtCombustivel
+			// 
+			this.txtCombustivel.Location = new System.Drawing.Point(246, 144);
+			this.txtCombustivel.Name = "txtCombustivel";
+			this.txtCombustivel.ReadOnly = true;
+			this.txtCombustivel.Size = new System.Drawing.Size(74, 20);
+			this.txtCombustivel.TabIndex = 81;
+			// 
+			// numericLugares
+			// 
+			this.numericLugares.Location = new System.Drawing.Point(17, 143);
+			this.numericLugares.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+			this.numericLugares.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+			this.numericLugares.Name = "numericLugares";
+			this.numericLugares.Size = new System.Drawing.Size(38, 20);
+			this.numericLugares.TabIndex = 80;
+			this.numericLugares.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+			// 
+			// lblLugares
+			// 
+			this.lblLugares.AutoSize = true;
+			this.lblLugares.Location = new System.Drawing.Point(13, 126);
+			this.lblLugares.Name = "lblLugares";
+			this.lblLugares.Size = new System.Drawing.Size(45, 13);
+			this.lblLugares.TabIndex = 79;
+			this.lblLugares.Text = "Lugares";
+			// 
+			// txtValorAtualCarro
+			// 
+			this.txtValorAtualCarro.Location = new System.Drawing.Point(332, 144);
+			this.txtValorAtualCarro.MaxLength = 7;
+			this.txtValorAtualCarro.Name = "txtValorAtualCarro";
+			this.txtValorAtualCarro.ReadOnly = true;
+			this.txtValorAtualCarro.Size = new System.Drawing.Size(85, 20);
+			this.txtValorAtualCarro.TabIndex = 78;
 			// 
 			// btnLocalizar
 			// 
@@ -270,53 +333,9 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(329, 127);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(100, 13);
+			this.label4.Size = new System.Drawing.Size(86, 13);
 			this.label4.TabIndex = 75;
-			this.label4.Text = "Valor diário locação";
-			// 
-			// numericFab
-			// 
-			this.numericFab.Location = new System.Drawing.Point(408, 61);
-			this.numericFab.Maximum = new decimal(new int[] {
-            2100,
-            0,
-            0,
-            0});
-			this.numericFab.Minimum = new decimal(new int[] {
-            1980,
-            0,
-            0,
-            0});
-			this.numericFab.Name = "numericFab";
-			this.numericFab.Size = new System.Drawing.Size(56, 20);
-			this.numericFab.TabIndex = 74;
-			this.numericFab.Value = new decimal(new int[] {
-            1980,
-            0,
-            0,
-            0});
-			// 
-			// numericMod
-			// 
-			this.numericMod.Location = new System.Drawing.Point(483, 61);
-			this.numericMod.Maximum = new decimal(new int[] {
-            2100,
-            0,
-            0,
-            0});
-			this.numericMod.Minimum = new decimal(new int[] {
-            1980,
-            0,
-            0,
-            0});
-			this.numericMod.Name = "numericMod";
-			this.numericMod.Size = new System.Drawing.Size(56, 20);
-			this.numericMod.TabIndex = 73;
-			this.numericMod.Value = new decimal(new int[] {
-            1980,
-            0,
-            0,
-            0});
+			this.label4.Text = "Valor Atual Carro";
 			// 
 			// numericPortas
 			// 
@@ -339,19 +358,6 @@
             0,
             0,
             0});
-			// 
-			// comboBox2
-			// 
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Items.AddRange(new object[] {
-            "Etanol",
-            "Gasolina",
-            "Diesel",
-            "GNV"});
-			this.comboBox2.Location = new System.Drawing.Point(246, 143);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(77, 21);
-			this.comboBox2.TabIndex = 72;
 			// 
 			// label3
 			// 
@@ -445,7 +451,7 @@
 			// 
 			this.txtRenavam.Location = new System.Drawing.Point(246, 104);
 			this.txtRenavam.Name = "txtRenavam";
-			this.txtRenavam.Size = new System.Drawing.Size(100, 20);
+			this.txtRenavam.Size = new System.Drawing.Size(139, 20);
 			this.txtRenavam.TabIndex = 62;
 			// 
 			// lblRenavam
@@ -489,9 +495,11 @@
 			this.comboMontadora.FormattingEnabled = true;
 			this.comboMontadora.Location = new System.Drawing.Point(79, 59);
 			this.comboMontadora.Name = "comboMontadora";
-			this.comboMontadora.Size = new System.Drawing.Size(161, 21);
+			this.comboMontadora.Size = new System.Drawing.Size(129, 21);
 			this.comboMontadora.Sorted = true;
 			this.comboMontadora.TabIndex = 44;
+			this.comboMontadora.TextChanged += new System.EventHandler(this.comboMontadora_TextChanged);
+			this.comboMontadora.Leave += new System.EventHandler(this.comboMontadora_Leave);
 			// 
 			// comboCor
 			// 
@@ -504,20 +512,11 @@
 			// lblAnoMod
 			// 
 			this.lblAnoMod.AutoSize = true;
-			this.lblAnoMod.Location = new System.Drawing.Point(480, 44);
+			this.lblAnoMod.Location = new System.Drawing.Point(464, 43);
 			this.lblAnoMod.Name = "lblAnoMod";
 			this.lblAnoMod.Size = new System.Drawing.Size(50, 13);
 			this.lblAnoMod.TabIndex = 55;
 			this.lblAnoMod.Text = "Ano Mod";
-			// 
-			// lblFab
-			// 
-			this.lblFab.AutoSize = true;
-			this.lblFab.Location = new System.Drawing.Point(405, 44);
-			this.lblFab.Name = "lblFab";
-			this.lblFab.Size = new System.Drawing.Size(47, 13);
-			this.lblFab.TabIndex = 50;
-			this.lblFab.Text = "Ano Fab";
 			// 
 			// lblMontadora
 			// 
@@ -550,11 +549,12 @@
 			// lblModelo
 			// 
 			this.lblModelo.AutoSize = true;
-			this.lblModelo.Location = new System.Drawing.Point(253, 43);
+			this.lblModelo.Location = new System.Drawing.Point(211, 43);
 			this.lblModelo.Name = "lblModelo";
 			this.lblModelo.Size = new System.Drawing.Size(42, 13);
 			this.lblModelo.TabIndex = 48;
 			this.lblModelo.Text = "Modelo";
+			this.lblModelo.Click += new System.EventHandler(this.lblModelo_Click);
 			// 
 			// lblPlaca
 			// 
@@ -568,7 +568,7 @@
 			// lblChassi
 			// 
 			this.lblChassi.AutoSize = true;
-			this.lblChassi.Location = new System.Drawing.Point(359, 88);
+			this.lblChassi.Location = new System.Drawing.Point(388, 87);
 			this.lblChassi.Name = "lblChassi";
 			this.lblChassi.Size = new System.Drawing.Size(38, 13);
 			this.lblChassi.TabIndex = 54;
@@ -576,10 +576,10 @@
 			// 
 			// txtChassi
 			// 
-			this.txtChassi.Location = new System.Drawing.Point(362, 104);
+			this.txtChassi.Location = new System.Drawing.Point(391, 103);
 			this.txtChassi.MaxLength = 15;
 			this.txtChassi.Name = "txtChassi";
-			this.txtChassi.Size = new System.Drawing.Size(177, 20);
+			this.txtChassi.Size = new System.Drawing.Size(197, 20);
 			this.txtChassi.TabIndex = 46;
 			// 
 			// btnSalvar
@@ -595,10 +595,12 @@
 			// comboModelo
 			// 
 			this.comboModelo.FormattingEnabled = true;
-			this.comboModelo.Location = new System.Drawing.Point(253, 59);
+			this.comboModelo.Location = new System.Drawing.Point(214, 59);
 			this.comboModelo.Name = "comboModelo";
-			this.comboModelo.Size = new System.Drawing.Size(146, 21);
+			this.comboModelo.Size = new System.Drawing.Size(247, 21);
 			this.comboModelo.TabIndex = 56;
+			this.comboModelo.SelectedIndexChanged += new System.EventHandler(this.comboModelo_SelectedIndexChanged);
+			this.comboModelo.TextChanged += new System.EventHandler(this.comboModelo_TextChanged);
 			// 
 			// tabAbastecimentos
 			// 
@@ -1468,37 +1470,6 @@
 			this.label24.TabIndex = 0;
 			this.label24.Text = "Data:";
 			// 
-			// numericLugares
-			// 
-			this.numericLugares.Location = new System.Drawing.Point(17, 143);
-			this.numericLugares.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-			this.numericLugares.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-			this.numericLugares.Name = "numericLugares";
-			this.numericLugares.Size = new System.Drawing.Size(38, 20);
-			this.numericLugares.TabIndex = 80;
-			this.numericLugares.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-			// 
-			// lblLugares
-			// 
-			this.lblLugares.AutoSize = true;
-			this.lblLugares.Location = new System.Drawing.Point(13, 126);
-			this.lblLugares.Name = "lblLugares";
-			this.lblLugares.Size = new System.Drawing.Size(45, 13);
-			this.lblLugares.TabIndex = 79;
-			this.lblLugares.Text = "Lugares";
-			// 
 			// FormCadastrarNovoVeiculo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1514,8 +1485,7 @@
 			this.TabCadastroVeiculos.ResumeLayout(false);
 			this.tabInformacoes.ResumeLayout(false);
 			this.tabInformacoes.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericFab)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericMod)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPortas)).EndInit();
 			this.tabAbastecimentos.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
@@ -1542,7 +1512,6 @@
 			this.tabObrigacoes.PerformLayout();
 			this.groupBox10.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1551,10 +1520,7 @@
 		private System.Windows.Forms.TabPage tabInformacoes;
 		private System.Windows.Forms.Button btnLocalizar;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.NumericUpDown numericFab;
-		private System.Windows.Forms.NumericUpDown numericMod;
 		private System.Windows.Forms.NumericUpDown numericPortas;
-		private System.Windows.Forms.ComboBox comboBox2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Label label2;
@@ -1572,7 +1538,6 @@
 		private System.Windows.Forms.ComboBox comboMontadora;
 		private System.Windows.Forms.ComboBox comboCor;
 		private System.Windows.Forms.Label lblAnoMod;
-		private System.Windows.Forms.Label lblFab;
 		private System.Windows.Forms.Label lblMontadora;
 		private System.Windows.Forms.MaskedTextBox maskedTxtPlaca;
 		private System.Windows.Forms.Label lblCor;
@@ -1585,7 +1550,7 @@
 		private System.Windows.Forms.TabPage tabManutencao;
 		private System.Windows.Forms.TabPage tabSinistros;
 		public System.Windows.Forms.TabControl TabCadastroVeiculos;
-		private System.Windows.Forms.TextBox txtValorDiaria;
+		private System.Windows.Forms.TextBox txtValorAtualCarro;
 		private System.Windows.Forms.TabPage tabAbastecimentos;
 		private System.Windows.Forms.TextBox txtTotal;
 		private System.Windows.Forms.Label lblTotal;
@@ -1680,5 +1645,9 @@
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.NumericUpDown numericLugares;
 		private System.Windows.Forms.Label lblLugares;
+		private System.Windows.Forms.TextBox txtValorDiaria;
+		private System.Windows.Forms.Label label29;
+		private System.Windows.Forms.TextBox txtCombustivel;
+		private System.Windows.Forms.ComboBox comboAno;
 	}
 }

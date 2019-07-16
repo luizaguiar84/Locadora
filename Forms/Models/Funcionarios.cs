@@ -10,6 +10,7 @@ namespace Forms.Models
 		public Funcionarios()
 		{
 			this.Endereco = new Endereco();
+			this.Cnh = new Cnh();
 		}
 
 		[Key]
@@ -47,6 +48,7 @@ namespace Forms.Models
 
 		public Cnh Cnh { get; set; }
 		public Endereco Endereco { get; set; }
+		public string Observacoes { get; set; }
 
 		
 

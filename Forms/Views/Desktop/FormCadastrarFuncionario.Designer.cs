@@ -36,7 +36,7 @@
 			this.maskedDataDemissao = new System.Windows.Forms.MaskedTextBox();
 			this.maskedDataAdmissao = new System.Windows.Forms.MaskedTextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.textNrRegistro = new System.Windows.Forms.TextBox();
+			this.txtId = new System.Windows.Forms.TextBox();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.txtSalario = new System.Windows.Forms.TextBox();
@@ -134,7 +134,7 @@
 			this.tabInfoFuncionarios.Controls.Add(this.maskedDataDemissao);
 			this.tabInfoFuncionarios.Controls.Add(this.maskedDataAdmissao);
 			this.tabInfoFuncionarios.Controls.Add(this.label7);
-			this.tabInfoFuncionarios.Controls.Add(this.textNrRegistro);
+			this.tabInfoFuncionarios.Controls.Add(this.txtId);
 			this.tabInfoFuncionarios.Controls.Add(this.richTextBox1);
 			this.tabInfoFuncionarios.Controls.Add(this.label6);
 			this.tabInfoFuncionarios.Controls.Add(this.txtSalario);
@@ -231,13 +231,13 @@
 			this.label7.TabIndex = 332;
 			this.label7.Text = "Nº Registro";
 			// 
-			// textNrRegistro
+			// txtId
 			// 
-			this.textNrRegistro.Location = new System.Drawing.Point(15, 34);
-			this.textNrRegistro.Name = "textNrRegistro";
-			this.textNrRegistro.ReadOnly = true;
-			this.textNrRegistro.Size = new System.Drawing.Size(71, 20);
-			this.textNrRegistro.TabIndex = 331;
+			this.txtId.Location = new System.Drawing.Point(15, 34);
+			this.txtId.Name = "txtId";
+			this.txtId.ReadOnly = true;
+			this.txtId.Size = new System.Drawing.Size(71, 20);
+			this.txtId.TabIndex = 331;
 			// 
 			// richTextBox1
 			// 
@@ -334,11 +334,13 @@
 			// 
 			this.button2.AccessibleName = "Buscar Cliente";
 			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.button2.Image = global::Forms.Properties.Resources.lupa;
 			this.button2.Location = new System.Drawing.Point(475, 33);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(31, 20);
 			this.button2.TabIndex = 324;
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click_1);
 			// 
 			// groupEndereco
 			// 
@@ -938,7 +940,7 @@
 		private System.Windows.Forms.MaskedTextBox maskedDataDemissao;
 		private System.Windows.Forms.MaskedTextBox maskedDataAdmissao;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox textNrRegistro;
+		private System.Windows.Forms.TextBox txtId;
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txtSalario;

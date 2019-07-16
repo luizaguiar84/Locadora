@@ -9,6 +9,7 @@ namespace Forms.Models
 	{
 		public Veiculos()
 		{
+			this.Cor = new Cor();
 			//this.contratocarro1 = new HashSet<Contratocarro>();
 			//this.entradasaida = new HashSet<Entradasaida>();
 
@@ -16,12 +17,11 @@ namespace Forms.Models
 
 		public int Id { get; set; }
 
-		public int MontadoraId { get; set; }
-		public int ModeloId { get; set; }
-		public int AnoFabricacao { get; set; }
-		public int AnoModelo { get; set; }
+		public string Montadora { get; set; }
+		public string Modelo { get; set; }
+		public string AnoModelo { get; set; }
 		public int Portas { get; set; }
-		public int CorId { get; set; }
+		public Cor Cor { get; set; }
 		public string Placa { get; set; }
 		public string Renavam { get; set; }
 		public string Chassi { get; set; }
@@ -29,15 +29,17 @@ namespace Forms.Models
 		public int Quilometragem { get; set; }
 		public string Status { get; set; }
 		public string Combustivel { get; set; }
+		public string ValorAtual { get; set; }
 		public decimal ValorDiaria { get; set; }
 
-		public DateTime DataAquisicao { get; set; }
+		public DateTime? DataAquisicao { get; set; }
 
 		public sbyte? ArCondicionado { get; set; }
 		public sbyte? DirecaoHidraulica { get; set; }
 		public sbyte? VidroEletrico { get; set; }
 		public sbyte? AirBag { get; set; }
 		public sbyte? Abs { get; set; }
+
 		public int CONTRATOCARRO_IDCONTRATOCARRO { get; set; }
 		public int MANUTENCAO_IDMANUTENCAO { get; set; }
 

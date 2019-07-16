@@ -25,136 +25,6 @@ namespace Forms
 			PreencherFormulario(cliente);
 		}
 
-		private void PreencherFormulario(Cliente c)
-		{
-			if (c.TipoCliente == "PF")
-			{
-				this.tabControl1.SelectTab(0);
-
-				radioPF.Checked = true;
-				radioPj.Checked = false;
-
-				if (c.StatusCliente == 0)
-				{
-					checkAtivo.Checked = false;
-				}
-				else
-				{
-					checkAtivo.Checked = true;
-				}
-				txtId.Text = c.Id.ToString();
-				txtNome.Text = c.Nome;
-				maskedCpf.Text = c.Cpf;
-				txtProfissao.Text = c.Profissao;
-				txtEmail.Text = c.Email;
-				txtRG.Text = c.Rg;
-				txtNascimento.Text = c.Nascimento.ToString().Replace("-", "/");
-				txtTelCom.Text = c.TelComercial;
-				txtTelRes.Text = c.TelResidencial;
-				txtTelCel.Text = c.TelCelular;
-				txtCNH.Text = c.Cnh.Numero;
-				txtCategoria.Text = c.Cnh.Categoria;
-				maskedEmitida.Text = c.Cnh.Emissao.ToString().Replace("-", "/");
-				maskedValidade.Text = c.Cnh.Validade.ToString().Replace("-", "/");
-
-				this.groupEndereco.Select();
-
-				maskedCEP.Text = c.Endereco.Cep;
-				txtLogradouro.Text = c.Endereco.Logradouro;
-				txtNumero.Text = c.Endereco.Num;
-				txtComplemento.Text = c.Endereco.Complemento;
-				txtBairro.Text = c.Endereco.Bairro;
-				txtCidade.Text = c.Endereco.Cidade;
-				txtUF.Text = c.Endereco.Uf;
-			}
-			else
-			{
-				this.tabControl1.SelectTab(0);
-
-				radioPj.Checked = true;
-				radioPF.Checked = false;
-
-				if (c.StatusCliente == 0)
-				{
-					checkAtivo.Checked = false;
-				}
-				else
-				{
-					checkAtivo.Checked = true;
-				}
-				txtId.Text = c.Id.ToString();
-				txtNome.Text = c.Nome;
-				maskedCpf.Text = c.Cnpj;
-				txtProfissao.Text = c.Contato;
-				txtEmail.Text = c.Email;
-				txtRG.Text = c.Ie;
-				txtTelCom.Text = c.TelComercial;
-
-				groupEndereco.Select();
-				maskedCEP.Text = c.Endereco.Cep;
-				txtLogradouro.Text = c.Endereco.Logradouro;
-				txtNumero.Text = c.Endereco.Num;
-				txtComplemento.Text = c.Endereco.Complemento;
-				txtBairro.Text = c.Endereco.Bairro;
-				txtCidade.Text = c.Endereco.Cidade;
-				txtUF.Text = c.Endereco.Uf;
-			}
-		}
-
-		private void RadioPF()
-		{
-			lblNome.Text = "Nome";
-			lblCpf.Text = "CPF";
-			maskedCpf.Name = "maskedCPF";
-			this.maskedCpf.Size = new System.Drawing.Size(87, 20);
-			maskedCpf.Mask = "999.999.999-99";
-			lblRG.Text = "RG";
-			lblProfissao.Text = "Profissão";
-			this.lblProfissao.Location = new System.Drawing.Point(518, 81);
-			this.txtProfissao.Location = new System.Drawing.Point(518, 97);
-			lblNascimento.Show();
-			txtNascimento.Show();
-			lblCNH.Show();
-			txtCNH.Show();
-			lblCategoria.Show();
-			txtCategoria.Show();
-			lblEmitida.Show();
-			maskedEmitida.Show();
-			lblValidade.Show();
-			maskedValidade.Show();
-			lblTelCel.Show();
-			txtTelCel.Show();
-			lblTelRes.Show();
-			txtTelRes.Show();
-		}
-
-		private void RadioPJ()
-		{
-			lblNome.Text = "Razão Social";
-			lblCpf.Text = "CNPJ";
-			maskedCpf.Mask = "99.999.999/9999-99";
-			this.maskedCpf.Size = new System.Drawing.Size(110, 20);
-			lblRG.Text = "IE";
-			lblProfissao.Text = "Contato";
-			this.lblProfissao.Location = new System.Drawing.Point(538, 81);
-			this.txtProfissao.Location = new System.Drawing.Point(538, 97);
-			lblTelCom.Text = "Telefone";
-			lblNascimento.Hide();
-			txtNascimento.Hide();
-			lblCNH.Hide();
-			txtCNH.Hide();
-			lblCategoria.Hide();
-			txtCategoria.Hide();
-			lblEmitida.Hide();
-			maskedEmitida.Hide();
-			lblValidade.Hide();
-			maskedValidade.Hide();
-			lblTelCel.Hide();
-			txtTelCel.Hide();
-			lblTelRes.Hide();
-			txtTelRes.Hide();
-		}
-
 		private void RadioPF_CheckedChanged_1(object sender, EventArgs e)
 		{
 			if (radioPF.Checked == true)
@@ -311,7 +181,6 @@ namespace Forms
 				c.Nascimento = DateTime.Parse(txtNascimento.Text.Replace("/", "-"));
 
 			}
-			
 			c.TelComercial = txtTelCom.Text;
 			c.TelResidencial = txtTelRes.Text;
 			c.TelCelular = txtTelCel.Text;
@@ -350,18 +219,13 @@ namespace Forms
 				"Confirmação",
 				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
+
 				using (var contexto = new LocadoraContext())
 				{
-					var resultadoCnh = contexto.Cnh
-										.Where(cnh => cnh.Id == c.Id)
-										.SingleOrDefault();
+					int id = Convert.ToInt32(txtId.Text);
 
-					var resultadoEndereco = contexto.Endereco
-											.Where(endereco => endereco.Id == c.Id)
-											.SingleOrDefault();
-
-					c.Cnh = resultadoCnh;
-					c.Endereco = resultadoEndereco;
+					c.Cnh.Id = id;
+					c.Endereco.Id = id;
 
 					contexto.Cliente.Update(c);
 					contexto.SaveChanges();
@@ -418,12 +282,9 @@ namespace Forms
 				MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
 				using (var contexto = new LocadoraContext())
 				{
+					int id = Convert.ToInt32(txtId.Text);
 
-					var resultadoEndereco = contexto.Endereco
-											.Where(endereco => endereco.Id == c.Id)
-											.SingleOrDefault();
-
-					c.Endereco = resultadoEndereco;
+					c.Endereco.Id = id;
 
 					contexto.Cliente.Update(c);
 					contexto.SaveChanges();
@@ -592,6 +453,136 @@ namespace Forms
 					maskedCEP.Focus();
 				}
 			}
+		}
+
+		private void PreencherFormulario(Cliente c)
+		{
+			if (c.TipoCliente == "PF")
+			{
+				this.tabControl1.SelectTab(0);
+
+				radioPF.Checked = true;
+				radioPj.Checked = false;
+
+				if (c.StatusCliente == 0)
+				{
+					checkAtivo.Checked = false;
+				}
+				else
+				{
+					checkAtivo.Checked = true;
+				}
+				txtId.Text = c.Id.ToString();
+				txtNome.Text = c.Nome;
+				maskedCpf.Text = c.Cpf;
+				txtProfissao.Text = c.Profissao;
+				txtEmail.Text = c.Email;
+				txtRG.Text = c.Rg;
+				txtNascimento.Text = c.Nascimento.ToString().Replace("-", "/");
+				txtTelCom.Text = c.TelComercial;
+				txtTelRes.Text = c.TelResidencial;
+				txtTelCel.Text = c.TelCelular;
+				txtCNH.Text = c.Cnh.Numero;
+				txtCategoria.Text = c.Cnh.Categoria;
+				maskedEmitida.Text = c.Cnh.Emissao.ToString().Replace("-", "/");
+				maskedValidade.Text = c.Cnh.Validade.ToString().Replace("-", "/");
+
+				this.groupEndereco.Select();
+
+				maskedCEP.Text = c.Endereco.Cep;
+				txtLogradouro.Text = c.Endereco.Logradouro;
+				txtNumero.Text = c.Endereco.Num;
+				txtComplemento.Text = c.Endereco.Complemento;
+				txtBairro.Text = c.Endereco.Bairro;
+				txtCidade.Text = c.Endereco.Cidade;
+				txtUF.Text = c.Endereco.Uf;
+			}
+			else
+			{
+				this.tabControl1.SelectTab(0);
+
+				radioPj.Checked = true;
+				radioPF.Checked = false;
+
+				if (c.StatusCliente == 0)
+				{
+					checkAtivo.Checked = false;
+				}
+				else
+				{
+					checkAtivo.Checked = true;
+				}
+				txtId.Text = c.Id.ToString();
+				txtNome.Text = c.Nome;
+				maskedCpf.Text = c.Cnpj;
+				txtProfissao.Text = c.Contato;
+				txtEmail.Text = c.Email;
+				txtRG.Text = c.Ie;
+				txtTelCom.Text = c.TelComercial;
+
+				groupEndereco.Select();
+				maskedCEP.Text = c.Endereco.Cep;
+				txtLogradouro.Text = c.Endereco.Logradouro;
+				txtNumero.Text = c.Endereco.Num;
+				txtComplemento.Text = c.Endereco.Complemento;
+				txtBairro.Text = c.Endereco.Bairro;
+				txtCidade.Text = c.Endereco.Cidade;
+				txtUF.Text = c.Endereco.Uf;
+			}
+		}
+
+		private void RadioPF()
+		{
+			lblNome.Text = "Nome";
+			lblCpf.Text = "CPF";
+			maskedCpf.Name = "maskedCPF";
+			this.maskedCpf.Size = new System.Drawing.Size(87, 20);
+			maskedCpf.Mask = "999.999.999-99";
+			lblRG.Text = "RG";
+			lblProfissao.Text = "Profissão";
+			this.lblProfissao.Location = new System.Drawing.Point(518, 81);
+			this.txtProfissao.Location = new System.Drawing.Point(518, 97);
+			lblNascimento.Show();
+			txtNascimento.Show();
+			lblCNH.Show();
+			txtCNH.Show();
+			lblCategoria.Show();
+			txtCategoria.Show();
+			lblEmitida.Show();
+			maskedEmitida.Show();
+			lblValidade.Show();
+			maskedValidade.Show();
+			lblTelCel.Show();
+			txtTelCel.Show();
+			lblTelRes.Show();
+			txtTelRes.Show();
+		}
+
+		private void RadioPJ()
+		{
+			lblNome.Text = "Razão Social";
+			lblCpf.Text = "CNPJ";
+			maskedCpf.Mask = "99.999.999/9999-99";
+			this.maskedCpf.Size = new System.Drawing.Size(110, 20);
+			lblRG.Text = "IE";
+			lblProfissao.Text = "Contato";
+			this.lblProfissao.Location = new System.Drawing.Point(538, 81);
+			this.txtProfissao.Location = new System.Drawing.Point(538, 97);
+			lblTelCom.Text = "Telefone";
+			lblNascimento.Hide();
+			txtNascimento.Hide();
+			lblCNH.Hide();
+			txtCNH.Hide();
+			lblCategoria.Hide();
+			txtCategoria.Hide();
+			lblEmitida.Hide();
+			maskedEmitida.Hide();
+			lblValidade.Hide();
+			maskedValidade.Hide();
+			lblTelCel.Hide();
+			txtTelCel.Hide();
+			lblTelRes.Hide();
+			txtTelRes.Hide();
 		}
 	}
 }
