@@ -36,5 +36,10 @@ namespace Forms.Views.Desktop
 		{
 			maskedDataDespesa.IsData();
 		}
+
+		private void FormCadastrarDespesa_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

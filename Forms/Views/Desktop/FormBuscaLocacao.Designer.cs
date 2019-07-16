@@ -165,6 +165,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBuscaLocacao";
 			this.Text = "FormBuscaLocacao";
+			this.Load += new System.EventHandler(this.FormBuscaLocacao_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -159,6 +159,8 @@
 			this.label25 = new System.Windows.Forms.Label();
 			this.maskedDataObrigacoes = new System.Windows.Forms.MaskedTextBox();
 			this.label24 = new System.Windows.Forms.Label();
+			this.numericLugares = new System.Windows.Forms.NumericUpDown();
+			this.lblLugares = new System.Windows.Forms.Label();
 			this.TabCadastroVeiculos.SuspendLayout();
 			this.tabInformacoes.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericFab)).BeginInit();
@@ -182,6 +184,7 @@
 			this.tabObrigacoes.SuspendLayout();
 			this.groupBox10.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// TabCadastroVeiculos
@@ -200,6 +203,8 @@
 			// tabInformacoes
 			// 
 			this.tabInformacoes.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.tabInformacoes.Controls.Add(this.numericLugares);
+			this.tabInformacoes.Controls.Add(this.lblLugares);
 			this.tabInformacoes.Controls.Add(this.txtValorDiaria);
 			this.tabInformacoes.Controls.Add(this.btnLocalizar);
 			this.tabInformacoes.Controls.Add(this.label4);
@@ -243,13 +248,12 @@
 			// 
 			// txtValorDiaria
 			// 
-			this.txtValorDiaria.Location = new System.Drawing.Point(271, 151);
+			this.txtValorDiaria.Location = new System.Drawing.Point(332, 144);
 			this.txtValorDiaria.MaxLength = 7;
 			this.txtValorDiaria.Name = "txtValorDiaria";
 			this.txtValorDiaria.Size = new System.Drawing.Size(85, 20);
 			this.txtValorDiaria.TabIndex = 78;
-			this.txtValorDiaria.Enter += new System.EventHandler(this.txtValorDiaria_Enter);
-			this.txtValorDiaria.Leave += new System.EventHandler(this.txtValorDiaria_Leave);
+			
 			// 
 			// btnLocalizar
 			// 
@@ -264,7 +268,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(268, 134);
+			this.label4.Location = new System.Drawing.Point(329, 127);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(100, 13);
 			this.label4.TabIndex = 75;
@@ -344,7 +348,7 @@
             "Gasolina",
             "Diesel",
             "GNV"});
-			this.comboBox2.Location = new System.Drawing.Point(185, 150);
+			this.comboBox2.Location = new System.Drawing.Point(246, 143);
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(77, 21);
 			this.comboBox2.TabIndex = 72;
@@ -352,7 +356,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(185, 134);
+			this.label3.Location = new System.Drawing.Point(246, 127);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(66, 13);
 			this.label3.TabIndex = 71;
@@ -364,7 +368,7 @@
 			this.comboBox1.Items.AddRange(new object[] {
             "ATIVO",
             "MECÂNICA"});
-			this.comboBox1.Location = new System.Drawing.Point(94, 150);
+			this.comboBox1.Location = new System.Drawing.Point(155, 143);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(77, 21);
 			this.comboBox1.TabIndex = 70;
@@ -372,7 +376,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(99, 134);
+			this.label2.Location = new System.Drawing.Point(160, 127);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(37, 13);
 			this.label2.TabIndex = 69;
@@ -398,7 +402,7 @@
 			// 
 			// txtOdometro
 			// 
-			this.txtOdometro.Location = new System.Drawing.Point(18, 150);
+			this.txtOdometro.Location = new System.Drawing.Point(79, 143);
 			this.txtOdometro.MaxLength = 7;
 			this.txtOdometro.Name = "txtOdometro";
 			this.txtOdometro.Size = new System.Drawing.Size(69, 20);
@@ -408,7 +412,7 @@
 			// lblOdometro
 			// 
 			this.lblOdometro.AutoSize = true;
-			this.lblOdometro.Location = new System.Drawing.Point(15, 134);
+			this.lblOdometro.Location = new System.Drawing.Point(76, 127);
 			this.lblOdometro.Name = "lblOdometro";
 			this.lblOdometro.Size = new System.Drawing.Size(53, 13);
 			this.lblOdometro.TabIndex = 65;
@@ -492,12 +496,6 @@
 			// comboCor
 			// 
 			this.comboCor.FormattingEnabled = true;
-			this.comboCor.Items.AddRange(new object[] {
-            "PRETO",
-            "BRANCO",
-            "VERMELHO",
-            "VERDE",
-            "AZUL"});
 			this.comboCor.Location = new System.Drawing.Point(79, 103);
 			this.comboCor.Name = "comboCor";
 			this.comboCor.Size = new System.Drawing.Size(92, 21);
@@ -810,9 +808,7 @@
 			this.txtValorUnitAbastecimento.Name = "txtValorUnitAbastecimento";
 			this.txtValorUnitAbastecimento.Size = new System.Drawing.Size(100, 20);
 			this.txtValorUnitAbastecimento.TabIndex = 9;
-			this.txtValorUnitAbastecimento.Enter += new System.EventHandler(this.txtValorUnitAbastecimento_Enter);
 			this.txtValorUnitAbastecimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorUnitAbastecimento_KeyPress);
-			this.txtValorUnitAbastecimento.Leave += new System.EventHandler(this.txtValorUnitAbastecimento_Leave);
 			// 
 			// label6
 			// 
@@ -1056,9 +1052,7 @@
 			this.txtValorManutencao.Name = "txtValorManutencao";
 			this.txtValorManutencao.Size = new System.Drawing.Size(100, 20);
 			this.txtValorManutencao.TabIndex = 9;
-			this.txtValorManutencao.Enter += new System.EventHandler(this.txtValorManutencao_Enter);
 			this.txtValorManutencao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorManutencao_KeyPress);
-			this.txtValorManutencao.Leave += new System.EventHandler(this.txtValorManutencao_Leave);
 			// 
 			// label14
 			// 
@@ -1270,9 +1264,7 @@
 			this.txtValorSinistro.Name = "txtValorSinistro";
 			this.txtValorSinistro.Size = new System.Drawing.Size(100, 20);
 			this.txtValorSinistro.TabIndex = 9;
-			this.txtValorSinistro.Enter += new System.EventHandler(this.txtValorSinistro_Enter);
 			this.txtValorSinistro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorSinistro_KeyPress);
-			this.txtValorSinistro.Leave += new System.EventHandler(this.txtValorSinistro_Leave);
 			// 
 			// label21
 			// 
@@ -1428,9 +1420,7 @@
 			this.txtValorObrigacoes.Name = "txtValorObrigacoes";
 			this.txtValorObrigacoes.Size = new System.Drawing.Size(87, 20);
 			this.txtValorObrigacoes.TabIndex = 5;
-			this.txtValorObrigacoes.Enter += new System.EventHandler(this.txtValorObrigacoes_Enter);
 			this.txtValorObrigacoes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorObrigacoes_KeyPress);
-			this.txtValorObrigacoes.Leave += new System.EventHandler(this.txtValorObrigacoes_Leave);
 			// 
 			// label26
 			// 
@@ -1478,6 +1468,37 @@
 			this.label24.TabIndex = 0;
 			this.label24.Text = "Data:";
 			// 
+			// numericLugares
+			// 
+			this.numericLugares.Location = new System.Drawing.Point(17, 143);
+			this.numericLugares.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+			this.numericLugares.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+			this.numericLugares.Name = "numericLugares";
+			this.numericLugares.Size = new System.Drawing.Size(38, 20);
+			this.numericLugares.TabIndex = 80;
+			this.numericLugares.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+			// 
+			// lblLugares
+			// 
+			this.lblLugares.AutoSize = true;
+			this.lblLugares.Location = new System.Drawing.Point(13, 126);
+			this.lblLugares.Name = "lblLugares";
+			this.lblLugares.Size = new System.Drawing.Size(45, 13);
+			this.lblLugares.TabIndex = 79;
+			this.lblLugares.Text = "Lugares";
+			// 
 			// FormCadastrarNovoVeiculo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1521,6 +1542,7 @@
 			this.tabObrigacoes.PerformLayout();
 			this.groupBox10.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1656,5 +1678,7 @@
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.ComboBox comboBox3;
 		private System.Windows.Forms.Button button8;
+		private System.Windows.Forms.NumericUpDown numericLugares;
+		private System.Windows.Forms.Label lblLugares;
 	}
 }

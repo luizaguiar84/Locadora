@@ -11,8 +11,8 @@
 //            this.modelos = new HashSet<Modelos>();
 //        }
     
-//        public int IDMONTADORA { get; set; }
-//        public string NOME { get; set; }
+//        public int Id { get; set; }
+//        public string Nome { get; set; }
     
 //        public virtual ICollection<Modelos> modelos { get; set; }
 //    }

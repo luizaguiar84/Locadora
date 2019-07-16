@@ -32,6 +32,10 @@
 			this.label17 = new System.Windows.Forms.Label();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabCadastro = new System.Windows.Forms.TabPage();
+			this.lblId = new System.Windows.Forms.Label();
+			this.txtId = new System.Windows.Forms.TextBox();
+			this.txtCategoria = new System.Windows.Forms.ComboBox();
+			this.checkAtivo = new System.Windows.Forms.CheckBox();
 			this.button2 = new System.Windows.Forms.Button();
 			this.groupEndereco = new System.Windows.Forms.GroupBox();
 			this.maskedCEP = new System.Windows.Forms.MaskedTextBox();
@@ -60,7 +64,6 @@
 			this.lblTelCom = new System.Windows.Forms.Label();
 			this.lblValidade = new System.Windows.Forms.Label();
 			this.lblProfissao = new System.Windows.Forms.Label();
-			this.txtCategoria = new System.Windows.Forms.TextBox();
 			this.txtNascimento = new System.Windows.Forms.MaskedTextBox();
 			this.lblCategoria = new System.Windows.Forms.Label();
 			this.radioPj = new System.Windows.Forms.RadioButton();
@@ -116,15 +119,19 @@
 			// 
 			this.tabControl1.Controls.Add(this.tabCadastro);
 			this.tabControl1.Controls.Add(this.tabMultas);
-			this.tabControl1.Location = new System.Drawing.Point(12, 12);
+			this.tabControl1.Location = new System.Drawing.Point(11, 12);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(769, 448);
-			this.tabControl1.TabIndex = 1;
+			this.tabControl1.TabIndex = 26;
 			// 
 			// tabCadastro
 			// 
 			this.tabCadastro.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.tabCadastro.Controls.Add(this.lblId);
+			this.tabCadastro.Controls.Add(this.txtId);
+			this.tabCadastro.Controls.Add(this.txtCategoria);
+			this.tabCadastro.Controls.Add(this.checkAtivo);
 			this.tabCadastro.Controls.Add(this.button2);
 			this.tabCadastro.Controls.Add(this.groupEndereco);
 			this.tabCadastro.Controls.Add(this.maskedEmitida);
@@ -139,7 +146,6 @@
 			this.tabCadastro.Controls.Add(this.lblTelCom);
 			this.tabCadastro.Controls.Add(this.lblValidade);
 			this.tabCadastro.Controls.Add(this.lblProfissao);
-			this.tabCadastro.Controls.Add(this.txtCategoria);
 			this.tabCadastro.Controls.Add(this.txtNascimento);
 			this.tabCadastro.Controls.Add(this.lblCategoria);
 			this.tabCadastro.Controls.Add(this.radioPj);
@@ -162,17 +168,65 @@
 			this.tabCadastro.Size = new System.Drawing.Size(761, 422);
 			this.tabCadastro.TabIndex = 0;
 			this.tabCadastro.Text = "Informações do Cliente";
+			this.tabCadastro.Click += new System.EventHandler(this.tabCadastro_Click);
+			// 
+			// lblId
+			// 
+			this.lblId.AutoSize = true;
+			this.lblId.Location = new System.Drawing.Point(19, 42);
+			this.lblId.Name = "lblId";
+			this.lblId.Size = new System.Drawing.Size(56, 13);
+			this.lblId.TabIndex = 244;
+			this.lblId.Text = "Nr. Cliente";
+			// 
+			// txtId
+			// 
+			this.txtId.CausesValidation = false;
+			this.txtId.Location = new System.Drawing.Point(22, 58);
+			this.txtId.MaxLength = 200;
+			this.txtId.Name = "txtId";
+			this.txtId.ReadOnly = true;
+			this.txtId.Size = new System.Drawing.Size(49, 20);
+			this.txtId.TabIndex = 243;
+			this.txtId.TabStop = false;
+			// 
+			// txtCategoria
+			// 
+			this.txtCategoria.FormattingEnabled = true;
+			this.txtCategoria.Items.AddRange(new object[] {
+            "A",
+            "AB",
+            "B",
+            "C",
+            "D",
+            "E"});
+			this.txtCategoria.Location = new System.Drawing.Point(233, 221);
+			this.txtCategoria.Name = "txtCategoria";
+			this.txtCategoria.Size = new System.Drawing.Size(39, 21);
+			this.txtCategoria.TabIndex = 242;
+			// 
+			// checkAtivo
+			// 
+			this.checkAtivo.AutoSize = true;
+			this.checkAtivo.Checked = true;
+			this.checkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkAtivo.Location = new System.Drawing.Point(312, 57);
+			this.checkAtivo.Name = "checkAtivo";
+			this.checkAtivo.Size = new System.Drawing.Size(85, 17);
+			this.checkAtivo.TabIndex = 241;
+			this.checkAtivo.Text = "Cliente Ativo";
+			this.checkAtivo.UseVisualStyleBackColor = true;
 			// 
 			// button2
 			// 
 			this.button2.AccessibleName = "Buscar Cliente";
 			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.button2.Location = new System.Drawing.Point(356, 80);
+			this.button2.Location = new System.Drawing.Point(364, 97);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(31, 20);
 			this.button2.TabIndex = 200;
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.Button2_Click);
+			this.button2.Click += new System.EventHandler(this.button2_Click_1);
 			// 
 			// groupEndereco
 			// 
@@ -205,7 +259,7 @@
 			this.maskedCEP.Size = new System.Drawing.Size(73, 20);
 			this.maskedCEP.TabIndex = 14;
 			this.maskedCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-			this.maskedCEP.Leave += new System.EventHandler(this.MaskedCEP_Leave);
+			this.maskedCEP.Leave += new System.EventHandler(this.maskedCEP_Leave_1);
 			// 
 			// lblCep
 			// 
@@ -323,7 +377,7 @@
 			// 
 			this.maskedEmitida.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.maskedEmitida.HidePromptOnLeave = true;
-			this.maskedEmitida.Location = new System.Drawing.Point(280, 205);
+			this.maskedEmitida.Location = new System.Drawing.Point(288, 222);
 			this.maskedEmitida.Mask = "00/00/0000";
 			this.maskedEmitida.Name = "maskedEmitida";
 			this.maskedEmitida.Size = new System.Drawing.Size(75, 20);
@@ -335,7 +389,7 @@
 			// lblEmitida
 			// 
 			this.lblEmitida.AutoSize = true;
-			this.lblEmitida.Location = new System.Drawing.Point(277, 189);
+			this.lblEmitida.Location = new System.Drawing.Point(285, 206);
 			this.lblEmitida.Name = "lblEmitida";
 			this.lblEmitida.Size = new System.Drawing.Size(61, 13);
 			this.lblEmitida.TabIndex = 240;
@@ -345,7 +399,7 @@
 			// 
 			this.txtTelCel.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			this.txtTelCel.HidePromptOnLeave = true;
-			this.txtTelCel.Location = new System.Drawing.Point(208, 159);
+			this.txtTelCel.Location = new System.Drawing.Point(216, 176);
 			this.txtTelCel.Mask = "(00) 00000-0000";
 			this.txtTelCel.Name = "txtTelCel";
 			this.txtTelCel.Size = new System.Drawing.Size(94, 20);
@@ -355,7 +409,7 @@
 			// lblTelCel
 			// 
 			this.lblTelCel.AutoSize = true;
-			this.lblTelCel.Location = new System.Drawing.Point(205, 143);
+			this.lblTelCel.Location = new System.Drawing.Point(213, 160);
 			this.lblTelCel.Name = "lblTelCel";
 			this.lblTelCel.Size = new System.Drawing.Size(70, 13);
 			this.lblTelCel.TabIndex = 231;
@@ -365,7 +419,7 @@
 			// 
 			this.maskedValidade.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.maskedValidade.HidePromptOnLeave = true;
-			this.maskedValidade.Location = new System.Drawing.Point(364, 205);
+			this.maskedValidade.Location = new System.Drawing.Point(372, 222);
 			this.maskedValidade.Mask = "00/00/0000";
 			this.maskedValidade.Name = "maskedValidade";
 			this.maskedValidade.Size = new System.Drawing.Size(75, 20);
@@ -376,7 +430,7 @@
 			// 
 			// txtProfissao
 			// 
-			this.txtProfissao.Location = new System.Drawing.Point(510, 80);
+			this.txtProfissao.Location = new System.Drawing.Point(518, 97);
 			this.txtProfissao.Name = "txtProfissao";
 			this.txtProfissao.Size = new System.Drawing.Size(150, 20);
 			this.txtProfissao.TabIndex = 3;
@@ -385,7 +439,7 @@
 			// 
 			this.txtTelRes.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			this.txtTelRes.HidePromptOnLeave = true;
-			this.txtTelRes.Location = new System.Drawing.Point(107, 159);
+			this.txtTelRes.Location = new System.Drawing.Point(115, 176);
 			this.txtTelRes.Mask = "(00) 0000-0000";
 			this.txtTelRes.Name = "txtTelRes";
 			this.txtTelRes.Size = new System.Drawing.Size(81, 20);
@@ -395,7 +449,7 @@
 			// lblTelRes
 			// 
 			this.lblTelRes.AutoSize = true;
-			this.lblTelRes.Location = new System.Drawing.Point(104, 143);
+			this.lblTelRes.Location = new System.Drawing.Point(112, 160);
 			this.lblTelRes.Name = "lblTelRes";
 			this.lblTelRes.Size = new System.Drawing.Size(74, 13);
 			this.lblTelRes.TabIndex = 229;
@@ -405,7 +459,7 @@
 			// 
 			this.txtTelCom.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.txtTelCom.HidePromptOnLeave = true;
-			this.txtTelCom.Location = new System.Drawing.Point(14, 159);
+			this.txtTelCom.Location = new System.Drawing.Point(22, 176);
 			this.txtTelCom.Mask = "(00) 0000-0000";
 			this.txtTelCom.Name = "txtTelCom";
 			this.txtTelCom.Size = new System.Drawing.Size(81, 20);
@@ -415,7 +469,7 @@
 			// lblTelCom
 			// 
 			this.lblTelCom.AutoSize = true;
-			this.lblTelCom.Location = new System.Drawing.Point(11, 143);
+			this.lblTelCom.Location = new System.Drawing.Point(19, 160);
 			this.lblTelCom.Name = "lblTelCom";
 			this.lblTelCom.Size = new System.Drawing.Size(76, 13);
 			this.lblTelCom.TabIndex = 230;
@@ -424,7 +478,7 @@
 			// lblValidade
 			// 
 			this.lblValidade.AutoSize = true;
-			this.lblValidade.Location = new System.Drawing.Point(361, 189);
+			this.lblValidade.Location = new System.Drawing.Point(369, 206);
 			this.lblValidade.Name = "lblValidade";
 			this.lblValidade.Size = new System.Drawing.Size(51, 13);
 			this.lblValidade.TabIndex = 236;
@@ -433,25 +487,17 @@
 			// lblProfissao
 			// 
 			this.lblProfissao.AutoSize = true;
-			this.lblProfissao.Location = new System.Drawing.Point(510, 64);
+			this.lblProfissao.Location = new System.Drawing.Point(518, 81);
 			this.lblProfissao.Name = "lblProfissao";
 			this.lblProfissao.Size = new System.Drawing.Size(50, 13);
 			this.lblProfissao.TabIndex = 227;
 			this.lblProfissao.Text = "Profissão";
 			// 
-			// txtCategoria
-			// 
-			this.txtCategoria.Location = new System.Drawing.Point(226, 205);
-			this.txtCategoria.MaxLength = 2;
-			this.txtCategoria.Name = "txtCategoria";
-			this.txtCategoria.Size = new System.Drawing.Size(39, 20);
-			this.txtCategoria.TabIndex = 11;
-			// 
 			// txtNascimento
 			// 
 			this.txtNascimento.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.txtNascimento.HidePromptOnLeave = true;
-			this.txtNascimento.Location = new System.Drawing.Point(546, 119);
+			this.txtNascimento.Location = new System.Drawing.Point(554, 136);
 			this.txtNascimento.Mask = "00/00/0000";
 			this.txtNascimento.Name = "txtNascimento";
 			this.txtNascimento.Size = new System.Drawing.Size(71, 20);
@@ -463,7 +509,7 @@
 			// lblCategoria
 			// 
 			this.lblCategoria.AutoSize = true;
-			this.lblCategoria.Location = new System.Drawing.Point(223, 189);
+			this.lblCategoria.Location = new System.Drawing.Point(231, 206);
 			this.lblCategoria.Name = "lblCategoria";
 			this.lblCategoria.Size = new System.Drawing.Size(55, 13);
 			this.lblCategoria.TabIndex = 238;
@@ -482,7 +528,7 @@
 			// 
 			// txtCNH
 			// 
-			this.txtCNH.Location = new System.Drawing.Point(14, 205);
+			this.txtCNH.Location = new System.Drawing.Point(22, 222);
 			this.txtCNH.Name = "txtCNH";
 			this.txtCNH.Size = new System.Drawing.Size(205, 20);
 			this.txtCNH.TabIndex = 10;
@@ -490,7 +536,7 @@
 			// lblNascimento
 			// 
 			this.lblNascimento.AutoSize = true;
-			this.lblNascimento.Location = new System.Drawing.Point(543, 103);
+			this.lblNascimento.Location = new System.Drawing.Point(551, 120);
 			this.lblNascimento.Name = "lblNascimento";
 			this.lblNascimento.Size = new System.Drawing.Size(104, 13);
 			this.lblNascimento.TabIndex = 225;
@@ -499,7 +545,7 @@
 			// lblCNH
 			// 
 			this.lblCNH.AutoSize = true;
-			this.lblCNH.Location = new System.Drawing.Point(11, 189);
+			this.lblCNH.Location = new System.Drawing.Point(19, 206);
 			this.lblCNH.Name = "lblCNH";
 			this.lblCNH.Size = new System.Drawing.Size(88, 13);
 			this.lblCNH.TabIndex = 232;
@@ -509,13 +555,12 @@
 			// 
 			this.maskedCpf.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
 			this.maskedCpf.HidePromptOnLeave = true;
-			this.maskedCpf.Location = new System.Drawing.Point(402, 80);
+			this.maskedCpf.Location = new System.Drawing.Point(410, 97);
 			this.maskedCpf.Mask = "000.000.000-00";
 			this.maskedCpf.Name = "maskedCpf";
 			this.maskedCpf.Size = new System.Drawing.Size(87, 20);
 			this.maskedCpf.TabIndex = 2;
 			this.maskedCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-			this.maskedCpf.Leave += new System.EventHandler(this.maskedCpf_Leave);
 			// 
 			// radioPF
 			// 
@@ -533,7 +578,7 @@
 			// lblCpf
 			// 
 			this.lblCpf.AutoSize = true;
-			this.lblCpf.Location = new System.Drawing.Point(399, 64);
+			this.lblCpf.Location = new System.Drawing.Point(407, 81);
 			this.lblCpf.Name = "lblCpf";
 			this.lblCpf.Size = new System.Drawing.Size(27, 13);
 			this.lblCpf.TabIndex = 226;
@@ -542,7 +587,7 @@
 			// lblRG
 			// 
 			this.lblRG.AutoSize = true;
-			this.lblRG.Location = new System.Drawing.Point(399, 103);
+			this.lblRG.Location = new System.Drawing.Point(407, 120);
 			this.lblRG.Name = "lblRG";
 			this.lblRG.Size = new System.Drawing.Size(23, 13);
 			this.lblRG.TabIndex = 222;
@@ -551,7 +596,7 @@
 			// lblEmail
 			// 
 			this.lblEmail.AutoSize = true;
-			this.lblEmail.Location = new System.Drawing.Point(11, 103);
+			this.lblEmail.Location = new System.Drawing.Point(19, 120);
 			this.lblEmail.Name = "lblEmail";
 			this.lblEmail.Size = new System.Drawing.Size(36, 13);
 			this.lblEmail.TabIndex = 220;
@@ -560,7 +605,7 @@
 			// lblNome
 			// 
 			this.lblNome.AutoSize = true;
-			this.lblNome.Location = new System.Drawing.Point(11, 64);
+			this.lblNome.Location = new System.Drawing.Point(19, 81);
 			this.lblNome.Name = "lblNome";
 			this.lblNome.Size = new System.Drawing.Size(35, 13);
 			this.lblNome.TabIndex = 218;
@@ -570,7 +615,7 @@
 			// 
 			this.txtRG.AccessibleDescription = "Digite seu RG";
 			this.txtRG.AccessibleName = "RG";
-			this.txtRG.Location = new System.Drawing.Point(402, 119);
+			this.txtRG.Location = new System.Drawing.Point(410, 136);
 			this.txtRG.MaxLength = 9;
 			this.txtRG.Name = "txtRG";
 			this.txtRG.Size = new System.Drawing.Size(136, 20);
@@ -578,14 +623,16 @@
 			// 
 			// txtEmail
 			// 
-			this.txtEmail.Location = new System.Drawing.Point(14, 119);
+			this.txtEmail.Location = new System.Drawing.Point(22, 136);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(373, 20);
 			this.txtEmail.TabIndex = 4;
 			// 
 			// txtNome
 			// 
-			this.txtNome.Location = new System.Drawing.Point(14, 80);
+			this.txtNome.CausesValidation = false;
+			this.txtNome.Location = new System.Drawing.Point(22, 97);
+			this.txtNome.MaxLength = 200;
 			this.txtNome.Name = "txtNome";
 			this.txtNome.Size = new System.Drawing.Size(332, 20);
 			this.txtNome.TabIndex = 1;
@@ -694,6 +741,7 @@
 			this.btnSalvarMulta.TabIndex = 6;
 			this.btnSalvarMulta.Text = "Gravar Multa";
 			this.btnSalvarMulta.UseVisualStyleBackColor = true;
+			this.btnSalvarMulta.Click += new System.EventHandler(this.btnSalvarMulta_Click);
 			// 
 			// comboPlaca
 			// 
@@ -856,7 +904,6 @@
 		private System.Windows.Forms.Label lblTelCom;
 		private System.Windows.Forms.Label lblValidade;
 		private System.Windows.Forms.Label lblProfissao;
-		private System.Windows.Forms.TextBox txtCategoria;
 		private System.Windows.Forms.MaskedTextBox txtNascimento;
 		private System.Windows.Forms.Label lblCategoria;
 		private System.Windows.Forms.RadioButton radioPj;
@@ -871,7 +918,6 @@
 		private System.Windows.Forms.Label lblNome;
 		private System.Windows.Forms.TextBox txtRG;
 		private System.Windows.Forms.TextBox txtEmail;
-		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Button button2;
@@ -883,5 +929,10 @@
 		private System.Windows.Forms.MaskedTextBox maskedCEP;
 		private System.Windows.Forms.MaskedTextBox maskedVencimentoMulta;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.CheckBox checkAtivo;
+		private System.Windows.Forms.ComboBox txtCategoria;
+		private System.Windows.Forms.TextBox txtNome;
+		private System.Windows.Forms.Label lblId;
+		private System.Windows.Forms.TextBox txtId;
 	}
 }

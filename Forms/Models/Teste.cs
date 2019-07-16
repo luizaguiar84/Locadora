@@ -4,6 +4,7 @@ namespace Forms.Models
 {
 	public class Teste
 	{
+		[Key]
 		public int Id { get; set; }
 
 		[StringLength(100)]

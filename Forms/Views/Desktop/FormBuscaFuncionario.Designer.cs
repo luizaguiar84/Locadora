@@ -130,6 +130,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBuscaFuncionario";
 			this.Text = "FormBuscaFuncionario";
+			this.Load += new System.EventHandler(this.FormBuscaFuncionario_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

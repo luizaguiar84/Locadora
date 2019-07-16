@@ -22,5 +22,15 @@ namespace Forms.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUIZAGUIARA508;Initial Catalog=Locadora;Integrated Security=True")]
+        public string LocadoraConnectionString {
+            get {
+                return ((string)(this["LocadoraConnectionString"]));
+            }
+        }
     }
 }

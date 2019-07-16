@@ -16,26 +16,11 @@ namespace Forms
 
 		static void Main()
 		{
-			//GravarUsandoEntity();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new FormLogin());
 		}
 
-		private static void GravarUsandoEntity()
-		{
-			var teste = new Teste();
-			teste.Nome = "Luiz";
-			teste.Email = "luiz@email.com";
-
-			using (var contexto = new LocadoraContext())
-			{
-				contexto.Teste.Add(teste);
-				contexto.SaveChanges();
-
-			}
-
-		}
 	}
 }
 

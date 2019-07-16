@@ -33,12 +33,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.lblConsultarVeiculos = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.idCarroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.marcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.modeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.corDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.placaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.chassiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tBCarrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.lblFiltro = new System.Windows.Forms.Label();
 			this.txtPesquisar = new System.Windows.Forms.TextBox();
@@ -78,13 +72,6 @@
 			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.AutoGenerateColumns = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idCarroDataGridViewTextBoxColumn,
-            this.marcaDataGridViewTextBoxColumn,
-            this.modeloDataGridViewTextBoxColumn,
-            this.corDataGridViewTextBoxColumn,
-            this.placaDataGridViewTextBoxColumn,
-            this.chassiDataGridViewTextBoxColumn});
 			this.dataGridView1.DataSource = this.tBCarrosBindingSource;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 113);
@@ -94,52 +81,9 @@
 			this.dataGridView1.TabIndex = 13;
 			this.dataGridView1.Visible = false;
 			// 
-			// idCarroDataGridViewTextBoxColumn
-			// 
-			this.idCarroDataGridViewTextBoxColumn.DataPropertyName = "Id_Carro";
-			this.idCarroDataGridViewTextBoxColumn.HeaderText = "Id_Carro";
-			this.idCarroDataGridViewTextBoxColumn.Name = "idCarroDataGridViewTextBoxColumn";
-			this.idCarroDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// marcaDataGridViewTextBoxColumn
-			// 
-			this.marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
-			this.marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
-			this.marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
-			this.marcaDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// modeloDataGridViewTextBoxColumn
-			// 
-			this.modeloDataGridViewTextBoxColumn.DataPropertyName = "Modelo";
-			this.modeloDataGridViewTextBoxColumn.HeaderText = "Modelo";
-			this.modeloDataGridViewTextBoxColumn.Name = "modeloDataGridViewTextBoxColumn";
-			this.modeloDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// corDataGridViewTextBoxColumn
-			// 
-			this.corDataGridViewTextBoxColumn.DataPropertyName = "Cor";
-			this.corDataGridViewTextBoxColumn.HeaderText = "Cor";
-			this.corDataGridViewTextBoxColumn.Name = "corDataGridViewTextBoxColumn";
-			this.corDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// placaDataGridViewTextBoxColumn
-			// 
-			this.placaDataGridViewTextBoxColumn.DataPropertyName = "Placa";
-			this.placaDataGridViewTextBoxColumn.HeaderText = "Placa";
-			this.placaDataGridViewTextBoxColumn.Name = "placaDataGridViewTextBoxColumn";
-			this.placaDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// chassiDataGridViewTextBoxColumn
-			// 
-			this.chassiDataGridViewTextBoxColumn.DataPropertyName = "Chassi";
-			this.chassiDataGridViewTextBoxColumn.HeaderText = "Chassi";
-			this.chassiDataGridViewTextBoxColumn.Name = "chassiDataGridViewTextBoxColumn";
-			this.chassiDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// tBCarrosBindingSource
 			// 
 			this.tBCarrosBindingSource.DataMember = "TB_Carros";
-			// 
 			// 
 			// lblFiltro
 			// 
@@ -180,6 +124,7 @@
 			this.ComboFiltro.Name = "ComboFiltro";
 			this.ComboFiltro.Size = new System.Drawing.Size(121, 21);
 			this.ComboFiltro.TabIndex = 12;
+			this.ComboFiltro.SelectedIndexChanged += new System.EventHandler(this.ComboFiltro_SelectedIndexChanged);
 			// 
 			// tableLayoutPanel1
 			// 

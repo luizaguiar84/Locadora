@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Forms.Models;
 
 namespace Forms.Views.Desktop
 {
-	public partial class FormDevolução : Form
+	public partial class FormDevolucao : Form
 	{
-		public FormDevolução()
+		private Cliente cliente;
+
+		public FormDevolucao()
 		{
 			InitializeComponent();
+		}
+
+		public FormDevolucao(Cliente cliente)
+		{
+			InitializeComponent();
+			this.cliente = cliente;
+			this.txtNome.Text = cliente.Nome;
 		}
 
 		private void button3_Click(object sender, EventArgs e)
@@ -32,7 +42,7 @@ namespace Forms.Views.Desktop
 			buscaLocacao.Show();
 		}
 
-		private void FormDevolução_Load(object sender, EventArgs e)
+		private void FormDevolucao_Load(object sender, EventArgs e)
 		{
 
 		}

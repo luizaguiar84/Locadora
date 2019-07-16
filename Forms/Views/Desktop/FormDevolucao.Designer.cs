@@ -1,6 +1,6 @@
 ﻿namespace Forms.Views.Desktop
 {
-	partial class FormDevolução
+	partial class FormDevolucao
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDevolução));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDevolucao));
 			this.txtNrOS = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.lblOs = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtNome = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
@@ -112,13 +112,13 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
-			// textBox1
+			// txtNome
 			// 
-			this.textBox1.Location = new System.Drawing.Point(31, 71);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(400, 20);
-			this.textBox1.TabIndex = 5;
+			this.txtNome.Location = new System.Drawing.Point(31, 71);
+			this.txtNome.Name = "txtNome";
+			this.txtNome.ReadOnly = true;
+			this.txtNome.Size = new System.Drawing.Size(400, 20);
+			this.txtNome.TabIndex = 5;
 			// 
 			// label1
 			// 
@@ -525,7 +525,7 @@
 			this.button4.Text = "Finalizar devolução";
 			this.button4.UseVisualStyleBackColor = true;
 			// 
-			// FormDevolução
+			// FormDevolucao
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -547,15 +547,15 @@
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtNome);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.lblOs);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.txtNrOS);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "FormDevolução";
+			this.Name = "FormDevolucao";
 			this.Text = "Devolução";
-			this.Load += new System.EventHandler(this.FormDevolução_Load);
+			this.Load += new System.EventHandler(this.FormDevolucao_Load);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
@@ -568,7 +568,7 @@
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label lblOs;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox2;

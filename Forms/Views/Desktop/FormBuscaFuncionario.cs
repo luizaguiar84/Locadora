@@ -16,5 +16,10 @@ namespace Forms.Views.Desktop
 		{
 			InitializeComponent();
 		}
+
+		private void FormBuscaFuncionario_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

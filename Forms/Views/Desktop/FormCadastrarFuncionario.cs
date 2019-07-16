@@ -8,7 +8,6 @@ namespace Forms.Views.Desktop
 
 	public partial class FormCadastrarFuncionario : Form
 	{
-		//public Funcionarios Func { get; set; }
 
 		public FormCadastrarFuncionario()
 		{
@@ -37,46 +36,54 @@ namespace Forms.Views.Desktop
 
 		private void btnSalvar_Click_1(object sender, EventArgs e)
 		{
-			//try
-			//{
-				//	var _funcionario = new Funcionarios
-				//	(
-				//	txtNome.Text,
-				//	txtEmail.Text,
-				//	decimal.Parse(txtSalario.Text),
-				//	maskedCpf.Text,
-				//	txtRG.Text,
-				//	txtPIS.Text,
-				//	txtCTPS.Text,
-				//	txtTitEleitor.Text,
-				//	DateTime.Parse(maskedNascimento.Text.Replace("/", "-")),
-				//	maskedCEP.Text,
-				//	txtLogradouro.Text,
-				//	txtNumero.Text,
-				//	txtBairro.Text,
-				//	txtCidade.Text,
-				//	txtUF.Text,
-				//	DateTime.Parse(maskedDataAdmissao.Text.Replace("/", "-"))
-				//	);
+			var f = new Funcionarios();
 
-				//	Func = _funcionario;
-				//	MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
+				f.Nome = txtNome.Text;
+				f.Cpf = maskedCpf.Text;
+				f.Rg = txtRG.Text;
+				f.Email = txtEmail.Text;
+				f.TelResidencial = txtTelRes.Text;
+				f.TelCelular = txtTelCel.Text;
+				f.Salario = decimal.Parse(txtSalario.Text);
+				f.Admissao = DateTime.Parse(maskedDataAdmissao.Text.Replace("/", "-"));
 
-				//	//escrevendo no arquivo (teste)
-				//	var caminhoArquivo = "teste.txt";
-				//	using (var fs = new FileStream(caminhoArquivo, FileMode.Create))
-				//	using (var escritor = new StreamWriter(fs))
-				//	{
-				//		escritor.WriteLine($"Nome: {Func.NOME}, Email: {Func.EMAIL} \n Endereço: {Func.LOGRADOURO}, {Func.NUM}. Bairro: {Func.BAIRRO}, " +
-				//							$"Cidade: {Func.CIDADE} UF: {Func.UF}");
-				//	}
-				//	this.Controls.LimparTextBoxes();
-				//	this.groupEndereco.Controls.LimparTextBoxes();
-				//}
-				//catch
+				f.Ctps = txtCTPS.Text;
+				f.Pis = txtPIS.Text;
+				f.TituloEleitor = txtTitEleitor.Text;
+				f.Nascimento = DateTime.Parse(maskedNascimento.Text.Replace("/", "-"));
+				f.Demissao = DateTime.Parse(maskedDataDemissao.Text.Replace("/", "-"));
+				f.Cnh.Numero = txtCNH.Text;
+				f.Cnh.Categoria = txtCategoriaCNH.Text;
+				f.Cnh.Emissao = DateTime.Parse(maskedEmitidaCNH.Text.Replace("/", "-"));
+				f.Cnh.Validade = DateTime.Parse(maskedValidadeCNH.Text.Replace("/", "-"));
+				f.Endereco.Cep = maskedCEP.Text;
+				f.Endereco.Logradouro = txtLogradouro.Text;
+				f.Endereco.Num = txtNumero.Text;
+				f.Endereco.Bairro = txtBairro.Text;
+				f.Endereco.Cidade = txtCidade.Text;
+				f.Endereco.Uf = txtUF.Text;
+
+				using (var contexto = new LocadoraContext())
+				{
+					contexto.Funcionarios.Add(f);
+					contexto.SaveChanges();
+				}
+				MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
+
+
+
+				//escrevendo no arquivo (teste)
+				//var caminhoArquivo = "teste.txt";
+				//using (var fs = new FileStream(caminhoArquivo, FileMode.Create))
+				//using (var escritor = new StreamWriter(fs))
 				//{
-				//	MessageBox.Show("Favor adicionar o funcionário corretamente.", "Erro!");
+				//	escritor.WriteLine($"Nome: {Func.NOME}, Email: {Func.EMAIL} \n Endereço: {Func.LOGRADOURO}, {Func.NUM}. Bairro: {Func.BAIRRO}, " +
+				//						$"Cidade: {Func.CIDADE} UF: {Func.UF}");
 				//}
+				this.Controls.LimparTextBoxes();
+				this.groupEndereco.Controls.LimparTextBoxes();
+			
+	
 		}
 
 		private void maskedCEP_Leave(object sender, EventArgs e)
@@ -127,16 +134,6 @@ namespace Forms.Views.Desktop
 		private void txtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			txtNrPontos.IsNumeros(e);
-		}
-
-		private void txtSalario_Enter(object sender, EventArgs e)
-		{
-			txtSalario.IsDinheiro();
-		}
-
-		private void txtSalario_Leave(object sender, EventArgs e)
-		{
-			txtSalario.IsDinheiro();
 		}
 
 		private void txtValor_Enter(object sender, EventArgs e)

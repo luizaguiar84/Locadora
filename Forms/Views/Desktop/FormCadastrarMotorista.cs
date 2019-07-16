@@ -38,5 +38,10 @@ namespace Forms.Views.Desktop
 		{
 			maskedEmitida.IsData();
 		}
+
+		private void FormCadastrarMotorista_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

@@ -160,7 +160,7 @@ namespace Forms
 
 		private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Views.Desktop.FormDevolução devolucao = new Views.Desktop.FormDevolução();
+			Views.Desktop.FormDevolucao devolucao = new Views.Desktop.FormDevolucao();
 			devolucao.MdiParent = this;
 			devolucao.Show();
 		}

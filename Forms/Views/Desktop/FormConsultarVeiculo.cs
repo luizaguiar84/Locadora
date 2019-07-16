@@ -26,5 +26,10 @@ namespace Forms
 		{
 
 		}
+
+		private void ComboFiltro_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

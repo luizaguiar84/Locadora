@@ -16,5 +16,10 @@ namespace Forms.Views.Desktop
 		{
 			InitializeComponent();
 		}
+
+		private void FormBuscaLocacao_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

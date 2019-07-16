@@ -262,9 +262,7 @@
 			this.txtSalario.Name = "txtSalario";
 			this.txtSalario.Size = new System.Drawing.Size(150, 20);
 			this.txtSalario.TabIndex = 297;
-			this.txtSalario.Enter += new System.EventHandler(this.txtSalario_Enter);
 			this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
-			this.txtSalario.Leave += new System.EventHandler(this.txtSalario_Leave);
 			// 
 			// label5
 			// 

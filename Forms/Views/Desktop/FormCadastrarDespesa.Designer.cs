@@ -281,6 +281,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormCadastrarDespesa";
 			this.Text = "Despesas";
+			this.Load += new System.EventHandler(this.FormCadastrarDespesa_Load);
 			this.groupBox10.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
 			this.groupCadastrarDespesas.ResumeLayout(false);

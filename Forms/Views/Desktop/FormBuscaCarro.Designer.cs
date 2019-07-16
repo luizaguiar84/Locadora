@@ -133,6 +133,7 @@
 			this.MaximizeBox = false;
 			this.Name = "FormBuscaCarro";
 			this.Text = "Consultar Veículos";
+			this.Load += new System.EventHandler(this.FormBuscaCarro_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

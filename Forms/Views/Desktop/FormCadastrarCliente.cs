@@ -4,27 +4,114 @@ using System.Windows.Forms;
 using Forms;
 using Forms.Models;
 using Correios.CEP;
-
+using Forms.Views.Desktop;
+using System.Linq;
 
 namespace Forms
 {
 	public partial class FormCadastrarCliente : Form
 	{
-
+		private Cliente cliente;
 
 		public FormCadastrarCliente()
-
 		{
 			InitializeComponent();
 		}
 
+		public FormCadastrarCliente(Cliente cliente)
+		{
+			this.cliente = cliente;
+			InitializeComponent();
+			PreencherFormulario(cliente);
+		}
+
+		private void PreencherFormulario(Cliente c)
+		{
+			if (c.TipoCliente == "PF")
+			{
+				this.tabControl1.SelectTab(0);
+
+				radioPF.Checked = true;
+				radioPj.Checked = false;
+
+				if (c.StatusCliente == 0)
+				{
+					checkAtivo.Checked = false;
+				}
+				else
+				{
+					checkAtivo.Checked = true;
+				}
+				txtId.Text = c.Id.ToString();
+				txtNome.Text = c.Nome;
+				maskedCpf.Text = c.Cpf;
+				txtProfissao.Text = c.Profissao;
+				txtEmail.Text = c.Email;
+				txtRG.Text = c.Rg;
+				txtNascimento.Text = c.Nascimento.ToString().Replace("-", "/");
+				txtTelCom.Text = c.TelComercial;
+				txtTelRes.Text = c.TelResidencial;
+				txtTelCel.Text = c.TelCelular;
+				txtCNH.Text = c.Cnh.Numero;
+				txtCategoria.Text = c.Cnh.Categoria;
+				maskedEmitida.Text = c.Cnh.Emissao.ToString().Replace("-", "/");
+				maskedValidade.Text = c.Cnh.Validade.ToString().Replace("-", "/");
+
+				this.groupEndereco.Select();
+
+				maskedCEP.Text = c.Endereco.Cep;
+				txtLogradouro.Text = c.Endereco.Logradouro;
+				txtNumero.Text = c.Endereco.Num;
+				txtComplemento.Text = c.Endereco.Complemento;
+				txtBairro.Text = c.Endereco.Bairro;
+				txtCidade.Text = c.Endereco.Cidade;
+				txtUF.Text = c.Endereco.Uf;
+			}
+			else
+			{
+				this.tabControl1.SelectTab(0);
+
+				radioPj.Checked = true;
+				radioPF.Checked = false;
+
+				if (c.StatusCliente == 0)
+				{
+					checkAtivo.Checked = false;
+				}
+				else
+				{
+					checkAtivo.Checked = true;
+				}
+				txtId.Text = c.Id.ToString();
+				txtNome.Text = c.Nome;
+				maskedCpf.Text = c.Cnpj;
+				txtProfissao.Text = c.Contato;
+				txtEmail.Text = c.Email;
+				txtRG.Text = c.Ie;
+				txtTelCom.Text = c.TelComercial;
+
+				groupEndereco.Select();
+				maskedCEP.Text = c.Endereco.Cep;
+				txtLogradouro.Text = c.Endereco.Logradouro;
+				txtNumero.Text = c.Endereco.Num;
+				txtComplemento.Text = c.Endereco.Complemento;
+				txtBairro.Text = c.Endereco.Bairro;
+				txtCidade.Text = c.Endereco.Cidade;
+				txtUF.Text = c.Endereco.Uf;
+			}
+		}
+
 		private void RadioPF()
 		{
+			lblNome.Text = "Nome";
 			lblCpf.Text = "CPF";
 			maskedCpf.Name = "maskedCPF";
+			this.maskedCpf.Size = new System.Drawing.Size(87, 20);
 			maskedCpf.Mask = "999.999.999-99";
 			lblRG.Text = "RG";
 			lblProfissao.Text = "Profissão";
+			this.lblProfissao.Location = new System.Drawing.Point(518, 81);
+			this.txtProfissao.Location = new System.Drawing.Point(518, 97);
 			lblNascimento.Show();
 			txtNascimento.Show();
 			lblCNH.Show();
@@ -43,11 +130,14 @@ namespace Forms
 
 		private void RadioPJ()
 		{
+			lblNome.Text = "Razão Social";
 			lblCpf.Text = "CNPJ";
-			//maskedCpf.Name = "maskedCnpj";
 			maskedCpf.Mask = "99.999.999/9999-99";
+			this.maskedCpf.Size = new System.Drawing.Size(110, 20);
 			lblRG.Text = "IE";
 			lblProfissao.Text = "Contato";
+			this.lblProfissao.Location = new System.Drawing.Point(538, 81);
+			this.txtProfissao.Location = new System.Drawing.Point(538, 97);
 			lblTelCom.Text = "Telefone";
 			lblNascimento.Hide();
 			txtNascimento.Hide();
@@ -89,223 +179,419 @@ namespace Forms
 			}
 		}
 
-		private void Button2_Click(object sender, EventArgs e)
-		{
-			Views.Desktop.FormBuscaCliente formBuscaCliente = new Views.Desktop.FormBuscaCliente();
-			formBuscaCliente.Show();
-		}
-
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
+			var cliente = new Cliente();
 
-			var _cliente = new Cliente();
-			//var _telefone = new Telefonecliente();
-			//_cliente.endereco = new Endereco();
-
-			if (radioPF.Checked == true)
+			if (txtId.Text != "")
 			{
-				_cliente.TipoCliente = "PF";
-				_cliente.Nome = txtNome.Text;
-				_cliente.Cpf = maskedCpf.Text;
-				_cliente.Profissao = txtProfissao.Text;
-				_cliente.Email = txtEmail.Text;
-				_cliente.Rg = txtRG.Text;
-				_cliente.Nascimento = DateTime.Parse(txtNascimento.Text.Replace("/", "-"));
-				_cliente.TelComercial = txtTelCom.Text;
-				_cliente.TelResidencial = txtTelRes.Text;
-				_cliente.TelCelular = txtTelCel.Text;
-				_cliente.Cnh = txtCNH.Text;
-				_cliente.CnhCategoria = txtCategoria.Text;
-				_cliente.CnhEmissao = maskedEmitida.Text;
-				_cliente.CnhValidade = maskedValidade.Text;
-				//_cliente.endereco.Cep = maskedCEP.Text;
-				//_cliente.endereco.Logradouro = txtLogradouro.Text;
-				//_cliente.endereco.Bairro = txtBairro.Text;
-				//_cliente.endereco.Cidade = txtCidade.Text;
-				//_cliente.endereco.Complemento = txtComplemento.Text;
-				//_cliente.endereco.Num = txtNumero.Text;
-				//_cliente.endereco.Uf = txtUF.Text;
-
-				if (MessageBox.Show("Favor confirmar os dados:\n"
-					+ _cliente.Nome + "\n"
-					+ _cliente.Nascimento + "\n"
-					+ "E-Mail: " + _cliente.Email + "\n"
-					+ "Profissao: " + _cliente.Profissao + "\n"
-					 /*
-					"Telefone: " + _telefone.NumTelefone + "\n"
-					+ "Endereço: " + _cliente.endereco.Logradouro + ", " + _cliente.endereco.Num + " Complemento: " + _cliente.endereco.Complemento + "\n"
-					+ "Bairro: " + _cliente.endereco.Bairro + " / Cidade: " + _cliente.endereco.Cidade + " / UF: " + _cliente.endereco.Uf + "\n"
-					+ "CEP: " + _cliente.endereco.Cep
-					*/,
-					"Confirmação",
-					MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				using (var contexto = new LocadoraContext())
 				{
-					using (var contexto = new LocadoraContext())
-					{
-						contexto.Cliente.Add(_cliente);
-						contexto.SaveChanges();
-					}
+					int id = Convert.ToInt32(txtId.Text);
 
-					MessageBox.Show("Cadastro Efetuado com sucesso!");
-					
-					this.tabCadastro.Controls.LimparTextBoxes();
-					this.groupEndereco.Controls.LimparTextBoxes();
-
-					//escrevendo no arquivo (teste)
-					//try
-					//{
-					//	var caminhoArquivo = "testeCliente.txt";
-					//	using (var fs = new FileStream(caminhoArquivo, FileMode.Create))
-					//	using (var escritor = new StreamWriter(fs))
-					//	{
-					//		escritor.WriteLine($"Nome: {_cliente.NOME_CLIENTE}, Email: {_cliente.EMAIL} \n Endereço: {_cliente.endereco.LOGRADOURO}," +
-					//			$" {_cliente.endereco.NUM}. Bairro: {_cliente.endereco.BAIRRO} Cidade: {_cliente.endereco.CIDADE} " +
-					//			$"UF: {_cliente.endereco.UF}");
-
-					//	}
-					//}
-					//catch
-					//{
-					//	MessageBox.Show("Erro na gravaçao do arquivo.");
-					//}
+					var _cliente = contexto.Cliente
+								.Where(c => c.Id == id)
+									.Single();
+				cliente = _cliente;
 				}
 			}
-			if (radioPj.Checked == true)
+			
+			if (cliente != null)
 			{
-				_cliente.Nome = txtNome.Text;
-				_cliente.Cnpj = maskedCpf.Text;
-				_cliente.Profissao = txtProfissao.Text;
-				_cliente.Email = txtEmail.Text;
-				_cliente.Ie = txtRG.Text;
-				//_telefone.NumTelefone = txtTelRes.Text;
-				//_cliente.endereco.Cep = maskedCEP.Text;
-				//_cliente.endereco.Logradouro = txtLogradouro.Text;
-				//_cliente.endereco.Bairro = txtBairro.Text;
-				//_cliente.endereco.Cidade = txtCidade.Text;
-				//_cliente.endereco.Complemento = txtComplemento.Text;
-				//_cliente.endereco.Num = txtNumero.Text;
-				//_cliente.endereco.Uf = txtUF.Text;
-
-				if (MessageBox.Show("Favor confirmar os dados:\n"
-					+ "Nome da empresa: " + _cliente.Nome + "\n"
-					+ "E-Mail: " + _cliente.Email + "\n"
-					+ "Contato: " + _cliente.Profissao + "\n",
-					/*+ 
-					"Telefone: " + _telefone.NumTelefone + "\n"
-					+ "Endereço: " + _cliente.endereco.Logradouro + ", " + _cliente.endereco.Num + " Complemento: " + _cliente.endereco.Complemento + "\n"
-					+ "Bairro: " + _cliente.endereco.Bairro + " / Cidade: " + _cliente.endereco.Cidade + " / UF: " + _cliente.endereco.Uf + "\n"
-					+ "CEP: " + _cliente.endereco.Cep
-					*/
-					"Confirmação",
-					MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				if (radioPF.Checked == true)
 				{
-					MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
-					using (var contexto = new LocadoraContext())
-					{
-						contexto.Cliente.Add(_cliente);
-						contexto.SaveChanges();
-					}
-					this.tabCadastro.Controls.LimparTextBoxes();
-					this.groupEndereco.Controls.LimparTextBoxes();
-
+					AtualizarPf(cliente);
 				}
-
+				if (radioPj.Checked == true)
+				{
+					AtualizarPj(cliente);
+				}
+			}
+			else
+			{
+				if (radioPF.Checked == true)
+				{
+					CadastrarPf();
+				}
+				if (radioPj.Checked == true)
+				{
+					CadastrarPj();
+				}
 			}
 		}
+		
 
-			private void MaskedCEP_Leave(object sender, EventArgs e)
-			{
-				if (!string.IsNullOrWhiteSpace(maskedCEP.Text))
-				{
-					try
-					{
-						var enderecos = new string[4];
-						enderecos = Utilidades.BuscaCep(maskedCEP);
-
-						if (enderecos != null)
-						{
-							txtLogradouro.Text = enderecos[0];
-							txtCidade.Text = enderecos[1];
-							txtBairro.Text = enderecos[2];
-							txtUF.Text = enderecos[3];
-						}
-						else
-						{
-							MessageBox.Show("Cep não localizado...");
-						}
-					}
-					catch
-					{
-						MessageBox.Show("Favor inserir um CEP válido.");
-						maskedCEP.Text = "";
-						maskedCEP.Focus();
-					}
-				}
-			}
-
-			private void TxtNascimento_Leave(object sender, EventArgs e)
+		private void TxtNascimento_Leave(object sender, EventArgs e)
 			{
 				txtNascimento.IsData();
 			}
 
-			private void FormCadastrarCliente_Load(object sender, EventArgs e)
+		private void FormCadastrarCliente_Load(object sender, EventArgs e)
 			{
-
+			
 			}
 
-			private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+		private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
 			{
 				txtValor.IsNumeros(e);
 			}
 
-			private void txtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
-			{
-				txtProfissao.IsNumeros(e);
-			}
+		private void txtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			txtProfissao.IsNumeros(e);
+		}
 
-			private void txtValor_Enter(object sender, EventArgs e)
-			{
-				txtValor.IsDinheiro();
-			}
+		private void txtValor_Enter(object sender, EventArgs e)
+		{
+			txtValor.IsDinheiro();
+		}
 
-			private void txtValor_Leave(object sender, EventArgs e)
-			{
-				txtValor.IsDinheiro();
-			}
+		private void txtValor_Leave(object sender, EventArgs e)
+		{
+			txtValor.IsDinheiro();
+		}
 
-			private void maskedEmitida_Leave(object sender, EventArgs e)
-			{
-				maskedEmitida.IsData();
-			}
+		private void maskedEmitida_Leave(object sender, EventArgs e)
+		{
+			maskedEmitida.IsData();
+		}
 
-			private void maskedValidade_Leave(object sender, EventArgs e)
-			{
-				maskedValidade.IsData();
-			}
+		private void maskedValidade_Leave(object sender, EventArgs e)
+		{
+			maskedValidade.IsData();
+		}
 
-			private void maskedVencimentoMulta_Leave(object sender, EventArgs e)
-			{
-				maskedVencimentoMulta.IsData();
-			}
+		private void maskedVencimentoMulta_Leave(object sender, EventArgs e)
+		{
+			maskedVencimentoMulta.IsData();
+		}
 
-			private void maskedDataMulta_Leave(object sender, EventArgs e)
-			{
-				maskedDataMulta.IsData();
-			}
+		private void maskedDataMulta_Leave(object sender, EventArgs e)
+		{
+			maskedDataMulta.IsData();
+		}
 
-			private void maskedCpf_Leave(object sender, EventArgs e)
+		private void btnSalvarMulta_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button2_Click_1(object sender, EventArgs e)
+		{
+			var busca = new FormBuscaCliente();
+			busca.MdiParent = this.MdiParent;
+			busca.ControlBox = false;
+			this.Close();
+			busca.Show();
+		}
+
+		private void tabCadastro_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void AtualizarPf(Cliente c)
+		{
+			if (checkAtivo.Checked)
 			{
-				/*
-				if (maskedCpf.Text != null)
+				c.StatusCliente = 1;
+			}
+			else
+			{
+				c.StatusCliente = 0;
+			}
+			c.TipoCliente = "PF";
+			c.Nome = txtNome.Text;
+			c.Cpf = maskedCpf.Text;
+			c.Profissao = txtProfissao.Text;
+			c.Email = txtEmail.Text;
+			c.Rg = txtRG.Text;
+			if (txtNascimento.Text != "__/__/____")
+			{
+				c.Nascimento = DateTime.Parse(txtNascimento.Text.Replace("/", "-"));
+
+			}
+			
+			c.TelComercial = txtTelCom.Text;
+			c.TelResidencial = txtTelRes.Text;
+			c.TelCelular = txtTelCel.Text;
+			c.Cnh.Numero = txtCNH.Text;
+			c.Cnh.Categoria = txtCategoria.Text;
+			if (maskedEmitida.Text != "__/__/____")
+			{
+				c.Cnh.Emissao = DateTime.Parse(maskedEmitida.Text.Replace("/", "-"));
+
+			}
+			if (maskedValidade.Text != "__/__/____")
+			{
+				c.Cnh.Validade = DateTime.Parse(maskedValidade.Text.Replace("/", "-"));
+
+			}
+			c.Endereco.Cep = maskedCEP.Text;
+			c.Endereco.Logradouro = txtLogradouro.Text;
+			c.Endereco.Num = txtNumero.Text;
+			c.Endereco.Complemento = txtComplemento.Text;
+			c.Endereco.Bairro = txtBairro.Text;
+			c.Endereco.Cidade = txtCidade.Text;
+			c.Endereco.Uf = txtUF.Text;
+
+			if (MessageBox.Show($"Favor confirmar a atualização dos dados:\n\n" +
+				$"Nome: {c.Nome}\n" +
+				$"CPF: {c.Cpf} - RG: {c.Rg}\n" +
+				$"Profissão: {c.Profissao} / Email: {c.Email}\n" +
+				$"Nascimento: {c.Nascimento.Value.ToShortDateString()} \n" +
+				$"Telefone Comercial: {c.TelComercial} - Residencial {c.TelResidencial} - Celular: {c.TelCelular}\n" +
+				$"CNH: {c.Cnh.Numero} / Categoria: {c.Cnh.Categoria} \n" +
+				$"\nEndereço:\n\n" +
+				$"CEP: {c.Endereco.Cep}\n" +
+				$"{c.Endereco.Logradouro} {c.Endereco.Num} Complemento: {c.Endereco.Complemento} \n" +
+				$"Bairro: {c.Endereco.Bairro} / Cidade: {c.Endereco.Cidade} / UF: {c.Endereco.Uf} \n" +
+				$"",
+				"Confirmação",
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				using (var contexto = new LocadoraContext())
 				{
-					if (!Utilidades.IsCpf(maskedCpf.Text))
+					var resultadoCnh = contexto.Cnh
+										.Where(cnh => cnh.Id == c.Id)
+										.SingleOrDefault();
+
+					var resultadoEndereco = contexto.Endereco
+											.Where(endereco => endereco.Id == c.Id)
+											.SingleOrDefault();
+
+					c.Cnh = resultadoCnh;
+					c.Endereco = resultadoEndereco;
+
+					contexto.Cliente.Update(c);
+					contexto.SaveChanges();
+				}
+
+
+
+				MessageBox.Show("Cadastro Atualizado com sucesso!");
+
+				this.tabCadastro.Controls.LimparTextBoxes();
+				this.groupEndereco.Controls.LimparTextBoxes();
+				this.checkAtivo.Checked = true;
+				this.lblNome.Focus();
+			}
+		}
+
+		private void AtualizarPj(Cliente c)
+		{
+			if (checkAtivo.Checked)
+			{
+				c.StatusCliente = 1;
+			}
+			else
+			{
+				c.StatusCliente = 0;
+			}
+			c.TipoCliente = "PJ";
+			c.Nome = txtNome.Text;
+			c.Cnpj = maskedCpf.Text;
+			c.Contato = txtProfissao.Text;
+			c.Email = txtEmail.Text;
+			c.Ie = txtRG.Text;
+			c.TelComercial = txtTelCom.Text;
+			c.Endereco.Cep = maskedCEP.Text;
+			c.Endereco.Logradouro = txtLogradouro.Text;
+			c.Endereco.Bairro = txtBairro.Text;
+			c.Endereco.Cidade = txtCidade.Text;
+			c.Endereco.Complemento = txtComplemento.Text;
+			c.Endereco.Num = txtNumero.Text;
+			c.Endereco.Uf = txtUF.Text;
+
+			if (MessageBox.Show($"Favor confirmar a atualização:\n" +
+				$"Nome da empresa:{c.Nome}\n" +
+				$" Cnpj: {c.Cnpj} - IE: {c.Ie}\n " +
+				$"E-Mail: {c.Email} - Contato: {c.Contato} \n" +
+				$"Telefone: {c.TelResidencial}\n" +
+				$"Endereço:\n " +
+				$"CEP: {c.Endereco.Cep} \n" +
+				$"{c.Endereco.Logradouro} {c.Endereco.Num} Complemento: {c.Endereco.Complemento} \n" +
+				$"Bairro: {c.Endereco.Bairro}  / Cidade: {c.Endereco.Cidade} / UF: {c.Endereco.Uf} \n",
+				"Confirmação",
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
+				using (var contexto = new LocadoraContext())
+				{
+
+					var resultadoEndereco = contexto.Endereco
+											.Where(endereco => endereco.Id == c.Id)
+											.SingleOrDefault();
+
+					c.Endereco = resultadoEndereco;
+
+					contexto.Cliente.Update(c);
+					contexto.SaveChanges();
+				}
+				this.tabCadastro.Controls.LimparTextBoxes();
+				this.groupEndereco.Controls.LimparTextBoxes();
+				this.checkAtivo.Checked = true;
+				this.lblNome.Focus();
+			}
+		}
+
+		private void CadastrarPj()
+		{
+			var c = new Cliente();
+
+			if (checkAtivo.Checked)
+			{
+				c.StatusCliente = 1;
+			}
+			else
+			{
+				c.StatusCliente = 0;
+			}
+			c.TipoCliente = "PJ";
+			c.Nome = txtNome.Text;
+			c.Cnpj = maskedCpf.Text;
+			c.Contato = txtProfissao.Text;
+			c.Email = txtEmail.Text;
+			c.Ie = txtRG.Text;
+			c.TelComercial = txtTelCom.Text;
+			c.Endereco.Cep = maskedCEP.Text;
+			c.Endereco.Logradouro = txtLogradouro.Text;
+			c.Endereco.Bairro = txtBairro.Text;
+			c.Endereco.Cidade = txtCidade.Text;
+			c.Endereco.Complemento = txtComplemento.Text;
+			c.Endereco.Num = txtNumero.Text;
+			c.Endereco.Uf = txtUF.Text;
+
+			if (MessageBox.Show($"Favor confirmar os dados:\n" +
+				$"Nome da empresa:{c.Nome}\n" +
+				$" Cnpj: {c.Cnpj} - IE: {c.Ie}\n " +
+				$"E-Mail: {c.Email} - Contato: {c.Contato} \n" +
+				$"Telefone: {c.TelResidencial}\n" +
+				$"Endereço:\n " +
+				$"CEP: {c.Endereco.Cep} \n" +
+				$"{c.Endereco.Logradouro} {c.Endereco.Num} Complemento: {c.Endereco.Complemento} \n" +
+				$"Bairro: {c.Endereco.Bairro}  / Cidade: {c.Endereco.Cidade} / UF: {c.Endereco.Uf} \n",
+				"Confirmação",
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
+				using (var contexto = new LocadoraContext())
+				{
+					contexto.Cliente.Add(c);
+					contexto.SaveChanges();
+				}
+				this.tabCadastro.Controls.LimparTextBoxes();
+				this.groupEndereco.Controls.LimparTextBoxes();
+				this.checkAtivo.Checked = true;
+				this.lblNome.Focus();
+			}
+		}
+
+		private void CadastrarPf()
+		{
+			var c = new Cliente();
+
+			if (checkAtivo.Checked)
+			{
+				c.StatusCliente = 1;
+			}
+			else
+			{
+				c.StatusCliente = 0;
+			}
+			c.TipoCliente = "PF";
+			c.Nome = txtNome.Text;
+			c.Cpf = maskedCpf.Text;
+			c.Profissao = txtProfissao.Text;
+			c.Email = txtEmail.Text;
+			c.Rg = txtRG.Text;
+			if (txtNascimento.Text != "__/__/____")
+			{
+				c.Nascimento = DateTime.Parse(txtNascimento.Text.Replace("/", "-"));
+
+			}
+			c.TelComercial = txtTelCom.Text;
+			c.TelResidencial = txtTelRes.Text;
+			c.TelCelular = txtTelCel.Text;
+			c.Cnh.Numero = txtCNH.Text;
+			c.Cnh.Categoria = txtCategoria.Text;
+			
+			if (maskedEmitida.Text != "__/__/____")
+			{
+				c.Cnh.Emissao = DateTime.Parse(maskedEmitida.Text.Replace("/", "-"));
+
+			}
+			if (maskedValidade.Text != "__/__/____")
+			{
+				c.Cnh.Validade = DateTime.Parse(maskedValidade.Text.Replace("/", "-"));
+
+			}
+			c.Endereco.Cep = maskedCEP.Text;
+			c.Endereco.Logradouro = txtLogradouro.Text;
+			c.Endereco.Num = txtNumero.Text;
+			c.Endereco.Complemento = txtComplemento.Text;
+			c.Endereco.Bairro = txtBairro.Text;
+			c.Endereco.Cidade = txtCidade.Text;
+			c.Endereco.Uf = txtUF.Text;
+
+			if (MessageBox.Show($"Favor confirmar os dados:\n\n" +
+				$"Nome: {c.Nome}\n" +
+				$"CPF: {c.Cpf} - RG: {c.Rg}\n" +
+				$"Profissão: {c.Profissao} / Email: {c.Email}\n" +
+				$"Nascimento: {c.Nascimento.Value.ToShortDateString()} \n" +
+				$"Telefone Comercial: {c.TelComercial} - Residencial {c.TelResidencial} - Celular: {c.TelCelular}\n" +
+				$"CNH: {c.Cnh.Numero} / Categoria: {c.Cnh.Categoria} \n" +
+				$"\nEndereço:\n\n" +
+				$"CEP: {c.Endereco.Cep}\n" +
+				$"{c.Endereco.Logradouro} {c.Endereco.Num} Complemento: {c.Endereco.Complemento} \n" +
+				$"Bairro: {c.Endereco.Bairro} / Cidade: {c.Endereco.Cidade} / UF: {c.Endereco.Uf} \n" +
+				$"",
+				"Confirmação",
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				using (var contexto = new LocadoraContext())
+				{
+					contexto.Cliente.Add(c);
+					contexto.SaveChanges();
+				}
+
+				MessageBox.Show("Cadastro Efetuado com sucesso!");
+
+				this.tabCadastro.Controls.LimparTextBoxes();
+				this.groupEndereco.Controls.LimparTextBoxes();
+				this.checkAtivo.Checked = true;
+				this.lblNome.Focus();
+			}
+		}
+
+		private void maskedCEP_Leave_1(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(maskedCEP.Text))
+			{
+				try
+				{
+					var enderecos = new string[4];
+					enderecos = Utilidades.BuscaCep(maskedCEP);
+
+					if (enderecos != null)
 					{
-						MessageBox.Show("CPF inválido, digite novamente");
-						maskedCpf.Text = "";
-						maskedCpf.Focus();
+						txtLogradouro.Text = enderecos[0];
+						txtCidade.Text = enderecos[1];
+						txtBairro.Text = enderecos[2];
+						txtUF.Text = enderecos[3];
+					}
+					else
+					{
+						MessageBox.Show("Cep não localizado...");
 					}
 				}
-				*/
+				catch
+				{
+					MessageBox.Show("Favor inserir um CEP válido.");
+					maskedCEP.Text = "";
+					maskedCEP.Focus();
+				}
 			}
+		}
 	}
 }
