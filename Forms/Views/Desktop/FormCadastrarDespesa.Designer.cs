@@ -28,34 +28,39 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarDespesa));
 			this.label27 = new System.Windows.Forms.Label();
-			this.comboBox3 = new System.Windows.Forms.ComboBox();
+			this.comboTipo = new System.Windows.Forms.ComboBox();
 			this.button8 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
+			this.btnSalvar = new System.Windows.Forms.Button();
 			this.txtValor = new System.Windows.Forms.TextBox();
 			this.label26 = new System.Windows.Forms.Label();
-			this.textBox9 = new System.Windows.Forms.TextBox();
+			this.txtDescricao = new System.Windows.Forms.TextBox();
 			this.label25 = new System.Windows.Forms.Label();
-			this.maskedDataDespesa = new System.Windows.Forms.MaskedTextBox();
 			this.label24 = new System.Windows.Forms.Label();
 			this.groupBox10 = new System.Windows.Forms.GroupBox();
-			this.dataGridView4 = new System.Windows.Forms.DataGridView();
-			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.groupCadastrarDespesas = new System.Windows.Forms.GroupBox();
+			this.dataDespesa = new System.Windows.Forms.DateTimePicker();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.despesasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tipoDespesaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox10.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupCadastrarDespesas.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.despesasBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label27
@@ -67,13 +72,13 @@
 			this.label27.TabIndex = 19;
 			this.label27.Text = "Descrição:";
 			// 
-			// comboBox3
+			// comboTipo
 			// 
-			this.comboBox3.FormattingEnabled = true;
-			this.comboBox3.Location = new System.Drawing.Point(107, 32);
-			this.comboBox3.Name = "comboBox3";
-			this.comboBox3.Size = new System.Drawing.Size(381, 21);
-			this.comboBox3.TabIndex = 3;
+			this.comboTipo.FormattingEnabled = true;
+			this.comboTipo.Location = new System.Drawing.Point(179, 32);
+			this.comboTipo.Name = "comboTipo";
+			this.comboTipo.Size = new System.Drawing.Size(309, 21);
+			this.comboTipo.TabIndex = 3;
 			// 
 			// button8
 			// 
@@ -84,14 +89,15 @@
 			this.button8.Text = "+";
 			this.button8.UseVisualStyleBackColor = true;
 			// 
-			// button7
+			// btnSalvar
 			// 
-			this.button7.Location = new System.Drawing.Point(623, 33);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(75, 21);
-			this.button7.TabIndex = 6;
-			this.button7.Text = "Adicionar";
-			this.button7.UseVisualStyleBackColor = true;
+			this.btnSalvar.Location = new System.Drawing.Point(623, 33);
+			this.btnSalvar.Name = "btnSalvar";
+			this.btnSalvar.Size = new System.Drawing.Size(75, 21);
+			this.btnSalvar.TabIndex = 6;
+			this.btnSalvar.Text = "Adicionar";
+			this.btnSalvar.UseVisualStyleBackColor = true;
+			this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
 			// 
 			// txtValor
 			// 
@@ -113,34 +119,21 @@
 			this.label26.TabIndex = 14;
 			this.label26.Text = "Valor:";
 			// 
-			// textBox9
+			// txtDescricao
 			// 
-			this.textBox9.Location = new System.Drawing.Point(18, 74);
-			this.textBox9.Name = "textBox9";
-			this.textBox9.Size = new System.Drawing.Size(470, 20);
-			this.textBox9.TabIndex = 7;
+			this.txtDescricao.Location = new System.Drawing.Point(18, 74);
+			this.txtDescricao.Name = "txtDescricao";
+			this.txtDescricao.Size = new System.Drawing.Size(680, 20);
+			this.txtDescricao.TabIndex = 7;
 			// 
 			// label25
 			// 
 			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(104, 18);
+			this.label25.Location = new System.Drawing.Point(176, 18);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(31, 13);
 			this.label25.TabIndex = 12;
 			this.label25.Text = "Tipo:";
-			// 
-			// maskedDataDespesa
-			// 
-			this.maskedDataDespesa.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-			this.maskedDataDespesa.HidePromptOnLeave = true;
-			this.maskedDataDespesa.Location = new System.Drawing.Point(18, 34);
-			this.maskedDataDespesa.Mask = "00/00/0000";
-			this.maskedDataDespesa.Name = "maskedDataDespesa";
-			this.maskedDataDespesa.Size = new System.Drawing.Size(83, 20);
-			this.maskedDataDespesa.TabIndex = 2;
-			this.maskedDataDespesa.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-			this.maskedDataDespesa.ValidatingType = typeof(System.DateTime);
-			this.maskedDataDespesa.Leave += new System.EventHandler(this.maskedDataDespesa_Leave);
 			// 
 			// label24
 			// 
@@ -153,59 +146,46 @@
 			// 
 			// groupBox10
 			// 
-			this.groupBox10.Controls.Add(this.dataGridView4);
-			this.groupBox10.Location = new System.Drawing.Point(40, 212);
+			this.groupBox10.Controls.Add(this.dataGridView1);
+			this.groupBox10.Location = new System.Drawing.Point(0, 212);
 			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(680, 189);
+			this.groupBox10.Size = new System.Drawing.Size(788, 226);
 			this.groupBox10.TabIndex = 20;
 			this.groupBox10.TabStop = false;
 			this.groupBox10.Text = "Despesas Registradas:";
 			// 
-			// dataGridView4
+			// dataGridView1
 			// 
-			this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10});
-			this.dataGridView4.Location = new System.Drawing.Point(6, 19);
-			this.dataGridView4.Name = "dataGridView4";
-			this.dataGridView4.Size = new System.Drawing.Size(652, 150);
-			this.dataGridView4.TabIndex = 12;
-			// 
-			// Column7
-			// 
-			this.Column7.HeaderText = "Vencimento";
-			this.Column7.Name = "Column7";
-			// 
-			// Column8
-			// 
-			this.Column8.HeaderText = "Tipo";
-			this.Column8.Name = "Column8";
-			// 
-			// Column9
-			// 
-			this.Column9.HeaderText = "Descrição";
-			this.Column9.Name = "Column9";
-			this.Column9.Width = 300;
-			// 
-			// Column10
-			// 
-			this.Column10.HeaderText = "Valor";
-			this.Column10.Name = "Column10";
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.dataDataGridViewTextBoxColumn,
+            this.tipoDespesaDataGridViewTextBoxColumn,
+            this.valorDataGridViewTextBoxColumn,
+            this.descricaoDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.despesasBindingSource;
+			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.Size = new System.Drawing.Size(782, 207);
+			this.dataGridView1.TabIndex = 12;
 			// 
 			// groupCadastrarDespesas
 			// 
-			this.groupCadastrarDespesas.Controls.Add(this.textBox9);
+			this.groupCadastrarDespesas.Controls.Add(this.dataDespesa);
+			this.groupCadastrarDespesas.Controls.Add(this.txtDescricao);
 			this.groupCadastrarDespesas.Controls.Add(this.label24);
 			this.groupCadastrarDespesas.Controls.Add(this.label27);
-			this.groupCadastrarDespesas.Controls.Add(this.maskedDataDespesa);
-			this.groupCadastrarDespesas.Controls.Add(this.comboBox3);
+			this.groupCadastrarDespesas.Controls.Add(this.comboTipo);
 			this.groupCadastrarDespesas.Controls.Add(this.label25);
 			this.groupCadastrarDespesas.Controls.Add(this.button8);
 			this.groupCadastrarDespesas.Controls.Add(this.label26);
-			this.groupCadastrarDespesas.Controls.Add(this.button7);
+			this.groupCadastrarDespesas.Controls.Add(this.btnSalvar);
 			this.groupCadastrarDespesas.Controls.Add(this.txtValor);
 			this.groupCadastrarDespesas.Location = new System.Drawing.Point(20, 12);
 			this.groupCadastrarDespesas.Name = "groupCadastrarDespesas";
@@ -213,6 +193,13 @@
 			this.groupCadastrarDespesas.TabIndex = 1;
 			this.groupCadastrarDespesas.TabStop = false;
 			this.groupCadastrarDespesas.Text = "Cadastrar Despesas";
+			// 
+			// dataDespesa
+			// 
+			this.dataDespesa.Location = new System.Drawing.Point(18, 32);
+			this.dataDespesa.Name = "dataDespesa";
+			this.dataDespesa.Size = new System.Drawing.Size(155, 20);
+			this.dataDespesa.TabIndex = 21;
 			// 
 			// groupBox1
 			// 
@@ -269,6 +256,53 @@
 			this.dateTimePicker1.Size = new System.Drawing.Size(229, 20);
 			this.dateTimePicker1.TabIndex = 9;
 			// 
+			// despesasBindingSource
+			// 
+			this.despesasBindingSource.DataSource = typeof(Forms.Models.Despesas);
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dataDataGridViewTextBoxColumn
+			// 
+			this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+			this.dataDataGridViewTextBoxColumn.HeaderText = "Data Vencimento";
+			this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+			this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// tipoDespesaDataGridViewTextBoxColumn
+			// 
+			this.tipoDespesaDataGridViewTextBoxColumn.DataPropertyName = "TipoDespesa";
+			this.tipoDespesaDataGridViewTextBoxColumn.HeaderText = "Tipo";
+			this.tipoDespesaDataGridViewTextBoxColumn.Name = "tipoDespesaDataGridViewTextBoxColumn";
+			this.tipoDespesaDataGridViewTextBoxColumn.ReadOnly = true;
+			this.tipoDespesaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			// 
+			// valorDataGridViewTextBoxColumn
+			// 
+			this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+			this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+			this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+			this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// descricaoDataGridViewTextBoxColumn
+			// 
+			this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+			this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
+			this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+			this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// statusDataGridViewTextBoxColumn
+			// 
+			this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+			this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+			this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+			this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
 			// FormCadastrarDespesa
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,11 +317,12 @@
 			this.Text = "Despesas";
 			this.Load += new System.EventHandler(this.FormCadastrarDespesa_Load);
 			this.groupBox10.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupCadastrarDespesas.ResumeLayout(false);
 			this.groupCadastrarDespesas.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.despesasBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -295,21 +330,16 @@
 		#endregion
 
 		private System.Windows.Forms.Label label27;
-		private System.Windows.Forms.ComboBox comboBox3;
+		private System.Windows.Forms.ComboBox comboTipo;
 		private System.Windows.Forms.Button button8;
-		private System.Windows.Forms.Button button7;
+		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.TextBox txtValor;
 		private System.Windows.Forms.Label label26;
-		private System.Windows.Forms.TextBox textBox9;
+		private System.Windows.Forms.TextBox txtDescricao;
 		private System.Windows.Forms.Label label25;
-		private System.Windows.Forms.MaskedTextBox maskedDataDespesa;
 		private System.Windows.Forms.Label label24;
 		private System.Windows.Forms.GroupBox groupBox10;
-		private System.Windows.Forms.DataGridView dataGridView4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.GroupBox groupCadastrarDespesas;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label2;
@@ -317,5 +347,13 @@
 		private System.Windows.Forms.DateTimePicker dateTimePicker2;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.DateTimePicker dataDespesa;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn tipoDespesaDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource despesasBindingSource;
 	}
 }

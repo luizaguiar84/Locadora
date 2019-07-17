@@ -20,16 +20,23 @@ namespace Forms.Models
 		public DbSet<Pecas> Pecas { get; set; }
 		public DbSet<Sinistros> Sinistros { get; set; }
 		public DbSet<Usuarios> Usuarios { get; set; }
-		public DbSet<Veiculos> Veiculos { get; set; }
+		public DbSet<Veiculo> Veiculos { get; set; }
 		public DbSet<Modelos> Modelos { get; set; }
 		public DbSet<Montadora> Montadoras { get; set; }
+		public DbSet<ControlePatio> ControlePatio { get; set; }
+		public DbSet<TipoDespesa> TipoDespesa { get; set; }
+		public DbSet<Despesas> Despesas { get; set; }
+		public DbSet<Estoque> Estoque { get; set; }
+		public DbSet<Pneus> Pneus { get; set; }
 
 
 
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Data Source=LUIZAGUIARA508;Initial Catalog=Locadora;Integrated Security=True");
+			//optionsBuilder.UseSqlServer("Data Source=LUIZAGUIARA508;Initial Catalog=Locadora;Integrated Security=True");
+			optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = Locadora; Integrated Security = True;");
 		}
+		
 	}
 }

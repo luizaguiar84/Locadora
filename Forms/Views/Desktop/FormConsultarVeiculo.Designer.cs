@@ -186,11 +186,5 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.BindingSource pIM1DataSetBindingSource;
 		private System.Windows.Forms.BindingSource tBCarrosBindingSource;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idCarroDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn marcaDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn corDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn placaDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn chassiDataGridViewTextBoxColumn;
 	}
 }

@@ -298,6 +298,38 @@
     <Compile Include="Migrations\20190716025011_AdicionandoMarcaseModelos.designer.cs">
       <DependentUpon>20190716025011_AdicionandoMarcaseModelos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20190716195318_EdicaoClasseCarros.cs" />
+    <Compile Include="Migrations\20190716195318_EdicaoClasseCarros.designer.cs">
+      <DependentUpon>20190716195318_EdicaoClasseCarros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190716225311_ControleDePatio.cs" />
+    <Compile Include="Migrations\20190716225311_ControleDePatio.designer.cs">
+      <DependentUpon>20190716225311_ControleDePatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190716232255_ControleDePatio1.cs" />
+    <Compile Include="Migrations\20190716232255_ControleDePatio1.designer.cs">
+      <DependentUpon>20190716232255_ControleDePatio1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190716233234_ControleDePatio2.cs" />
+    <Compile Include="Migrations\20190716233234_ControleDePatio2.designer.cs">
+      <DependentUpon>20190716233234_ControleDePatio2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190717003310_ControleDePatio3.cs" />
+    <Compile Include="Migrations\20190717003310_ControleDePatio3.designer.cs">
+      <DependentUpon>20190717003310_ControleDePatio3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190717022757_ControleDePatio4.cs" />
+    <Compile Include="Migrations\20190717022757_ControleDePatio4.designer.cs">
+      <DependentUpon>20190717022757_ControleDePatio4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190717023019_ControleDePatio5.cs" />
+    <Compile Include="Migrations\20190717023019_ControleDePatio5.designer.cs">
+      <DependentUpon>20190717023019_ControleDePatio5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190717061326_ControleEstoque.cs" />
+    <Compile Include="Migrations\20190717061326_ControleEstoque.designer.cs">
+      <DependentUpon>20190717061326_ControleEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Abastecimentos.cs" />
     <Compile Include="Models\Cnh.cs" />
     <Compile Include="Definicoes.cs" />
@@ -316,11 +348,14 @@
     </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="LocadoraContext.cs" />
+    <Compile Include="Models\ControlePatio.cs" />
+    <Compile Include="Models\Despesas.cs" />
     <Compile Include="Models\Endereco.cs" />
-    <Compile Include="Models\EnderecoPessoa.cs" />
+    <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\Obrigacoes.cs" />
     <Compile Include="Models\Sinistros.cs" />
-    <Compile Include="Models\Veiculos.cs" />
+    <Compile Include="Models\TipoDespesa.cs" />
+    <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Teste.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -485,7 +520,6 @@
     <Compile Include="Arrumar\Contratosinistros.cs" />
     <Compile Include="Arrumar\Contratoviagens.cs" />
     <Compile Include="Models\Cor.cs" />
-    <Compile Include="Arrumar\Entradasaida.cs" />
     <Compile Include="Models\Funcionarios.cs" />
     <Compile Include="Models\Manutencao.cs" />
     <Compile Include="Arrumar\Manutencaopeca.cs" />
@@ -627,7 +661,11 @@
       <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\Forms.Models.Cliente.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.ControlePatio.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Despesas.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Estoque.datasource" />
     <None Include="Properties\DataSources\Forms.Models.Funcionarios.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Veiculo.datasource" />
     <None Include="Teste.xsc">
       <DependentUpon>Teste.xsd</DependentUpon>
     </None>

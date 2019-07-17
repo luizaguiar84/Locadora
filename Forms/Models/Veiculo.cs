@@ -5,11 +5,11 @@ namespace Forms.Models
 	using System;
 	using System.Collections.Generic;
 
-	public class Veiculos
+	public class Veiculo
 	{
-		public Veiculos()
+		public Veiculo()
 		{
-			this.Cor = new Cor();
+			//this.Cor = new Cor();
 			//this.contratocarro1 = new HashSet<Contratocarro>();
 			//this.entradasaida = new HashSet<Entradasaida>();
 
@@ -21,7 +21,7 @@ namespace Forms.Models
 		public string Modelo { get; set; }
 		public string AnoModelo { get; set; }
 		public int Portas { get; set; }
-		public Cor Cor { get; set; }
+		public string Cor { get; set; }
 		public string Placa { get; set; }
 		public string Renavam { get; set; }
 		public string Chassi { get; set; }
@@ -31,6 +31,7 @@ namespace Forms.Models
 		public string Combustivel { get; set; }
 		public string ValorAtual { get; set; }
 		public decimal ValorDiaria { get; set; }
+		public string Observacoes { get; set; }
 
 		public DateTime? DataAquisicao { get; set; }
 
@@ -39,6 +40,8 @@ namespace Forms.Models
 		public sbyte? VidroEletrico { get; set; }
 		public sbyte? AirBag { get; set; }
 		public sbyte? Abs { get; set; }
+
+		public int PneuId { get; set; }
 
 		public int CONTRATOCARRO_IDCONTRATOCARRO { get; set; }
 		public int MANUTENCAO_IDMANUTENCAO { get; set; }

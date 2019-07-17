@@ -9,7 +9,6 @@ namespace Forms.Models
     {
         public Cliente()
         {
-			//this.contratos = new HashSet<Contratos>();
 			this.Cnh = new Cnh();
 			this.Endereco = new Endereco();
         }

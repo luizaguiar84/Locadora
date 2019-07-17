@@ -32,15 +32,15 @@
 			this.btnAddMotorista = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.txtCnh = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.txtCategoria = new System.Windows.Forms.TextBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.maskedEmitida = new System.Windows.Forms.MaskedTextBox();
 			this.lblEmitida = new System.Windows.Forms.Label();
 			this.maskedValidade = new System.Windows.Forms.MaskedTextBox();
 			this.lblValidade = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.comboMotoristas = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// btnAddMotorista
@@ -71,12 +71,12 @@
 			this.label2.TabIndex = 4;
 			this.label2.Text = "Número da CNH:";
 			// 
-			// textBox2
+			// txtCnh
 			// 
-			this.textBox2.Location = new System.Drawing.Point(15, 70);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(219, 20);
-			this.textBox2.TabIndex = 5;
+			this.txtCnh.Location = new System.Drawing.Point(15, 70);
+			this.txtCnh.Name = "txtCnh";
+			this.txtCnh.Size = new System.Drawing.Size(219, 20);
+			this.txtCnh.TabIndex = 5;
 			// 
 			// label3
 			// 
@@ -87,13 +87,13 @@
 			this.label3.TabIndex = 6;
 			this.label3.Text = "Categoria:";
 			// 
-			// textBox3
+			// txtCategoria
 			// 
-			this.textBox3.Location = new System.Drawing.Point(240, 70);
-			this.textBox3.MaxLength = 2;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(39, 20);
-			this.textBox3.TabIndex = 7;
+			this.txtCategoria.Location = new System.Drawing.Point(240, 70);
+			this.txtCategoria.MaxLength = 2;
+			this.txtCategoria.Name = "txtCategoria";
+			this.txtCategoria.Size = new System.Drawing.Size(39, 20);
+			this.txtCategoria.TabIndex = 7;
 			// 
 			// button3
 			// 
@@ -149,28 +149,29 @@
 			this.lblValidade.TabIndex = 242;
 			this.lblValidade.Text = "Validade:";
 			// 
-			// comboBox1
+			// comboMotoristas
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(15, 30);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(264, 21);
-			this.comboBox1.TabIndex = 246;
+			this.comboMotoristas.FormattingEnabled = true;
+			this.comboMotoristas.Location = new System.Drawing.Point(15, 30);
+			this.comboMotoristas.Name = "comboMotoristas";
+			this.comboMotoristas.Size = new System.Drawing.Size(264, 21);
+			this.comboMotoristas.TabIndex = 246;
+			this.comboMotoristas.SelectedIndexChanged += new System.EventHandler(this.comboMotoristas_SelectedIndexChanged);
 			// 
 			// FormCadastrarMotorista
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(329, 213);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.comboMotoristas);
 			this.Controls.Add(this.maskedEmitida);
 			this.Controls.Add(this.lblEmitida);
 			this.Controls.Add(this.maskedValidade);
 			this.Controls.Add(this.lblValidade);
 			this.Controls.Add(this.button3);
-			this.Controls.Add(this.textBox3);
+			this.Controls.Add(this.txtCategoria);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.txtCnh);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnAddMotorista);
@@ -188,14 +189,14 @@
 		private System.Windows.Forms.Button btnAddMotorista;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox txtCnh;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox txtCategoria;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.MaskedTextBox maskedEmitida;
 		private System.Windows.Forms.Label lblEmitida;
 		private System.Windows.Forms.MaskedTextBox maskedValidade;
 		private System.Windows.Forms.Label lblValidade;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox comboMotoristas;
 	}
 }

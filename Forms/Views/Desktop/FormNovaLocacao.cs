@@ -25,7 +25,7 @@ namespace Forms
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-			FormCadastrarNovoVeiculo formCadastrarNovoVeiculo = new FormCadastrarNovoVeiculo();
+			FormCadastrarVeiculo formCadastrarNovoVeiculo = new FormCadastrarVeiculo();
 			formCadastrarNovoVeiculo.ControlBox = true;
 			formCadastrarNovoVeiculo.Show();
 		}

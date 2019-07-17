@@ -53,26 +53,15 @@ namespace Forms
 		{
 			var cliente = new Cliente();
 
-			if (txtId.Text != "")
-			{
-				using (var contexto = new LocadoraContext())
-				{
-					int id = Convert.ToInt32(txtId.Text);
+			cliente = BuscaClienteBd();
 
-					var _cliente = contexto.Cliente
-								.Where(c => c.Id == id)
-									.Single();
-				cliente = _cliente;
-				}
-			}
-			
 			if (cliente != null)
 			{
-				if (radioPF.Checked == true)
+				if (cliente.TipoCliente == "PF")
 				{
 					AtualizarPf(cliente);
 				}
-				if (radioPj.Checked == true)
+				else
 				{
 					AtualizarPj(cliente);
 				}
@@ -89,7 +78,24 @@ namespace Forms
 				}
 			}
 		}
-		
+
+		private Cliente BuscaClienteBd()
+		{
+			if (txtId.Text != "")
+			{
+				using (var contexto = new LocadoraContext())
+				{
+					int id = Convert.ToInt32(txtId.Text);
+
+					var _cliente = contexto.Cliente
+								.Where(c => c.Id == id)
+									.Single();
+					cliente = _cliente;
+				}
+			}
+
+			return cliente;
+		}
 
 		private void TxtNascimento_Leave(object sender, EventArgs e)
 			{
@@ -235,11 +241,16 @@ namespace Forms
 
 				MessageBox.Show("Cadastro Atualizado com sucesso!");
 
-				this.tabCadastro.Controls.LimparTextBoxes();
-				this.groupEndereco.Controls.LimparTextBoxes();
-				this.checkAtivo.Checked = true;
-				this.lblNome.Focus();
+				LimpaTela();
 			}
+		}
+
+		private void LimpaTela()
+		{
+			this.tabCadastro.Controls.LimparTextBoxes();
+			this.groupEndereco.Controls.LimparTextBoxes();
+			this.checkAtivo.Checked = true;
+			this.lblNome.Focus();
 		}
 
 		private void AtualizarPj(Cliente c)
@@ -289,10 +300,8 @@ namespace Forms
 					contexto.Cliente.Update(c);
 					contexto.SaveChanges();
 				}
-				this.tabCadastro.Controls.LimparTextBoxes();
-				this.groupEndereco.Controls.LimparTextBoxes();
-				this.checkAtivo.Checked = true;
-				this.lblNome.Focus();
+
+				LimpaTela();
 			}
 		}
 
@@ -341,10 +350,7 @@ namespace Forms
 					contexto.Cliente.Add(c);
 					contexto.SaveChanges();
 				}
-				this.tabCadastro.Controls.LimparTextBoxes();
-				this.groupEndereco.Controls.LimparTextBoxes();
-				this.checkAtivo.Checked = true;
-				this.lblNome.Focus();
+				LimpaTela();
 			}
 		}
 
@@ -418,10 +424,7 @@ namespace Forms
 
 				MessageBox.Show("Cadastro Efetuado com sucesso!");
 
-				this.tabCadastro.Controls.LimparTextBoxes();
-				this.groupEndereco.Controls.LimparTextBoxes();
-				this.checkAtivo.Checked = true;
-				this.lblNome.Focus();
+				LimpaTela();
 			}
 		}
 
@@ -584,5 +587,6 @@ namespace Forms
 			lblTelRes.Hide();
 			txtTelRes.Hide();
 		}
+
 	}
 }

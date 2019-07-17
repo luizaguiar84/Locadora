@@ -4,14 +4,16 @@ using Forms.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Forms.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20190716225311_ControleDePatio")]
+    partial class ControleDePatio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,11 +158,11 @@ namespace Forms.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClienteId");
+                    b.Property<int?>("ClienteId");
 
                     b.Property<string>("EstadoRetorno");
 
-                    b.Property<int>("KmRetorno");
+                    b.Property<string>("KmRetorno");
 
                     b.Property<int>("KmSaida");
 
@@ -172,19 +174,19 @@ namespace Forms.Migrations
 
                     b.Property<string>("ObservacoesSaida");
 
-                    b.Property<string>("Placa");
-
                     b.Property<string>("RecolhidoRetorno");
 
                     b.Property<DateTime?>("RetornoPatio");
 
                     b.Property<DateTime?>("SaidaPatio");
 
-                    b.Property<short?>("Status");
-
-                    b.Property<int>("VeiculoId");
+                    b.Property<int?>("VeiculoId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("VeiculoId");
 
                     b.ToTable("ControlePatio");
                 });
@@ -198,29 +200,6 @@ namespace Forms.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cor");
-                });
-
-            modelBuilder.Entity("Forms.Models.Despesas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Data");
-
-                    b.Property<string>("Descricao");
-
-                    b.Property<short>("Status");
-
-                    b.Property<int?>("TipoDespesaId");
-
-                    b.Property<decimal>("Valor");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TipoDespesaId");
-
-                    b.ToTable("Despesas");
                 });
 
             modelBuilder.Entity("Forms.Models.Endereco", b =>
@@ -253,35 +232,6 @@ namespace Forms.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Endereco");
-                });
-
-            modelBuilder.Entity("Forms.Models.Estoque", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DataAdicao");
-
-                    b.Property<DateTime?>("DataSaida");
-
-                    b.Property<string>("Descricao");
-
-                    b.Property<string>("IncluidoPor");
-
-                    b.Property<string>("Observacoes");
-
-                    b.Property<string>("Peca");
-
-                    b.Property<int>("Quantidade");
-
-                    b.Property<string>("RetiradoPor");
-
-                    b.Property<decimal>("ValorUnitario");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Estoque");
                 });
 
             modelBuilder.Entity("Forms.Models.Funcionarios", b =>
@@ -465,27 +415,6 @@ namespace Forms.Migrations
                     b.ToTable("Pecas");
                 });
 
-            modelBuilder.Entity("Forms.Models.Pneus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("KmAtual");
-
-                    b.Property<int>("KmInicial");
-
-                    b.Property<string>("Marca");
-
-                    b.Property<string>("Modelo");
-
-                    b.Property<int>("VeiculoId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pneus");
-                });
-
             modelBuilder.Entity("Forms.Models.Sinistros", b =>
                 {
                     b.Property<int>("Id")
@@ -522,19 +451,6 @@ namespace Forms.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teste");
-                });
-
-            modelBuilder.Entity("Forms.Models.TipoDespesa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Tipo");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TipoDespesa");
                 });
 
             modelBuilder.Entity("Forms.Models.Usuarios", b =>
@@ -592,8 +508,6 @@ namespace Forms.Migrations
 
                     b.Property<string>("Placa");
 
-                    b.Property<int>("PneuId");
-
                     b.Property<int>("Portas");
 
                     b.Property<int>("Quilometragem");
@@ -624,11 +538,15 @@ namespace Forms.Migrations
                         .HasForeignKey("EnderecoId");
                 });
 
-            modelBuilder.Entity("Forms.Models.Despesas", b =>
+            modelBuilder.Entity("Forms.Models.ControlePatio", b =>
                 {
-                    b.HasOne("Forms.Models.TipoDespesa", "TipoDespesa")
+                    b.HasOne("Forms.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("TipoDespesaId");
+                        .HasForeignKey("ClienteId");
+
+                    b.HasOne("Forms.Models.Veiculo", "Veiculo")
+                        .WithMany()
+                        .HasForeignKey("VeiculoId");
                 });
 
             modelBuilder.Entity("Forms.Models.Funcionarios", b =>

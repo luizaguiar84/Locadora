@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forms.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,26 @@ namespace Forms.Views.Desktop
 
 		private void FormCadastrarMotorista_Load(object sender, EventArgs e)
 		{
+			CarregaMotoristas();
+		}
+
+		private void CarregaMotoristas()
+		{
+			using (var repo = new LocadoraContext())
+			{
+				var motoristas = repo.Cliente.ToList();
+				comboMotoristas.DataSource = motoristas;
+				comboMotoristas.DisplayMember = "Nome";
+			}
+		}
+
+		private void comboMotoristas_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Cliente motorista = (Cliente)comboMotoristas.SelectedItem;
+			txtCnh.Text = motorista.Cnh.Numero;
+			txtCategoria.Text = motorista.Cnh.Categoria;
+			//maskedEmitida.Text = motorista.Cnh.Emissao.Value.ToString();
+			//maskedValidade.Text = motorista.Cnh.Validade.Value.ToString();
 
 		}
 	}

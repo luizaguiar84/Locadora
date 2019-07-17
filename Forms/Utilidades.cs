@@ -89,6 +89,18 @@ namespace Forms
 		}
 
 		/// <summary>
+		/// Aceitar apenas letras no campo.
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <param name="e"></param>
+		public static void IsLetras(this object obj, KeyPressEventArgs e)
+		{
+			if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar)))
+				e.Handled = true;
+
+		}
+
+		/// <summary>
 		/// Método para limpar os TextBoxes
 		/// </summary>
 		/// <param name="controles">Selecione os controles a apagar (nao esqueça os que estao dentro dos grids</param>

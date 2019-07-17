@@ -321,10 +321,6 @@
 		private System.Windows.Forms.TextBox txtPesquisa;
 		private System.Windows.Forms.Button btnPesquisar;
 		private System.Windows.Forms.Label lblFiltro;
-		private System.Windows.Forms.DataGridViewTextBoxColumn iDClienteDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn rGDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.BindingSource clienteBindingSource;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Id;

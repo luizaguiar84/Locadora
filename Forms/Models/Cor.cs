@@ -11,7 +11,9 @@ namespace Forms.Models
 			PRETO,
 			VERMELHO,
 			VERDE,
-			PRATA
+			PRATA,
+			BRANCO,
+			CINZA
 		} 
 	}
 }

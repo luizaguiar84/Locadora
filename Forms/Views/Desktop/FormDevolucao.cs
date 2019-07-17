@@ -29,7 +29,7 @@ namespace Forms.Views.Desktop
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			FormCadastrarNovoVeiculo formCadastrarNovoVeiculo = new FormCadastrarNovoVeiculo();
+			FormCadastrarVeiculo formCadastrarNovoVeiculo = new FormCadastrarVeiculo();
 			formCadastrarNovoVeiculo.ControlBox = true;
 			formCadastrarNovoVeiculo.TabCadastroVeiculos.SelectTab(3);
 			formCadastrarNovoVeiculo.Show();

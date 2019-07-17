@@ -1,6 +1,6 @@
 ﻿namespace Forms
 {
-	partial class FormCadastrarNovoVeiculo
+	partial class FormCadastrarVeiculo
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,9 +28,15 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarNovoVeiculo));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarVeiculo));
 			this.TabCadastroVeiculos = new System.Windows.Forms.TabControl();
 			this.tabInformacoes = new System.Windows.Forms.TabPage();
+			this.groupOpcionais = new System.Windows.Forms.GroupBox();
+			this.checkAirBag = new System.Windows.Forms.CheckBox();
+			this.checkAbs = new System.Windows.Forms.CheckBox();
+			this.checkArCond = new System.Windows.Forms.CheckBox();
+			this.checkVidroEletrico = new System.Windows.Forms.CheckBox();
+			this.checkDirecaoHidraulica = new System.Windows.Forms.CheckBox();
 			this.comboAno = new System.Windows.Forms.ComboBox();
 			this.txtValorDiaria = new System.Windows.Forms.TextBox();
 			this.label29 = new System.Windows.Forms.Label();
@@ -42,14 +48,12 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.numericPortas = new System.Windows.Forms.NumericUpDown();
 			this.label3 = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.comboStatus = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtId = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtOdometro = new System.Windows.Forms.TextBox();
 			this.lblOdometro = new System.Windows.Forms.Label();
-			this.lblOpcionais = new System.Windows.Forms.Label();
-			this.checkedOpcionais = new System.Windows.Forms.CheckedListBox();
 			this.txtRenavam = new System.Windows.Forms.TextBox();
 			this.lblRenavam = new System.Windows.Forms.Label();
 			this.lblObservacoes = new System.Windows.Forms.Label();
@@ -161,8 +165,12 @@
 			this.label25 = new System.Windows.Forms.Label();
 			this.maskedDataObrigacoes = new System.Windows.Forms.MaskedTextBox();
 			this.label24 = new System.Windows.Forms.Label();
+			this.txtAnoModelo = new System.Windows.Forms.TextBox();
+			this.txtModelo = new System.Windows.Forms.TextBox();
+			this.txtMontadora = new System.Windows.Forms.TextBox();
 			this.TabCadastroVeiculos.SuspendLayout();
 			this.tabInformacoes.SuspendLayout();
+			this.groupOpcionais.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPortas)).BeginInit();
 			this.tabAbastecimentos.SuspendLayout();
@@ -201,6 +209,10 @@
 			// tabInformacoes
 			// 
 			this.tabInformacoes.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.tabInformacoes.Controls.Add(this.txtAnoModelo);
+			this.tabInformacoes.Controls.Add(this.txtModelo);
+			this.tabInformacoes.Controls.Add(this.txtMontadora);
+			this.tabInformacoes.Controls.Add(this.groupOpcionais);
 			this.tabInformacoes.Controls.Add(this.comboAno);
 			this.tabInformacoes.Controls.Add(this.txtValorDiaria);
 			this.tabInformacoes.Controls.Add(this.label29);
@@ -212,14 +224,12 @@
 			this.tabInformacoes.Controls.Add(this.label4);
 			this.tabInformacoes.Controls.Add(this.numericPortas);
 			this.tabInformacoes.Controls.Add(this.label3);
-			this.tabInformacoes.Controls.Add(this.comboBox1);
+			this.tabInformacoes.Controls.Add(this.comboStatus);
 			this.tabInformacoes.Controls.Add(this.label2);
-			this.tabInformacoes.Controls.Add(this.textBox1);
+			this.tabInformacoes.Controls.Add(this.txtId);
 			this.tabInformacoes.Controls.Add(this.label1);
 			this.tabInformacoes.Controls.Add(this.txtOdometro);
 			this.tabInformacoes.Controls.Add(this.lblOdometro);
-			this.tabInformacoes.Controls.Add(this.lblOpcionais);
-			this.tabInformacoes.Controls.Add(this.checkedOpcionais);
 			this.tabInformacoes.Controls.Add(this.txtRenavam);
 			this.tabInformacoes.Controls.Add(this.lblRenavam);
 			this.tabInformacoes.Controls.Add(this.lblObservacoes);
@@ -244,6 +254,70 @@
 			this.tabInformacoes.TabIndex = 0;
 			this.tabInformacoes.Text = "Informações do veículo";
 			// 
+			// groupOpcionais
+			// 
+			this.groupOpcionais.Controls.Add(this.checkAirBag);
+			this.groupOpcionais.Controls.Add(this.checkAbs);
+			this.groupOpcionais.Controls.Add(this.checkArCond);
+			this.groupOpcionais.Controls.Add(this.checkVidroEletrico);
+			this.groupOpcionais.Controls.Add(this.checkDirecaoHidraulica);
+			this.groupOpcionais.Location = new System.Drawing.Point(603, 43);
+			this.groupOpcionais.Name = "groupOpcionais";
+			this.groupOpcionais.Size = new System.Drawing.Size(132, 139);
+			this.groupOpcionais.TabIndex = 89;
+			this.groupOpcionais.TabStop = false;
+			this.groupOpcionais.Text = "Opcionais";
+			// 
+			// checkAirBag
+			// 
+			this.checkAirBag.AutoSize = true;
+			this.checkAirBag.Location = new System.Drawing.Point(6, 110);
+			this.checkAirBag.Name = "checkAirBag";
+			this.checkAirBag.Size = new System.Drawing.Size(60, 17);
+			this.checkAirBag.TabIndex = 89;
+			this.checkAirBag.Text = "Air Bag";
+			this.checkAirBag.UseVisualStyleBackColor = true;
+			// 
+			// checkAbs
+			// 
+			this.checkAbs.AutoSize = true;
+			this.checkAbs.Location = new System.Drawing.Point(6, 88);
+			this.checkAbs.Name = "checkAbs";
+			this.checkAbs.Size = new System.Drawing.Size(47, 17);
+			this.checkAbs.TabIndex = 88;
+			this.checkAbs.Text = "ABS";
+			this.checkAbs.UseVisualStyleBackColor = true;
+			// 
+			// checkArCond
+			// 
+			this.checkArCond.AutoSize = true;
+			this.checkArCond.Location = new System.Drawing.Point(6, 22);
+			this.checkArCond.Name = "checkArCond";
+			this.checkArCond.Size = new System.Drawing.Size(104, 17);
+			this.checkArCond.TabIndex = 85;
+			this.checkArCond.Text = "Ar Condicionado";
+			this.checkArCond.UseVisualStyleBackColor = true;
+			// 
+			// checkVidroEletrico
+			// 
+			this.checkVidroEletrico.AutoSize = true;
+			this.checkVidroEletrico.Location = new System.Drawing.Point(6, 65);
+			this.checkVidroEletrico.Name = "checkVidroEletrico";
+			this.checkVidroEletrico.Size = new System.Drawing.Size(88, 17);
+			this.checkVidroEletrico.TabIndex = 87;
+			this.checkVidroEletrico.Text = "Vidro Elétrico";
+			this.checkVidroEletrico.UseVisualStyleBackColor = true;
+			// 
+			// checkDirecaoHidraulica
+			// 
+			this.checkDirecaoHidraulica.AutoSize = true;
+			this.checkDirecaoHidraulica.Location = new System.Drawing.Point(6, 44);
+			this.checkDirecaoHidraulica.Name = "checkDirecaoHidraulica";
+			this.checkDirecaoHidraulica.Size = new System.Drawing.Size(113, 17);
+			this.checkDirecaoHidraulica.TabIndex = 86;
+			this.checkDirecaoHidraulica.Text = "Direção Hidraulica";
+			this.checkDirecaoHidraulica.UseVisualStyleBackColor = true;
+			// 
 			// comboAno
 			// 
 			this.comboAno.FormattingEnabled = true;
@@ -251,7 +325,7 @@
 			this.comboAno.Name = "comboAno";
 			this.comboAno.Size = new System.Drawing.Size(121, 21);
 			this.comboAno.TabIndex = 84;
-			this.comboAno.TextChanged += new System.EventHandler(this.comboAno_TextChanged);
+			this.comboAno.SelectedIndexChanged += new System.EventHandler(this.comboAno_SelectedIndexChanged);
 			// 
 			// txtValorDiaria
 			// 
@@ -368,16 +442,16 @@
 			this.label3.TabIndex = 71;
 			this.label3.Text = "Combustível";
 			// 
-			// comboBox1
+			// comboStatus
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
+			this.comboStatus.FormattingEnabled = true;
+			this.comboStatus.Items.AddRange(new object[] {
             "ATIVO",
             "MECÂNICA"});
-			this.comboBox1.Location = new System.Drawing.Point(155, 143);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(77, 21);
-			this.comboBox1.TabIndex = 70;
+			this.comboStatus.Location = new System.Drawing.Point(155, 143);
+			this.comboStatus.Name = "comboStatus";
+			this.comboStatus.Size = new System.Drawing.Size(77, 21);
+			this.comboStatus.TabIndex = 70;
 			// 
 			// label2
 			// 
@@ -388,14 +462,14 @@
 			this.label2.TabIndex = 69;
 			this.label2.Text = "Status";
 			// 
-			// textBox1
+			// txtId
 			// 
-			this.textBox1.Location = new System.Drawing.Point(18, 60);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(47, 20);
-			this.textBox1.TabIndex = 68;
-			this.textBox1.TabStop = false;
+			this.txtId.Location = new System.Drawing.Point(18, 60);
+			this.txtId.Name = "txtId";
+			this.txtId.ReadOnly = true;
+			this.txtId.Size = new System.Drawing.Size(47, 20);
+			this.txtId.TabIndex = 68;
+			this.txtId.TabStop = false;
 			// 
 			// label1
 			// 
@@ -413,6 +487,7 @@
 			this.txtOdometro.Name = "txtOdometro";
 			this.txtOdometro.Size = new System.Drawing.Size(69, 20);
 			this.txtOdometro.TabIndex = 66;
+			this.txtOdometro.Text = "0";
 			this.txtOdometro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdometro_KeyPress);
 			// 
 			// lblOdometro
@@ -423,29 +498,6 @@
 			this.lblOdometro.Size = new System.Drawing.Size(53, 13);
 			this.lblOdometro.TabIndex = 65;
 			this.lblOdometro.Text = "Odômetro";
-			// 
-			// lblOpcionais
-			// 
-			this.lblOpcionais.AutoSize = true;
-			this.lblOpcionais.Location = new System.Drawing.Point(594, 40);
-			this.lblOpcionais.Name = "lblOpcionais";
-			this.lblOpcionais.Size = new System.Drawing.Size(54, 13);
-			this.lblOpcionais.TabIndex = 64;
-			this.lblOpcionais.Text = "Opcionais";
-			// 
-			// checkedOpcionais
-			// 
-			this.checkedOpcionais.FormattingEnabled = true;
-			this.checkedOpcionais.Items.AddRange(new object[] {
-            "Ar Condicionado",
-            "Direção Hidráulica",
-            "Vidro Elétrico",
-            "Air Bag",
-            "Freios ABS"});
-			this.checkedOpcionais.Location = new System.Drawing.Point(594, 59);
-			this.checkedOpcionais.Name = "checkedOpcionais";
-			this.checkedOpcionais.Size = new System.Drawing.Size(141, 79);
-			this.checkedOpcionais.TabIndex = 63;
 			// 
 			// txtRenavam
 			// 
@@ -498,15 +550,28 @@
 			this.comboMontadora.Size = new System.Drawing.Size(129, 21);
 			this.comboMontadora.Sorted = true;
 			this.comboMontadora.TabIndex = 44;
-			this.comboMontadora.TextChanged += new System.EventHandler(this.comboMontadora_TextChanged);
-			this.comboMontadora.Leave += new System.EventHandler(this.comboMontadora_Leave);
+			this.comboMontadora.SelectedIndexChanged += new System.EventHandler(this.comboMontadora_SelectedIndexChanged);
 			// 
 			// comboCor
 			// 
 			this.comboCor.FormattingEnabled = true;
+			this.comboCor.Items.AddRange(new object[] {
+            "AMARELO",
+            "AZUL",
+            "BEGE",
+            "BRANCO",
+            "CINZA",
+            "LARANJA",
+            "MARROM",
+            "OURO",
+            "PRATA",
+            "PRETO",
+            "VERDE",
+            "VERMELHO"});
 			this.comboCor.Location = new System.Drawing.Point(79, 103);
 			this.comboCor.Name = "comboCor";
 			this.comboCor.Size = new System.Drawing.Size(92, 21);
+			this.comboCor.Sorted = true;
 			this.comboCor.TabIndex = 51;
 			// 
 			// lblAnoMod
@@ -554,7 +619,6 @@
 			this.lblModelo.Size = new System.Drawing.Size(42, 13);
 			this.lblModelo.TabIndex = 48;
 			this.lblModelo.Text = "Modelo";
-			this.lblModelo.Click += new System.EventHandler(this.lblModelo_Click);
 			// 
 			// lblPlaca
 			// 
@@ -600,7 +664,6 @@
 			this.comboModelo.Size = new System.Drawing.Size(247, 21);
 			this.comboModelo.TabIndex = 56;
 			this.comboModelo.SelectedIndexChanged += new System.EventHandler(this.comboModelo_SelectedIndexChanged);
-			this.comboModelo.TextChanged += new System.EventHandler(this.comboModelo_TextChanged);
 			// 
 			// tabAbastecimentos
 			// 
@@ -1470,21 +1533,48 @@
 			this.label24.TabIndex = 0;
 			this.label24.Text = "Data:";
 			// 
-			// FormCadastrarNovoVeiculo
+			// txtAnoModelo
 			// 
+			this.txtAnoModelo.Location = new System.Drawing.Point(462, 60);
+			this.txtAnoModelo.Name = "txtAnoModelo";
+			this.txtAnoModelo.ReadOnly = true;
+			this.txtAnoModelo.Size = new System.Drawing.Size(129, 20);
+			this.txtAnoModelo.TabIndex = 164;
+			// 
+			// txtModelo
+			// 
+			this.txtModelo.Location = new System.Drawing.Point(205, 60);
+			this.txtModelo.Name = "txtModelo";
+			this.txtModelo.ReadOnly = true;
+			this.txtModelo.Size = new System.Drawing.Size(251, 20);
+			this.txtModelo.TabIndex = 163;
+			// 
+			// txtMontadora
+			// 
+			this.txtMontadora.Location = new System.Drawing.Point(82, 60);
+			this.txtMontadora.Name = "txtMontadora";
+			this.txtMontadora.ReadOnly = true;
+			this.txtMontadora.Size = new System.Drawing.Size(117, 20);
+			this.txtMontadora.TabIndex = 162;
+			// 
+			// FormCadastrarVeiculo
+			// 
+			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(783, 418);
 			this.ControlBox = false;
 			this.Controls.Add(this.TabCadastroVeiculos);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "FormCadastrarNovoVeiculo";
+			this.Name = "FormCadastrarVeiculo";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
 			this.Text = "Cadastro de Veículos";
 			this.Load += new System.EventHandler(this.FormCadastrarNovoVeiculo_Load);
 			this.TabCadastroVeiculos.ResumeLayout(false);
 			this.tabInformacoes.ResumeLayout(false);
 			this.tabInformacoes.PerformLayout();
+			this.groupOpcionais.ResumeLayout(false);
+			this.groupOpcionais.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericLugares)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPortas)).EndInit();
 			this.tabAbastecimentos.ResumeLayout(false);
@@ -1522,14 +1612,12 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.NumericUpDown numericPortas;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox comboStatus;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox txtId;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txtOdometro;
 		private System.Windows.Forms.Label lblOdometro;
-		private System.Windows.Forms.Label lblOpcionais;
-		private System.Windows.Forms.CheckedListBox checkedOpcionais;
 		private System.Windows.Forms.TextBox txtRenavam;
 		private System.Windows.Forms.Label lblRenavam;
 		private System.Windows.Forms.Label lblObservacoes;
@@ -1649,5 +1737,14 @@
 		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.TextBox txtCombustivel;
 		private System.Windows.Forms.ComboBox comboAno;
+		private System.Windows.Forms.GroupBox groupOpcionais;
+		private System.Windows.Forms.CheckBox checkAirBag;
+		private System.Windows.Forms.CheckBox checkAbs;
+		private System.Windows.Forms.CheckBox checkArCond;
+		private System.Windows.Forms.CheckBox checkVidroEletrico;
+		private System.Windows.Forms.CheckBox checkDirecaoHidraulica;
+		private System.Windows.Forms.TextBox txtAnoModelo;
+		private System.Windows.Forms.TextBox txtModelo;
+		private System.Windows.Forms.TextBox txtMontadora;
 	}
 }

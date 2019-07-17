@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forms.Views.Desktop;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +60,7 @@ namespace Forms
 
 		private void cadastrarNovoVeículoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FormCadastrarNovoVeiculo cadastrarNovoVeiculo = new FormCadastrarNovoVeiculo();
+			FormCadastrarVeiculo cadastrarNovoVeiculo = new FormCadastrarVeiculo();
 			cadastrarNovoVeiculo.MdiParent = this;
 			cadastrarNovoVeiculo.Show();
 
@@ -67,7 +68,7 @@ namespace Forms
 
 		private void editarExcluirVeículosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FormEditarVeiculo editarVeiculo = new FormEditarVeiculo();
+			var editarVeiculo = new FormEditarVeiculo();
 			editarVeiculo.MdiParent = this;
 			editarVeiculo.Show();
 		}
@@ -81,7 +82,7 @@ namespace Forms
 
 		private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FormCadastrarNovoVeiculo consultarVeiculo = new FormCadastrarNovoVeiculo();
+			FormCadastrarVeiculo consultarVeiculo = new FormCadastrarVeiculo();
 			consultarVeiculo.MdiParent = this;
 			consultarVeiculo.Show();
 		}
@@ -198,7 +199,7 @@ namespace Forms
 
 		private void registrarAlertaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FormCadastrarNovoVeiculo cadastrarNovoVeiculo = new FormCadastrarNovoVeiculo();
+			FormCadastrarVeiculo cadastrarNovoVeiculo = new FormCadastrarVeiculo();
 			cadastrarNovoVeiculo.MdiParent = this;
 			cadastrarNovoVeiculo.TabCadastroVeiculos.SelectTab(2);
 			cadastrarNovoVeiculo.ControlBox = true;
