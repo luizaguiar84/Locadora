@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -81,7 +80,6 @@
       <HintPath>dll\Correios.CEP.dll</HintPath>
     </Reference>
     <Reference Include="Devart.Data, Version=5.0.2158.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
-    <Reference Include="Devart.Data.MySql, Version=8.13.1366.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -93,15 +91,6 @@
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
@@ -140,9 +129,6 @@
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.16\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -285,341 +271,251 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LocadoraDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190712222233_MaisClasses.cs" />
-    <Compile Include="Migrations\20190712222233_MaisClasses.designer.cs">
-      <DependentUpon>20190712222233_MaisClasses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190716025011_AdicionandoMarcaseModelos.cs" />
-    <Compile Include="Migrations\20190716025011_AdicionandoMarcaseModelos.designer.cs">
-      <DependentUpon>20190716025011_AdicionandoMarcaseModelos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190716195318_EdicaoClasseCarros.cs" />
-    <Compile Include="Migrations\20190716195318_EdicaoClasseCarros.designer.cs">
-      <DependentUpon>20190716195318_EdicaoClasseCarros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190716225311_ControleDePatio.cs" />
-    <Compile Include="Migrations\20190716225311_ControleDePatio.designer.cs">
-      <DependentUpon>20190716225311_ControleDePatio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190716232255_ControleDePatio1.cs" />
-    <Compile Include="Migrations\20190716232255_ControleDePatio1.designer.cs">
-      <DependentUpon>20190716232255_ControleDePatio1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190716233234_ControleDePatio2.cs" />
-    <Compile Include="Migrations\20190716233234_ControleDePatio2.designer.cs">
-      <DependentUpon>20190716233234_ControleDePatio2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190717003310_ControleDePatio3.cs" />
-    <Compile Include="Migrations\20190717003310_ControleDePatio3.designer.cs">
-      <DependentUpon>20190717003310_ControleDePatio3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190717022757_ControleDePatio4.cs" />
-    <Compile Include="Migrations\20190717022757_ControleDePatio4.designer.cs">
-      <DependentUpon>20190717022757_ControleDePatio4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190717023019_ControleDePatio5.cs" />
-    <Compile Include="Migrations\20190717023019_ControleDePatio5.designer.cs">
-      <DependentUpon>20190717023019_ControleDePatio5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190717061326_ControleEstoque.cs" />
-    <Compile Include="Migrations\20190717061326_ControleEstoque.designer.cs">
-      <DependentUpon>20190717061326_ControleEstoque.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Abastecimentos.cs" />
-    <Compile Include="Models\Cnh.cs" />
-    <Compile Include="Definicoes.cs" />
-    <Compile Include="LocadoraDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190711222103_Inicial.cs" />
-    <Compile Include="Migrations\20190711222103_Inicial.designer.cs">
-      <DependentUpon>20190711222103_Inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20190712043833_teste.cs" />
-    <Compile Include="Migrations\20190712043833_teste.designer.cs">
-      <DependentUpon>20190712043833_teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
-    <Compile Include="LocadoraContext.cs" />
-    <Compile Include="Models\ControlePatio.cs" />
-    <Compile Include="Models\Despesas.cs" />
-    <Compile Include="Models\Endereco.cs" />
-    <Compile Include="Models\Estoque.cs" />
-    <Compile Include="Models\Obrigacoes.cs" />
-    <Compile Include="Models\Sinistros.cs" />
-    <Compile Include="Models\TipoDespesa.cs" />
-    <Compile Include="Models\Veiculo.cs" />
-    <Compile Include="Teste.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Teste.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Desktop\FormBuscaCarro.cs">
+    <Compile Include="Views\FormAddTipoDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaCarro.Designer.cs">
+    <Compile Include="Views\FormAddTipoDespesa.Designer.cs">
+      <DependentUpon>FormAddTipoDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormBuscaCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormBuscaCarro.Designer.cs">
       <DependentUpon>FormBuscaCarro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaCliente.cs">
+    <Compile Include="Views\FormBuscaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaCliente.Designer.cs">
+    <Compile Include="Views\FormBuscaCliente.Designer.cs">
       <DependentUpon>FormBuscaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaFuncionario.cs">
+    <Compile Include="Views\FormBuscaFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaFuncionario.Designer.cs">
+    <Compile Include="Views\FormBuscaFuncionario.Designer.cs">
       <DependentUpon>FormBuscaFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaLocacao.cs">
+    <Compile Include="Views\FormBuscaLocacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormBuscaLocacao.Designer.cs">
+    <Compile Include="Views\FormBuscaLocacao.Designer.cs">
       <DependentUpon>FormBuscaLocacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarCliente.cs">
+    <Compile Include="Views\FormCadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarCliente.Designer.cs">
+    <Compile Include="Views\FormCadastrarCliente.Designer.cs">
       <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarDespesa.cs">
+    <Compile Include="Views\FormCadastrarDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarDespesa.Designer.cs">
+    <Compile Include="Views\FormCadastrarDespesa.Designer.cs">
       <DependentUpon>FormCadastrarDespesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarFuncionario.cs">
+    <Compile Include="Views\FormCadastrarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarFuncionario.Designer.cs">
+    <Compile Include="Views\FormCadastrarFuncionario.Designer.cs">
       <DependentUpon>FormCadastrarFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarMotorista.cs">
+    <Compile Include="Views\FormCadastrarMotorista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarMotorista.Designer.cs">
+    <Compile Include="Views\FormCadastrarMotorista.Designer.cs">
       <DependentUpon>FormCadastrarMotorista.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormControleEstoque.cs">
+    <Compile Include="Views\FormControleEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormControleEstoque.Designer.cs">
+    <Compile Include="Views\FormControleEstoque.Designer.cs">
       <DependentUpon>FormControleEstoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarUsuario.cs">
+    <Compile Include="Views\FormCadastrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarUsuario.Designer.cs">
+    <Compile Include="Views\FormCadastrarUsuario.Designer.cs">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarVeiculo.cs">
+    <Compile Include="Views\FormCadastrarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormCadastrarVeiculo.Designer.cs">
+    <Compile Include="Views\FormCadastrarVeiculo.Designer.cs">
       <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormConsultarCliente.cs">
+    <Compile Include="Views\FormConsultarComprovantes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormConsultarCliente.Designer.cs">
-      <DependentUpon>FormConsultarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Desktop\FormConsultarComprovantes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Desktop\FormConsultarComprovantes.Designer.cs">
+    <Compile Include="Views\FormConsultarComprovantes.Designer.cs">
       <DependentUpon>FormConsultarComprovantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormConsultarVeiculo.cs">
+    <Compile Include="Views\FormControlePatio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormConsultarVeiculo.Designer.cs">
-      <DependentUpon>FormConsultarVeiculo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Desktop\FormControlePatio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Desktop\FormControlePatio.Designer.cs">
+    <Compile Include="Views\FormControlePatio.Designer.cs">
       <DependentUpon>FormControlePatio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormControlePneus.cs">
+    <Compile Include="Views\FormControlePneus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormControlePneus.Designer.cs">
+    <Compile Include="Views\FormControlePneus.Designer.cs">
       <DependentUpon>FormControlePneus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormControleUsuarios.cs">
+    <Compile Include="Views\FormControleUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormControleUsuarios.Designer.cs">
+    <Compile Include="Views\FormControleUsuarios.Designer.cs">
       <DependentUpon>FormControleUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormDevolucao.cs">
+    <Compile Include="Views\FormDespesasCarro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormDevolucao.Designer.cs">
+    <Compile Include="Views\FormDespesasCarro.Designer.cs">
+      <DependentUpon>FormDespesasCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormDevolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormDevolucao.Designer.cs">
       <DependentUpon>FormDevolucao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormEditarVeiculo.cs">
+    <Compile Include="Views\FormEditarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormEditarVeiculo.Designer.cs">
+    <Compile Include="Views\FormEditarVeiculo.Designer.cs">
       <DependentUpon>FormEditarVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormMonitoramentoVeiculo.cs">
+    <Compile Include="Views\FormMonitoramentoVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormMonitoramentoVeiculo.Designer.cs">
+    <Compile Include="Views\FormMonitoramentoVeiculo.Designer.cs">
       <DependentUpon>FormMonitoramentoVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormNovaLocacao.cs">
+    <Compile Include="Views\FormNovaLocacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormNovaLocacao.Designer.cs">
+    <Compile Include="Views\FormNovaLocacao.Designer.cs">
       <DependentUpon>FormNovaLocacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormPrincipal.cs">
+    <Compile Include="Views\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormPrincipal.Designer.cs">
+    <Compile Include="Views\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormLogin.cs">
+    <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormLogin.Designer.cs">
+    <Compile Include="Views\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormPrincipal1.cs">
+    <Compile Include="Views\FormPrincipal1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormPrincipal1.Designer.cs">
+    <Compile Include="Views\FormPrincipal1.Designer.cs">
       <DependentUpon>FormPrincipal1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormRelatorios.cs">
+    <Compile Include="Views\FormRelatorios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormRelatorios.Designer.cs">
+    <Compile Include="Views\FormRelatorios.Designer.cs">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Arrumar\Cargos.cs" />
-    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Arrumar\Contratocarro.cs" />
     <Compile Include="Arrumar\Contratopneus.cs" />
-    <Compile Include="Models\Contratos.cs" />
     <Compile Include="Arrumar\Contratoseguros.cs" />
     <Compile Include="Arrumar\Contratosinistros.cs" />
     <Compile Include="Arrumar\Contratoviagens.cs" />
-    <Compile Include="Models\Cor.cs" />
-    <Compile Include="Models\Funcionarios.cs" />
-    <Compile Include="Models\Manutencao.cs" />
     <Compile Include="Arrumar\Manutencaopeca.cs" />
-    <Compile Include="Models\Modelos.cs" />
-    <Compile Include="Models\Montadora.cs" />
-    <Compile Include="Models\Multas.cs" />
-    <Compile Include="Models\Pecas.cs" />
-    <Compile Include="Arrumar\Pneus.cs" />
-    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Desktop\FormSobre.cs">
+    <Compile Include="Views\FormSobre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormSobre.Designer.cs">
+    <Compile Include="Views\FormSobre.Designer.cs">
       <DependentUpon>FormSobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desktop\FormDefinicoes.cs">
+    <Compile Include="Views\FormDefinicoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desktop\FormDefinicoes.Designer.cs">
+    <Compile Include="Views\FormDefinicoes.Designer.cs">
       <DependentUpon>FormDefinicoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Teste.cs" />
-    <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Views\Desktop\FormBuscaCarro.resx">
+    <EmbeddedResource Include="Views\FormAddTipoDespesa.resx">
+      <DependentUpon>FormAddTipoDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormBuscaCarro.resx">
       <DependentUpon>FormBuscaCarro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormBuscaCliente.resx">
+    <EmbeddedResource Include="Views\FormBuscaCliente.resx">
       <DependentUpon>FormBuscaCliente.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormBuscaFuncionario.resx">
+    <EmbeddedResource Include="Views\FormBuscaFuncionario.resx">
       <DependentUpon>FormBuscaFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormBuscaLocacao.resx">
+    <EmbeddedResource Include="Views\FormBuscaLocacao.resx">
       <DependentUpon>FormBuscaLocacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormCadastrarCliente.resx">
+    <EmbeddedResource Include="Views\FormCadastrarCliente.resx">
       <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormCadastrarDespesa.resx">
+    <EmbeddedResource Include="Views\FormCadastrarDespesa.resx">
       <DependentUpon>FormCadastrarDespesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormCadastrarFuncionario.resx">
+    <EmbeddedResource Include="Views\FormCadastrarFuncionario.resx">
       <DependentUpon>FormCadastrarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormCadastrarMotorista.resx">
+    <EmbeddedResource Include="Views\FormCadastrarMotorista.resx">
       <DependentUpon>FormCadastrarMotorista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormCadastrarVeiculo.resx">
+    <EmbeddedResource Include="Views\FormCadastrarVeiculo.resx">
       <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormControleEstoque.resx">
+    <EmbeddedResource Include="Views\FormControleEstoque.resx">
       <DependentUpon>FormControleEstoque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormCadastrarUsuario.resx">
+    <EmbeddedResource Include="Views\FormCadastrarUsuario.resx">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormConsultarCliente.resx">
-      <DependentUpon>FormConsultarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormConsultarComprovantes.resx">
+    <EmbeddedResource Include="Views\FormConsultarComprovantes.resx">
       <DependentUpon>FormConsultarComprovantes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormConsultarVeiculo.resx">
-      <DependentUpon>FormConsultarVeiculo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormControlePatio.resx">
+    <EmbeddedResource Include="Views\FormControlePatio.resx">
       <DependentUpon>FormControlePatio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormControlePneus.resx">
+    <EmbeddedResource Include="Views\FormControlePneus.resx">
       <DependentUpon>FormControlePneus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormControleUsuarios.resx">
+    <EmbeddedResource Include="Views\FormControleUsuarios.resx">
       <DependentUpon>FormControleUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormDevolucao.resx">
+    <EmbeddedResource Include="Views\FormDespesasCarro.resx">
+      <DependentUpon>FormDespesasCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormDevolucao.resx">
       <DependentUpon>FormDevolucao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormEditarVeiculo.resx">
+    <EmbeddedResource Include="Views\FormEditarVeiculo.resx">
       <DependentUpon>FormEditarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormMonitoramentoVeiculo.resx">
+    <EmbeddedResource Include="Views\FormMonitoramentoVeiculo.resx">
       <DependentUpon>FormMonitoramentoVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormNovaLocacao.resx">
+    <EmbeddedResource Include="Views\FormNovaLocacao.resx">
       <DependentUpon>FormNovaLocacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormPrincipal.resx">
+    <EmbeddedResource Include="Views\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormLogin.resx">
+    <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormPrincipal1.resx">
+    <EmbeddedResource Include="Views\FormPrincipal1.resx">
       <DependentUpon>FormPrincipal1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormRelatorios.resx">
+    <EmbeddedResource Include="Views\FormRelatorios.resx">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -632,52 +528,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\Desktop\FormSobre.resx">
+    <EmbeddedResource Include="Views\FormSobre.resx">
       <DependentUpon>FormSobre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desktop\FormDefinicoes.resx">
+    <EmbeddedResource Include="Views\FormDefinicoes.resx">
       <DependentUpon>FormDefinicoes.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="LocadoraDataSet.xsc">
-      <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LocadoraDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LocadoraDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LocadoraDataSet.xss">
-      <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LocadoraDataSet1.xsc">
-      <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LocadoraDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LocadoraDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LocadoraDataSet1.xss">
-      <DependentUpon>LocadoraDataSet1.xsd</DependentUpon>
-    </None>
+    <None Include="Properties\DataSources\Forms.Models.Abastecimentos.datasource" />
     <None Include="Properties\DataSources\Forms.Models.Cliente.datasource" />
     <None Include="Properties\DataSources\Forms.Models.ControlePatio.datasource" />
     <None Include="Properties\DataSources\Forms.Models.Despesas.datasource" />
     <None Include="Properties\DataSources\Forms.Models.Estoque.datasource" />
     <None Include="Properties\DataSources\Forms.Models.Funcionarios.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Multas.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Obrigacoes.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Pneus.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Sinistros.datasource" />
+    <None Include="Properties\DataSources\Forms.Models.Usuarios.datasource" />
     <None Include="Properties\DataSources\Forms.Models.Veiculo.datasource" />
-    <None Include="Teste.xsc">
-      <DependentUpon>Teste.xsd</DependentUpon>
-    </None>
-    <None Include="Teste.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Teste.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Teste.xss">
-      <DependentUpon>Teste.xsd</DependentUpon>
-    </None>
-    <None Include="Views\Desktop\Forms_TemporaryKey.pfx" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -720,12 +588,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Classes\Classes.csproj">
+      <Project>{7fa5928d-8e1d-4323-9075-5bedb07a4c29}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
-  </Target>
 </Project>

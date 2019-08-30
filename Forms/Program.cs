@@ -1,9 +1,10 @@
-﻿using Forms.Models;
-using System;
-using System.Windows.Forms;
-
-namespace Forms
+﻿namespace FatCars
 {
+    using Classes;
+    using Classes.Models;
+    using System;
+	using System.Windows.Forms;
+
 
 	public static class Program
 	{
