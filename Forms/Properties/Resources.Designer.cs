@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Properties {
+namespace FatCars.Properties {
     using System;
     
     
