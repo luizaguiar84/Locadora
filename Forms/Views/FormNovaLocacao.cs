@@ -19,8 +19,6 @@ namespace FatCars
 		{
 			InitializeComponent();
 		}
-
-
 		private void Button2_Click(object sender, EventArgs e)
 		{
 			FormCadastrarCliente cadastrarCliente = new FormCadastrarCliente
@@ -30,7 +28,6 @@ namespace FatCars
 			cadastrarCliente.Show();
 
 		}
-
 		private void Button4_Click(object sender, EventArgs e)
 		{
 			FormCadastrarVeiculo formCadastrarNovoVeiculo = new FormCadastrarVeiculo
@@ -38,9 +35,7 @@ namespace FatCars
 				ControlBox = true
 			};
 			formCadastrarNovoVeiculo.Show();
-
 		}
-
 		private void Button1_Click(object sender, EventArgs e)
 		{
 			BuscaCliente(locacao);
@@ -53,11 +48,9 @@ namespace FatCars
 				throw new ArgumentNullException(nameof(locacao));
 			}
 
-			var formBuscaCliente = new FormBuscaCliente()
+			var formBuscaCliente = new FormBuscaCliente();
 
-
-				formBuscaCliente.Show();
-
+			formBuscaCliente.Show();
 		}
 
 		private void Button3_Click(object sender, EventArgs e)
@@ -133,27 +126,21 @@ namespace FatCars
 				ValorRestante -= Convert.ToDecimal(txtPagoRetirada.Text);
 				lblValorRestante.Text = ValorRestante.ToString("C");
 			}
-
 		}
 
 		private void DateTimeDevolucao_ValueChanged(object sender, EventArgs e)
 		{
 			PreencheResumo();
 		}
-
 		private void PreencheResumo()
 		{
 			var veiculo = GetVeiculo();
 			int dias = GetDias();
 
 			lblValorDiaria.Text = veiculo.ValorDiaria.ToString("C");
-
 			lblDias.Text = dias.ToString();
-
 			ValorRestante = veiculo.ValorDiaria * dias;
-
 			lblSubTotal.Text = ValorRestante.ToString("C");
-
 
 			if (checkSegRoubo.Checked)
 			{
@@ -165,9 +152,7 @@ namespace FatCars
 			}
 
 			lblValorSeguro.Text = Seguro.ToString("C");
-
 			ValorRestante += Seguro;
-
 			lblValorRestante.Text = ValorRestante.ToString("C");
 		}
 
@@ -181,15 +166,12 @@ namespace FatCars
 			lblValorSegRoubo.Text = "(" + Program.Valores.ValorSeguro.ToString("C") + "/dia)";
 			lblValorSegTerceiros.Text = "(" + Program.Valores.ValorSeguroTerceiros.ToString("C") + "/dia)";
 			PreencherComboBoxes();
-
-
 		}
 
 		private void PreencherComboBoxes()
 		{
 			using (var repo = new LocadoraContext())
 			{
-
 				var cliente = repo.Clientes
 					.Where(c => c.IsAtivo)
 					.ToList();
@@ -197,7 +179,6 @@ namespace FatCars
 				var veiculo = repo.Veiculos
 					.Where(v => v.IsAtivo)
 					.ToList();
-
 
 				comboCliente.DataSource = cliente;
 				comboCliente.DisplayMember = "Nome";
@@ -255,7 +236,6 @@ namespace FatCars
 			this.Controls.LimparTextBoxes();
 			this.groupSeguro.Controls.LimparTextBoxes();
 		}
-
 
 		private void TxtPagoRetirada_KeyPress(object sender, KeyPressEventArgs e)
 		{

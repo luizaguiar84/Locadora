@@ -22,7 +22,6 @@ namespace FatCars.Desktop
 
 		private void BtnPesquisar_Click(object sender, EventArgs e)
 		{
-
 			if (string.IsNullOrEmpty(ComboFiltro.Text))
 			{
 				MessageBox.Show("Favor selecionar um filtro para a pesquisa.");
@@ -30,7 +29,6 @@ namespace FatCars.Desktop
 			else
 			{
 				var busca = new VeiculosDao().DbSearch(ComboFiltro.Text, txtPesquisar.Text);
-
 				dataGridView1.Visible = true;
 				dataGridView1.DataSource = busca;
 			}

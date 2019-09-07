@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace FatCars.Desktop
 {
-	
+
 
 	public partial class FormCadastrarFuncionario : Form
 	{
@@ -36,7 +36,6 @@ namespace FatCars.Desktop
 		}
 		private void FormCadastrarFuncionario_Load(object sender, EventArgs e)
 		{
-
 		}
 		private void Button2_Click(object sender, EventArgs e)
 		{
@@ -84,9 +83,7 @@ namespace FatCars.Desktop
 			funcionario.Endereco.Id = id;
 
 			new FuncionariosDao().DbUpdate(funcionario);
-
 			MessageBox.Show("Dados do funcionário Atualizado com Sucesso.", "Alerta");
-
 			this.Controls.LimparTextBoxes();
 			this.groupEndereco.Controls.LimparTextBoxes();
 		}
@@ -106,8 +103,6 @@ namespace FatCars.Desktop
 				Pis = txtPIS.Text,
 				TituloEleitor = txtTitEleitor.Text,
 				Nascimento = dateNascimento.Value,
-
-
 				Demissao = dateDemissao.Value
 			};
 
@@ -123,7 +118,6 @@ namespace FatCars.Desktop
 			f.Endereco.Uf = txtUF.Text;
 
 			new FuncionariosDao().DbAdd(f);
-
 			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
 
 			this.Controls.LimparTextBoxes();
@@ -163,7 +157,6 @@ namespace FatCars.Desktop
 			{
 				var funcionario = new FuncionariosDao().GetFuncionario(txtId.Text);
 				AtualizarFuncionario(funcionario);
-
 			}
 			else
 			{
@@ -207,10 +200,10 @@ namespace FatCars.Desktop
 				MdiParent = this.MdiParent,
 				ControlBox = false
 			};
-			
+
 			this.Close();
 			busca.Show();
-			
+
 		}
 	}
 }

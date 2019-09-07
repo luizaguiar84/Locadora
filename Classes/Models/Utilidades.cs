@@ -80,11 +80,16 @@
 		/// <param name="e"></param>
 		public static void IsNumeros(this object obj, KeyPressEventArgs e)
 		{
-
-			if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == ',') && !(e.KeyChar == Convert.ToChar(8)))
+			if (!(Char.IsNumber(e.KeyChar) &&
+				  Char.IsDigit(e.KeyChar)))
 			{
 				e.Handled = true;
 			}
+
+			//if (!(char.IsNumber(e.KeyChar) && !(e.KeyChar == ',') && !(e.KeyChar == Convert.ToChar(8)))
+			//{
+			//	e.Handled = true;
+			//}
 		}
 
 		/// <summary>
@@ -94,7 +99,10 @@
 		/// <param name="e"></param>
 		public static void IsLetras(this object obj, KeyPressEventArgs e)
 		{
-			if (!(Char.IsLetter(e.KeyChar) || Char.IsControl(e.KeyChar)))
+			if (!(Char.IsLetter(e.KeyChar) || 
+				  Char.IsControl(e.KeyChar) || 
+				  Char.IsSeparator(e.KeyChar)))
+				
 				e.Handled = true;
 
 		}

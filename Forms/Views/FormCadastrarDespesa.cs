@@ -39,18 +39,16 @@ namespace FatCars.Desktop
 
 		private void CarregarTabela()
 		{
-			
-				var despesas = new DespesasDao().GetDespesas();
-				
-				dataGridView1.DataSource = despesas;
-				dataGridView1.Columns["Data"].Visible = true;
-				dataGridView1.Columns["Descricao"].Visible = true;
-				dataGridView1.Columns["Descricao"].HeaderText = "Descrição";
-				dataGridView1.Columns["Id"].Visible = true;
-				dataGridView1.Columns["IsAtiva"].Visible = false;
-				dataGridView1.Columns["TipoDespesaId"].Visible = false;
-				dataGridView1.Columns["Valor"].Visible = true;
-			
+			var despesas = new DespesasDao().GetDespesas();
+
+			dataGridView1.DataSource = despesas;
+			dataGridView1.Columns["Data"].Visible = true;
+			dataGridView1.Columns["Descricao"].Visible = true;
+			dataGridView1.Columns["Descricao"].HeaderText = "Descrição";
+			dataGridView1.Columns["Id"].Visible = true;
+			dataGridView1.Columns["IsAtiva"].Visible = false;
+			dataGridView1.Columns["TipoDespesaId"].Visible = false;
+			dataGridView1.Columns["Valor"].Visible = true;
 		}
 
 		private void BtnSalvar_Click(object sender, EventArgs e)
@@ -61,25 +59,24 @@ namespace FatCars.Desktop
 		private void SalvaDespesa()
 		{
 			var tipoDespesa = new TipoDespesaDao().GetTipoDespesa();
-			Despesas d = new Despesas();
+			Despesas despesa = new Despesas();
 
 			comboTipo.DataSource = tipoDespesa;
 			comboTipo.ValueMember = "Tipo";
 
 			TipoDespesa tipo = (TipoDespesa)comboTipo.SelectedItem;
 
-			d.Data = dataDespesa.Value;
-			d.TipoDespesaId = tipo.Id;
-			d.Valor = Convert.ToDecimal(txtValor.Text);
-			d.Descricao = txtDescricao.Text;
-			d.IsAtiva = true;
+			despesa.Data = dataDespesa.Value;
+			despesa.TipoDespesaId = tipo.Id;
+			despesa.Valor = Convert.ToDecimal(txtValor.Text);
+			despesa.Descricao = txtDescricao.Text;
+			despesa.IsAtiva = true;
 
-			new DespesasDao().DbAdd(d);
+			new DespesasDao().DbAdd(despesa);
 			CarregarTabela();
-
 		}
 
-		
+
 
 		private void BtnAddTipo_Click(object sender, EventArgs e)
 		{

@@ -24,7 +24,6 @@ namespace FatCars.Desktop
 
 		private void FormEditarVeiculo_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		private void PreencherFormulario(Veiculos v)
@@ -73,7 +72,7 @@ namespace FatCars.Desktop
 
 			new VeiculosDao().DbUpdate(veiculo);
 
-			MessageBox.Show("Carro Atualizado com Sucesso!");
+			MessageBox.Show("Veículo Atualizado com Sucesso!");
 		
 			this.Close();
 		}

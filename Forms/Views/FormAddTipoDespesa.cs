@@ -16,13 +16,12 @@ namespace FatCars.Desktop
 
 		private void BtnAddTipoDespesa_Click(object sender, EventArgs e)
 		{
-			var tipo = new TipoDespesa
+			var tipoDespesa = new TipoDespesa
 			{
 				Tipo = txtTipo.Text
 			};
 
-			new TipoDespesaDao().DbAddTipo(tipo);
-
+			new TipoDespesaDao().DbAddTipo(tipoDespesa);
 			this.Close();
 
 		}

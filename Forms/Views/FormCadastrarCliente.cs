@@ -28,10 +28,9 @@ namespace FatCars
 			this.cliente = cliente;
 			PreencherFormulario(cliente);
 		}
-		
+
 		private void FormCadastrarCliente_Load(object sender, EventArgs e)
 		{
-
 		}
 		private void AtualizarPf(Clientes cliente)
 		{
@@ -87,9 +86,7 @@ namespace FatCars
 				cliente.Endereco.Id = id;
 
 				new ClientesDao().DbAdd(cliente);
-
 				MessageBox.Show("Cadastro Atualizado com sucesso!");
-
 				LimpaTela();
 			}
 		}
@@ -189,7 +186,7 @@ namespace FatCars
 				MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
 
 				new ClientesDao().DbAdd(cliente);
-				
+
 				LimpaTela();
 			}
 		}
@@ -244,9 +241,7 @@ namespace FatCars
 			{
 
 				new ClientesDao().DbAdd(cliente);
-
 				MessageBox.Show("Cadastro Efetuado com sucesso!");
-
 				LimpaTela();
 			}
 		}
@@ -283,7 +278,6 @@ namespace FatCars
 		{
 			if (cliente.TipoCliente == "PF")
 			{
-
 				radioPessoaFisica.Checked = true;
 				radioPessoaJuridica.Checked = false;
 
@@ -295,7 +289,6 @@ namespace FatCars
 				{
 					checkAtivo.Checked = true;
 				}
-
 				txtId.Text = cliente.Id.ToString();
 				txtNome.Text = cliente.Nome;
 				maskedCpf.Text = cliente.Cpf;
@@ -312,7 +305,6 @@ namespace FatCars
 				txtCategoria.Text = cliente.Cnh.Categoria;
 
 				this.groupEndereco.Select();
-
 				maskedCEP.Text = cliente.Endereco.Cep;
 				txtLogradouro.Text = cliente.Endereco.Logradouro;
 				txtNumero.Text = cliente.Endereco.Num;
@@ -323,7 +315,6 @@ namespace FatCars
 			}
 			else
 			{
-
 				radioPessoaJuridica.Checked = true;
 				radioPessoaFisica.Checked = false;
 
@@ -342,7 +333,6 @@ namespace FatCars
 				txtEmail.Text = cliente.Email;
 				txtRG.Text = cliente.Ie;
 				txtTelCom.Text = cliente.TelComercial;
-
 				maskedCEP.Text = cliente.Endereco.Cep;
 				txtLogradouro.Text = cliente.Endereco.Logradouro;
 				txtNumero.Text = cliente.Endereco.Num;
@@ -417,7 +407,6 @@ namespace FatCars
 		}
 		private void BtnSalvar_Click_1(object sender, EventArgs e)
 		{
-
 			var cliente = new ClientesDao().GetClienteBd(txtId.Text);
 
 			if (cliente != null)
@@ -454,10 +443,9 @@ namespace FatCars
 				MdiParent = this.MdiParent,
 				ControlBox = false
 			};
-			
+
 			this.Close();
 			busca.Show();
-			
 		}
 		private void RadioPessoaJuridica_CheckedChanged(object sender, EventArgs e)
 		{

@@ -16,7 +16,6 @@ namespace FatCars.Desktop
 
 		private void FormBuscaFuncionario_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		private void BtnPesquisar_Click(object sender, EventArgs e)
@@ -64,7 +63,7 @@ namespace FatCars.Desktop
 
 		private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-						
+
 			int funcionarioId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
 			var funcionario = new FuncionariosDao().GetFuncionarios()
@@ -81,7 +80,7 @@ namespace FatCars.Desktop
 			{
 				MdiParent = this.ParentForm
 			};
-			
+
 			this.Close();
 			form.Show();
 		}
@@ -91,5 +90,5 @@ namespace FatCars.Desktop
 
 		}
 	}
-	}
+}
 

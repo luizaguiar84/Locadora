@@ -19,7 +19,6 @@ namespace FatCars.Desktop
 
 		private void FormBuscaLocacao_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		private void btnPesquisar_Click(object sender, EventArgs e)
@@ -58,7 +57,6 @@ namespace FatCars.Desktop
 											.Where(x => x.Placa.Contains(txtPesquisa.Text) && x.IsAtiva)
 											.ToList();
 					NomeiaColunasDataGrid();
-
 				}
 				if (ComboFiltro.Text == "Cliente")
 				{
@@ -66,7 +64,6 @@ namespace FatCars.Desktop
 											.Where(x => x.Cliente.Contains(txtPesquisa.Text) && x.IsAtiva)
 											.ToList();
 					NomeiaColunasDataGrid();
-
 				}
 				if (string.IsNullOrWhiteSpace(ComboFiltro.Text))
 				{
@@ -86,9 +83,7 @@ namespace FatCars.Desktop
 
 		private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			int locacaoId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
-
-			LocacaoId = locacaoId;
+			LocacaoId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 		}
 	}
 }

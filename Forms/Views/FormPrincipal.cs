@@ -62,6 +62,7 @@ namespace FatCars
 		{
 			var cadastrarNovoVeiculo = new FormCadastrarVeiculo
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			cadastrarNovoVeiculo.Show();
@@ -72,6 +73,7 @@ namespace FatCars
 		{
 			var editarVeiculo = new FormEditarVeiculo
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			editarVeiculo.Show();
@@ -81,6 +83,7 @@ namespace FatCars
 		{
 			var consultarCliente = new FormBuscaCliente()
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			consultarCliente.Show();
@@ -90,6 +93,7 @@ namespace FatCars
 		{
 			var consultarVeiculo = new FormBuscaCarro()
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			consultarVeiculo.Show();
@@ -110,6 +114,7 @@ namespace FatCars
 
 			var cadastrarCliente = new FormCadastrarCliente
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			cadastrarCliente.Show();
@@ -121,6 +126,7 @@ namespace FatCars
 		{
 			var formMonitoramentoVeiculo = new FormMonitoramentoVeiculo
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			formMonitoramentoVeiculo.Show();
@@ -130,6 +136,7 @@ namespace FatCars
 		{
 			var formConsultarComprovantes = new FormConsultarComprovantes
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			formConsultarComprovantes.Show();
@@ -145,6 +152,7 @@ namespace FatCars
 		{
 			var formNovaLocacao = new FormNovaLocacao
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			formNovaLocacao.Show();
@@ -160,6 +168,7 @@ namespace FatCars
 		{
 			var formControlePatio = new FormControlePatio
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			formControlePatio.Show();
@@ -169,6 +178,7 @@ namespace FatCars
 		{
 			var formControlePneus = new FormControlePneus
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			formControlePneus.Show();
@@ -178,6 +188,7 @@ namespace FatCars
 		{
 			var controleEstoque = new FormControleEstoque
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			controleEstoque.Show();
@@ -187,6 +198,7 @@ namespace FatCars
 		{
 			var devolucao = new FormDevolucao
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			devolucao.Show();
@@ -206,6 +218,7 @@ namespace FatCars
 		{
 			var controleEstoque = new FormControleEstoque
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			controleEstoque.TabCotroleEstoque.SelectTab(0);
@@ -216,6 +229,7 @@ namespace FatCars
 		{
 			var controleUsuarios = new FormControleUsuarios
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			controleUsuarios.Show();
@@ -256,6 +270,7 @@ namespace FatCars
 		{
 			var cadastrarFuncionario = new FormCadastrarFuncionario
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			cadastrarFuncionario.Show();
@@ -266,6 +281,7 @@ namespace FatCars
 		{
 			var cadastrarDespesa = new FormCadastrarDespesa
 			{
+				ControlBox = false,
 				MdiParent = this
 			};
 			cadastrarDespesa.Show();
