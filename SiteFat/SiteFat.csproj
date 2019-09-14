@@ -184,6 +184,20 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dll_BS_Fat\Dll_BS_Fat.csproj">
+      <Project>{12956BBE-710D-4CC3-92EB-5C9E6F28BB4B}</Project>
+      <Name>Dll_BS_Fat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll_DB_Fat\Dll_DB_Fat.csproj">
+      <Project>{ADCBFE08-4399-4869-A4F6-C98881AF0795}</Project>
+      <Name>Dll_DB_Fat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll_Utilidades\Dll_Utilidades.csproj">
+      <Project>{AEA76A19-DDF3-4EE6-91DD-82228FDEED25}</Project>
+      <Name>Dll_Utilidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -211,6 +225,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

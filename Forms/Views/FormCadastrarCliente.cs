@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using Classes;
-using FatCars.Desktop;
+using Dll_Utilidades;
+using Dll_BS_Fat;
+using Dll_DB_Fat;
 using System.Linq;
-using Classes.Models;
-using Classes.DAO;
 
-namespace FatCars
+namespace Dll_Forms_Fat
 {
 	public partial class FormCadastrarCliente : Form
 	{
@@ -21,6 +20,7 @@ namespace FatCars
 		public FormCadastrarCliente()
 		{
 			InitializeComponent();
+			PreencherId();
 		}
 		public FormCadastrarCliente(Clientes cliente)
 		{
@@ -28,13 +28,35 @@ namespace FatCars
 			this.cliente = cliente;
 			PreencherFormulario(cliente);
 		}
-		
+
 		private void FormCadastrarCliente_Load(object sender, EventArgs e)
 		{
 
 		}
+
+		private void PreencherId()
+		{
+			var idCliente = new ClientesDao().BuscaId();
+			idCliente++;
+			txtId.Text = Convert.ToString(idCliente);
+		}
+
 		private void AtualizarPf(Clientes cliente)
 		{
+			var _cliente = new Clientes
+			{
+				TipoCliente = "PF",
+				Nome = txtNome.Text,
+				Cpf = maskedCpf.Text,
+				Profissao = txtProfissao.Text,
+				Email = txtEmail.Text,
+				Rg = txtRG.Text,
+				Nascimento = dateNascimento.Value,
+				TelComercial = txtTelCom.Text,
+				TelResidencial = txtTelRes.Text,
+				TelCelular = txtTelCel.Text
+			};
+
 			if (checkAtivo.Checked)
 			{
 				cliente.IsAtivo = true;
@@ -43,54 +65,60 @@ namespace FatCars
 			{
 				cliente.IsAtivo = false;
 			}
-			cliente.TipoCliente = "PF";
-			cliente.Nome = txtNome.Text;
-			cliente.Cpf = maskedCpf.Text;
-			cliente.Profissao = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Rg = txtRG.Text;
-			cliente.Nascimento = dateNascimento.Value;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.TelResidencial = txtTelRes.Text;
-			cliente.TelCelular = txtTelCel.Text;
-			cliente.Cnh.Numero = txtCNH.Text;
-			cliente.Cnh.Categoria = txtCategoria.Text;
-			cliente.Nascimento = dateNascimento.Value;
-			cliente.Cnh.Emissao = dateCnhEmitida.Value;
-			cliente.Cnh.Validade = dateCnhValidade.Value;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+
+			var cnh = new Cnhs
+			{
+				Numero = txtCNH.Text,
+				Categoria = txtCategoria.Text,
+				Emissao = dateCnhEmitida.Value,
+				Validade = dateCnhValidade.Value
+			};
+			_cliente.Cnh = cnh;
+
+			var endereco = new Enderecos
+			{
+				Cep = maskedCEP.Text,
+				Logradouro = txtLogradouro.Text,
+				Num = txtNumero.Text,
+				Complemento = txtComplemento.Text,
+				Bairro = txtBairro.Text,
+				Cidade = txtCidade.Text,
+				Uf = txtUF.Text
+			};
+			_cliente.Endereco = endereco;
 
 			if (MessageBox.Show($"Favor confirmar a atualização dos dados:\n\n" +
-				$"Nome: {cliente.Nome}\n" +
-				$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
-				$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
-				$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
-				$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
-				$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
-				$"\nEndereço:\n\n" +
-				$"CEP: {cliente.Endereco.Cep}\n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
-				$"",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome: {cliente.Nome}\n" +
+								$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
+								$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
+								$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
+								$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
+								$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
+								$"\nEndereço:\n\n" +
+								$"CEP: {cliente.Endereco.Cep}\n" +
+								$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
+								$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
+								$"",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				int id = Convert.ToInt32(txtId.Text);
 
+				cliente = _cliente;
 				cliente.Cnh.Id = id;
 				cliente.Endereco.Id = id;
 
-				new ClientesDao().DbAdd(cliente);
-
-				MessageBox.Show("Cadastro Atualizado com sucesso!");
-
-				LimpaTela();
+				var resultado = new ClientesDao().DbAdd(cliente);
+				if (resultado)
+				{
+					MessageBox.Show("Cadastro Atualizado com sucesso!");
+					LimpaTela();
+				}
+				else
+				{
+					MessageBox.Show("Erro na adição do cadastro.");
+				}
+				
 			}
 		}
 		private void LimpaTela()
@@ -126,16 +154,16 @@ namespace FatCars
 			cliente.Endereco.Uf = txtUF.Text;
 
 			if (MessageBox.Show($"Favor confirmar a atualização:\n" +
-				$"Nome da empresa:{cliente.Nome}\n" +
-				$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
-				$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
-				$"Telefone: {cliente.TelResidencial}\n" +
-				$"Endereço:\n " +
-				$"CEP: {cliente.Endereco.Cep} \n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome da empresa:{cliente.Nome}\n" +
+								$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
+								$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
+								$"Telefone: {cliente.TelResidencial}\n" +
+								$"Endereço:\n " +
+								$"CEP: {cliente.Endereco.Cep} \n" +
+								$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
+								$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
 				int id = Convert.ToInt32(txtId.Text);
@@ -149,7 +177,16 @@ namespace FatCars
 		}
 		private void CadastrarPj()
 		{
-			var cliente = new Clientes();
+			var cliente = new Clientes
+			{
+				TipoCliente = "PJ",
+				Nome = txtNome.Text,
+				Cnpj = maskedCpf.Text,
+				Contato = txtProfissao.Text,
+				Email = txtEmail.Text,
+				Ie = txtRG.Text,
+				TelComercial = txtTelCom.Text
+			};
 
 			if (checkAtivo.Checked)
 			{
@@ -159,43 +196,53 @@ namespace FatCars
 			{
 				cliente.IsAtivo = false;
 			}
-			cliente.TipoCliente = "PJ";
-			cliente.Nome = txtNome.Text;
-			cliente.Cnpj = maskedCpf.Text;
-			cliente.Contato = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Ie = txtRG.Text;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+
+			var endereco = new Enderecos
+			{
+				Cep = maskedCEP.Text,
+				Logradouro = txtLogradouro.Text,
+				Bairro = txtBairro.Text,
+				Cidade = txtCidade.Text,
+				Complemento = txtComplemento.Text,
+				Num = txtNumero.Text,
+				Uf = txtUF.Text
+			};
+			cliente.Endereco = endereco;
 
 			if (MessageBox.Show($"Favor confirmar os dados:\n" +
-				$"Nome da empresa:{cliente.Nome}\n" +
-				$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
-				$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
-				$"Telefone: {cliente.TelResidencial}\n" +
-				$"Endereço:\n " +
-				$"CEP: {cliente.Endereco.Cep} \n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome da empresa:{cliente.Nome}\n" +
+								$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
+								$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
+								$"Telefone: {cliente.TelResidencial}\n" +
+								$"Endereço:\n " +
+								$"CEP: {cliente.Endereco.Cep} \n" +
+								$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
+								$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
 
 				new ClientesDao().DbAdd(cliente);
-				
+
 				LimpaTela();
 			}
 		}
 		private void CadastrarPf()
 		{
-			var cliente = new Clientes();
+			var cliente = new Clientes
+			{
+				TipoCliente = "PF",
+				Nome = txtNome.Text,
+				Cpf = maskedCpf.Text,
+				Profissao = txtProfissao.Text,
+				Email = txtEmail.Text,
+				Rg = txtRG.Text,
+				Nascimento = dateNascimento.Value,
+				TelComercial = txtTelCom.Text,
+				TelResidencial = txtTelRes.Text,
+				TelCelular = txtTelCel.Text
+			};
 
 			if (checkAtivo.Checked)
 			{
@@ -205,49 +252,54 @@ namespace FatCars
 			{
 				cliente.IsAtivo = false;
 			}
-			cliente.TipoCliente = "PF";
-			cliente.Nome = txtNome.Text;
-			cliente.Cpf = maskedCpf.Text;
-			cliente.Profissao = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Rg = txtRG.Text;
-			cliente.Nascimento = dateNascimento.Value;
-			cliente.Cnh.Emissao = dateCnhEmitida.Value;
-			cliente.Cnh.Validade = dateCnhValidade.Value;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.TelResidencial = txtTelRes.Text;
-			cliente.TelCelular = txtTelCel.Text;
-			cliente.Cnh.Numero = txtCNH.Text;
-			cliente.Cnh.Categoria = txtCategoria.Text;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+
+			var cnh = new Cnhs
+			{
+				Emissao = dateCnhEmitida.Value,
+				Validade = dateCnhValidade.Value,
+				Numero = txtCNH.Text,
+				Categoria = txtCategoria.Text
+			};
+
+			var endereco = new Enderecos
+			{
+				Cep = maskedCEP.Text,
+				Logradouro = txtLogradouro.Text,
+				Num = txtNumero.Text,
+				Complemento = txtComplemento.Text,
+				Bairro = txtBairro.Text,
+				Cidade = txtCidade.Text,
+				Uf = txtUF.Text
+			};
+
+			cliente.Cnh = cnh;
+			cliente.Endereco = endereco;
 
 			if (MessageBox.Show($"Favor confirmar os dados:\n\n" +
-				$"Nome: {cliente.Nome}\n" +
-				$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
-				$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
-				$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
-				$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
-				$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
-				$"\nEndereço:\n\n" +
-				$"CEP: {cliente.Endereco.Cep}\n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
-				$"",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome: {cliente.Nome}\n" +
+								$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
+								$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
+								$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
+								$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
+								$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
+								$"\nEndereço:\n\n" +
+								$"CEP: {cliente.Endereco.Cep}\n" +
+								$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
+								$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
+								$"",
+								"Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 
-				new ClientesDao().DbAdd(cliente);
-
-				MessageBox.Show("Cadastro Efetuado com sucesso!");
-
-				LimpaTela();
+				var resultado = new ClientesDao().DbAdd(cliente);
+				if (resultado)
+				{
+					MessageBox.Show("Cadastro Efetuado com sucesso!");
+					LimpaTela();
+				}
+				else
+				{
+					MessageBox.Show("Erro no salvamento, favor conferir os dados");
+				}
 			}
 		}
 		private void PreencheEndereco()
@@ -283,7 +335,6 @@ namespace FatCars
 		{
 			if (cliente.TipoCliente == "PF")
 			{
-
 				radioPessoaFisica.Checked = true;
 				radioPessoaJuridica.Checked = false;
 
@@ -295,7 +346,6 @@ namespace FatCars
 				{
 					checkAtivo.Checked = true;
 				}
-
 				txtId.Text = cliente.Id.ToString();
 				txtNome.Text = cliente.Nome;
 				maskedCpf.Text = cliente.Cpf;
@@ -312,7 +362,6 @@ namespace FatCars
 				txtCategoria.Text = cliente.Cnh.Categoria;
 
 				this.groupEndereco.Select();
-
 				maskedCEP.Text = cliente.Endereco.Cep;
 				txtLogradouro.Text = cliente.Endereco.Logradouro;
 				txtNumero.Text = cliente.Endereco.Num;
@@ -323,7 +372,6 @@ namespace FatCars
 			}
 			else
 			{
-
 				radioPessoaJuridica.Checked = true;
 				radioPessoaFisica.Checked = false;
 
@@ -342,7 +390,6 @@ namespace FatCars
 				txtEmail.Text = cliente.Email;
 				txtRG.Text = cliente.Ie;
 				txtTelCom.Text = cliente.TelComercial;
-
 				maskedCEP.Text = cliente.Endereco.Cep;
 				txtLogradouro.Text = cliente.Endereco.Logradouro;
 				txtNumero.Text = cliente.Endereco.Num;
@@ -417,9 +464,11 @@ namespace FatCars
 		}
 		private void BtnSalvar_Click_1(object sender, EventArgs e)
 		{
-
-			var cliente = new ClientesDao().GetClienteBd(txtId.Text);
-
+			int id = Convert.ToInt32(txtId.Text);
+			var cliente = new ClientesDao().GetAll()
+							.Where(c => c.Id == id)
+							.SingleOrDefault();
+		
 			if (cliente != null)
 			{
 				if (cliente.TipoCliente == "PF")
@@ -454,10 +503,9 @@ namespace FatCars
 				MdiParent = this.MdiParent,
 				ControlBox = false
 			};
-			
+
 			this.Close();
 			busca.Show();
-			
 		}
 		private void RadioPessoaJuridica_CheckedChanged(object sender, EventArgs e)
 		{
