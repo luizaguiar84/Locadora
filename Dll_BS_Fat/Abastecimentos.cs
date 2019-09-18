@@ -17,6 +17,8 @@ namespace Dll_BS_Fat
 
 		public int VeiculoId { get; set; }
 		public virtual Veiculos Veiculo { get; set; }
+	
+
 		
 	}
 }

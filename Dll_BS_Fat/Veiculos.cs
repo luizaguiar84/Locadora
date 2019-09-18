@@ -5,7 +5,7 @@ namespace Dll_BS_Fat
 	using System.ComponentModel;
 	using System.Linq;
 
-	public class Veiculos
+	public class Veiculos : IComparable
 	{
 		public Veiculos()
 		{
@@ -56,6 +56,12 @@ namespace Dll_BS_Fat
 		public virtual ICollection<Obrigacoes> Obrigacoes { get; set; }
 		public virtual ICollection<Multas> Multas { get; set; }
 		public virtual ICollection<Pneus> Pneu { get; set; }
+
+		public int CompareTo(object obj)
+		{
+			Veiculos outro = obj as Veiculos;
+			return Modelo.CompareTo(outro.Modelo);
+		}
 
 		/// <summary>
 		/// Registra a Km rodada do carro

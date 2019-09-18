@@ -7,7 +7,8 @@ namespace Dll_Db_Kernel
 {
 	public class LocadoraContext : DbContext
 	{
-		string connectionString = ConfigurationManager.ConnectionStrings["BdLocadora"].ConnectionString;
+		string connectionString = //ConfigurationManager.ConnectionStrings["BdLocadora"].ConnectionString;
+		"Data Source = LUIZAGUIARA508; Initial Catalog = Locadora; Integrated Security = True";
 
 
 		public DbSet<Abastecimentos> Abastecimentos { get; set; }

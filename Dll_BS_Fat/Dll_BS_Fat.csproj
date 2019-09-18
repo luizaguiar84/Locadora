@@ -69,5 +69,8 @@
     <Compile Include="Usuarios.cs" />
     <Compile Include="Veiculos.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
