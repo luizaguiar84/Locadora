@@ -1,23 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.ComponentModel;
 
 namespace Dll_BS_Fat
 {
 	public class Despesas
 	{
-		
-		public int Id { get; set; }
+		public Despesas()
+		{
 
-		public bool IsAtiva { get; set; }
-		public DateTime Data { get; set; }
-		public int TipoDespesaId { get; set; }
-		public TipoDespesa TipoDespesa { get; set; }
-		public decimal Valor { get; set; }
-		public string Descricao { get; set; }
+		}
+		public Despesas(bool isAtiva, DateTime data, int tipoDespesaId, decimal valor, string descricao)
+		{
+			IsAtiva = isAtiva;
+			Data = data;
+			TipoDespesaId = tipoDespesaId;
+			Valor = valor;
+			Descricao = descricao;
+		}
+
+		public int Id { get; set; }
+		[DefaultValue(true)]
+		public bool IsAtiva { get; protected set; }
+		public DateTime Data { get; protected set; }
+		public int TipoDespesaId { get; protected set; }
+		public TipoDespesa TipoDespesa { get; protected set; }
+		public decimal Valor { get; protected set; }
+		public string Descricao { get; protected set; }
 
 	}
 }

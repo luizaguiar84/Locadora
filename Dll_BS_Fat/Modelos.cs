@@ -1,8 +1,5 @@
 namespace Dll_BS_Fat
 {
-	using System;
-	using System.Collections.Generic;
-
 	public class Modelos
 	{
 		//public Modelos()

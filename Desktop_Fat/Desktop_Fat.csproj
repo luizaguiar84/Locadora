@@ -145,12 +145,6 @@
     <Compile Include="Arrumar\Contratosinistros.cs" />
     <Compile Include="Arrumar\Contratoviagens.cs" />
     <Compile Include="Arrumar\Manutencaopeca.cs" />
-    <Compile Include="LocadoraContext.cs" />
-    <Compile Include="Migrations\20190913034756_Atualizacao.cs" />
-    <Compile Include="Migrations\20190913034756_Atualizacao.designer.cs">
-      <DependentUpon>20190913034756_Atualizacao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -182,6 +176,10 @@
     <ProjectReference Include="..\Dll_BS_Fat\Dll_BS_Fat.csproj">
       <Project>{12956BBE-710D-4CC3-92EB-5C9E6F28BB4B}</Project>
       <Name>Dll_BS_Fat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll_DB_Fat\Dll_DB_Fat.csproj">
+      <Project>{adcbfe08-4399-4869-a4f6-c98881af0795}</Project>
+      <Name>Dll_DB_Fat</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dll_Utilidades\Dll_Utilidades.csproj">
       <Project>{aea76a19-ddf3-4ee6-91dd-82228fdeed25}</Project>

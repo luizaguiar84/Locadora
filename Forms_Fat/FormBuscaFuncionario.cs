@@ -70,8 +70,14 @@ namespace Dll_Forms_Fat
 													.Where(x => x.Id == funcionarioId)
 													.SingleOrDefault();
 
-			var endereco = new EnderecosDao().DbGetEndereco(funcionario.EnderecoId);
-			var cnh = new CnhsDao().DbGetCnh(funcionario.CnhId);
+			var endereco = new EnderecosDao().GetAll()
+											.Where(end => end.Id == funcionario.EnderecoId)
+											.SingleOrDefault();
+
+			var cnh = new CnhsDao().GetAll()
+								.Where(c => c.Id == funcionario.CnhId)
+								.SingleOrDefault();
+
 
 			funcionario.Endereco = endereco;
 			funcionario.Cnh = cnh;

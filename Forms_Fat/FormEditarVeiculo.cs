@@ -1,16 +1,16 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
-using Dll_BS_Fat;
+using System;
+using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
 {
-	public partial class FormEditarVeiculo: Form
-    {
+	public partial class FormEditarVeiculo : Form
+	{
 		private Veiculos veiculo;
 
 		public FormEditarVeiculo()
-        {
+		{
 			InitializeComponent();
 		}
 
@@ -32,7 +32,7 @@ namespace Dll_Forms_Fat
 			txtModelo.Text = v.Modelo;
 			txtAnoModelo.Text = v.AnoModelo;
 			numericPortas.Value = v.Portas;
-			comboCor.Text = v.Cor;
+			comboCor.Text = v.Cor.ToString();
 			maskedTxtPlaca.Text = v.Placa;
 			txtRenavam.Text = v.Renavam;
 			txtChassi.Text = v.Chassi;
@@ -53,26 +53,30 @@ namespace Dll_Forms_Fat
 
 		private void btnSalvar_Click(object sender, EventArgs e)
 		{
-			veiculo.Portas = Convert.ToInt32(numericPortas.Value);
-			veiculo.Cor = comboCor.Text;
-			veiculo.Placa = maskedTxtPlaca.Text;
-			veiculo.Renavam = txtRenavam.Text;
-			veiculo.Chassi = txtChassi.Text;
-			veiculo.Lugares = Convert.ToInt32(numericLugares.Value);
-			veiculo.Quilometragem = Convert.ToInt32(txtOdometro.Text);
-			veiculo.Status = comboStatus.Text;
-			veiculo.ValorDiaria = Convert.ToDecimal(txtValorDiaria.Text);
-			veiculo.Observacoes = txtObservacoes.Text;
-			veiculo.ArCondicionado = checkArCond.Checked;
-			veiculo.DirecaoHidraulica = checkDirecaoHidraulica.Checked;
-			veiculo.VidroEletrico = checkVidroEletrico.Checked;
-			veiculo.AirBag = checkAirBag.Checked;
-			veiculo.Abs = checkAbs.Checked;
+			var veiculoBuilder = new VeiculosBuilder()
+				.GetPortas(Convert.ToInt32(numericPortas.Value))
+				//.GetCor((@string)Enum.Parse(typeof(@string), comboCor.SelectedText))
+				.GetCor(comboCor.Text)
+				.GetPlaca(maskedTxtPlaca.Text.ToUpper())
+				.GetRenavam(txtRenavam.Text)
+				.GetChassi(txtChassi.Text)
+				.GetLugares(Convert.ToInt32(numericLugares.Value))
+				.GetQuilometragem(Convert.ToInt32(txtOdometro.Text))
+				.GetStatus(comboStatus.Text)
+				.GetValorDiaria(Convert.ToDecimal(txtValorDiaria.Text))
+				.GetObservacoes(txtObservacoes.Text)
+				.GetArCondicionado(checkArCond.Checked)
+				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
+				.GetVidroEletrico(checkVidroEletrico.Checked)
+				.GetAbs(checkAbs.Checked)
+				.GetAirBag(checkAirBag.Checked);
+
+			veiculo = veiculoBuilder.Build();
 
 			new VeiculosDao().DbUpdate(veiculo);
 
 			MessageBox.Show("Veículo Atualizado com Sucesso!");
-		
+
 			this.Close();
 		}
 	}

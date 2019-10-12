@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_BS_Fat
 {
@@ -16,9 +12,7 @@ namespace Dll_BS_Fat
 		public DateTime? DataSaida { get; set; }
 		public int Quantidade { get; set; }
 		public string Observacoes { get; set; }
-		public string IncluidoPor { get;  set; }
-		public string RetiradoPor { get;  set; }
-
-		
+		public string IncluidoPor { get; set; }
+		public string RetiradoPor { get; set; }
 	}
 }

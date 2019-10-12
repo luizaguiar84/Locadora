@@ -1,0 +1,69 @@
+﻿   <div class="form-horizontal">
+            <h4>ClientesPJ</h4>
+            <hr />
+        <div class="form-group">
+            <form action="/ClientePj/Adiciona" method="post">
+
+
+                <h1>Novo Cliente:</h1><br />
+                <label for="IsAtivo"></label>
+                <input type="checkbox" name="cliente.IsAtivo" />
+                <br />
+                <label for="RazaoSocial">Razão Social: </label>
+                <input id="RazaoSocial" name="cliente.RazaoSocial" />
+
+                <label for="contato">Contato: </label>
+                <input id="contato" name="cliente.Contato" />
+
+                <label for="Email">Email: </label>
+                <input id="Email" name="cliente.Email" />
+
+                <label for="Cnpj"> Cnpj: </label>
+                <input id="Cnpj" name="cliente.Cnpj" />
+
+                <label for="Ie"> Ie: </label>
+                <input id="Ie" name="cliente.Ie" />
+
+                <label for="Telefone Comercial"> Telefone: </label>
+                <input id="Ie" name="cliente.TelComercial" />
+                <br />
+                <br />
+
+                <h2>Endereço:</h2>
+
+                <label for="Cep">Cep: </label>
+                <input id="Cep" name="cliente.endereco.Cep" />
+
+                <label for="Logradouro">Logradouro: </label>
+                <input id="Logradouro" name="cliente.endereco.Logradouro" />
+                
+                <label for="Numero">Numero: </label>
+                <input id="Numero" name="cliente.endereco.Num" />
+
+
+
+                <label for="complemento">complemento: </label>
+                <input id="complemento" name="cliente.endereco.Complemento" />
+
+                <label for="bairro">bairro </label>
+                <input id="bairro" name="cliente.endereco.Bairro" />
+
+                <label for="cidade">cidade: </label>
+                <input id="cidade" name="cliente.endereco.Cidade" />
+
+                <label for="uf">uf: </label>
+                <input id="uf" name="cliente.endereco.Uf" />
+
+
+
+
+                <input type="submit" value="Enviar" />
+            </form>
+        </div>
+            </div>
+    
+    <div>
+        <br />
+        @Html.ActionLink("Voltar", "Index")
+    </div>
+

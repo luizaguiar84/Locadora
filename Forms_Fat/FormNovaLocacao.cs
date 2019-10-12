@@ -1,9 +1,9 @@
-﻿using Dll_DB_Fat;
-using Dll_BS_Fat;
+﻿using Dll_BS_Fat;
+using Dll_DB_Fat;
+using Dll_Utilidades;
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using Dll_Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -171,7 +171,7 @@ namespace Dll_Forms_Fat
 		private void PreencherComboBoxes()
 		{
 
-			var cliente = new ClientesDao().GetAll()
+			var cliente = new ClientesPFDao().GetAll()
 				.Where(c => c.IsAtivo)
 				.ToList();
 
@@ -187,9 +187,9 @@ namespace Dll_Forms_Fat
 
 		}
 
-		private Clientes GetCliente()
+		private ClientesPF GetCliente()
 		{
-			return (Clientes)comboCliente.SelectedItem;
+			return (ClientesPF)comboCliente.SelectedItem;
 		}
 
 		private Veiculos GetVeiculo()

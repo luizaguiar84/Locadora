@@ -1,31 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
 	public class Enderecos
 	{
+		public Enderecos()
+		{
+
+		}
+		public Enderecos(string cep, string logradouro, string num, string complemento, string bairro, string cidade, string uf)
+		{
+			Cep = cep;
+			Logradouro = logradouro;
+			Num = num;
+			Complemento = complemento;
+			Bairro = bairro;
+			Cidade = cidade;
+			Uf = uf;
+		}
+
 		[Key]
 		public int Id { get; set; }
 		[MaxLength(9)]
-		public string Cep { get; set; }
+		public string Cep { get;  set; }
 		[MaxLength(200)]
-		public string Logradouro { get; set; }
+		public string Logradouro { get;  set; }
 		[MaxLength(10)]
-		public string Num { get; set; }
+		public string Num { get;  set; }
 		[MaxLength(200)]
-		public string Complemento { get; set; }
+		public string Complemento { get;  set; }
 		[MaxLength(200)]
-		public string Bairro { get; set; }
+		public string Bairro { get;  set; }
 		[MaxLength(200)]
-		public string Cidade { get; set; }
+		public string Cidade { get;  set; }
 		[MaxLength(2)]
-		public string Uf { get; set; }
+		public string Uf { get;  set; }
 
-		
+
 	}
 }

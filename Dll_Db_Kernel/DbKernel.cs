@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_Db_Kernel
 {
@@ -56,7 +54,6 @@ namespace Dll_Db_Kernel
 				}
 				catch (Exception ex)
 				{
-
 					string err = ex.Message;
 				}
 				return null;
@@ -73,7 +70,6 @@ namespace Dll_Db_Kernel
 					contexto.Set<T>().Remove(registro);
 					contexto.SaveChanges();
 					ret = true;
-					return ret;
 				}
 				catch (Exception ex)
 				{

@@ -3,7 +3,7 @@
 //{
 //    using System;
 //    using System.Collections.Generic;
-    
+
 //    public class Contratocarro
 //    {
 //        public Contratocarro()
@@ -16,11 +16,11 @@
 //            this.motoristas = new HashSet<Motoristas>();
 //            this.multas = new HashSet<Multas>();
 //        }
-    
+
 //        public int IDCONTRATOCARRO { get; set; }
 //        public int CONTRATOS_IDCONTRATO { get; set; }
 //        public int CARRO_IDCARRO { get; set; }
-    
+
 //        public virtual ICollection<Carros> carros { get; set; }
 //        public virtual Carros carros1 { get; set; }
 //        public virtual Contratos contratos { get; set; }

@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
-using Dll_Utilidades;
+﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
-using Dll_BS_Fat;
+using System;
+using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
 {
 	public partial class FormDevolucao : Form
 	{
-		private Clientes cliente;
+		private ClientesPF cliente;
 
-		public Clientes Cliente { get; private set; }
+		public ClientesPF Cliente { get; private set; }
 		public Locacoes Locacao { get; private set; }
 		public Veiculos Veiculo { get; private set; }
 
@@ -24,10 +20,10 @@ namespace Dll_Forms_Fat
 
 		private void PreencheResumo()
 		{
-			
+
 		}
 
-		public FormDevolucao(Clientes cliente)
+		public FormDevolucao(ClientesPF cliente)
 		{
 			InitializeComponent();
 			this.cliente = cliente;
@@ -42,7 +38,7 @@ namespace Dll_Forms_Fat
 			};
 			formCadastrarNovoVeiculo.TabCadastroVeiculos.SelectTab(3);
 			formCadastrarNovoVeiculo.Show();
-				
+
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -107,7 +103,7 @@ namespace Dll_Forms_Fat
 			//}
 		}
 
-		private void PreencherDados(Clientes c, Locacoes l)
+		private void PreencherDados(ClientesPF c, Locacoes l)
 		{
 			txtNomeCliente.Text = c.Nome;
 			txtRetirada.Text = l.DataInicio.ToString();
@@ -142,10 +138,10 @@ namespace Dll_Forms_Fat
 			{
 				Locacao.IsAtiva = false;
 
-				Veiculo.RegistrarKmDb(Convert.ToInt32(txtKmDevolucao.Text));
+				new VeiculosDao().RegistrarKmDb(Veiculo, Convert.ToInt32(txtKmDevolucao.Text));
 				new PneusDao().DbUpdateKm(Locacao, Veiculo);
 				new LocacoesDao().DbUpdate(Locacao);
-			
+
 				MessageBox.Show("Locação Finalizada com sucesso!");
 			}
 		}

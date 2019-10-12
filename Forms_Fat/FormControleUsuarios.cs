@@ -1,9 +1,7 @@
-﻿using Dll_Utilidades;
+﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
-using Dll_BS_Fat;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -33,13 +31,13 @@ namespace Dll_Forms_Fat
 			u.Nivel = Convert.ToInt32(ComboNivelAcesso.Text);
 			u.Login = txtNome.Text;
 			u.Password = txtSenha.Text;
-	
-			if (u.ConfereUsuario(Usuarios) && u.ConfirmaSenha(txtSenha.Text, txtConfirmaSenha.Text))
+
+			if (u.ConfereUsuario(Usuarios) && u.ConfirmarSenha(txtSenha.Text, txtConfirmaSenha.Text))
 			{
 				var dao = new UsuariosDao();
 				dao.DbAdd(u);
 			}
-	}
+		}
 
 		private void btnCadastrarCNH_Click(object sender, EventArgs e)
 		{

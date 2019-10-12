@@ -1,9 +1,6 @@
 
 namespace Dll_BS_Fat
 {
-	using System;
-	using System.Collections.Generic;
-
 	public class Montadora
 	{
 		//public Montadora()

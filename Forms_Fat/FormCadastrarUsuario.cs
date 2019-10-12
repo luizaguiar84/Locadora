@@ -9,7 +9,7 @@ namespace Dll_Forms_Fat
 	{
 		public FormCadastrarUsuario()
 		{
-		
+
 			InitializeComponent();
 		}
 
@@ -23,7 +23,7 @@ namespace Dll_Forms_Fat
 
 		private void Btn_Salvar_Click(object sender, EventArgs e)
 		{
-			
+
 			MessageBox.Show("Usuário Cadastrado com Sucesso!");
 			this.Controls.LimparTextBoxes();
 			this.Hide();

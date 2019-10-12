@@ -2,15 +2,13 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace Dll_DB_Fat
 {
 	public class LocacoesDao : IDbBanco<Locacoes>
 	{
-		
+
 
 		public bool DeleteRegistro(Locacoes registro)
 		{
@@ -35,6 +33,11 @@ namespace Dll_DB_Fat
 		public bool DbUpdate(Locacoes registro)
 		{
 			return new DbKernel().DbUpdate<Locacoes>(registro);
+		}
+		public DataTable GetLocacoes()
+		{
+			string query = "SELECT * FROM [dbo].[VW_LOCACOES]";
+			return new DbKernelAdo().Select(query);
 		}
 	}
 }

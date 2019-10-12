@@ -1,21 +1,32 @@
 namespace Dll_BS_Fat
 {
 	using System;
-	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
-	using System.Linq;
 
 	public class Cnhs
 	{
+		public Cnhs()
+		{
+
+		}
+		public Cnhs(string numero, string categoria, DateTime? emissao, DateTime? validade)
+		{
+			Numero = numero;
+			Categoria = categoria;
+			Emissao = emissao;
+			Validade = validade;
+		}
+
 		public int Id { get; set; }
 		[MaxLength(20)]
-		public string Numero { get; set; }
+		public string Numero { get;  set; }
 		[MaxLength(2)]
-		public string Categoria { get; set; }
-		public DateTime? Emissao { get; set; }
-		public DateTime? Validade { get; set; }
+		[Required(ErrorMessage = "Favor selecionar a categoria da CNH")]
+		public string Categoria { get;  set; }
+		public DateTime? Emissao { get;  set; }
+		public DateTime? Validade { get;  set; }
 
-		
+
 
 		//public int CONTRATOCARRO_IDCONTRATOCARRO { get; set; }
 

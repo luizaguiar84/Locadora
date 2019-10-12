@@ -1,13 +1,15 @@
 namespace Dll_BS_Fat
 {
 	using System;
+	using System.ComponentModel;
 
 	public class ControlePatio
 	{
 		public int Id { get; set; }
 		public int VeiculoId { get; set; }
 		public int ClienteId { get; set; }
-		public bool? Status { get; set; } 
+		[DefaultValue(true)]
+		public bool Status { get; set; }
 		public string Placa { get; set; }
 		public DateTime? DataSaida { get; set; }
 		public TimeSpan? HoraSaida { get; set; }

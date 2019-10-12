@@ -2,8 +2,6 @@
 namespace Dll_BS_Fat
 {
 	using System;
-	using System.Collections.Generic;
-	using System.Linq;
 
 	public class Pneus
 	{
@@ -19,6 +17,6 @@ namespace Dll_BS_Fat
 		public virtual Veiculos Veiculo { get; set; }
 		public DateTime DataAdicao { get; set; }
 
-		
+
 	}
 }

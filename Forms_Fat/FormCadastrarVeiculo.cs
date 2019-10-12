@@ -81,7 +81,7 @@ namespace Dll_Forms_Fat
 				MdiParent = this.MdiParent,
 				ControlBox = false
 			};
-			
+
 			this.Close();
 			busca.Show();
 
@@ -98,43 +98,49 @@ namespace Dll_Forms_Fat
 			{
 				AtualizarVeiculo(veiculo);
 			}
-			
+
 		}
-		
+
 		private void CadastrarVeiculo()
 		{
-			Dll_BS_Fat.Veiculos v = new Dll_BS_Fat.Veiculos();
+			bool ativo = false;
+			if (comboStatus.Text == "ATIVO") ativo = true;
 
-			v.Montadora = comboMontadora.Text;
-			v.Modelo = comboModelo.Text;
-			v.AnoModelo = comboAno.Text;
-			v.Portas = Convert.ToInt32(numericPortas.Value);
-			v.Cor = comboCor.Text;
-			v.Placa = maskedTxtPlaca.Text.ToUpper();
-			v.Renavam = txtRenavam.Text;
-			v.Chassi = txtChassi.Text;
-			v.Lugares = Convert.ToInt32(numericLugares.Value);
-			v.Quilometragem = Convert.ToInt32(txtOdometro.Text);
-			v.Status = comboStatus.Text;
-			v.Combustivel = txtCombustivel.Text;
-			v.ValorAtual = txtValorAtualCarro.Text;
-			v.ValorDiaria = Convert.ToDecimal(txtValorDiaria.Text);
-			v.Observacoes = txtObservacoes.Text;
-			v.ArCondicionado = checkArCond.Checked;
-			v.DirecaoHidraulica = checkDirecaoHidraulica.Checked;
-			v.VidroEletrico = checkVidroEletrico.Checked;
-			v.Abs = checkAbs.Checked;
-			v.AirBag = checkAirBag.Checked;
-			if (comboStatus.Text == "ATIVO")
+			var veiculoBuilder = new VeiculosBuilder()
+				.GetMontadora(comboMontadora.Text)
+				.GetModelo(comboModelo.Text)
+				.GetAnoModelo(comboAno.Text)
+				.GetPortas(Convert.ToInt32(numericPortas.Value))
+				//.GetCor((@string)Enum.Parse(typeof(@string), comboCor.Text))
+				.GetCor(comboCor.Text)
+				.GetPlaca(maskedTxtPlaca.Text.ToUpper())
+				.GetRenavam(txtRenavam.Text)
+				.GetChassi(txtChassi.Text)
+				.GetLugares(Convert.ToInt32(numericLugares.Value))
+				.GetQuilometragem(Convert.ToInt32(txtOdometro.Text))
+				.GetStatus(comboStatus.Text)
+				.GetCombustivel(txtCombustivel.Text)
+				.GetValorAtual(txtValorAtualCarro.Text)
+				.GetValorDiaria(Convert.ToDecimal(txtValorDiaria.Text))
+				.GetObservacoes(txtObservacoes.Text)
+				.GetArCondicionado(checkArCond.Checked)
+				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
+				.GetVidroEletrico(checkVidroEletrico.Checked)
+				.GetAbs(checkAbs.Checked)
+				.GetAirBag(checkAirBag.Checked)
+				.GetIsAtivo(ativo);
+
+			var veiculo = veiculoBuilder.Build();
+
+			if (new VeiculosDao().DbAdd(veiculo))
 			{
-				v.IsAtivo = true;
+				MessageBox.Show("Carro Adicionado com Sucesso!", "Sucesso!");
+				LimpaTela();
 			}
-
-			new VeiculosDao().DbAdd(v);
-
-			LimpaTela();
-
-
+			else
+			{
+				MessageBox.Show("Erro ao salvar, favor tentar novamente!", "Erro!");
+			}
 		}
 
 		private void LimpaTela()
@@ -147,6 +153,12 @@ namespace Dll_Forms_Fat
 		private void FormCadastrarNovoVeiculo_Load(object sender, EventArgs e)
 		{
 			CarregaMontadoras();
+			CarregarCores();
+		}
+
+		private void CarregarCores()
+		{
+			foreach (var cor in Enum.GetValues(typeof(@string))) comboCor.Items.Add(cor);
 		}
 
 		private void CarregaMontadoras()
@@ -201,7 +213,7 @@ namespace Dll_Forms_Fat
 			txtAnoModelo.Text = v.AnoModelo;
 
 			numericPortas.Value = v.Portas;
-			comboCor.Text = v.Cor;
+			comboCor.Text = v.Cor.ToString();
 			maskedTxtPlaca.Text = v.Placa;
 			txtRenavam.Text = v.Renavam;
 			txtChassi.Text = v.Chassi;
@@ -220,26 +232,37 @@ namespace Dll_Forms_Fat
 
 		}
 
-		private void AtualizarVeiculo(Dll_BS_Fat.Veiculos v)
+		private void AtualizarVeiculo(Dll_BS_Fat.Veiculos veiculo)
 		{
-			v.Portas = Convert.ToInt32(numericPortas.Value);
-			v.Cor = comboCor.Text;
-			v.Placa = maskedTxtPlaca.Text.ToUpper();
-			v.Renavam = txtRenavam.Text;
-			v.Chassi = txtChassi.Text;
-			v.Lugares = Convert.ToInt32(numericLugares.Value);
-			v.Quilometragem = Convert.ToInt32(txtOdometro.Text);
-			v.Status = comboStatus.Text;
-			v.ValorDiaria = Convert.ToDecimal(txtValorDiaria.Text);
-			v.Observacoes = txtObservacoes.Text;
+			var id = veiculo.Id;
+			var veiculoBuilder = new VeiculosBuilder()
+				.GetMontadora(txtMontadora.Text)
+				.GetModelo(txtModelo.Text)
+				.GetAnoModelo(txtAnoModelo.Text)
+				.GetPortas(Convert.ToInt32(numericPortas.Value))
+				//.GetCor((@string)Enum.Parse(typeof(@string), comboCor.SelectedText))
+				.GetCor(comboCor.Text)
+				.GetPlaca(maskedTxtPlaca.Text.ToUpper())
+				.GetRenavam(txtRenavam.Text)
+				.GetChassi(txtChassi.Text)
+				.GetLugares(Convert.ToInt32(numericLugares.Value))
+				.GetQuilometragem(Convert.ToInt32(txtOdometro.Text))
+				.GetStatus(comboStatus.Text)
+				.GetCombustivel(txtCombustivel.Text)
+				.GetValorAtual(txtValorAtualCarro.Text)
+				.GetValorDiaria(Convert.ToDecimal(txtValorDiaria.Text))
+				.GetObservacoes(txtObservacoes.Text)
+				.GetArCondicionado(checkArCond.Checked)
+				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
+				.GetVidroEletrico(checkVidroEletrico.Checked)
+				.GetAbs(checkAbs.Checked)
+				.GetAirBag(checkAirBag.Checked)
+				.GetIsAtivo(true);
 
-			v.ArCondicionado = checkArCond.Checked;
-			v.DirecaoHidraulica = checkDirecaoHidraulica.Checked;
-			v.VidroEletrico = checkVidroEletrico.Checked;
-			v.Abs = checkAbs.Checked;
-			v.AirBag = checkAirBag.Checked;
+			veiculo = veiculoBuilder.Build();
+			veiculo.Id = id;
 
-			new VeiculosDao().DbUpdate(v);
+			new VeiculosDao().DbUpdate(veiculo);
 
 			ReabrirForm();
 		}
@@ -255,8 +278,9 @@ namespace Dll_Forms_Fat
 			form.Show();
 		}
 
-
-
-		
+		private void MaskedTxtPlaca_Leave(object sender, EventArgs e)
+		{
+			this.maskedTxtPlaca.Text.ToUpper();
+		}
 	}
 }

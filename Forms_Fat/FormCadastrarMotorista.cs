@@ -1,8 +1,6 @@
-﻿using Dll_Utilidades;
+﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
-using Dll_BS_Fat;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -32,17 +30,17 @@ namespace Dll_Forms_Fat
 
 		private void CarregaMotoristas()
 		{
-			
-				var motoristas = new ClientesDao().GetAll();
 
-				comboMotoristas.DataSource = motoristas;
-				comboMotoristas.DisplayMember = "Nome";
-		
+			var motoristas = new ClientesPFDao().GetAll();
+
+			comboMotoristas.DataSource = motoristas;
+			comboMotoristas.DisplayMember = "Nome";
+
 		}
 
 		private void ComboMotoristas_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Clientes motorista = (Clientes)comboMotoristas.SelectedItem;
+			ClientesPF motorista = (ClientesPF)comboMotoristas.SelectedItem;
 			txtCnh.Text = motorista.Cnh.Numero;
 			txtCategoria.Text = motorista.Cnh.Categoria;
 			//maskedEmitida.Text = motorista.Cnh.Emissao.Value.ToString();

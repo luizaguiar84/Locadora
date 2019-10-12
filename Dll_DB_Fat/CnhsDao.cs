@@ -9,7 +9,7 @@ namespace Dll_DB_Fat
 	{
 		public bool DbAdd(Cnhs Add)
 		{
-			throw new System.NotImplementedException();
+			return new DbKernel().DbAdd<Cnhs>(Add);
 		}
 
 		public Cnhs DbGetCnh(int id)
@@ -21,7 +21,7 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Cnhs Add)
 		{
-			throw new System.NotImplementedException();
+			return new DbKernel().DbUpdate<Cnhs>(Add);
 		}
 
 		public bool DeleteRegistro(Cnhs Registro)
@@ -31,7 +31,7 @@ namespace Dll_DB_Fat
 
 		public List<Cnhs> GetAll()
 		{
-			throw new System.NotImplementedException();
+			return new DbKernel().GetAll<Cnhs>();
 		}
 
 		public Cnhs GetRegistroPorCodigo(int id, string registro)

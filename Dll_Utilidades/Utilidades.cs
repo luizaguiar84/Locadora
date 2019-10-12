@@ -1,17 +1,17 @@
 ﻿namespace Dll_Utilidades
 {
 	using Caelum.Stella.CSharp.Validation;
-    using Correios.CEP;
+	using Correios.CEP;
 	using System;
-    using System.Configuration;
-    using System.Windows.Forms;
+	using System.Configuration;
+	using System.Windows.Forms;
 
 	/// <summary>
 	/// Utilidades do sistema
 	/// </summary>
 	public static class Utilidades
 	{
-		
+
 		/// <summary>
 		/// Aceitar apenas numeros no campo.
 		/// </summary>
@@ -32,10 +32,10 @@
 		/// <param name="e"></param>
 		public static void IsLetras(this object obj, KeyPressEventArgs e)
 		{
-			if (!(Char.IsLetter(e.KeyChar) || 
-				  Char.IsControl(e.KeyChar) || 
+			if (!(Char.IsLetter(e.KeyChar) ||
+				  Char.IsControl(e.KeyChar) ||
 				  Char.IsSeparator(e.KeyChar)))
-				
+
 				e.Handled = true;
 
 		}
@@ -81,12 +81,12 @@
 		}
 
 		/// <summary>
-	/// Faz a Validaçao do CNPJ
-	/// </summary>
-	/// <param name="cnpj">insira o <paramref name="cnpj"/></param>
-	/// <returns></returns>
+		/// Faz a Validaçao do CNPJ
+		/// </summary>
+		/// <param name="cnpj">insira o <paramref name="cnpj"/></param>
+		/// <returns></returns>
 		public static bool IsCnpj(string cnpj)
-			{
+		{
 			if (new CNPJValidator().IsValid(cnpj))
 			{
 				return true;
@@ -162,9 +162,9 @@
 			}
 			else
 			{
-				return null; 
+				return null;
 			}
-						
+
 		}
 
 		public static string LeDadosStringCoexao(string chave)
@@ -185,5 +185,5 @@
 		}
 	}
 
-	
+
 }

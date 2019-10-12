@@ -78,6 +78,7 @@
 			this.radioPessoaFisica = new System.Windows.Forms.RadioButton();
 			this.radioPessoaJuridica = new System.Windows.Forms.RadioButton();
 			this.btnLocalizar = new System.Windows.Forms.Button();
+			this.btnAtualizar = new System.Windows.Forms.Button();
 			this.groupEndereco.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -550,6 +551,17 @@
 			this.btnLocalizar.UseVisualStyleBackColor = true;
 			this.btnLocalizar.Click += new System.EventHandler(this.BtnLocalizar_Click);
 			// 
+			// btnAtualizar
+			// 
+			this.btnAtualizar.Location = new System.Drawing.Point(604, 409);
+			this.btnAtualizar.Name = "btnAtualizar";
+			this.btnAtualizar.Size = new System.Drawing.Size(136, 42);
+			this.btnAtualizar.TabIndex = 280;
+			this.btnAtualizar.Text = "Salvar";
+			this.btnAtualizar.UseVisualStyleBackColor = true;
+			this.btnAtualizar.Visible = false;
+			this.btnAtualizar.Click += new System.EventHandler(this.BtnAtualizar_Click);
+			// 
 			// FormCadastrarCliente
 			// 
 			this.AcceptButton = this.btnSalvar;
@@ -558,6 +570,7 @@
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(792, 480);
 			this.ControlBox = false;
+			this.Controls.Add(this.btnAtualizar);
 			this.Controls.Add(this.btnLocalizar);
 			this.Controls.Add(this.radioPessoaJuridica);
 			this.Controls.Add(this.radioPessoaFisica);
@@ -655,5 +668,6 @@
 		private System.Windows.Forms.RadioButton radioPessoaFisica;
 		private System.Windows.Forms.RadioButton radioPessoaJuridica;
 		private System.Windows.Forms.Button btnLocalizar;
+		private System.Windows.Forms.Button btnAtualizar;
 	}
 }

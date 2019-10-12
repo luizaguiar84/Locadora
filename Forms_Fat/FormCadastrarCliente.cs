@@ -1,15 +1,16 @@
-﻿using System;
-using System.Windows.Forms;
-using Dll_Utilidades;
-using Dll_BS_Fat;
+﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
+using Dll_Utilidades;
+using System;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
 {
 	public partial class FormCadastrarCliente : Form
 	{
-		private Clientes cliente;
+		private ClientesPF clientePf = new ClientesPF();
+		private ClientesPJ clientePj = new ClientesPJ();
 		#region VALIDACOES
 		private void TxtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
 		{
@@ -21,80 +22,99 @@ namespace Dll_Forms_Fat
 		{
 			InitializeComponent();
 			PreencherId();
+			btnAtualizar.Hide();
+
 		}
-		public FormCadastrarCliente(Clientes cliente)
+		public FormCadastrarCliente(ClientesPF cliente)
 		{
 			InitializeComponent();
-			this.cliente = cliente;
-			PreencherFormulario(cliente);
+			this.clientePf = cliente;
+			PreencherFormulario(clientePf);
+			radioPessoaFisica.Enabled = false;
+			radioPessoaJuridica.Enabled = false;
+			btnAtualizar.Show();
+		}
+		public FormCadastrarCliente(ClientesPJ cliente)
+		{
+			InitializeComponent();
+			this.clientePj = cliente;
+			PreencherFormulario(clientePj);
+			radioPessoaFisica.Enabled = false;
+			radioPessoaJuridica.Enabled = false;
+			btnAtualizar.Show();
 		}
 
 		private void FormCadastrarCliente_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		private void PreencherId()
 		{
-			var idCliente = new ClientesDao().BuscaId();
+			var idCliente = new ClientesPFDao().BuscaId();
 			idCliente++;
 			txtId.Text = Convert.ToString(idCliente);
 		}
 
-		private void AtualizarPf(Clientes cliente)
+		private void AtualizarPf(ClientesPF cliente)
 		{
-			if (checkAtivo.Checked)
-			{
-				cliente.IsAtivo = true;
-			}
-			else
-			{
-				cliente.IsAtivo = false;
-			}
-			cliente.TipoCliente = "PF";
-			cliente.Nome = txtNome.Text;
-			cliente.Cpf = maskedCpf.Text;
-			cliente.Profissao = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Rg = txtRG.Text;
-			cliente.Nascimento = dateNascimento.Value;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.TelResidencial = txtTelRes.Text;
-			cliente.TelCelular = txtTelCel.Text;
-			cliente.Cnh.Numero = txtCNH.Text;
-			cliente.Cnh.Categoria = txtCategoria.Text;
-			cliente.Nascimento = dateNascimento.Value;
-			cliente.Cnh.Emissao = dateCnhEmitida.Value;
-			cliente.Cnh.Validade = dateCnhValidade.Value;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+			bool ativo = false;
+			if (checkAtivo.Checked) ativo = true;
+
+			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
+				.GetCep(maskedCEP.Text)
+				.GetLogradouro(txtLogradouro.Text)
+				.GetNumero(txtNumero.Text)
+				.GetComplemento(txtComplemento.Text)
+				.GetBairro(txtBairro.Text)
+				.GetCidade(txtCidade.Text)
+				.GetUf(txtUF.Text);
+			var endereco = enderecoBuilder.Build();
+
+			CnhsBuilder cnhBuilder = new CnhsBuilder()
+				.GetEmissao(dateCnhEmitida.Value)
+				.GetValidade(dateCnhValidade.Value)
+				.GetNumero(txtCNH.Text)
+				.GetCategoria(txtCategoria.Text);
+			var cnh = cnhBuilder.Build();
+
+			ClientesPFBuilder clienteBuilder = new ClientesPFBuilder()
+				.GetIsAtivo(ativo)
+				.GetTipoCliente(TipoCliente.PF)
+				.GetNome(txtNome.Text)
+				.GetCpf(maskedCpf.Text)
+				.GetProfissao(txtProfissao.Text)
+				.GetEmail(txtEmail.Text)
+				.GetRg(txtRG.Text)
+				.GetNascimento(dateNascimento.Value)
+				.GetTelComercial(txtTelCom.Text)
+				.GetTelCelular(txtTelCel.Text)
+				.GetTelResidencial(txtTelRes.Text)
+				.GetCnh(cnh)
+				.GetEndereco(endereco);
+
+			cliente = clienteBuilder.Build();
 
 			if (MessageBox.Show($"Favor confirmar a atualização dos dados:\n\n" +
-				$"Nome: {cliente.Nome}\n" +
-				$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
-				$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
-				$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
-				$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
-				$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
-				$"\nEndereço:\n\n" +
-				$"CEP: {cliente.Endereco.Cep}\n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
-				$"",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome: {cliente.Nome}\n" +
+								$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
+								$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
+								$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
+								$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
+								$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
+								$"\nEndereço:\n\n" +
+								$"CEP: {cliente.Endereco.Cep}\n" +
+								$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
+								$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
+								$"",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				int id = Convert.ToInt32(txtId.Text);
 
 				cliente.Cnh.Id = id;
 				cliente.Endereco.Id = id;
 
-				new ClientesDao().DbAdd(cliente);
+				new ClientesPFDao().DbAdd(cliente);
 				MessageBox.Show("Cadastro Atualizado com sucesso!");
 				LimpaTela();
 			}
@@ -106,150 +126,151 @@ namespace Dll_Forms_Fat
 			this.checkAtivo.Checked = true;
 			this.lblNome.Focus();
 		}
-		private void AtualizarPj(Clientes cliente)
+		private void AtualizarPj(ClientesPJ cliente)
 		{
+			bool ativo = false;
 			if (checkAtivo.Checked)
 			{
-				cliente.IsAtivo = true;
+				ativo = true;
 			}
-			else
-			{
-				cliente.IsAtivo = false;
-			}
-			cliente.TipoCliente = "PJ";
-			cliente.Nome = txtNome.Text;
-			cliente.Cnpj = maskedCpf.Text;
-			cliente.Contato = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Ie = txtRG.Text;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
+				.GetCep(maskedCEP.Text)
+				.GetLogradouro(txtLogradouro.Text)
+				.GetNumero(txtNumero.Text)
+				.GetComplemento(txtComplemento.Text)
+				.GetBairro(txtBairro.Text)
+				.GetCidade(txtCidade.Text)
+				.GetUf(txtUF.Text);
+			Enderecos endereco = enderecoBuilder.Build();
+			ClientesPJBuilder PjBuilder = new ClientesPJBuilder()
+				.GetIsAtivo(ativo)
+				.GetRazaoSocial(txtNome.Text)
+				.GetCnpj(maskedCpf.Text)
+				.GetContato(txtProfissao.Text)
+				.GetEmail(txtEmail.Text)
+				.GetIe(txtRG.Text)
+				.GetTelComercial(txtTelCom.Text)
+				.GetEndereco(endereco);
+			cliente = PjBuilder.Build();
 
 			if (MessageBox.Show($"Favor confirmar a atualização:\n" +
-				$"Nome da empresa:{cliente.Nome}\n" +
-				$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
-				$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
-				$"Telefone: {cliente.TelResidencial}\n" +
-				$"Endereço:\n " +
-				$"CEP: {cliente.Endereco.Cep} \n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome da empresa:{cliente.RazaoSocial}\n" +
+								$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
+								$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
+								$"Telefone: {cliente.TelComercial}\n" +
+								$"Endereço:\n " +
+								$"CEP: {cliente.Endereco.Cep} \n" +
+								$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
+								$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
 				int id = Convert.ToInt32(txtId.Text);
-
 				cliente.Endereco.Id = id;
-
-				new ClientesDao().DbUpdate(cliente);
-
+				new ClientesPjDao().DbUpdate(cliente);
 				LimpaTela();
 			}
 		}
 		private void CadastrarPj()
 		{
-			var cliente = new Clientes();
+			bool ativo = false;
+			if (checkAtivo.Checked) ativo = true;
 
-			if (checkAtivo.Checked)
-			{
-				cliente.IsAtivo = true;
-			}
-			else
-			{
-				cliente.IsAtivo = false;
-			}
-			cliente.TipoCliente = "PJ";
-			cliente.Nome = txtNome.Text;
-			cliente.Cnpj = maskedCpf.Text;
-			cliente.Contato = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Ie = txtRG.Text;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
+				.GetCep(maskedCEP.Text)
+				.GetLogradouro(txtLogradouro.Text)
+				.GetNumero(txtNumero.Text)
+				.GetComplemento(txtComplemento.Text)
+				.GetBairro(txtBairro.Text)
+				.GetCidade(txtCidade.Text)
+				.GetUf(txtUF.Text);
+			var endereco = enderecoBuilder.Build();
+
+			ClientesPJBuilder PjBuilder = new ClientesPJBuilder()
+				.GetIsAtivo(ativo)
+				.GetRazaoSocial(txtNome.Text)
+				.GetCnpj(maskedCpf.Text)
+				.GetContato(txtProfissao.Text)
+				.GetEmail(txtEmail.Text)
+				.GetIe(txtRG.Text)
+				.GetTelComercial(txtTelCom.Text)
+				.GetEndereco(endereco);
+			clientePj = PjBuilder.Build();
 
 			if (MessageBox.Show($"Favor confirmar os dados:\n" +
-				$"Nome da empresa:{cliente.Nome}\n" +
-				$" Cnpj: {cliente.Cnpj} - IE: {cliente.Ie}\n " +
-				$"E-Mail: {cliente.Email} - Contato: {cliente.Contato} \n" +
-				$"Telefone: {cliente.TelResidencial}\n" +
-				$"Endereço:\n " +
-				$"CEP: {cliente.Endereco.Cep} \n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro}  / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome da empresa:{clientePj.RazaoSocial}\n" +
+								$" Cnpj: {clientePj.Cnpj} - IE: {clientePj.Ie}\n " +
+								$"E-Mail: {clientePj.Email} - Contato: {clientePj.Contato} \n" +
+								$"Telefone: {clientePj.TelComercial}\n" +
+								$"Endereço:\n " +
+								$"CEP: {clientePj.Endereco.Cep} \n" +
+								$"{clientePj.Endereco.Logradouro} {clientePj.Endereco.Num} Complemento: {clientePj.Endereco.Complemento} \n" +
+								$"Bairro: {clientePj.Endereco.Bairro}  / Cidade: {clientePj.Endereco.Cidade} / UF: {clientePj.Endereco.Uf} \n",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
-
-				new ClientesDao().DbAdd(cliente);
-
+				new ClientesPjDao().DbAdd(clientePj);
 				LimpaTela();
 			}
 		}
 		private void CadastrarPf()
 		{
-			var cliente = new Clientes();
-
+			bool ativo = false;
 			if (checkAtivo.Checked)
 			{
-				cliente.IsAtivo = true;
+				ativo = true;
 			}
-			else
-			{
-				cliente.IsAtivo = false;
-			}
-			cliente.TipoCliente = "PF";
-			cliente.Nome = txtNome.Text;
-			cliente.Cpf = maskedCpf.Text;
-			cliente.Profissao = txtProfissao.Text;
-			cliente.Email = txtEmail.Text;
-			cliente.Rg = txtRG.Text;
-			cliente.Nascimento = dateNascimento.Value;
-			cliente.Cnh.Emissao = dateCnhEmitida.Value;
-			cliente.Cnh.Validade = dateCnhValidade.Value;
-			cliente.TelComercial = txtTelCom.Text;
-			cliente.TelResidencial = txtTelRes.Text;
-			cliente.TelCelular = txtTelCel.Text;
-			cliente.Cnh.Numero = txtCNH.Text;
-			cliente.Cnh.Categoria = txtCategoria.Text;
-			cliente.Endereco.Cep = maskedCEP.Text;
-			cliente.Endereco.Logradouro = txtLogradouro.Text;
-			cliente.Endereco.Num = txtNumero.Text;
-			cliente.Endereco.Complemento = txtComplemento.Text;
-			cliente.Endereco.Bairro = txtBairro.Text;
-			cliente.Endereco.Cidade = txtCidade.Text;
-			cliente.Endereco.Uf = txtUF.Text;
+			CnhsBuilder cnhBuilder = new CnhsBuilder()
+				.GetEmissao(dateCnhEmitida.Value)
+				.GetValidade(dateCnhValidade.Value)
+				.GetNumero(txtCNH.Text)
+				.GetCategoria(txtCategoria.Text);
+			Cnhs cnh = cnhBuilder.Build();
+
+			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
+				.GetCep(maskedCEP.Text)
+				.GetLogradouro(txtLogradouro.Text)
+				.GetNumero(txtNumero.Text)
+				.GetComplemento(txtComplemento.Text)
+				.GetBairro(txtBairro.Text)
+				.GetCidade(txtCidade.Text)
+				.GetUf(txtUF.Text);
+			Enderecos endereco = enderecoBuilder.Build();
+
+			ClientesPFBuilder cli = new ClientesPFBuilder()
+				.GetIsAtivo(ativo)
+				.GetTipoCliente(TipoCliente.PJ)
+				.GetNome(txtNome.Text)
+				.GetCpf(maskedCpf.Text)
+				.GetProfissao(txtProfissao.Text)
+				.GetEmail(txtEmail.Text)
+				.GetRg(txtRG.Text)
+				.GetNascimento(dateNascimento.Value)
+				.GetTelComercial(txtTelCom.Text)
+				.GetTelCelular(txtTelCel.Text)
+				.GetTelResidencial(txtTelRes.Text)
+				.GetCnh(cnh)
+				.GetEndereco(endereco);
+			clientePf = cli.Build();
 
 			if (MessageBox.Show($"Favor confirmar os dados:\n\n" +
-				$"Nome: {cliente.Nome}\n" +
-				$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
-				$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
-				$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
-				$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
-				$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
-				$"\nEndereço:\n\n" +
-				$"CEP: {cliente.Endereco.Cep}\n" +
-				$"{cliente.Endereco.Logradouro} {cliente.Endereco.Num} Complemento: {cliente.Endereco.Complemento} \n" +
-				$"Bairro: {cliente.Endereco.Bairro} / Cidade: {cliente.Endereco.Cidade} / UF: {cliente.Endereco.Uf} \n" +
-				$"",
-				"Confirmação",
-				MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+								$"Nome: {clientePf.Nome}\n" +
+								$"CPF: {clientePf.Cpf} - RG: {clientePf.Rg}\n" +
+								$"Profissão: {clientePf.Profissao} / Email: {clientePf.Email}\n" +
+								$"Nascimento: {clientePf.Nascimento.Value.ToShortDateString()} \n" +
+								$"Telefone Comercial: {clientePf.TelComercial} - Residencial {clientePf.TelResidencial} - Celular: {clientePf.TelCelular}\n" +
+								$"CNH: {clientePf.Cnh.Numero} / Categoria: {clientePf.Cnh.Categoria} \n" +
+								$"\nEndereço:\n\n" +
+								$"CEP: {clientePf.Endereco.Cep}\n" +
+								$"{clientePf.Endereco.Logradouro} {clientePf.Endereco.Num} Complemento: {clientePf.Endereco.Complemento} \n" +
+								$"Bairro: {clientePf.Endereco.Bairro} / Cidade: {clientePf.Endereco.Cidade} / UF: {clientePf.Endereco.Uf} \n" +
+								$"",
+								"Confirmação",
+								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-
-				new ClientesDao().DbAdd(cliente);
+				new ClientesPFDao().DbAdd(clientePf);
 				MessageBox.Show("Cadastro Efetuado com sucesso!");
 				LimpaTela();
 			}
@@ -283,14 +304,14 @@ namespace Dll_Forms_Fat
 				}
 			}
 		}
-		private void PreencherFormulario(Clientes cliente)
+		private void PreencherFormulario(Object cliente)
 		{
-			if (cliente.TipoCliente == "PF")
+			if (cliente is ClientesPF cli)
 			{
 				radioPessoaFisica.Checked = true;
 				radioPessoaJuridica.Checked = false;
 
-				if (cliente.IsAtivo == false)
+				if (cli.IsAtivo == false)
 				{
 					checkAtivo.Checked = false;
 				}
@@ -298,36 +319,38 @@ namespace Dll_Forms_Fat
 				{
 					checkAtivo.Checked = true;
 				}
-				txtId.Text = cliente.Id.ToString();
-				txtNome.Text = cliente.Nome;
-				maskedCpf.Text = cliente.Cpf;
-				txtProfissao.Text = cliente.Profissao;
-				txtEmail.Text = cliente.Email;
-				txtRG.Text = cliente.Rg;
-				dateNascimento.Value = (DateTime)cliente.Nascimento;
-				dateCnhEmitida.Value = (DateTime)cliente.Cnh.Emissao;
-				dateCnhValidade.Value = (DateTime)cliente.Cnh.Validade;
-				txtTelCom.Text = cliente.TelComercial;
-				txtTelRes.Text = cliente.TelResidencial;
-				txtTelCel.Text = cliente.TelCelular;
-				txtCNH.Text = cliente.Cnh.Numero;
-				txtCategoria.Text = cliente.Cnh.Categoria;
+				txtId.Text = cli.Id.ToString();
+				txtNome.Text = cli.Nome;
+				maskedCpf.Text = cli.Cpf;
+				txtProfissao.Text = cli.Profissao;
+				txtEmail.Text = cli.Email;
+				txtRG.Text = cli.Rg;
+				dateNascimento.Value = (DateTime)cli.Nascimento;
+				dateCnhEmitida.Value = (DateTime)cli.Cnh.Emissao;
+				dateCnhValidade.Value = (DateTime)cli.Cnh.Validade;
+				txtTelCom.Text = cli.TelComercial;
+				txtTelRes.Text = cli.TelResidencial;
+				txtTelCel.Text = cli.TelCelular;
+				txtCNH.Text = cli.Cnh.Numero;
+				txtCategoria.Text = cli.Cnh.Categoria;
 
 				this.groupEndereco.Select();
-				maskedCEP.Text = cliente.Endereco.Cep;
-				txtLogradouro.Text = cliente.Endereco.Logradouro;
-				txtNumero.Text = cliente.Endereco.Num;
-				txtComplemento.Text = cliente.Endereco.Complemento;
-				txtBairro.Text = cliente.Endereco.Bairro;
-				txtCidade.Text = cliente.Endereco.Cidade;
-				txtUF.Text = cliente.Endereco.Uf;
+				maskedCEP.Text = cli.Endereco.Cep;
+				txtLogradouro.Text = cli.Endereco.Logradouro;
+				txtNumero.Text = cli.Endereco.Num;
+				txtComplemento.Text = cli.Endereco.Complemento;
+				txtBairro.Text = cli.Endereco.Bairro;
+				txtCidade.Text = cli.Endereco.Cidade;
+				txtUF.Text = cli.Endereco.Uf;
 			}
 			else
 			{
+				ClientesPJ c = (ClientesPJ)cliente;
+
 				radioPessoaJuridica.Checked = true;
 				radioPessoaFisica.Checked = false;
 
-				if (cliente.IsAtivo == false)
+				if (c.IsAtivo == false)
 				{
 					checkAtivo.Checked = false;
 				}
@@ -335,20 +358,20 @@ namespace Dll_Forms_Fat
 				{
 					checkAtivo.Checked = true;
 				}
-				txtId.Text = cliente.Id.ToString();
-				txtNome.Text = cliente.Nome;
-				maskedCpf.Text = cliente.Cnpj;
-				txtProfissao.Text = cliente.Contato;
-				txtEmail.Text = cliente.Email;
-				txtRG.Text = cliente.Ie;
-				txtTelCom.Text = cliente.TelComercial;
-				maskedCEP.Text = cliente.Endereco.Cep;
-				txtLogradouro.Text = cliente.Endereco.Logradouro;
-				txtNumero.Text = cliente.Endereco.Num;
-				txtComplemento.Text = cliente.Endereco.Complemento;
-				txtBairro.Text = cliente.Endereco.Bairro;
-				txtCidade.Text = cliente.Endereco.Cidade;
-				txtUF.Text = cliente.Endereco.Uf;
+				txtId.Text = c.Id.ToString();
+				txtNome.Text = c.RazaoSocial;
+				maskedCpf.Text = c.Cnpj;
+				txtProfissao.Text = c.Contato;
+				txtEmail.Text = c.Email;
+				txtRG.Text = c.Ie;
+				txtTelCom.Text = c.TelComercial;
+				maskedCEP.Text = c.Endereco.Cep;
+				txtLogradouro.Text = c.Endereco.Logradouro;
+				txtNumero.Text = c.Endereco.Num;
+				txtComplemento.Text = c.Endereco.Complemento;
+				txtBairro.Text = c.Endereco.Bairro;
+				txtCidade.Text = c.Endereco.Cidade;
+				txtUF.Text = c.Endereco.Uf;
 			}
 		}
 		private void RadioPF()
@@ -376,6 +399,7 @@ namespace Dll_Forms_Fat
 			txtTelCel.Show();
 			lblTelRes.Show();
 			txtTelRes.Show();
+
 		}
 		private void RadioPJ()
 		{
@@ -416,33 +440,16 @@ namespace Dll_Forms_Fat
 		}
 		private void BtnSalvar_Click_1(object sender, EventArgs e)
 		{
-			int id = Convert.ToInt32(txtId.Text);
-			var cliente = new ClientesDao().GetAll()
-							.Where(c => c.Id == id)
-							.SingleOrDefault();
-		
-			if (cliente != null)
+
+			if (radioPessoaFisica.Checked == true)
 			{
-				if (cliente.TipoCliente == "PF")
-				{
-					AtualizarPf(cliente);
-				}
-				else
-				{
-					AtualizarPj(cliente);
-				}
+				CadastrarPf();
 			}
-			else
+			if (radioPessoaJuridica.Checked == true)
 			{
-				if (radioPessoaFisica.Checked == true)
-				{
-					CadastrarPf();
-				}
-				if (radioPessoaJuridica.Checked == true)
-				{
-					CadastrarPj();
-				}
+				CadastrarPj();
 			}
+
 		}
 		private void MaskedCEP_Leave(object sender, EventArgs e)
 		{
@@ -468,6 +475,26 @@ namespace Dll_Forms_Fat
 			else
 			{
 				RadioPF();
+			}
+		}
+
+		private void BtnAtualizar_Click(object sender, EventArgs e)
+		{
+			int id = Convert.ToInt32(txtId.Text);
+
+			if (radioPessoaJuridica.Checked)
+			{
+				var cliente = new ClientesPjDao().GetAll()
+							   .Where(c => c.Id == id)
+							   .SingleOrDefault();
+				AtualizarPj(cliente);
+			}
+			else
+			{
+				var cliente = new ClientesPFDao().GetAll()
+							.Where(c => c.Id == id)
+							.SingleOrDefault();
+				AtualizarPf(cliente);
 			}
 		}
 	}

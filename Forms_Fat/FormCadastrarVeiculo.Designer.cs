@@ -89,6 +89,7 @@
 			this.TabCadastroVeiculos.SelectedIndex = 0;
 			this.TabCadastroVeiculos.Size = new System.Drawing.Size(760, 380);
 			this.TabCadastroVeiculos.TabIndex = 17;
+			this.TabCadastroVeiculos.TabStop = false;
 			// 
 			// tabInformacoes
 			// 
@@ -140,26 +141,26 @@
 			// 
 			// txtAnoModelo
 			// 
-			this.txtAnoModelo.Location = new System.Drawing.Point(462, 60);
+			this.txtAnoModelo.Location = new System.Drawing.Point(467, 59);
 			this.txtAnoModelo.Name = "txtAnoModelo";
 			this.txtAnoModelo.ReadOnly = true;
-			this.txtAnoModelo.Size = new System.Drawing.Size(129, 20);
+			this.txtAnoModelo.Size = new System.Drawing.Size(121, 20);
 			this.txtAnoModelo.TabIndex = 164;
 			// 
 			// txtModelo
 			// 
-			this.txtModelo.Location = new System.Drawing.Point(205, 60);
+			this.txtModelo.Location = new System.Drawing.Point(214, 59);
 			this.txtModelo.Name = "txtModelo";
 			this.txtModelo.ReadOnly = true;
-			this.txtModelo.Size = new System.Drawing.Size(251, 20);
+			this.txtModelo.Size = new System.Drawing.Size(247, 20);
 			this.txtModelo.TabIndex = 163;
 			// 
 			// txtMontadora
 			// 
-			this.txtMontadora.Location = new System.Drawing.Point(82, 60);
+			this.txtMontadora.Location = new System.Drawing.Point(79, 59);
 			this.txtMontadora.Name = "txtMontadora";
 			this.txtMontadora.ReadOnly = true;
-			this.txtMontadora.Size = new System.Drawing.Size(117, 20);
+			this.txtMontadora.Size = new System.Drawing.Size(129, 20);
 			this.txtMontadora.TabIndex = 162;
 			// 
 			// groupOpcionais
@@ -172,7 +173,7 @@
 			this.groupOpcionais.Location = new System.Drawing.Point(603, 43);
 			this.groupOpcionais.Name = "groupOpcionais";
 			this.groupOpcionais.Size = new System.Drawing.Size(132, 139);
-			this.groupOpcionais.TabIndex = 89;
+			this.groupOpcionais.TabIndex = 13;
 			this.groupOpcionais.TabStop = false;
 			this.groupOpcionais.Text = "Opcionais";
 			// 
@@ -182,7 +183,7 @@
 			this.checkAirBag.Location = new System.Drawing.Point(6, 110);
 			this.checkAirBag.Name = "checkAirBag";
 			this.checkAirBag.Size = new System.Drawing.Size(60, 17);
-			this.checkAirBag.TabIndex = 89;
+			this.checkAirBag.TabIndex = 17;
 			this.checkAirBag.Text = "Air Bag";
 			this.checkAirBag.UseVisualStyleBackColor = true;
 			// 
@@ -192,7 +193,7 @@
 			this.checkAbs.Location = new System.Drawing.Point(6, 88);
 			this.checkAbs.Name = "checkAbs";
 			this.checkAbs.Size = new System.Drawing.Size(47, 17);
-			this.checkAbs.TabIndex = 88;
+			this.checkAbs.TabIndex = 16;
 			this.checkAbs.Text = "ABS";
 			this.checkAbs.UseVisualStyleBackColor = true;
 			// 
@@ -202,7 +203,7 @@
 			this.checkArCond.Location = new System.Drawing.Point(6, 22);
 			this.checkArCond.Name = "checkArCond";
 			this.checkArCond.Size = new System.Drawing.Size(104, 17);
-			this.checkArCond.TabIndex = 85;
+			this.checkArCond.TabIndex = 13;
 			this.checkArCond.Text = "Ar Condicionado";
 			this.checkArCond.UseVisualStyleBackColor = true;
 			// 
@@ -212,7 +213,7 @@
 			this.checkVidroEletrico.Location = new System.Drawing.Point(6, 65);
 			this.checkVidroEletrico.Name = "checkVidroEletrico";
 			this.checkVidroEletrico.Size = new System.Drawing.Size(88, 17);
-			this.checkVidroEletrico.TabIndex = 87;
+			this.checkVidroEletrico.TabIndex = 15;
 			this.checkVidroEletrico.Text = "Vidro Elétrico";
 			this.checkVidroEletrico.UseVisualStyleBackColor = true;
 			// 
@@ -222,7 +223,7 @@
 			this.checkDirecaoHidraulica.Location = new System.Drawing.Point(6, 44);
 			this.checkDirecaoHidraulica.Name = "checkDirecaoHidraulica";
 			this.checkDirecaoHidraulica.Size = new System.Drawing.Size(113, 17);
-			this.checkDirecaoHidraulica.TabIndex = 86;
+			this.checkDirecaoHidraulica.TabIndex = 14;
 			this.checkDirecaoHidraulica.Text = "Direção Hidraulica";
 			this.checkDirecaoHidraulica.UseVisualStyleBackColor = true;
 			// 
@@ -232,7 +233,7 @@
 			this.comboAno.Location = new System.Drawing.Point(467, 59);
 			this.comboAno.Name = "comboAno";
 			this.comboAno.Size = new System.Drawing.Size(121, 21);
-			this.comboAno.TabIndex = 84;
+			this.comboAno.TabIndex = 3;
 			this.comboAno.SelectedIndexChanged += new System.EventHandler(this.ComboAno_SelectedIndexChanged);
 			// 
 			// txtValorDiaria
@@ -241,7 +242,7 @@
 			this.txtValorDiaria.MaxLength = 7;
 			this.txtValorDiaria.Name = "txtValorDiaria";
 			this.txtValorDiaria.Size = new System.Drawing.Size(85, 20);
-			this.txtValorDiaria.TabIndex = 83;
+			this.txtValorDiaria.TabIndex = 12;
 			// 
 			// label29
 			// 
@@ -259,6 +260,7 @@
 			this.txtCombustivel.ReadOnly = true;
 			this.txtCombustivel.Size = new System.Drawing.Size(74, 20);
 			this.txtCombustivel.TabIndex = 81;
+			this.txtCombustivel.TabStop = false;
 			// 
 			// numericLugares
 			// 
@@ -275,7 +277,7 @@
             0});
 			this.numericLugares.Name = "numericLugares";
 			this.numericLugares.Size = new System.Drawing.Size(38, 20);
-			this.numericLugares.TabIndex = 80;
+			this.numericLugares.TabIndex = 9;
 			this.numericLugares.Value = new decimal(new int[] {
             2,
             0,
@@ -299,6 +301,7 @@
 			this.txtValorAtualCarro.ReadOnly = true;
 			this.txtValorAtualCarro.Size = new System.Drawing.Size(85, 20);
 			this.txtValorAtualCarro.TabIndex = 78;
+			this.txtValorAtualCarro.TabStop = false;
 			// 
 			// btnLocalizar
 			// 
@@ -334,7 +337,7 @@
             0});
 			this.numericPortas.Name = "numericPortas";
 			this.numericPortas.Size = new System.Drawing.Size(38, 20);
-			this.numericPortas.TabIndex = 58;
+			this.numericPortas.TabIndex = 4;
 			this.numericPortas.Value = new decimal(new int[] {
             2,
             0,
@@ -359,7 +362,7 @@
 			this.comboStatus.Location = new System.Drawing.Point(155, 143);
 			this.comboStatus.Name = "comboStatus";
 			this.comboStatus.Size = new System.Drawing.Size(77, 21);
-			this.comboStatus.TabIndex = 70;
+			this.comboStatus.TabIndex = 11;
 			// 
 			// label2
 			// 
@@ -394,7 +397,7 @@
 			this.txtOdometro.MaxLength = 7;
 			this.txtOdometro.Name = "txtOdometro";
 			this.txtOdometro.Size = new System.Drawing.Size(69, 20);
-			this.txtOdometro.TabIndex = 66;
+			this.txtOdometro.TabIndex = 10;
 			this.txtOdometro.Text = "0";
 			this.txtOdometro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtOdometro_KeyPress);
 			// 
@@ -412,7 +415,7 @@
 			this.txtRenavam.Location = new System.Drawing.Point(246, 104);
 			this.txtRenavam.Name = "txtRenavam";
 			this.txtRenavam.Size = new System.Drawing.Size(139, 20);
-			this.txtRenavam.TabIndex = 62;
+			this.txtRenavam.TabIndex = 7;
 			// 
 			// lblRenavam
 			// 
@@ -458,30 +461,17 @@
 			this.comboMontadora.Name = "comboMontadora";
 			this.comboMontadora.Size = new System.Drawing.Size(129, 21);
 			this.comboMontadora.Sorted = true;
-			this.comboMontadora.TabIndex = 44;
+			this.comboMontadora.TabIndex = 1;
 			this.comboMontadora.SelectedIndexChanged += new System.EventHandler(this.ComboMontadora_SelectedIndexChanged);
 			// 
 			// comboCor
 			// 
 			this.comboCor.FormattingEnabled = true;
-			this.comboCor.Items.AddRange(new object[] {
-            "AMARELO",
-            "AZUL",
-            "BEGE",
-            "BRANCO",
-            "CINZA",
-            "LARANJA",
-            "MARROM",
-            "OURO",
-            "PRATA",
-            "PRETO",
-            "VERDE",
-            "VERMELHO"});
 			this.comboCor.Location = new System.Drawing.Point(79, 103);
 			this.comboCor.Name = "comboCor";
 			this.comboCor.Size = new System.Drawing.Size(92, 21);
 			this.comboCor.Sorted = true;
-			this.comboCor.TabIndex = 51;
+			this.comboCor.TabIndex = 5;
 			// 
 			// lblAnoMod
 			// 
@@ -510,8 +500,9 @@
 			this.maskedTxtPlaca.Name = "maskedTxtPlaca";
 			this.maskedTxtPlaca.PromptChar = ' ';
 			this.maskedTxtPlaca.Size = new System.Drawing.Size(55, 20);
-			this.maskedTxtPlaca.TabIndex = 49;
+			this.maskedTxtPlaca.TabIndex = 6;
 			this.maskedTxtPlaca.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+			this.maskedTxtPlaca.Leave += new System.EventHandler(this.MaskedTxtPlaca_Leave);
 			// 
 			// lblCor
 			// 
@@ -555,14 +546,14 @@
 			this.txtChassi.MaxLength = 15;
 			this.txtChassi.Name = "txtChassi";
 			this.txtChassi.Size = new System.Drawing.Size(197, 20);
-			this.txtChassi.TabIndex = 46;
+			this.txtChassi.TabIndex = 8;
 			// 
 			// btnSalvar
 			// 
 			this.btnSalvar.Location = new System.Drawing.Point(630, 250);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(105, 40);
-			this.btnSalvar.TabIndex = 52;
+			this.btnSalvar.TabIndex = 18;
 			this.btnSalvar.Text = "Salvar";
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -573,7 +564,7 @@
 			this.comboModelo.Location = new System.Drawing.Point(214, 59);
 			this.comboModelo.Name = "comboModelo";
 			this.comboModelo.Size = new System.Drawing.Size(247, 21);
-			this.comboModelo.TabIndex = 56;
+			this.comboModelo.TabIndex = 2;
 			this.comboModelo.SelectedIndexChanged += new System.EventHandler(this.ComboModelo_SelectedIndexChanged);
 			// 
 			// FormCadastrarVeiculo

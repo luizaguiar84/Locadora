@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
 {
 	public partial class FormDefinicoes : Form
 	{
-	
+
 
 		public FormDefinicoes()
 		{
@@ -45,7 +38,7 @@ namespace Dll_Forms_Fat
 		{
 			//txtSeguroTerceiros.Text = Program.Valores.ValorSeguroTerceiros.ToString("F2");
 			//txtSegFurtoBatida.Text = Program.Valores.ValorSeguro.ToString("F2");
-			
+
 
 		}
 

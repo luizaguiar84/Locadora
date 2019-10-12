@@ -36,13 +36,13 @@ namespace Dll_BS_Fat
 		public int KmDevolucao { get; set; }
 		public string LiberadoPor { get; set; }
 		public string RecebidoPor { get; set; }
-		public string NivelCombustivel { get;  set; }
+		public string NivelCombustivel { get; set; }
 		public bool SeguroCarro { get; set; }
 		public bool SeguroTerceiros { get; set; }
-		public decimal ValorSeguro { get;  set; }
-		public decimal ValorSeguroTerceiros { get;  set; }
+		public decimal ValorSeguro { get; set; }
+		public decimal ValorSeguroTerceiros { get; set; }
 
-		public void AddCliente(Clientes cliente)
+		public void AddCliente(ClientesPF cliente)
 		{
 			this.Cliente.Add(new ClienteLocacao() { ClienteId = cliente.Id });
 		}
@@ -58,15 +58,15 @@ namespace Dll_BS_Fat
 			}
 			if (SeguroTerceiros)
 			{
-			//	valorSeguro += diasLocados * Program.Valores.ValorSeguroTerceiros;
+				//	valorSeguro += diasLocados * Program.Valores.ValorSeguroTerceiros;
 			}
 
 			return (v.ValorDiaria * diasLocados) + valorSeguro;
 
-			
+
 		}
 
-		
+
 		//public virtual ICollection<Contratocarro> contratocarro { get; set; }
 	}
 }

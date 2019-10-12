@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -48,7 +41,7 @@ namespace Dll_Forms_Fat
 
 		private void Login_FormClosing_1(object sender, FormClosingEventArgs e)
 		{
-			if 
+			if
 				(MessageBox.Show("Tem certeza que deseja sair da aplicação?", "Confirmação", MessageBoxButtons.YesNo,
 				MessageBoxIcon.Question) == DialogResult.No)
 			{

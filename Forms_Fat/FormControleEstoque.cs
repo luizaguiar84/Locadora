@@ -1,5 +1,5 @@
-﻿using Dll_DB_Fat;
-using Dll_BS_Fat;
+﻿using Dll_BS_Fat;
+using Dll_DB_Fat;
 using System;
 using System.Data;
 using System.Linq;
@@ -78,6 +78,11 @@ namespace Dll_Forms_Fat
 		{
 			int id = Convert.ToInt32(dataGridConsulta["Id", e.RowIndex].Value);
 			PreenchePeca(id);
+		}
+
+		private void BtnBuscar_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

@@ -2,17 +2,15 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_DB_Fat
 {
 	public class TipoDespesaDao : IDbBanco<TipoDespesa>
 	{
 
-		public void DbAddTipo(TipoDespesa tipo)
+		public bool DbAddTipo(TipoDespesa tipo)
 		{
+			bool ret = false;
 			bool existe = false;
 			var tipos = GetAll();
 			foreach (var t in tipos)
@@ -20,12 +18,16 @@ namespace Dll_DB_Fat
 				if (tipo.Tipo == t.Tipo)
 				{
 					existe = true;
+					ret = true;
 				}
 			}
 			if (!existe)
 			{
 				DbAdd(tipo);
+				ret = true;
+				return ret;
 			}
+			return ret;
 		}
 
 		public bool DbUpdate(TipoDespesa registro)
@@ -38,7 +40,7 @@ namespace Dll_DB_Fat
 			throw new NotImplementedException();
 		}
 
-		
+
 
 		public TipoDespesa GetRegistroPorCodigo(int classeId, string registro)
 		{

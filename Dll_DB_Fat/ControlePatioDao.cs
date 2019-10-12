@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using Dll_BS_Fat;
+﻿using Dll_BS_Fat;
 using Dll_Db_Kernel;
+using System.Collections.Generic;
 
 namespace Dll_DB_Fat
 {
 	public class ControlePatioDao : IDbBanco<ControlePatio>
 	{
-		
+
 		public bool DeleteRegistro(ControlePatio registro)
 		{
 			throw new System.NotImplementedException();

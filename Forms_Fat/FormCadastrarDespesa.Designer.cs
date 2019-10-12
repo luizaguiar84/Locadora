@@ -43,11 +43,11 @@
 			this.groupCadastrarDespesas = new System.Windows.Forms.GroupBox();
 			this.dataDespesa = new System.Windows.Forms.DateTimePicker();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnFiltro = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dateAte = new System.Windows.Forms.DateTimePicker();
+			this.dateDe = new System.Windows.Forms.DateTimePicker();
 			this.groupBox10.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupCadastrarDespesas.SuspendLayout();
@@ -186,11 +186,11 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.button1);
+			this.groupBox1.Controls.Add(this.btnFiltro);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.dateTimePicker2);
-			this.groupBox1.Controls.Add(this.dateTimePicker1);
+			this.groupBox1.Controls.Add(this.dateAte);
+			this.groupBox1.Controls.Add(this.dateDe);
 			this.groupBox1.Location = new System.Drawing.Point(248, 118);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(346, 88);
@@ -198,14 +198,15 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Filtro";
 			// 
-			// button1
+			// btnFiltro
 			// 
-			this.button1.Location = new System.Drawing.Point(273, 38);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(53, 23);
-			this.button1.TabIndex = 11;
-			this.button1.Text = "OK";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnFiltro.Location = new System.Drawing.Point(273, 38);
+			this.btnFiltro.Name = "btnFiltro";
+			this.btnFiltro.Size = new System.Drawing.Size(53, 23);
+			this.btnFiltro.TabIndex = 11;
+			this.btnFiltro.Text = "OK";
+			this.btnFiltro.UseVisualStyleBackColor = true;
+			this.btnFiltro.Click += new System.EventHandler(this.Button1_Click);
 			// 
 			// label2
 			// 
@@ -225,19 +226,19 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "De:";
 			// 
-			// dateTimePicker2
+			// dateAte
 			// 
-			this.dateTimePicker2.Location = new System.Drawing.Point(38, 58);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(227, 20);
-			this.dateTimePicker2.TabIndex = 10;
+			this.dateAte.Location = new System.Drawing.Point(38, 58);
+			this.dateAte.Name = "dateAte";
+			this.dateAte.Size = new System.Drawing.Size(227, 20);
+			this.dateAte.TabIndex = 10;
 			// 
-			// dateTimePicker1
+			// dateDe
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(38, 22);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(229, 20);
-			this.dateTimePicker1.TabIndex = 9;
+			this.dateDe.Location = new System.Drawing.Point(38, 22);
+			this.dateDe.Name = "dateDe";
+			this.dateDe.Size = new System.Drawing.Size(229, 20);
+			this.dateDe.TabIndex = 9;
 			// 
 			// FormCadastrarDespesa
 			// 
@@ -279,9 +280,9 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker2;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.DateTimePicker dateAte;
+		private System.Windows.Forms.DateTimePicker dateDe;
+		private System.Windows.Forms.Button btnFiltro;
 		private System.Windows.Forms.DateTimePicker dataDespesa;
 	}
 }

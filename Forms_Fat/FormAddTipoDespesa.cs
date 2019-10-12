@@ -1,7 +1,6 @@
 ﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -20,7 +19,14 @@ namespace Dll_Forms_Fat
 				Tipo = txtTipo.Text
 			};
 
-			new TipoDespesaDao().DbAddTipo(tipoDespesa);
+			if (new TipoDespesaDao().DbAddTipo(tipoDespesa))
+			{
+				MessageBox.Show("Tipo de despesa adicionado com sucesso!");
+			}
+			else
+			{
+				MessageBox.Show("Erro na adição de despesa.");
+			}
 			this.Close();
 
 		}

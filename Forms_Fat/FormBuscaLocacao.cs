@@ -1,9 +1,5 @@
-﻿using Dll_Utilidades;
-using Dll_DB_Fat;
+﻿using Dll_DB_Fat;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -28,37 +24,39 @@ namespace Dll_Forms_Fat
 
 		private void EfetuarPesquisa()
 		{
-			MessageBox.Show("Falta Arrumar!");
+			MessageBox.Show("Falta Arrumar os filtros!");
+
+			dataGridView1.DataSource = new LocacoesDao().GetLocacoes();
+
 			//using (var contexto = new LocadoraContext())
 			//{
-			//	var query = from locacao in contexto.Locacoes
-			//				join cl in contexto.ClienteLocacao on locacao.Id equals cl.LocacaoId
-			//				join cliente in contexto.Clientes on cl.ClienteId equals cliente.Id
-			//				join veiculo in contexto.Veiculos on locacao.VeiculoId equals veiculo.Id
-			//				where
-			//				cliente.Id == cl.ClienteId &&
-			//				locacao.Id == cl.LocacaoId &&
-			//				veiculo.Id == locacao.VeiculoId
-			//				select new
-			//				{
-			//					OS = locacao.Id,
-			//					Cliente = cliente.Nome,
-			//					VeiculoAlugado = veiculo.Modelo,
-			//					veiculo.Placa,
-			//					DataInicio = locacao.DataInicio,
-			//					locacao.DataFinal,
-			//					IsAtiva = locacao.IsAtiva
-			//				};
+			// var query = from locacao in contexto.Locacoes
+			// 			join cl in contexto.ClienteLocacao on locacao.Id equals cl.LocacaoId
+			// 			join cliente in contexto.Clientes on cl.ClienteId equals cliente.Id
+			// 			join veiculo in contexto.Veiculos on locacao.VeiculoId equals veiculo.Id
+			// 			where
+			// 			cliente.Id == cl.ClienteId &&
+			// 			locacao.Id == cl.LocacaoId &&
+			// 			veiculo.Id == locacao.VeiculoId
+			// 			select new
+			// 			{
+			// 				OS = locacao.Id,
+			// 				Cliente = cliente.Nome,
+			// 				VeiculoAlugado = veiculo.Modelo,
+			// 				veiculo.Placa,
+			// 				DataInicio = locacao.DataInicio,
+			// 				locacao.DataFinal,
+			// 				IsAtiva = locacao.IsAtiva
+			// 			};
 
 			//	query = query.Take(10);
 
-			//	if (ComboFiltro.Text == "Placa")
-			//	{
-			//		dataGridView1.DataSource = query
-			//								.Where(x => x.Placa.Contains(txtPesquisa.Text) && x.IsAtiva)
-			//								.ToList();
-			//		NomeiaColunasDataGrid();
-			//	}
+			//if (ComboFiltro.Text == "Placa")
+			//{
+			//							//.Where(x => x.Placa.Contains(txtPesquisa.Text) && x.IsAtiva)
+			//							//.ToList();
+			//	//NomeiaColunasDataGrid();
+			//}
 			//	if (ComboFiltro.Text == "Cliente")
 			//	{
 			//		dataGridView1.DataSource = query
@@ -71,15 +69,6 @@ namespace Dll_Forms_Fat
 			//		MessageBox.Show("Favor Escolher a opção de busca no Filtro.");
 			//	}
 			//}
-		}
-
-		private void NomeiaColunasDataGrid()
-		{
-			dataGridView1.Columns["DataInicio"].HeaderText = "Data de inicio da locação";
-			dataGridView1.Columns["VeiculoAlugado"].HeaderText = "Veículo Alugado";
-			dataGridView1.Columns["DataInicio"].HeaderText = "Data de inicio";
-			dataGridView1.Columns["DataFinal"].HeaderText = "Data final";
-			dataGridView1.Columns["IsAtiva"].Visible = false;
 		}
 
 		private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

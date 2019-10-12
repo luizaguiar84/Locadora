@@ -3,14 +3,12 @@ using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_DB_Fat
 {
 	public class FuncionariosDao : IDbBanco<Funcionarios>
 	{
-		
+
 		public List<Funcionarios> GetAll()
 		{
 			return new DbKernel().GetAll<Funcionarios>();
@@ -74,7 +72,7 @@ namespace Dll_DB_Fat
 
 		public bool DeleteRegistro(Funcionarios registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<Funcionarios>(registro);
 		}
 
 		public Funcionarios GetRegistroPorCodigo(int classeId, string registro)

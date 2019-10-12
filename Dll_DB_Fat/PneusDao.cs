@@ -3,35 +3,42 @@ using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_DB_Fat
 {
 	public class PneusDao : IDbBanco<Pneus>
 	{
-		
+
 		public bool DbUpdate(Pneus Add)
 		{
 			return new DbKernel().DbUpdate<Pneus>(Add);
 		}
 
-		public void DbUpdateKm(ControlePatio controle, Veiculos veiculo)
+		public bool DbUpdateKm(ControlePatio controle, Veiculos veiculo)
 		{
-			var pneus = GetAll()
-						.Where(p => p.Id == veiculo.Id);
+			bool ret = false;
+			var listaPneus = GetAll()
+						.Where(p => p.Id == veiculo.Id)
+						.ToList();
 
-			var listaPneus = pneus.ToList();
 			var kmRodada = controle.KmRetorno - controle.KmSaida;
 			foreach (var pneu in listaPneus)
 			{
 				pneu.KmAtual += kmRodada;
 
-				DbUpdate(pneu);
+				if (DbUpdate(pneu))
+				{
+					ret = true;
+				}
+				else
+				{
+					return ret;
+				}
 			}
+			return ret;
 		}
 
-		public void DbUpdateKm(Locacoes locacao, Veiculos veiculo)
+		public bool DbUpdateKm(Locacoes locacao, Veiculos veiculo)
 		{
 			var pneus = GetAll()
 					.Where(p => p.Id == veiculo.Id);
@@ -41,8 +48,9 @@ namespace Dll_DB_Fat
 			foreach (var pneu in listaPneus)
 			{
 				pneu.KmAtual += kmRodada;
-				DbUpdate(pneu);
+				return DbUpdate(pneu);
 			}
+			return false;
 		}
 
 		public bool DeleteRegistro(Pneus Registro)

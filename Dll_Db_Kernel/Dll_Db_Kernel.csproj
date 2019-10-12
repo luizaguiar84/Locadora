@@ -125,8 +125,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionFactory.cs" />
     <Compile Include="DbKernel.cs" />
+    <Compile Include="DbKernelAdo.cs" />
     <Compile Include="LocadoraContext.cs" />
+    <Compile Include="Migrations\20190920213723_NovasClasses.cs" />
+    <Compile Include="Migrations\20190920213723_NovasClasses.designer.cs">
+      <DependentUpon>20190920213723_NovasClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20190924172833_Migracao.cs" />
+    <Compile Include="Migrations\20190924172833_Migracao.designer.cs">
+      <DependentUpon>20190924172833_Migracao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +150,7 @@
       <Name>Dll_BS_Fat</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

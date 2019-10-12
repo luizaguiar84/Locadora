@@ -1,10 +1,10 @@
-﻿using Dll_DB_Fat;
-using Dll_BS_Fat;
+﻿using Dll_BS_Fat;
+using Dll_DB_Fat;
+using Dll_Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Dll_Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -60,18 +60,19 @@ namespace Dll_Forms_Fat
 		private void SalvaDespesa()
 		{
 			var tipoDespesa = new TipoDespesaDao().GetAll();
-			Despesas despesa = new Despesas();
 
 			comboTipo.DataSource = tipoDespesa;
 			comboTipo.ValueMember = "Tipo";
-
 			TipoDespesa tipo = (TipoDespesa)comboTipo.SelectedItem;
 
-			despesa.Data = dataDespesa.Value;
-			despesa.TipoDespesaId = tipo.Id;
-			despesa.Valor = Convert.ToDecimal(txtValor.Text);
-			despesa.Descricao = txtDescricao.Text;
-			despesa.IsAtiva = true;
+			var despesaBuilder = new DespesasBuilder()
+				.GetData(dataDespesa.Value)
+				.GetTipoDespesaId(tipo.Id)
+				.GetValor(Convert.ToDecimal(txtValor.Text))
+				.GetDescricao(txtDescricao.Text)
+				.GetIsAtiva(true);
+
+			Despesas despesa = despesaBuilder.Build();
 
 			new DespesasDao().DbAdd(despesa);
 			CarregarTabela();
@@ -83,6 +84,32 @@ namespace Dll_Forms_Fat
 		{
 			var formAdd = new FormAddTipoDespesa();
 			formAdd.Show();
+		}
+
+		private void Button1_Click(object sender, EventArgs e)
+		{
+			var de = dateDe.Value;
+			var ate = dateAte.Value;
+
+			var query = new DespesasDao().GetAll()
+							.Where(d => d.Data > de &&
+									   d.Data < ate)
+							.ToList();
+			CarregarTabelaFiltro(query);
+
+		}
+
+		private void CarregarTabelaFiltro(List<Despesas> despesas)
+		{
+
+			dataGridView1.DataSource = despesas;
+			dataGridView1.Columns["Data"].Visible = true;
+			dataGridView1.Columns["Descricao"].Visible = true;
+			dataGridView1.Columns["Descricao"].HeaderText = "Descrição";
+			dataGridView1.Columns["Id"].Visible = true;
+			dataGridView1.Columns["IsAtiva"].Visible = false;
+			dataGridView1.Columns["TipoDespesaId"].Visible = false;
+			dataGridView1.Columns["Valor"].Visible = true;
 		}
 	}
 }

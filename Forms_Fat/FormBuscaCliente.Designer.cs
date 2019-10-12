@@ -30,88 +30,17 @@
 		{
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscaCliente));
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.lblConsultarClientes = new System.Windows.Forms.Label();
 			this.ComboFiltro = new System.Windows.Forms.ComboBox();
 			this.txtPesquisa = new System.Windows.Forms.TextBox();
 			this.btnPesquisar = new System.Windows.Forms.Button();
 			this.lblFiltro = new System.Windows.Forms.Label();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.tableLayoutPanel1.SuspendLayout();
+			this.ComboTipo = new System.Windows.Forms.ComboBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 5;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.50443F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.05706F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.59136F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.84715F));
-			this.tableLayoutPanel1.Controls.Add(this.lblConsultarClientes, 2, 0);
-			this.tableLayoutPanel1.Controls.Add(this.ComboFiltro, 1, 2);
-			this.tableLayoutPanel1.Controls.Add(this.txtPesquisa, 2, 2);
-			this.tableLayoutPanel1.Controls.Add(this.btnPesquisar, 3, 2);
-			this.tableLayoutPanel1.Controls.Add(this.lblFiltro, 0, 2);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 3;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(715, 107);
-			this.tableLayoutPanel1.TabIndex = 10;
-			// 
-			// lblConsultarClientes
-			// 
-			this.lblConsultarClientes.AutoSize = true;
-			this.lblConsultarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-			this.lblConsultarClientes.Location = new System.Drawing.Point(244, 0);
-			this.lblConsultarClientes.Name = "lblConsultarClientes";
-			this.lblConsultarClientes.Size = new System.Drawing.Size(188, 25);
-			this.lblConsultarClientes.TabIndex = 2;
-			this.lblConsultarClientes.Text = "Consultar Clientes";
-			// 
-			// ComboFiltro
-			// 
-			this.ComboFiltro.FormattingEnabled = true;
-			this.ComboFiltro.Items.AddRange(new object[] {
-            "Nome",
-            "RG",
-            "CPF"});
-			this.ComboFiltro.Location = new System.Drawing.Point(62, 48);
-			this.ComboFiltro.Name = "ComboFiltro";
-			this.ComboFiltro.Size = new System.Drawing.Size(121, 21);
-			this.ComboFiltro.TabIndex = 6;
-			// 
-			// txtPesquisa
-			// 
-			this.txtPesquisa.Location = new System.Drawing.Point(244, 48);
-			this.txtPesquisa.Name = "txtPesquisa";
-			this.txtPesquisa.Size = new System.Drawing.Size(180, 20);
-			this.txtPesquisa.TabIndex = 4;
-			// 
-			// btnPesquisar
-			// 
-			this.btnPesquisar.Location = new System.Drawing.Point(438, 48);
-			this.btnPesquisar.Name = "btnPesquisar";
-			this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-			this.btnPesquisar.TabIndex = 5;
-			this.btnPesquisar.Text = "Pesquisar...";
-			this.btnPesquisar.UseVisualStyleBackColor = true;
-			this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
-			// 
-			// lblFiltro
-			// 
-			this.lblFiltro.AutoSize = true;
-			this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.lblFiltro.Location = new System.Drawing.Point(3, 45);
-			this.lblFiltro.Name = "lblFiltro";
-			this.lblFiltro.Size = new System.Drawing.Size(44, 20);
-			this.lblFiltro.TabIndex = 3;
-			this.lblFiltro.Text = "Filtro";
 			// 
 			// dataGridView1
 			// 
@@ -121,42 +50,125 @@
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(0, 107);
+			this.dataGridView1.Location = new System.Drawing.Point(0, 143);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(715, 287);
+			this.dataGridView1.Size = new System.Drawing.Size(715, 251);
 			this.dataGridView1.TabIndex = 11;
 			this.dataGridView1.Visible = false;
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
 			// 
+			// lblConsultarClientes
+			// 
+			this.lblConsultarClientes.AutoSize = true;
+			this.lblConsultarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+			this.lblConsultarClientes.Location = new System.Drawing.Point(258, 9);
+			this.lblConsultarClientes.Name = "lblConsultarClientes";
+			this.lblConsultarClientes.Size = new System.Drawing.Size(188, 25);
+			this.lblConsultarClientes.TabIndex = 12;
+			this.lblConsultarClientes.Text = "Consultar Clientes";
+			// 
+			// ComboFiltro
+			// 
+			this.ComboFiltro.FormattingEnabled = true;
+			this.ComboFiltro.Location = new System.Drawing.Point(162, 63);
+			this.ComboFiltro.Name = "ComboFiltro";
+			this.ComboFiltro.Size = new System.Drawing.Size(121, 21);
+			this.ComboFiltro.TabIndex = 16;
+			// 
+			// txtPesquisa
+			// 
+			this.txtPesquisa.Location = new System.Drawing.Point(317, 64);
+			this.txtPesquisa.Name = "txtPesquisa";
+			this.txtPesquisa.Size = new System.Drawing.Size(180, 20);
+			this.txtPesquisa.TabIndex = 14;
+			// 
+			// btnPesquisar
+			// 
+			this.btnPesquisar.Location = new System.Drawing.Point(514, 62);
+			this.btnPesquisar.Name = "btnPesquisar";
+			this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+			this.btnPesquisar.TabIndex = 15;
+			this.btnPesquisar.Text = "Pesquisar...";
+			this.btnPesquisar.UseVisualStyleBackColor = true;
+			this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click_1);
+			// 
+			// lblFiltro
+			// 
+			this.lblFiltro.AutoSize = true;
+			this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+			this.lblFiltro.Location = new System.Drawing.Point(158, 40);
+			this.lblFiltro.Name = "lblFiltro";
+			this.lblFiltro.Size = new System.Drawing.Size(44, 20);
+			this.lblFiltro.TabIndex = 13;
+			this.lblFiltro.Text = "Filtro";
+			// 
+			// ComboTipo
+			// 
+			this.ComboTipo.FormattingEnabled = true;
+			this.ComboTipo.Items.AddRange(new object[] {
+            "Pessoa Física",
+            "Pessoa Jurídica"});
+			this.ComboTipo.Location = new System.Drawing.Point(12, 63);
+			this.ComboTipo.Name = "ComboTipo";
+			this.ComboTipo.Size = new System.Drawing.Size(121, 21);
+			this.ComboTipo.TabIndex = 19;
+			this.ComboTipo.SelectedValueChanged += new System.EventHandler(this.ComboTipo_SelectedValueChanged);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+			this.label1.Location = new System.Drawing.Point(8, 40);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(114, 20);
+			this.label1.TabIndex = 20;
+			this.label1.Text = "Tipo do Cliente";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+			this.label2.Location = new System.Drawing.Point(313, 41);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(54, 20);
+			this.label2.TabIndex = 21;
+			this.label2.Text = "Busca";
+			// 
 			// FormBuscaCliente
 			// 
-			this.AcceptButton = this.btnPesquisar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(715, 394);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.ComboTipo);
+			this.Controls.Add(this.lblConsultarClientes);
+			this.Controls.Add(this.ComboFiltro);
+			this.Controls.Add(this.txtPesquisa);
+			this.Controls.Add(this.btnPesquisar);
+			this.Controls.Add(this.lblFiltro);
 			this.Controls.Add(this.dataGridView1);
-			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBuscaCliente";
 			this.Text = "Buscar Clientes";
 			this.Load += new System.EventHandler(this.FormBuscaCliente_Load);
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Label lblConsultarClientes;
 		private System.Windows.Forms.ComboBox ComboFiltro;
 		private System.Windows.Forms.TextBox txtPesquisa;
 		private System.Windows.Forms.Button btnPesquisar;
 		private System.Windows.Forms.Label lblFiltro;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.ComboBox ComboTipo;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
 	}
 
 }

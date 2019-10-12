@@ -1,0 +1,16 @@
+﻿
+    <div>
+        <h3>Lista de Clientes</h3>
+        <p>
+            @Html.ActionLink("Adicionar Novo Cliente", "NovoCliente")
+        </p>
+        <h3>Clique sobre o nome para mais detalhes:</h3>
+
+        @foreach (var cliente in Model)
+        {
+
+            <a href="/ClientePj/Detalhes/@cliente.Id">@cliente.RazaoSocial</a><br />
+        }
+
+    </div>
+

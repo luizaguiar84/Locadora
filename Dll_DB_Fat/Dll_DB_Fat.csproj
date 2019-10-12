@@ -109,7 +109,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbastecimentosDao.cs" />
-    <Compile Include="ClientesDao.cs" />
+    <Compile Include="ClientesPFDao.cs" />
+    <Compile Include="ClientesPjDao.cs" />
     <Compile Include="CnhsDao.cs" />
     <Compile Include="ControlePatioDao.cs" />
     <Compile Include="DbTabelas.cs" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

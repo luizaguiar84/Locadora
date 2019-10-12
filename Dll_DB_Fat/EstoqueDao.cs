@@ -2,9 +2,6 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_DB_Fat
 {
@@ -15,7 +12,7 @@ namespace Dll_DB_Fat
 			throw new NotImplementedException();
 		}
 
-		
+
 		public List<Estoque> GetAll()
 		{
 			return new DbKernel().GetAll<Estoque>();

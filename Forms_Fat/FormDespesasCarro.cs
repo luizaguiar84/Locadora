@@ -1,6 +1,6 @@
-﻿using Dll_Utilidades;
+﻿using Dll_BS_Fat;
 using Dll_DB_Fat;
-using Dll_BS_Fat;
+using Dll_Utilidades;
 using System;
 using System.Data;
 using System.Linq;
@@ -31,29 +31,34 @@ namespace Dll_Forms_Fat
 
 		private void PreenchePlacas()
 		{
-
 			var veiculos = new VeiculosDao().GetAll();
 
-				comboPlaca.DataSource = veiculos;
-				comboPlaca.DisplayMember = "Placa";
-				AtualizaNomeCarro();
-			
+			comboPlaca.DataSource = veiculos;
+			comboPlaca.DisplayMember = "Placa";
+			AtualizaNomeCarro();
 		}
 
 		private void AtualizaNomeCarro()
 		{
 			Veiculos veiculo = BuscaVeiculo();
-			txtNomeCarro.Text = veiculo.Modelo;
+			// Operador null - condicional?
+			txtNomeCarro.Text = veiculo?.Modelo;
 		}
 
 		private Veiculos BuscaVeiculo()
 		{
-			var _veiculo = (Veiculos)comboPlaca.SelectedValue;
-
-
-			return new VeiculosDao().GetAll()
-											.Where(v => v.Id == _veiculo.Id)
-											.SingleOrDefault();
+			try
+			{
+				return new VeiculosDao().GetAll()
+						.Where(v => v.Id == ((Veiculos)comboPlaca.SelectedValue).Id)
+						.SingleOrDefault();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Não Existem Veiculos cadastrados!");
+				return null;
+			}
+			
 		}
 
 		private void ComboPlaca_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,22 +70,20 @@ namespace Dll_Forms_Fat
 		private void BtnSalvarMulta_Click(object sender, EventArgs e)
 		{
 			var veiculo = BuscaVeiculo();
-			var multa = new Multas
-			{
-				VeiculoId = veiculo.Id,
-				DataMulta = dateMulta.Value,
-				Descricao = txtDescricaoMulta.Text,
-				Vencimento = dateMultaVencimento.Value,
-				Valor = Convert.ToDecimal(txtValorMulta.Text),
-				Pontos = Convert.ToInt32(txtPontosMulta.Text)
-			};
+			var multasBuilder = new MultasBuilder()
+				.getVeiculoId(veiculo.Id)
+				.GetDataMulta(dateMulta.Value)
+				.GetDescricao(txtDescricaoMulta.Text)
+				.GetVencimento(dateMultaVencimento.Value)
+				.GetValor(Convert.ToDecimal(txtValorMulta.Text))
+				.GetPontos(Convert.ToInt32(txtPontosMulta.Text));
+
+			var multa = multasBuilder.Build();
 
 			new MultasDao().DbAdd(multa);
 
 			MessageBox.Show($"Multa no valor de {multa.Valor.ToString("C")} adicionada com sucesso ao veiculo com placa {veiculo.Placa}!");
-
 			LimparTela();
-
 			AtualizaTabelaMultas();
 		}
 
@@ -89,8 +92,8 @@ namespace Dll_Forms_Fat
 			var _veiculo = (Veiculos)comboPlaca.SelectedValue;
 
 			var dados = new MultasDao().GetAll()
-								.Where(o => o.VeiculoId == _veiculo.Id)
-								.ToList();
+					.Where(o => o.VeiculoId == _veiculo.Id)
+					.ToList();
 			dataGridMultas.DataSource = dados;
 		}
 
@@ -106,68 +109,70 @@ namespace Dll_Forms_Fat
 		private void BtnAddAbastecimento_Click(object sender, EventArgs e)
 		{
 			var veiculo = BuscaVeiculo();
-			var abastecimento = new Abastecimentos
+
+			var abastecimentoBuilder = new AbastecimentosBuilder()
+				.GetVeiculoId(veiculo.Id)
+				.GetData(dateAbastecimento.Value)
+				.GetKm(Convert.ToInt32(txtKmAbastecimento.Text))
+				.GetCombustivel(comboCombustivelAbastecimento.Text)
+				.GetLitros(Convert.ToDecimal(txtQtdLitrosAbastecimento.Text))
+				.GetValorUnitario(Convert.ToDecimal(txtValorUnitAbastecimento.Text));
+
+			var abastecimento = abastecimentoBuilder.Build();
+
+			if (new AbastecimentosDao().DbAdd(abastecimento))
 			{
-				VeiculoId = veiculo.Id,
-				Data = dateAbastecimento.Value,
-				Km = Convert.ToInt32(txtKmAbastecimento.Text),
-				Combustivel = comboCombustivelAbastecimento.Text,
-				Litros = Convert.ToDecimal(txtQtdLitrosAbastecimento.Text),
-				ValorUnitario = Convert.ToDecimal(txtValorUnitAbastecimento.Text)
-			};
-
-			new AbastecimentosDao().DbAdd(abastecimento);
-
-
-			MessageBox.Show($"Abastecimento no veiculo de placa {veiculo.Placa} no valor de" +
+				MessageBox.Show($"Abastecimento no veiculo de placa {veiculo.Placa} no valor de" +
 				$"{(abastecimento.ValorUnitario * abastecimento.Litros).ToString("C")} Efetuado.");
 
-			LimparTela();
+				LimparTela();
+				AtualizaTabelaAbastecimento();
+			}
+			else
+			{
+				MessageBox.Show("Erro no salvamento.");
+			}
 
-			AtualizaTabelaAbastecimento();
 		}
 
 		private void AtualizaTabelaAbastecimento()
 		{
 			var _veiculo = (Veiculos)comboPlaca.SelectedValue;
-			
-				var dados = new AbastecimentosDao().GetAll()
-					.Where(a => a.VeiculoId == _veiculo.Id).ToList();
-				dataAbastecimento.DataSource = dados;
-			
+
+			var dados = new AbastecimentosDao().GetAll()
+				.Where(a => a.VeiculoId == _veiculo.Id).ToList();
+			dataAbastecimento.DataSource = dados;
 		}
 
 		private void BtnAddManutencao_Click(object sender, EventArgs e)
 		{
 			var veiculo = BuscaVeiculo();
-			var manutencao = new Manutencoes
-			{
-				VeiculoId = veiculo.Id,
+			var manutencoesBuilder = new ManutencoesBuilder()
+				.GetData(dateManutencao.Value)
+				.GetKm(Convert.ToInt32(txtKmManutencao.Text))
+				.GetDescricao(txtDescricaoManutencao.Text)
+				.GetValor(Convert.ToDecimal(txtValorManutencao.Text))
+				.GetVeiculoId(veiculo.Id);
 
-				Data = dateManutencao.Value,
-				Km = Convert.ToInt32(txtKmManutencao.Text),
-				Descricao = txtDescricaoManutencao.Text,
-				Valor = Convert.ToDecimal(txtValorManutencao.Text)
-			};
+			Manutencoes manutencao = manutencoesBuilder.Build();
 
 			new ManutencoesDao().DbAdd(manutencao);
-
 			LimparTela();
 			MessageBox.Show($"Manutenção no valor de {manutencao.Valor.ToString("C")} no veiculo de placa {veiculo.Placa} Adicionada com sucesso!");
 		}
 
-		
+
 		private void BtnAddObrigacoes_Click(object sender, EventArgs e)
 		{
 			var veiculo = BuscaVeiculo();
-			var obrigacao = new Obrigacoes
-			{
-				VeiculoId = veiculo.Id,
-				Data = dateObrigacoes.Value,
-				Tipo = comboTipoObrigacoes.ValueMember,
-				Valor = Convert.ToDecimal(txtValorObrigacoes.Text),
-				Descricao = txtDescricaoObrigacoes.Text
-			};
+			var obrigacoesBuilder = new ObrigacoesBuilder()
+				.GetVeiculoId(veiculo.Id)
+				.GetData(dateObrigacoes.Value)
+				.GetTipo(comboTipoObrigacoes.ValueMember)
+				.GetValor(Convert.ToDecimal(txtValorObrigacoes.Text))
+				.GetDescricao(txtDescricaoObrigacoes.Text);
+
+			var obrigacao = obrigacoesBuilder.Build();
 
 			new ObrigacoesDao().DbAdd(obrigacao);
 
@@ -188,14 +193,15 @@ namespace Dll_Forms_Fat
 		private void BtnAddSinistros_Click(object sender, EventArgs e)
 		{
 			var veiculo = BuscaVeiculo();
-			var sinistros = new Sinistros
-			{
-				VeiculoId = veiculo.Id,
-				Data = dateSinistros.Value,
-				Km = Convert.ToInt32(txtKmSinistro.Text),
-				Descricao = txtDescricaoSinistros.Text,
-				Valor = Convert.ToDecimal(txtValorSinistro.Text)
-			};
+
+			var sinistrosBuilder = new SinistrosBuilder()
+				.GetData(dateSinistros.Value)
+				.GetKm(Convert.ToInt32(txtKmSinistro))
+				.GetDescricao(txtDescricaoSinistros.Text)
+				.GetValor(Convert.ToDecimal(txtValorSinistro.Text))
+				.GetVeiculoId(veiculo.Id);
+
+			var sinistros = sinistrosBuilder.Build();
 
 			new SinistrosDao().DbAdd(sinistros);
 

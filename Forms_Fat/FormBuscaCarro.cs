@@ -1,10 +1,7 @@
-﻿using Dll_Utilidades;
-using Dll_BS_Fat;
+﻿using Dll_DB_Fat;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Dll_DB_Fat;
 
 namespace Dll_Forms_Fat
 {

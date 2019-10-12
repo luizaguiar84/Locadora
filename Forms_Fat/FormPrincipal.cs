@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -166,12 +159,12 @@ namespace Dll_Forms_Fat
 		private void controleDePátioToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormControlePatio>("ControlePatio");
-			
+
 		}
 
 		private void controleDePneusToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			AbrirNovoForm <FormControlePneus>("ControlePneus");
+			AbrirNovoForm<FormControlePneus>("ControlePneus");
 		}
 
 		private void estoqueToolStripMenuItem1_Click(object sender, EventArgs e)

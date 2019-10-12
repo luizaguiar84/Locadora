@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace Dll_BS_Fat
+﻿namespace Dll_BS_Fat
 {
 	public class TipoDespesa
 	{

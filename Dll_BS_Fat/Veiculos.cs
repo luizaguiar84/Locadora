@@ -3,7 +3,6 @@ namespace Dll_BS_Fat
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel;
-	using System.Linq;
 
 	public class Veiculos : IComparable
 	{
@@ -17,37 +16,63 @@ namespace Dll_BS_Fat
 			this.Multas = new HashSet<Multas>();
 		}
 
+		public Veiculos(string montadora, string modelo, string anoModelo, int portas, string cor, string placa, string renavam, string chassi, int lugares, int quilometragem, string status, 
+			string combustivel, string valorAtual, decimal valorDiaria, string observacoes, DateTime? dataAquisicao, bool arCondicionado, bool direcaoHidraulica, bool vidroEletrico, 
+			bool airBag, bool abs, bool isAtivo)
+		{
+			Montadora = montadora;
+			Modelo = modelo;
+			AnoModelo = anoModelo;
+			Portas = portas;
+			Cor = cor;
+			Placa = placa;
+			Renavam = renavam;
+			Chassi = chassi;
+			Lugares = lugares;
+			Quilometragem = quilometragem;
+			Status = status;
+			Combustivel = combustivel;
+			ValorAtual = valorAtual;
+			ValorDiaria = valorDiaria;
+			Observacoes = observacoes;
+			DataAquisicao = dataAquisicao;
+			ArCondicionado = arCondicionado;
+			DirecaoHidraulica = direcaoHidraulica;
+			VidroEletrico = vidroEletrico;
+			AirBag = airBag;
+			Abs = abs;
+			IsAtivo = isAtivo;
+		}
 
 		public int Id { get; set; }
-
-		public string Montadora { get; set; }
-		public string Modelo { get; set; }
-		public string AnoModelo { get; set; }
-		public int Portas { get; set; }
-		public string Cor { get; set; }
-		public string Placa { get; set; }
-		public string Renavam { get; set; }
-		public string Chassi { get; set; }
-		public int Lugares { get; set; }
+		public string Montadora { get;  set; }
+		public string Modelo { get;  set; }
+		public string AnoModelo { get;  set; }
+		public int Portas { get;  set; }
+		public string Cor { get;  set; }
+		public string Placa { get;  set; }
+		public string Renavam { get;  set; }
+		public string Chassi { get;  set; }
+		public int Lugares { get;  set; }
 		public int Quilometragem { get; set; }
-		public string Status { get; set; }
-		public string Combustivel { get; set; }
-		public string ValorAtual { get; set; }
-		public decimal ValorDiaria { get; set; }
-		public string Observacoes { get; set; }
-		public DateTime? DataAquisicao { get; set; }
+		public string Status { get;  set; }
+		public string Combustivel { get;  set; }
+		public string ValorAtual { get;  set; }
+		public decimal ValorDiaria { get;  set; }
+		public string Observacoes { get;  set; }
+		public DateTime? DataAquisicao { get;  set; }
 		[DefaultValue(false)]
-		public bool ArCondicionado { get; set; }
+		public bool ArCondicionado { get;  set; }
 		[DefaultValue(false)]
-		public bool DirecaoHidraulica { get; set; }
+		public bool DirecaoHidraulica { get;  set; }
 		[DefaultValue(false)]
-		public bool VidroEletrico { get; set; }
+		public bool VidroEletrico { get;  set; }
 		[DefaultValue(false)]
-		public bool AirBag { get; set; }
+		public bool AirBag { get;  set; }
 		[DefaultValue(false)]
-		public bool Abs { get; set; }
+		public bool Abs { get;  set; }
 		[DefaultValue(true)]
-		public bool IsAtivo { get; set; }
+		public bool IsAtivo { get;  set; }
 
 
 		public virtual ICollection<Abastecimentos> Abastecimentos { get; set; }
@@ -62,23 +87,6 @@ namespace Dll_BS_Fat
 			Veiculos outro = obj as Veiculos;
 			return Modelo.CompareTo(outro.Modelo);
 		}
-
-		/// <summary>
-		/// Registra a Km rodada do carro
-		/// </summary>
-		/// <param name="kmfinal">Quilometragem final</param>
-		public void RegistrarKmDb(int kmfinal)
-		{
-			int kmRodada = kmfinal - this.Quilometragem;
-
-			this.Quilometragem += kmRodada;
-
-			//var dao = new VeiculosDao();
-			//dao.DbUpdate(this);
-		}
-
-		
-
 
 		//public virtual Contratocarro contratocarro { get; set; }
 		//public virtual ICollection<Contratocarro> contratocarro1 { get; set; }

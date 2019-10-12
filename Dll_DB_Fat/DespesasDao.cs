@@ -2,15 +2,12 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_DB_Fat
 {
 	public class DespesasDao : IDbBanco<Despesas>
 	{
-		
+
 
 
 		public bool DeleteRegistro(Despesas registro)
@@ -28,12 +25,12 @@ namespace Dll_DB_Fat
 			throw new NotImplementedException();
 		}
 
-		public bool  DbAdd(Despesas registro)
+		public bool DbAdd(Despesas registro)
 		{
 			return new DbKernel().DbAdd<Despesas>(registro);
 		}
 
-		public bool  DbUpdate(Despesas registro)
+		public bool DbUpdate(Despesas registro)
 		{
 			return new DbKernel().DbUpdate<Despesas>(registro);
 		}

@@ -1,24 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dll_BS_Fat
 {
 	public class Abastecimentos
 	{
-		public int Id { get; set; }
-		public DateTime Data { get; set; }
-		public int Km { get; set; }
-		public string Combustivel { get; set; }
-		public decimal Litros { get; set; }
-		public decimal ValorUnitario { get; set; }
+		public Abastecimentos()
+		{
+		}
+		public Abastecimentos(DateTime data, int km, string combustivel, decimal litros, decimal valorUnitario, int veiculoId)
+		{
+			Data = data;
+			Km = km;
+			Combustivel = combustivel;
+			Litros = litros;
+			ValorUnitario = valorUnitario;
+			VeiculoId = veiculoId;
+		}
 
-		public int VeiculoId { get; set; }
-		public virtual Veiculos Veiculo { get; set; }
-	
-
-		
+		public int Id { get; private set; }
+		public DateTime Data { get; protected set; }
+		public int Km { get; protected set; }
+		public string Combustivel { get; protected set; }
+		public decimal Litros { get; protected set; }
+		public decimal ValorUnitario { get; protected set; }
+		public int VeiculoId { get; protected set; }
+		public virtual Veiculos Veiculo { get; protected set; }
 	}
 }
