@@ -3,8 +3,9 @@ namespace Dll_BS_Fat
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
 
-	public class Veiculos : IComparable
+    public class Veiculos : IComparable
 	{
 		public Veiculos()
 		{
@@ -47,31 +48,43 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 		public string Montadora { get;  set; }
 		public string Modelo { get;  set; }
+		[Display(Name ="Ano / Modelo", Description = "Ano e Modelo do veiculo")]
 		public string AnoModelo { get;  set; }
 		public int Portas { get;  set; }
 		public string Cor { get;  set; }
 		public string Placa { get;  set; }
+		[Display(Name ="RENAVAM")]
 		public string Renavam { get;  set; }
 		public string Chassi { get;  set; }
 		public int Lugares { get;  set; }
 		public int Quilometragem { get; set; }
 		public string Status { get;  set; }
 		public string Combustivel { get;  set; }
+		[Display(Name = "Valor de mercado na compra")]
 		public string ValorAtual { get;  set; }
+		[Display(Name ="Valor da diária")]
 		public decimal ValorDiaria { get;  set; }
+		[Display(Name="Observações")]
 		public string Observacoes { get;  set; }
+		[Display(Name ="Data de Aquisição")]
 		public DateTime? DataAquisicao { get;  set; }
 		[DefaultValue(false)]
+		[Display(Name ="Ar Condicionado")]
 		public bool ArCondicionado { get;  set; }
 		[DefaultValue(false)]
+		[Display(Name ="Direção Hidráulica")]
 		public bool DirecaoHidraulica { get;  set; }
 		[DefaultValue(false)]
+		[Display(Name ="Vidros Elétricos")]
 		public bool VidroEletrico { get;  set; }
 		[DefaultValue(false)]
+		[Display(Name = "Air Bag")]
 		public bool AirBag { get;  set; }
 		[DefaultValue(false)]
+		[Display(Name ="Freios ABS")]
 		public bool Abs { get;  set; }
 		[DefaultValue(true)]
+		[Display(Name ="Ativo?")]
 		public bool IsAtivo { get;  set; }
 
 
