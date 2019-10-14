@@ -90,6 +90,7 @@ namespace Dll_BS_Fat
 
 		#region Validações
 		[Required(ErrorMessage = "Data de admissão deve ser preenchida.")]
+		[Display(Name ="Data de Admissão")]
 		#endregion
 		public DateTime Admissao { get; set; }
 
@@ -114,6 +115,7 @@ namespace Dll_BS_Fat
 		#endregion
 		public string TituloEleitor { get; set; }
 		public DateTime? Demissao { get; set; }
+		[Display(Name = "Observações")]
 		public string Observacoes { get; set; }
 
 

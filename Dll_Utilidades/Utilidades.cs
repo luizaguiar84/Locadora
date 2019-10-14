@@ -1,6 +1,7 @@
 ﻿namespace Dll_Utilidades
 {
-	using Caelum.Stella.CSharp.Validation;
+    using Caelum.Stella.CSharp.Format;
+    using Caelum.Stella.CSharp.Validation;
 	using Correios.CEP;
 	using System;
 	using System.Configuration;
@@ -112,6 +113,16 @@
 			{
 				return false;
 			}
+		}
+
+		public static string FormatarCPF(this string cpf)
+		{
+			return new CPFFormatter().Format(cpf);
+		}
+
+		public static string FormatarCNPJ(this string cnpj)
+		{
+			return new CNPJFormatter().Format(cnpj);
 		}
 
 		/// <summary>

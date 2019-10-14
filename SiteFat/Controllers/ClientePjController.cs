@@ -51,7 +51,7 @@ namespace SiteFat.Controllers
 		public ActionResult Editar(int id)
         {
 			var clientePj = new ClientesPjDao().GetCliente(id);
-            return View(clientePj);
+			return View(clientePj);
         }
 
         // POST: ClientePj/Edit/5
@@ -70,19 +70,19 @@ namespace SiteFat.Controllers
         }
 
         // GET: ClientePj/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Deletar(int id)
         {
-            return View();
+			var clientePj = new ClientesPjDao().GetCliente(id);
+			return View(clientePj);
         }
 
         // POST: ClientePj/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Deletar(ClientesPJ clientePj)
         {
             try
             {
-                // TODO: Add delete logic here
-
+				new ClientesPjDao().DeleteRegistro(clientePj);
                 return RedirectToAction("Index");
             }
             catch

@@ -22,19 +22,23 @@ namespace Dll_BS_Fat
 		[Key]
 		public int Id { get; set; }
 		[MaxLength(9)]
-		public string Cep { get;  set; }
+		[Display(Name = "CEP")]
+		public string Cep { get; set; }
+		[Display(Name = "Logradouro")]
 		[MaxLength(200)]
-		public string Logradouro { get;  set; }
+		public string Logradouro { get; set; }
+		[Display(Name = "Número")]
 		[MaxLength(10)]
-		public string Num { get;  set; }
+		public string Num { get; set; }
 		[MaxLength(200)]
-		public string Complemento { get;  set; }
+		public string Complemento { get; set; }
 		[MaxLength(200)]
-		public string Bairro { get;  set; }
+		public string Bairro { get; set; }
 		[MaxLength(200)]
-		public string Cidade { get;  set; }
+		public string Cidade { get; set; }
+		[Display(Name = "UF")]
 		[MaxLength(2)]
-		public string Uf { get;  set; }
+		public string Uf { get; set; }
 
 
 	}

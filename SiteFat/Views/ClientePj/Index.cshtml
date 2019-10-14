@@ -1,18 +1,52 @@
-﻿@{ 
-    ViewBag.Title = "Clientes Pessoa Jurídica";
+﻿@model IEnumerable<Dll_BS_Fat.ClientesPJ>
+
+@{
+    ViewBag.Title = "Lista de Clientes Pessoa Jurídica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div>
-    <h3>Lista de Clientes</h3>
-    <p>
-        @Html.ActionLink("Adicionar Novo Cliente", "NovoCliente")
-    </p>
-    <h3>Clique sobre o nome para mais detalhes:</h3>
 
-    @foreach (var cliente in Model)
-    {
+<h2>Clientes Pessoa Jurídica</h2>
 
-        <a href="/ClientePj/Detalhes/@cliente.Id">@cliente.RazaoSocial</a><br />
-    }
+<p>
+    @Html.ActionLink("Adicionar novo cliente...", "NovoCliente")
+</p>
+<table class="table">
+    <tr>
+       <th>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </th>
+     </tr>
 
-</div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cnpj)
+        </td>
 
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -2,6 +2,7 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dll_DB_Fat
 {
@@ -19,6 +20,8 @@ namespace Dll_DB_Fat
 		{
 			return new DbKernel().GetAll<Despesas>();
 		}
+
+		
 
 		public Despesas GetRegistroPorCodigo(int classeId, string registro)
 		{

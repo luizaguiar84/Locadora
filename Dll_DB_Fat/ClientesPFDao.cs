@@ -84,6 +84,18 @@ namespace Dll_DB_Fat
 		/// <returns></returns>
 		public ClientesPF GetRegistroPorCodigo(int id, string registro) => new DbKernel().GetRegistroPorCodigo<ClientesPF>(id, registro);
 
+		public ClientesPF GetCliente(int clienteId)
+		{
+			var cliente = GetAll()
+				.Where(c => c.Id == clienteId)
+				.SingleOrDefault();
+
+			cliente.Cnh = new CnhsDao().GetCnh(cliente.CnhId);
+			cliente.Endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
+
+			return cliente;
+		}
+
 
 	}
 }

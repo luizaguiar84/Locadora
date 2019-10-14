@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" />
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
     </Reference>
@@ -109,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbastecimentosDao.cs" />
+    <Compile Include="ClienteLocacaoDao.cs" />
     <Compile Include="ClientesPFDao.cs" />
     <Compile Include="ClientesPjDao.cs" />
     <Compile Include="CnhsDao.cs" />

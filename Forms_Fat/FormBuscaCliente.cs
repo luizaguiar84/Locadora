@@ -23,11 +23,7 @@ namespace Dll_Forms_Fat
 
 			if (ComboFiltro.Text == "Pessoa Fisica")
 			{
-				var cliente = new ClientesPFDao().GetAll().Single(x => x.Id == clienteId);
-				var endereco = new EnderecosDao().DbGetEndereco(cliente.EnderecoId);
-				var cnh = new CnhsDao().GetCnh(cliente.CnhId);
-				cliente.Endereco = endereco;
-				cliente.Cnh = cnh;
+				var cliente = new ClientesPFDao().GetCliente(clienteId);
 				var form = new FormCadastrarCliente(cliente)
 				{
 					MdiParent = this.ParentForm
@@ -37,9 +33,7 @@ namespace Dll_Forms_Fat
 			}
 			else
 			{
-				var cliente = new ClientesPjDao().GetAll().Single(x => x.Id == clienteId);
-				var endereco = new EnderecosDao().DbGetEndereco(cliente.EnderecoId);
-				cliente.Endereco = endereco;
+				var cliente = new ClientesPjDao().GetCliente(clienteId);
 				var form = new FormCadastrarCliente(cliente)
 				{
 					MdiParent = this.ParentForm

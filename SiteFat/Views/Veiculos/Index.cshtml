@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Dll_BS_Fat.Veiculos>
 <link rel="stylesheet" href="~/Content/alu.css">
-
+@{ 
+    ViewBag.Title = "Lista de veículos";
+}
 <p>
     @Html.ActionLink("Adicionar Novo Carro", "NovoVeiculo")
 </p>

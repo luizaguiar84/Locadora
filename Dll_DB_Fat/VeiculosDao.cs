@@ -87,20 +87,12 @@ namespace Dll_DB_Fat
 				.Where(v => v.Id == id)
 				.SingleOrDefault();
 
-			var pneus = new PneusDao().GetPneus(veiculo.Id);
-			var abastecimentos = new AbastecimentosDao().GetAbastecimentos(veiculo.Id);
-			var manutencao = new ManutencoesDao().GetManutencoes(veiculo.Id);
-			var sinistros = new SinistrosDao().GetSinistros(veiculo.Id);
-			var obrigacoes = new ObrigacoesDao().GetObrigacoes(veiculo.Id);
-			var multas = new MultasDao().GetMultas(veiculo.Id);
-
-
-			veiculo.Pneu = pneus;
-			veiculo.Abastecimentos = abastecimentos;
-			veiculo.Manutencao = manutencao;
-			veiculo.Sinistros = sinistros;
-			veiculo.Obrigacoes = obrigacoes;
-			veiculo.Multas = multas;
+			veiculo.Pneu = new PneusDao().GetPneus(veiculo.Id);
+			veiculo.Abastecimentos = new AbastecimentosDao().GetAbastecimentos(veiculo.Id);
+			veiculo.Manutencao = new ManutencoesDao().GetManutencoes(veiculo.Id);
+			veiculo.Sinistros = new SinistrosDao().GetSinistros(veiculo.Id);
+			veiculo.Obrigacoes = new ObrigacoesDao().GetObrigacoes(veiculo.Id);
+			veiculo.Multas = new MultasDao().GetMultas(veiculo.Id);
 
 			return veiculo;
 		}

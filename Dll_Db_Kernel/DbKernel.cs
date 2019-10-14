@@ -78,7 +78,7 @@ namespace Dll_Db_Kernel
 				return ret;
 			}
 		}
-
+		
 		public T GetRegistroPorCodigo<T>(int idClasse, string idBuscado) where T : class
 		{
 			if (idBuscado != "")

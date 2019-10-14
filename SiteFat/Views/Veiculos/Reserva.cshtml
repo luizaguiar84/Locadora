@@ -191,5 +191,7 @@
 </div>
 <p>
  
-    @Html.ActionLink("Voltar à Lista", "Index")
+    @Html.ActionLink("Voltar à Lista", "Index") |
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Deletar", "Deletar", new { id = Model.Id })
 </p>

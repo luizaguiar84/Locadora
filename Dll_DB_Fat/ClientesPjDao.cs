@@ -20,7 +20,7 @@ namespace Dll_DB_Fat
 
 		public bool DeleteRegistro(ClientesPJ registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<ClientesPJ>(registro);
 		}
 
 		public List<ClientesPJ> GetAll()
@@ -57,7 +57,7 @@ namespace Dll_DB_Fat
 				.Where(c => c.Id == id)
 				.SingleOrDefault();
 
-			Enderecos endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
+			var endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
 
 			cliente.Endereco = endereco;
 			return cliente;

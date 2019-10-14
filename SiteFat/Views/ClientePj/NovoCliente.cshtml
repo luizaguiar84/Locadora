@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Adicionar Novo Cliente PJ";
 }
-
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/BuscaCEP.js"></script>
 
 @using (Html.BeginForm("Adiciona"))
 {
@@ -75,21 +76,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Cep, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Cep, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Cep, new { htmlAttributes = new { @class = "form-control", id = "cep", onblur="pesquisacep(this.value);" } })
                 @Html.ValidationMessageFor(model => model.Endereco.Cep, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Logradouro, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Logradouro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Logradouro, new { htmlAttributes = new { @class = "form-control", id = "rua" } })
                 @Html.ValidationMessageFor(model => model.Endereco.Logradouro, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Num, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Num, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Num, new { htmlAttributes = new { @class = "form-control", } })
                 @Html.ValidationMessageFor(model => model.Endereco.Num, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -103,21 +104,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Bairro, new { htmlAttributes = new { @class = "form-control", id = "bairro"} })
                 @Html.ValidationMessageFor(model => model.Endereco.Bairro, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Cidade, new { htmlAttributes = new { @class = "form-control", id = "cidade" } })
                 @Html.ValidationMessageFor(model => model.Endereco.Cidade, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Uf, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Uf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Uf, new { htmlAttributes = new { @class = "form-control", id = "uf" } })
                 @Html.ValidationMessageFor(model => model.Endereco.Uf, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -125,7 +126,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Criar" class="btn btn-default" />
             </div>
         </div>
     </div>

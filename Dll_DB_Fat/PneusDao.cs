@@ -73,10 +73,10 @@ namespace Dll_DB_Fat
 			return new DbKernel().DbAdd<Pneus>(Add);
 		}
 
-		public HashSet<Pneus> GetPneus(int id)
+		public HashSet<Pneus> GetPneus(int veiculoId)
 		{
 			return GetAll().Where
-				(p => p.VeiculoId == id)
+				(p => p.VeiculoId == veiculoId)
 				.ToHashSet();
 		}
 	}

@@ -188,6 +188,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientePjController.cs" />
+    <Compile Include="Controllers\DespesasController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
@@ -212,6 +213,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\BuscaCEP.js" />
     <Content Include="Scripts\BuscaFipe.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -238,7 +240,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Alugar.cshtml" />
     <Content Include="Views\ClientePj\Adiciona.cshtml" />
-    <Content Include="Views\ClientePj\Index.cshtml" />
     <Content Include="Views\ClientePj\Detalhes.cshtml" />
     <Content Include="Views\Veiculos\NovoVeiculo.cshtml" />
     <Content Include="Views\Veiculos\Adiciona.cshtml" />
@@ -253,6 +254,9 @@
     <Content Include="Views\ClientePj\NovoCliente.cshtml" />
     <Content Include="Views\Veiculos\Reserva.cshtml" />
     <Content Include="Views\ClientePj\Editar.cshtml" />
+    <Content Include="Views\Despesas\Index.cshtml" />
+    <Content Include="Views\ClientePj\Index.cshtml" />
+    <Content Include="Views\Veiculos\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

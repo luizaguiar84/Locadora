@@ -54,9 +54,7 @@ namespace Dll_DB_Fat
 
 			int id = Convert.ToInt32(buscaId);
 
-			return GetAll()
-					.Where(f => f.Id == id)
-					.Single();
+			return GetFuncionario(id);
 
 		}
 
@@ -66,11 +64,8 @@ namespace Dll_DB_Fat
 				.Where(f => f.Id == id)
 				.SingleOrDefault();
 
-			var cnh = new CnhsDao().GetCnh(funcionario.CnhId);
-			var endereco = new EnderecosDao().GetEndereco(funcionario.EnderecoId);
-
-			funcionario.Cnh = cnh;
-			funcionario.Endereco = endereco;
+			funcionario.Cnh = new CnhsDao().GetCnh(funcionario.CnhId);
+			funcionario.Endereco = new EnderecosDao().GetEndereco(funcionario.EnderecoId);
 
 			return funcionario;
 		}

@@ -66,21 +66,7 @@ namespace Dll_Forms_Fat
 
 			int funcionarioId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
-			var funcionario = new FuncionariosDao().GetAll()
-													.Where(x => x.Id == funcionarioId)
-													.SingleOrDefault();
-
-			var endereco = new EnderecosDao().GetAll()
-											.Where(end => end.Id == funcionario.EnderecoId)
-											.SingleOrDefault();
-
-			var cnh = new CnhsDao().GetAll()
-								.Where(c => c.Id == funcionario.CnhId)
-								.SingleOrDefault();
-
-
-			funcionario.Endereco = endereco;
-			funcionario.Cnh = cnh;
+			var funcionario = new FuncionariosDao().GetFuncionario(funcionarioId);
 
 			var form = new FormCadastrarFuncionario(funcionario)
 			{
