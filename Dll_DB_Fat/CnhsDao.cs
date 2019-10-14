@@ -12,10 +12,10 @@ namespace Dll_DB_Fat
 			return new DbKernel().DbAdd<Cnhs>(Add);
 		}
 
-		public Cnhs DbGetCnh(int id)
+		public Cnhs GetCnh(int cnhId)
 		{
 			return GetAll()
-					.Where(c => c.Id == id)
+					.Where(c => c.Id == cnhId)
 					.Single();
 		}
 

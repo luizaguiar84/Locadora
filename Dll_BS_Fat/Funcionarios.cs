@@ -34,78 +34,87 @@ namespace Dll_BS_Fat
 		}
 
 		[Key]
-		public int Id { get;  set; }
+		public int Id { get; set; }
 
 		#region Validações
 		[DefaultValue(true)]
-		[Display(Name = "Funcionário Ativo", Description = "Funcionário Ativo")] 
+		[Display(Name = "Funcionário Ativo", Description = "Funcionário Ativo")]
 		#endregion
-		public bool IsAtivo { get;  set; }
+		public bool IsAtivo { get; set; }
 
 		#region Validações
 		[Display(Name = "Nome Completo", Description = "Nome e Sobrenome.")]
 		[Required(ErrorMessage = "O nome completo é obrigatório.")]
-		[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")] 
+		[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")]
 		#endregion
-		public string Nome { get;  set; }
+		public string Nome { get; set; }
 
 		#region Validações
 		[Required(ErrorMessage = "O Email é obrigatório.")]
 		[StringLength(50, MinimumLength = 5, ErrorMessage = "O Email deve ter no mínimo 5 e no máximo 50 caracteres.")]
-		[Display(Name = "E-Mail", Description = "E-Mail")] 
+		[Display(Name = "E-Mail", Description = "E-Mail")]
 		#endregion
-		public string Email { get;  set; }
+		public string Email { get; set; }
 		public Enderecos Endereco { get; set; }
-		public int EnderecoId { get;  set; }
+		public int EnderecoId { get; set; }
 		public Cnhs Cnh { get; set; }
-		public int CnhId { get;  set; }
+		public int CnhId { get; set; }
+
+		[Display(Name = "RG")]
 		[MaxLength(20)]
 		[Required(ErrorMessage = "RG deve ser preenchido")]
-		public string Rg { get;  set; }
+		public string Rg { get; set; }
+
+		[Display(Name = "CPF")]
 		[Required(ErrorMessage = "CPF deve ser preenchido")]
-		public string Cpf { get;  set; }
+		public string Cpf { get; set; }
 		#region Validações
 		[Display(Name = "Data Nascimento")]
 		[Required(ErrorMessage = "Data deve ser preenchida")]
 		[RegularExpression(@"^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))| 
-		(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Data invalida")] 
+		(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Data invalida")]
 		#endregion
-		public DateTime? Nascimento { get;  set; }
+		public DateTime? Nascimento { get; set; }
+		[Display(Name = "Telefone Residencial")]
 		[MaxLength(20)]
-		public string TelResidencial { get;  set; }
+		public string TelResidencial { get; set; }
+		[Display(Name = "Telefone Celular")]
 		[MaxLength(20)]
-		public string TelCelular { get;  set; }
+		public string TelCelular { get; set; }
 		#region Validações
 		[Required(ErrorMessage = "Salário deve ser preenchido")]
 		[Display(Name = "Salário")]
-		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###,##0.00}")] 
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###,##0.00}")]
 		#endregion
-		public decimal Salario { get;  set; }
+		public decimal Salario { get; set; }
 
 		#region Validações
-		[Required(ErrorMessage = "Data de admissão deve ser preenchida.")] 
+		[Required(ErrorMessage = "Data de admissão deve ser preenchida.")]
 		#endregion
-		public DateTime Admissao { get;  set; }
+		public DateTime Admissao { get; set; }
 
 		#region Validações
+		[Display(Name = "CTPS")]
 		[MaxLength(20)]
-		[Required(ErrorMessage = "Dados da CTPS devem ser preenchidos")] 
+		[Required(ErrorMessage = "Dados da CTPS devem ser preenchidos")]
 		#endregion
-		public string Ctps { get;  set; }
+		public string Ctps { get; set; }
 
 		#region Validações
+		[Display(Name = "PIS")]
 		[MaxLength(20)]
-		[Required(ErrorMessage = "Dados do PIS devem ser preenchidos")] 
+		[Required(ErrorMessage = "Dados do PIS devem ser preenchidos")]
 		#endregion
-		public string Pis { get;  set; }
+		public string Pis { get; set; }
 
 		#region Validações
+		[Display(Name = "Título de Eleitor")]
 		[MaxLength(20)]
-		[Required(ErrorMessage = "Dados do Título de eleitor devem ser preenchidos")] 
+		[Required(ErrorMessage = "Dados do Título de eleitor devem ser preenchidos")]
 		#endregion
-		public string TituloEleitor { get;  set; }
-		public DateTime? Demissao { get;  set; }
-		public string Observacoes { get;  set; }
+		public string TituloEleitor { get; set; }
+		public DateTime? Demissao { get; set; }
+		public string Observacoes { get; set; }
 
 
 

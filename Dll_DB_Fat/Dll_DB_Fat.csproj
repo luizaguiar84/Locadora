@@ -113,7 +113,6 @@
     <Compile Include="ClientesPjDao.cs" />
     <Compile Include="CnhsDao.cs" />
     <Compile Include="ControlePatioDao.cs" />
-    <Compile Include="DbTabelas.cs" />
     <Compile Include="DespesasDao.cs" />
     <Compile Include="EnderecosDao.cs" />
     <Compile Include="EstoqueDao.cs" />

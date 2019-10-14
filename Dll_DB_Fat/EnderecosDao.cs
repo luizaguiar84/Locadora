@@ -41,5 +41,12 @@ namespace Dll_DB_Fat
 		{
 			throw new NotImplementedException();
 		}
+
+		public Enderecos GetEndereco(int enderecoId)
+		{
+			return GetAll()
+					.Where(e => e.Id == enderecoId)
+					.SingleOrDefault();
+		}
 	}
 }

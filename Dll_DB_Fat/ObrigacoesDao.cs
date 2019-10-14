@@ -2,6 +2,7 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dll_DB_Fat
 {
@@ -31,6 +32,13 @@ namespace Dll_DB_Fat
 		public bool DbAdd(Obrigacoes registro)
 		{
 			return new DbKernel().DbAdd<Obrigacoes>(registro);
+		}
+
+		public HashSet<Obrigacoes> GetObrigacoes(int id)
+		{
+			return new DbKernel().GetAll<Obrigacoes>()
+				.Where(o => o.VeiculoId == id)
+				.ToHashSet();
 		}
 	}
 }

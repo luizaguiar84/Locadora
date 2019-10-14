@@ -32,9 +32,7 @@ namespace SiteFat.Controllers
 
 		public ActionResult Reserva(int id)
 		{
-			var veiculo = new VeiculosDao().GetAll()
-				.Where(v => v.Id == id)
-				.SingleOrDefault();
+			var veiculo = new VeiculosDao().GetVeiculo(id);
 
 			return View(veiculo);
 		}

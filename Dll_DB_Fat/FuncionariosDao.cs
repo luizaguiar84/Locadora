@@ -57,6 +57,22 @@ namespace Dll_DB_Fat
 			return GetAll()
 					.Where(f => f.Id == id)
 					.Single();
+
+		}
+
+		public Funcionarios GetFuncionario(int id)
+		{
+			var funcionario = new FuncionariosDao().GetAll()
+				.Where(f => f.Id == id)
+				.SingleOrDefault();
+
+			var cnh = new CnhsDao().GetCnh(funcionario.CnhId);
+			var endereco = new EnderecosDao().GetEndereco(funcionario.EnderecoId);
+
+			funcionario.Cnh = cnh;
+			funcionario.Endereco = endereco;
+
+			return funcionario;
 		}
 
 		public bool DbAdd(Funcionarios registro)

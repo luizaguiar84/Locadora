@@ -2,6 +2,7 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dll_DB_Fat
 {
@@ -19,7 +20,7 @@ namespace Dll_DB_Fat
 
 		public List<Manutencoes> GetAll()
 		{
-			throw new NotImplementedException();
+			return new DbKernel().GetAll<Manutencoes>();
 		}
 
 		public Manutencoes GetRegistroPorCodigo(int classeId, string registro)
@@ -30,6 +31,13 @@ namespace Dll_DB_Fat
 		public bool DbAdd(Manutencoes registro)
 		{
 			return new DbKernel().DbAdd<Manutencoes>(registro);
+		}
+
+		public HashSet<Manutencoes> GetManutencoes(int id)
+		{
+			return new DbKernel().GetAll<Manutencoes>()
+				.Where(m => m.VeiculoId == id)
+				.ToHashSet();
 		}
 	}
 }

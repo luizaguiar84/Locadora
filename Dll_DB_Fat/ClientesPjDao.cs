@@ -15,7 +15,7 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(ClientesPJ registro)
 		{
-			return new DbKernel().DbAdd<ClientesPJ>(registro);
+			return new DbKernel().DbUpdate<ClientesPJ>(registro);
 		}
 
 		public bool DeleteRegistro(ClientesPJ registro)
@@ -50,6 +50,17 @@ namespace Dll_DB_Fat
 			}
 
 			return null;
+		}
+		public ClientesPJ GetCliente(int id)
+		{
+			var cliente = GetAll()
+				.Where(c => c.Id == id)
+				.SingleOrDefault();
+
+			Enderecos endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
+
+			cliente.Endereco = endereco;
+			return cliente;
 		}
 	}
 }

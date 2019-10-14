@@ -24,9 +24,7 @@ namespace SiteFat.Controllers
         // GET: ClientePj/Details/5
         public ActionResult Detalhes(int id)
         {
-			var cliente = new ClientesPjDao().GetAll()
-				   .Where(c => c.Id == id)
-				   .SingleOrDefault();
+			var cliente = new ClientesPjDao().GetCliente(id);
             return View(cliente);
         }
 
@@ -41,7 +39,6 @@ namespace SiteFat.Controllers
 		[HttpPost]
 		public ActionResult Adiciona(ClientesPJ cliente)
 		{
-			var endereco = new Enderecos();
 
 			var dao = new ClientesPjDao();
 			var funcionou = dao.DbAdd(cliente);
@@ -51,19 +48,19 @@ namespace SiteFat.Controllers
 		}
 
 		// GET: ClientePj/Edit/5
-		public ActionResult Edit(int id)
+		public ActionResult Editar(int id)
         {
-            return View();
+			var clientePj = new ClientesPjDao().GetCliente(id);
+            return View(clientePj);
         }
 
         // POST: ClientePj/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Atualizar(ClientesPJ cliente)
         {
             try
             {
-                // TODO: Add update logic here
-
+				var bd = new ClientesPjDao().DbUpdate(cliente);
                 return RedirectToAction("Index");
             }
             catch

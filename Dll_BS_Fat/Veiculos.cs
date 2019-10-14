@@ -43,6 +43,13 @@ namespace Dll_BS_Fat
 			AirBag = airBag;
 			Abs = abs;
 			IsAtivo = isAtivo;
+
+			this.Pneu = new HashSet<Pneus>();
+			this.Abastecimentos = new HashSet<Abastecimentos>();
+			this.Manutencao = new HashSet<Manutencoes>();
+			this.Sinistros = new HashSet<Sinistros>();
+			this.Obrigacoes = new HashSet<Obrigacoes>();
+			this.Multas = new HashSet<Multas>();
 		}
 
 		public int Id { get; set; }

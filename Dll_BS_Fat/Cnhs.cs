@@ -18,12 +18,16 @@ namespace Dll_BS_Fat
 		}
 
 		public int Id { get; set; }
+		[Display(Name ="Número da CNH")]
 		[MaxLength(20)]
 		public string Numero { get;  set; }
+
 		[MaxLength(2)]
 		[Required(ErrorMessage = "Favor selecionar a categoria da CNH")]
 		public string Categoria { get;  set; }
+		[Display(Name ="Data de emissão")]
 		public DateTime? Emissao { get;  set; }
+		[Display(Name ="Data de validade")]
 		public DateTime? Validade { get;  set; }
 
 

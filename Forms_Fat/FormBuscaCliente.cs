@@ -25,7 +25,7 @@ namespace Dll_Forms_Fat
 			{
 				var cliente = new ClientesPFDao().GetAll().Single(x => x.Id == clienteId);
 				var endereco = new EnderecosDao().DbGetEndereco(cliente.EnderecoId);
-				var cnh = new CnhsDao().DbGetCnh(cliente.CnhId);
+				var cnh = new CnhsDao().GetCnh(cliente.CnhId);
 				cliente.Endereco = endereco;
 				cliente.Cnh = cnh;
 				var form = new FormCadastrarCliente(cliente)

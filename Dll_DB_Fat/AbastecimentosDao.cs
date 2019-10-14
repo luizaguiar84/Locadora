@@ -3,6 +3,7 @@ using Dll_BS_Fat;
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dll_DB_Fat
 {
@@ -32,6 +33,13 @@ namespace Dll_DB_Fat
 		public bool DbAdd(Abastecimentos Add)
 		{
 			return new DbKernel().DbAdd<Abastecimentos>(Add);
+		}
+
+		public HashSet<Abastecimentos> GetAbastecimentos(int id)
+		{
+			return new DbKernel().GetAll<Abastecimentos>()
+				.Where(a => a.VeiculoId == id)
+				.ToHashSet();
 		}
 	}
 }

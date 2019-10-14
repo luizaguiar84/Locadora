@@ -1,67 +1,117 @@
 ﻿@model Dll_BS_Fat.ClientesPJ
-    <div>
-        <h4>ClientesPJ</h4>
+
+
+@{ 
+    ViewBag.Title = "Editar Cliente";
+}    
+<div>
+        <h4>Dados do Cliente</h4>
         <hr />
         <dl class="dl-horizontal">
-   
+
             <dt>
                 @Html.DisplayNameFor(model => model.RazaoSocial):
             </dt>
-    
+
             <dd>
                 @Model.RazaoSocial
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Contato): 
+                @Html.DisplayNameFor(model => model.Contato):
             </dt>
-    
+
             <dd>
                 @Model.Contato
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Email):
             </dt>
-    
+
             <dd>
                 @Model.Email
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Cnpj):
             </dt>
-    
+
             <dd>
                 @Model.Cnpj
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Ie):
             </dt>
-    
+
             <dd>
                 @Model.Ie
             </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.EnderecoId):
-            </dt>
-    
-            <dd>
-                @Model.EnderecoId
-            </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.TelComercial):
             </dt>
-    
+
             <dd>
                 @Model.TelComercial
             </dd>
-    
+            <br />
+            <h4>Endereço</h4>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Cep):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Cep
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Logradouro):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Logradouro
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Num):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Num
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Complemento):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Complemento
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Bairro):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Bairro
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Cidade):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Cidade
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Uf):
+            </dt>
+
+            <dd>
+                @Model.Endereco.Uf
+            </dd>
+
         </dl>
     </div>
     <p>
+        @Html.ActionLink("Editar", "Editar", new { id = Model.Id })
         @Html.ActionLink("Voltar à Lista", "Index")
     </p>

@@ -1,6 +1,6 @@
 ﻿@model Dll_BS_Fat.Funcionarios
 
-    @using (Html.BeginForm("Atualiza", "Funcionarios"))
+    @using (Html.BeginForm("Atualiza"))
     {
         @Html.AntiForgeryToken()
         
@@ -136,7 +136,8 @@
         </div>
 
         <div>
-            <h3>Dados da CNH</h3>
+            <h5>Dados da CNH</h5>
+            <hr />
             <div class="form-group">
                 @Html.LabelFor(model => model.Cnh.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -172,7 +173,8 @@
 
 
         <div>
-            <h3>Dados do Endereço</h3>
+            <h5>Dados do Endereço</h5>
+            <hr />
             <div class="form-group">
                 @Html.LabelFor(model => model.Endereco.Cep, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">

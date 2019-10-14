@@ -1,5 +1,6 @@
 ﻿using Dll_BS_Fat;
 using Dll_Db_Kernel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -63,6 +64,8 @@ namespace Dll_DB_Fat
 			return new DbKernel().DeleteRegistro<Veiculos>(registro);
 		}
 
+		
+
 		public Veiculos GetRegistroPorCodigo(int classeId, string registro)
 		{
 			return new DbKernel().GetRegistroPorCodigo<Veiculos>(classeId, registro);
@@ -77,6 +80,29 @@ namespace Dll_DB_Fat
 			int kmRodada = kmfinal - veiculo.Quilometragem;
 			veiculo.Quilometragem += kmRodada;
 			return DbUpdate(veiculo);
+		}
+		public Veiculos GetVeiculo(int id)
+		{
+			var veiculo = new VeiculosDao().GetAll()
+				.Where(v => v.Id == id)
+				.SingleOrDefault();
+
+			var pneus = new PneusDao().GetPneus(veiculo.Id);
+			var abastecimentos = new AbastecimentosDao().GetAbastecimentos(veiculo.Id);
+			var manutencao = new ManutencoesDao().GetManutencoes(veiculo.Id);
+			var sinistros = new SinistrosDao().GetSinistros(veiculo.Id);
+			var obrigacoes = new ObrigacoesDao().GetObrigacoes(veiculo.Id);
+			var multas = new MultasDao().GetMultas(veiculo.Id);
+
+
+			veiculo.Pneu = pneus;
+			veiculo.Abastecimentos = abastecimentos;
+			veiculo.Manutencao = manutencao;
+			veiculo.Sinistros = sinistros;
+			veiculo.Obrigacoes = obrigacoes;
+			veiculo.Multas = multas;
+
+			return veiculo;
 		}
 
 

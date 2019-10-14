@@ -13,24 +13,17 @@ namespace SiteFat.Controllers
         // GET: Funcionarios
         public ActionResult Index()
         {
-			var listaFunc = new FuncionariosDao().GetAll().ToList();
+			var listaFunc = new FuncionariosDao().GetAll();
             return View(listaFunc);
         }
 
 		public ActionResult Detalhes(int id)
 		{
-			return BuscaFuncionario(id);
-		}
+			var funcionario = new FuncionariosDao().GetFuncionario(id);
 
-		private ActionResult BuscaFuncionario(int id)
-		{
-			var listaFunc = new FuncionariosDao().GetAll()
-							.Where(c => c.Id == id)
-							.SingleOrDefault();
-
-			if (listaFunc != null)
+			if (funcionario != null)
 			{
-				return View(listaFunc);
+				return View(funcionario);
 			}
 			else
 			{
@@ -38,29 +31,24 @@ namespace SiteFat.Controllers
 			}
 		}
 
-		public ActionResult Edit(int id)
-		{
-			return BuscaFuncionario(id);
-		}
-
+		
 		public ActionResult NovoFuncionario(Funcionarios funcionario)
 		{
 			return View();
 		}
 		public ActionResult Editar(int id)
 		{
-			var funcionario = new FuncionariosDao().GetAll()
-				.Where(f => f.Id == id)
-				.SingleOrDefault();
 
-			var cnh = new CnhsDao().GetAll().Where(c => c.Id == funcionario.CnhId).SingleOrDefault();
-			var endereco = new EnderecosDao().GetAll().Where(c => c.Id == funcionario.EnderecoId).SingleOrDefault();
+			var funcionario = new FuncionariosDao().GetFuncionario(id);
 
-			funcionario.Cnh = cnh;
-			funcionario.Endereco = endereco;
-
-			return View(funcionario);
-
+			if (funcionario != null)
+			{
+				return View(funcionario);
+			}
+			else
+			{
+				return View();
+			}
 		}
 
 		public ActionResult Adiciona(Funcionarios funcionario)
@@ -81,12 +69,9 @@ namespace SiteFat.Controllers
 		public ActionResult Delete (int id)
 		{
 
-			var funcionario = new FuncionariosDao()
-				.GetAll()
-				.Where(f => f.Id == id)
-				.SingleOrDefault();
+			var funcionario = new FuncionariosDao().GetFuncionario(id);
 
-			new FuncionariosDao().DeleteRegistro(funcionario);
+			var funcionou = new FuncionariosDao().DeleteRegistro(funcionario);
 			
 			return View();
 		}

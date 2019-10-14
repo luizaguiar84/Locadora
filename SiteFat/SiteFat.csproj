@@ -237,7 +237,6 @@
     <Content Include="Views\Home\Servicos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Alugar.cshtml" />
-    <Content Include="Views\ClientePj\_NovoCliente.cshtml" />
     <Content Include="Views\ClientePj\Adiciona.cshtml" />
     <Content Include="Views\ClientePj\Index.cshtml" />
     <Content Include="Views\ClientePj\Detalhes.cshtml" />
@@ -253,6 +252,7 @@
     <Content Include="Views\Veiculos\Index.cshtml" />
     <Content Include="Views\ClientePj\NovoCliente.cshtml" />
     <Content Include="Views\Veiculos\Reserva.cshtml" />
+    <Content Include="Views\ClientePj\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
