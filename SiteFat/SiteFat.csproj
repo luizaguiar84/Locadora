@@ -191,6 +191,7 @@
     <Compile Include="Controllers\DespesasController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManutencoesController.cs" />
     <Compile Include="Controllers\ObrigacoesController.cs" />
     <Compile Include="Controllers\PneusController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
@@ -263,6 +264,8 @@
     <Content Include="Views\Pneus\Adicionar.cshtml" />
     <Content Include="Views\Obrigacoes\Detalhes.cshtml" />
     <Content Include="Views\Obrigacoes\Adicionar.cshtml" />
+    <Content Include="Views\Manutencoes\Adicionar.cshtml" />
+    <Content Include="Views\Manutencoes\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

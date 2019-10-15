@@ -10,8 +10,8 @@ namespace Dll_DB_Fat
 	{
 		public bool DbUpdate(Manutencoes registro)
 		{
-			throw new NotImplementedException();
-		}
+			return new DbKernel().DbUpdate<Manutencoes>(registro);
+  }
 
 		public bool DeleteRegistro(Manutencoes registro)
 		{

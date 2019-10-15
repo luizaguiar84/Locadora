@@ -21,9 +21,11 @@ namespace Dll_BS_Fat
 		public int Id { get;  set; }
 		public DateTime Data { get;  set; }
 		[MaxLength(100)]
+		[Display(Name = "Tipo de Obrigação")]
 		public string Tipo { get;  set; }
 		public decimal Valor { get;  set; }
 		[MaxLength(250)]
+		[Display(Name = "Descrição")]
 		public string Descricao { get;  set; }
 
 		public int VeiculoId { get;  set; }

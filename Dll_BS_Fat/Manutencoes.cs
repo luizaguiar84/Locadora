@@ -20,9 +20,11 @@ namespace Dll_BS_Fat
 		}
 
 		public int Id { get; set; }
+		[Display(Name = "Data da Manutenção")]
 		public DateTime Data { get; set; }
 		public int Km { get; set; }
 		[MaxLength(250)]
+		[Display(Name = "Descrição")]
 		public string Descricao { get; set; }
 		public decimal Valor { get; set; }
 		public int VeiculoId { get; set; }
