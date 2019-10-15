@@ -66,14 +66,19 @@ namespace SiteFat.Controllers
 			return View();
 		}
 
-		public ActionResult Delete (int id)
+		public ActionResult Deletar (Funcionarios funcionario)
+		{
+			var funcionou = new FuncionariosDao().DeleteRegistro(funcionario);
+
+			return View();
+		}
+		public ActionResult Deletar (int id)
 		{
 
 			var funcionario = new FuncionariosDao().GetFuncionario(id);
 
-			var funcionou = new FuncionariosDao().DeleteRegistro(funcionario);
-			
-			return View();
+
+			return View(funcionario);
 		}
 
 

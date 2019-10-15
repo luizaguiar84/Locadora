@@ -27,8 +27,7 @@ namespace SiteFat.Controllers
         public ActionResult Adicionar(int veiculoId)
         {
 			ViewBag.Id = veiculoId;
-			Multas multas = new MultasDao().GetMulta(veiculoId);
-            return View(multas);
+            return View();
         }
 
         // POST: Multas/Create

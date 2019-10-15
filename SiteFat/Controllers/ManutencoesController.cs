@@ -70,20 +70,21 @@ namespace SiteFat.Controllers
         }
 
         // GET: Manutencoes/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Deletar(int id)
         {
-            return View();
+			var obrigacao = new ObrigacoesDao().GetObrigacao(id);
+            return View(obrigacao);
         }
 
         // POST: Manutencoes/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Deletar(Obrigacoes obrigacao)
         {
             try
             {
-                // TODO: Add delete logic here
+				new ObrigacoesDao().DeleteRegistro(obrigacao);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Veiculos");
             }
             catch
             {

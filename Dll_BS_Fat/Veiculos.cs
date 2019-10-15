@@ -3,10 +3,11 @@ namespace Dll_BS_Fat
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations;
 
-    public class Veiculos : IComparable
+	public class Veiculos : IComparable
 	{
+		#region Construtores
 		public Veiculos()
 		{
 			this.Pneu = new HashSet<Pneus>();
@@ -17,8 +18,8 @@ namespace Dll_BS_Fat
 			this.Multas = new HashSet<Multas>();
 		}
 
-		public Veiculos(string montadora, string modelo, string anoModelo, int portas, string cor, string placa, string renavam, string chassi, int lugares, int quilometragem, string status, 
-			string combustivel, string valorAtual, decimal valorDiaria, string observacoes, DateTime? dataAquisicao, bool arCondicionado, bool direcaoHidraulica, bool vidroEletrico, 
+		public Veiculos(string montadora, string modelo, string anoModelo, int portas, string cor, string placa, string renavam, string chassi, int lugares, int quilometragem, string status,
+			string combustivel, string valorAtual, decimal valorDiaria, string observacoes, DateTime? dataAquisicao, bool arCondicionado, bool direcaoHidraulica, bool vidroEletrico,
 			bool airBag, bool abs, bool isAtivo)
 		{
 			Montadora = montadora;
@@ -52,47 +53,132 @@ namespace Dll_BS_Fat
 			this.Multas = new HashSet<Multas>();
 		}
 
+		#endregion
+
+		#region Anotações
+		[Key]
+		#endregion
 		public int Id { get; set; }
-		public string Montadora { get;  set; }
-		public string Modelo { get;  set; }
-		[Display(Name ="Ano / Modelo", Description = "Ano e Modelo do veiculo")]
-		public string AnoModelo { get;  set; }
-		public int Portas { get;  set; }
-		public string Cor { get;  set; }
-		public string Placa { get;  set; }
-		[Display(Name ="RENAVAM")]
-		public string Renavam { get;  set; }
-		public string Chassi { get;  set; }
-		public int Lugares { get;  set; }
+
+		#region Anotações
+		[Display(Name = "Montadora")]
+		#endregion
+		public string Montadora { get; set; }
+
+		#region Anotações
+		[Display(Name = "Modelo")]
+		#endregion
+		public string Modelo { get; set; }
+
+		#region Anotações
+		[Display(Name = "Ano / Modelo", Description = "Ano e Modelo do veiculo")]
+		#endregion
+		public string AnoModelo { get; set; }
+
+		#region Anotações
+		[Display(Name = "N. de Portas")]
+		#endregion
+		public int Portas { get; set; }
+
+		#region Anotações
+		[Display(Name = "Cor")]
+		#endregion
+		public string Cor { get; set; }
+
+		#region Anotações
+		[Display(Name = "Placa")]
+		#endregion
+		public string Placa { get; set; }
+
+		#region Anotações
+		[Display(Name = "RENAVAM")]
+		#endregion
+		public string Renavam { get; set; }
+
+		#region Anotações
+		[Display(Name = "Chassi")]
+		#endregion
+		public string Chassi { get; set; }
+
+		#region Anotações
+		[Display(Name = "Lugares")]
+		#endregion
+		public int Lugares { get; set; }
+
+		#region Anotações
+		[Display(Name = "Quilometragem")]
+		#endregion
 		public int Quilometragem { get; set; }
-		public string Status { get;  set; }
-		public string Combustivel { get;  set; }
+
+		#region Anotações
+		[Display(Name = "Status")]
+		#endregion
+		public string Status { get; set; }
+
+		#region Anotações
+		[Display(Name = "Combustível")]
+		#endregion
+		public string Combustivel { get; set; }
+
+		#region Anotações
 		[Display(Name = "Valor de mercado na compra")]
-		public string ValorAtual { get;  set; }
-		[Display(Name ="Valor da diária")]
-		public decimal ValorDiaria { get;  set; }
-		[Display(Name="Observações")]
-		public string Observacoes { get;  set; }
-		[Display(Name ="Data de Aquisição")]
-		public DateTime? DataAquisicao { get;  set; }
+		[DataType(DataType.Currency)]
+		#endregion
+		public string ValorAtual { get; set; }
+
+		#region Anotações
+		[Display(Name = "Valor da diária")]
+		[DataType(DataType.Currency)]
+		#endregion
+		public decimal ValorDiaria { get; set; }
+
+		#region Anotações
+		[Display(Name = "Observações")]
+		[DataType(DataType.MultilineText)]
+		#endregion
+		public string Observacoes { get; set; }
+
+		#region Anotações
+		[DataType(DataType.Date)]
+		[Display(Name = "Data de Aquisição")]
+		#endregion
+		public DateTime? DataAquisicao { get; set; }
+
+		#region Anotações
 		[DefaultValue(false)]
-		[Display(Name ="Ar Condicionado")]
-		public bool ArCondicionado { get;  set; }
+		[Display(Name = "Ar Condicionado")]
+		#endregion
+		public bool ArCondicionado { get; set; }
+
+		#region Anotações
 		[DefaultValue(false)]
-		[Display(Name ="Direção Hidráulica")]
-		public bool DirecaoHidraulica { get;  set; }
+		[Display(Name = "Direção Hidráulica")]
+		#endregion
+		public bool DirecaoHidraulica { get; set; }
+
+		#region Anotações
 		[DefaultValue(false)]
-		[Display(Name ="Vidros Elétricos")]
-		public bool VidroEletrico { get;  set; }
+		[Display(Name = "Vidros Elétricos")]
+		#endregion
+		public bool VidroEletrico { get; set; }
+
+		#region Anotações
 		[DefaultValue(false)]
 		[Display(Name = "Air Bag")]
-		public bool AirBag { get;  set; }
+		#endregion
+		public bool AirBag { get; set; }
+
+		#region Anotações
 		[DefaultValue(false)]
-		[Display(Name ="Freios ABS")]
-		public bool Abs { get;  set; }
+		[Display(Name = "Freios ABS")]
+		#endregion
+		public bool Abs { get; set; }
+
+		#region Anotações
 		[DefaultValue(true)]
-		[Display(Name ="Ativo?")]
-		public bool IsAtivo { get;  set; }
+		[Display(Name = "Ativo?")]
+		#endregion
+		public bool IsAtivo { get; set; }
 
 
 		public virtual ICollection<Abastecimentos> Abastecimentos { get; set; }

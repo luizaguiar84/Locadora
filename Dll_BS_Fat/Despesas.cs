@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
 	public class Despesas
 	{
+		#region Construtores
 		public Despesas()
 		{
 
@@ -16,16 +18,39 @@ namespace Dll_BS_Fat
 			TipoDespesaId = tipoDespesaId;
 			Valor = valor;
 			Descricao = descricao;
-		}
+		} 
+		#endregion
 
+		#region Anotações
+		[Key] 
+		#endregion
 		public int Id { get; set; }
-		[DefaultValue(true)]
-		public bool IsAtiva { get; protected set; }
-		public DateTime Data { get; protected set; }
-		public int TipoDespesaId { get; protected set; }
-		public TipoDespesa TipoDespesa { get; protected set; }
-		public decimal Valor { get; protected set; }
-		public string Descricao { get; protected set; }
+		
+		#region Anotações
+		[DefaultValue(true)] 
+		#endregion
+		public bool IsAtiva { get;  set; }
+		
+		#region Anotações
+		[DataType(DataType.Date)] 
+		#endregion
+		public DateTime Data { get;  set; }
+		public int TipoDespesaId { get;  set; }
+		
+		#region Anotações
+		[Display(Name = "Tipo de despesa")] 
+		#endregion
+		public TipoDespesa TipoDespesa { get;  set; }
+		
+		#region Anotações
+		[DataType(DataType.Currency)] 
+		#endregion
+		public decimal Valor { get;  set; }
+		
+		#region Anotações
+		[Display(Name = "Descrição")] 
+		#endregion
+		public string Descricao { get;  set; }
 
 	}
 }

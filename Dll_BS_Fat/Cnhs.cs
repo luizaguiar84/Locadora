@@ -5,6 +5,7 @@ namespace Dll_BS_Fat
 
 	public class Cnhs
 	{
+		#region Construtores
 		public Cnhs()
 		{
 
@@ -17,18 +18,37 @@ namespace Dll_BS_Fat
 			Validade = validade;
 		}
 
-		public int Id { get; set; }
-		[Display(Name ="Número da CNH")]
-		[MaxLength(20)]
-		public string Numero { get;  set; }
+		#endregion
 
+		#region Anotações
+		[Key]
+		#endregion
+		public int Id { get; set; }
+
+		#region Anotações
+		[Display(Name = "Número da CNH")]
+		[MaxLength(20)]
+		#endregion
+
+		public string Numero { get; set; }
+
+		#region Anotações
 		[MaxLength(2)]
 		[Required(ErrorMessage = "Favor selecionar a categoria da CNH")]
-		public string Categoria { get;  set; }
-		[Display(Name ="Data de emissão")]
-		public DateTime? Emissao { get;  set; }
-		[Display(Name ="Data de validade")]
-		public DateTime? Validade { get;  set; }
+		#endregion
+		public string Categoria { get; set; }
+
+		#region Anotações
+		[DataType(DataType.Date)]
+		[Display(Name = "Data de emissão")]
+		#endregion
+		public DateTime? Emissao { get; set; }
+
+		#region Anotações
+		[DataType(DataType.Date)]
+		[Display(Name = "Data de validade")]
+		#endregion
+		public DateTime? Validade { get; set; }
 
 
 

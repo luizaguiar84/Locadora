@@ -254,7 +254,6 @@
     <Content Include="Views\Funcionarios\Editar.cshtml" />
     <Content Include="Views\Funcionarios\Adiciona.cshtml" />
     <Content Include="Views\Funcionarios\Atualiza.cshtml" />
-    <Content Include="Views\Funcionarios\Delete.cshtml" />
     <Content Include="Views\Veiculos\Index.cshtml" />
     <Content Include="Views\ClientePj\NovoCliente.cshtml" />
     <Content Include="Views\Veiculos\Reserva.cshtml" />
@@ -277,6 +276,8 @@
     <Content Include="Views\Sinistros\Deletar.cshtml" />
     <Content Include="Views\Veiculos\Deletar.cshtml" />
     <Content Include="Views\Sinistros\Detalhes.cshtml" />
+    <Content Include="Views\Manutencoes\Deletar.cshtml" />
+    <Content Include="Views\Funcionarios\Deletar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

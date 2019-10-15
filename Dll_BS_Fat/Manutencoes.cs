@@ -6,6 +6,7 @@ namespace Dll_BS_Fat
 
 	public class Manutencoes
 	{
+		#region Construtores
 		public Manutencoes()
 		{
 
@@ -17,15 +18,18 @@ namespace Dll_BS_Fat
 			Descricao = descricao;
 			Valor = valor;
 			VeiculoId = veiculoId;
-		}
+		} 
+		#endregion
 
 		public int Id { get; set; }
+		[DataType(DataType.Date)]
 		[Display(Name = "Data da Manutenção")]
 		public DateTime Data { get; set; }
 		public int Km { get; set; }
 		[MaxLength(250)]
 		[Display(Name = "Descrição")]
 		public string Descricao { get; set; }
+		[DataType(DataType.Currency)]
 		public decimal Valor { get; set; }
 		public int VeiculoId { get; set; }
 		public virtual Veiculos Veiculo { get; set; }

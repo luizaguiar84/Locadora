@@ -5,6 +5,7 @@ namespace Dll_BS_Fat
 {
 	public class Sinistros
 	{
+		#region Consutrutores
 		public Sinistros()
 		{
 
@@ -18,16 +19,35 @@ namespace Dll_BS_Fat
 			VeiculoId = veiculoId;
 		}
 
+		#endregion
+
+		#region Anotações
+		[Key]
+		#endregion
 		public int Id { get; set; }
 
-		public DateTime Data { get;  set; }
-		public int Km { get;  set; }
-		[Display (Name = "Descrição")]
-		public string Descricao { get;  set; }
-		public decimal Valor { get;  set; }
+		#region Anotações
+		[DataType(DataType.Date)]
+		#endregion
+		public DateTime Data { get; set; }
 
-		public virtual Veiculos Veiculo { get;  set; }
-		public int VeiculoId { get;  set; }
+		#region Anotações
+		[Display(Name = "Km")]
+		#endregion
+		public int Km { get; set; }
+
+		#region Anotações
+		[Display(Name = "Descrição")]
+		#endregion
+		public string Descricao { get; set; }
+
+		#region Anotações
+		[DataType(DataType.Currency)]
+		#endregion
+		public decimal Valor { get; set; }
+
+		public virtual Veiculos Veiculo { get; set; }
+		public int VeiculoId { get; set; }
 
 
 	}

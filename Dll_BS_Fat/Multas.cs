@@ -5,6 +5,7 @@ namespace Dll_BS_Fat
 
 	public class Multas
 	{
+		#region Construtores
 		public Multas()
 		{
 
@@ -18,16 +19,38 @@ namespace Dll_BS_Fat
 			Pontos = pontos;
 			VeiculoId = veiculoId;
 		}
+		#endregion
 
+		#region Anotações
+		[Key] 
+		#endregion
 		public int Id { get;  set; }
+		
+		#region Anotações
 		[Display(Name = "Data da Multa")]
+		[DataType(DataType.Date)] 
+		#endregion
 		public DateTime DataMulta { get;  set; }
+		
+		#region Anotações
 		[MaxLength(200)]
-		[Display(Name = "Descrição")]
+		[Display(Name = "Descrição")] 
+		#endregion
 		public string Descricao { get;  set; }
-		[Display(Name = "Data de vencimento")]
+		
+		#region Anotações
+		[Display(Name = "Data de vencimento")] 
+		#endregion
 		public DateTime Vencimento { get;  set; }
+		
+		#region Anotações
+		[DataType(DataType.Currency)]
+		#endregion
 		public decimal Valor { get;  set; }
+		
+		#region Anotações
+		[Display(Name = "Pontos")] 
+		#endregion
 		public int Pontos { get;  set; }
 
 		public int VeiculoId { get;  set; }
