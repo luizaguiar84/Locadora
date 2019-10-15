@@ -12,17 +12,24 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Multas Add)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DbUpdate<Multas>(Add);
 		}
 
 		public bool DeleteRegistro(Multas Registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<Multas>(Registro);
 		}
 
 		public List<Multas> GetAll()
 		{
 			return new DbKernel().GetAll<Multas>();
+		}
+
+		public Multas GetMultaId(int id)
+		{
+			return GetAll()
+				.Where(m => m.Id == id)
+				.SingleOrDefault();
 		}
 
 		public Multas GetRegistroPorCodigo(int classeId, string registro)
@@ -33,6 +40,14 @@ namespace Dll_DB_Fat
 		public bool DbAdd(Multas Add)
 		{
 			return new DbKernel().DbAdd<Multas>(Add);
+		}
+
+		public Multas GetMulta(int veiculoId)
+		{
+			return GetAll()
+					.Where(m => m.VeiculoId == veiculoId)
+					.SingleOrDefault();
+
 		}
 
 		public HashSet<Multas> GetMultas(int id)

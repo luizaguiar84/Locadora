@@ -48,10 +48,12 @@ namespace SiteFat.Controllers
 		public ActionResult Deletar(int id)
 		{
 			var veiculo = new VeiculosDao().GetVeiculo(id);
-			new VeiculosDao().DeleteRegistro(veiculo);
+			
 
-			return RedirectToAction("Index");
+			return View(veiculo);
 		}
+
+
 		public ActionResult Editar(int id)
 		{
 			var veiculo = new VeiculosDao().GetVeiculo(id);
@@ -63,6 +65,21 @@ namespace SiteFat.Controllers
 			new VeiculosDao().DbUpdate(veiculo);
 
 			return RedirectToAction("Index");
+		}
+
+		[HttpPost]
+		public ActionResult Deletar(Veiculos veiculo)
+		{
+			try
+			{
+				new VeiculosDao().DeleteRegistro(veiculo);
+
+				return RedirectToAction("Index", "Veiculos");
+			}
+			catch
+			{
+				return View();
+			}
 		}
 	}
 }

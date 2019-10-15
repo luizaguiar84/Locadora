@@ -239,18 +239,24 @@
             <th>
                 Valor
             </th>
+            <th>
+                Detalhes
+            </th>
         </tr>
         @foreach (var manutencao in Model.Manutencao)
         {
             <tr>
                 <td>
-                    @manutencao.Data
+                    @manutencao.Data.Day/@manutencao.Data.Month/@manutencao.Data.Year
                 </td>
                 <td>
                     @manutencao.Descricao
                 </td>
                 <td>
                     @manutencao.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Manutencoes/Detalhes/@manutencao.Id">Detalhes</a>
                 </td>
             </tr>
         }
@@ -277,7 +283,7 @@
         {
             <tr>
                 <td>
-                    @obrigacao.Data
+                    @obrigacao.Data.Day/@obrigacao.Data.Month/@obrigacao.Data.Year
                 </td>
                 <td>
                     @obrigacao.Descricao
@@ -292,6 +298,82 @@
             </tr>
         }
     </table>
+    <hr />
+    <h4>Multas</h4>
+    <a href="~/Multas/Adicionar?veiculoId=@Model.Id">Adicionar nova Multa...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var multa in Model.Multas)
+        {
+            <tr>
+                <td>
+                    @multa.DataMulta.Day/@multa.DataMulta.Month/@multa.DataMulta.Year
+                </td>
+                <td>
+                    @multa.Descricao
+                </td>
+                <td>
+                    @multa.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Multas/Detalhes/@multa.Id">Detalhes...</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+    <hr />
+    <h4>Sinistros</h4>
+    <a href="~/Sinistros/Adicionar?veiculoId=@Model.Id">Adicionar novo Sinistro...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var sinistro in Model.Sinistros)
+        {
+            <tr>
+                <td>
+                    @sinistro.Data.Day/@sinistro.Data.Month/@sinistro.Data.Year
+                </td>
+                <td>
+                    @sinistro.Descricao
+                </td>
+                <td>
+                    @sinistro.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Sinistros/Detalhes/@sinistro.Id">Detalhes...</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+
 </div>
 <hr />
 <p>

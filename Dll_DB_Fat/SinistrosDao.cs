@@ -11,12 +11,12 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Sinistros update)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DbUpdate<Sinistros>(update);
 		}
 
 		public bool DeleteRegistro(Sinistros registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<Sinistros>(registro);
 		}
 
 		public List<Sinistros> GetAll()
@@ -34,10 +34,17 @@ namespace Dll_DB_Fat
 			return new DbKernel().DbAdd<Sinistros>(registro);
 		}
 
-		public HashSet<Sinistros> GetSinistros(int id)
+		public Sinistros GetSinistro(int id)
+		{
+			return GetAll()
+				.Where(s => s.Id == id)
+				.SingleOrDefault();
+		}
+
+		public HashSet<Sinistros> GetSinistros(int veiculoId)
 		{
 			return new DbKernel().GetAll<Sinistros>()
-							.Where(s => s.VeiculoId == id)
+							.Where(s => s.VeiculoId == veiculoId)
 							.ToHashSet();
 		}
 	}

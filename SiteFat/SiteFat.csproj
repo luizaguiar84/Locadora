@@ -192,8 +192,10 @@
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManutencoesController.cs" />
+    <Compile Include="Controllers\MultasController.cs" />
     <Compile Include="Controllers\ObrigacoesController.cs" />
     <Compile Include="Controllers\PneusController.cs" />
+    <Compile Include="Controllers\SinistrosController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -266,6 +268,15 @@
     <Content Include="Views\Obrigacoes\Adicionar.cshtml" />
     <Content Include="Views\Manutencoes\Adicionar.cshtml" />
     <Content Include="Views\Manutencoes\Detalhes.cshtml" />
+    <Content Include="Views\Multas\Adicionar.cshtml" />
+    <Content Include="Views\Multas\Detalhes.cshtml" />
+    <Content Include="Views\Multas\Editar.cshtml" />
+    <Content Include="Views\Multas\Deletar.cshtml" />
+    <Content Include="Views\Sinistros\Adicionar.cshtml" />
+    <Content Include="Views\Sinistros\Editar.cshtml" />
+    <Content Include="Views\Sinistros\Deletar.cshtml" />
+    <Content Include="Views\Veiculos\Deletar.cshtml" />
+    <Content Include="Views\Sinistros\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

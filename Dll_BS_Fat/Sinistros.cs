@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
@@ -19,13 +20,14 @@ namespace Dll_BS_Fat
 
 		public int Id { get; set; }
 
-		public DateTime Data { get; protected set; }
-		public int Km { get; protected set; }
-		public string Descricao { get; protected set; }
-		public decimal Valor { get; protected set; }
+		public DateTime Data { get;  set; }
+		public int Km { get;  set; }
+		[Display (Name = "Descrição")]
+		public string Descricao { get;  set; }
+		public decimal Valor { get;  set; }
 
-		public virtual Veiculos Veiculo { get; protected set; }
-		public int VeiculoId { get; protected set; }
+		public virtual Veiculos Veiculo { get;  set; }
+		public int VeiculoId { get;  set; }
 
 
 	}
