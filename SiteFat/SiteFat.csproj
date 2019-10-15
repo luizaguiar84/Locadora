@@ -188,10 +188,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientePjController.cs" />
+    <Compile Include="Controllers\ControlePatioController.cs" />
     <Compile Include="Controllers\DespesasController.cs" />
+    <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManutencoesController.cs" />
+    <Compile Include="Controllers\MotoristasController.cs" />
     <Compile Include="Controllers\MultasController.cs" />
     <Compile Include="Controllers\ObrigacoesController.cs" />
     <Compile Include="Controllers\PneusController.cs" />
@@ -227,6 +230,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.pt-br.js" />
+    <Content Include="Scripts\jquery.validate.pt-br.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -244,7 +249,6 @@
     <Content Include="Views\Home\Servicos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Alugar.cshtml" />
-    <Content Include="Views\ClientePj\Adiciona.cshtml" />
     <Content Include="Views\ClientePj\Detalhes.cshtml" />
     <Content Include="Views\Veiculos\NovoVeiculo.cshtml" />
     <Content Include="Views\Veiculos\Adiciona.cshtml" />
@@ -278,6 +282,25 @@
     <Content Include="Views\Sinistros\Detalhes.cshtml" />
     <Content Include="Views\Manutencoes\Deletar.cshtml" />
     <Content Include="Views\Funcionarios\Deletar.cshtml" />
+    <Content Include="Views\Motoristas\Index.cshtml" />
+    <Content Include="Views\Motoristas\Detalhes.cshtml" />
+    <Content Include="Views\Motoristas\Adicionar.cshtml" />
+    <Content Include="Views\Motoristas\Editar.cshtml" />
+    <Content Include="Views\Motoristas\Deletar.cshtml" />
+    <Content Include="Views\ControlePatio\Index.cshtml" />
+    <Content Include="Views\ControlePatio\Detalhes.cshtml" />
+    <Content Include="Views\ControlePatio\Adicionar.cshtml" />
+    <Content Include="Views\ControlePatio\Editar.cshtml" />
+    <Content Include="Views\ControlePatio\Deletar.cshtml" />
+    <Content Include="Views\ClientePj\Deletar.cshtml" />
+    <Content Include="Views\Pneus\Editar.cshtml" />
+    <Content Include="Views\Pneus\Deletar.cshtml" />
+    <Content Include="Views\ControlePatio\RegistrarRetorno.cshtml" />
+    <Content Include="Views\Estoque\Index.cshtml" />
+    <Content Include="Views\Estoque\Detalhes.cshtml" />
+    <Content Include="Views\Estoque\Adicionar.cshtml" />
+    <Content Include="Views\Estoque\Remover.cshtml" />
+    <Content Include="Views\Estoque\Deletar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

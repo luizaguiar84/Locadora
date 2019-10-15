@@ -1,12 +1,13 @@
 ﻿@model Dll_BS_Fat.Pneus
 
 @{
-    ViewBag.Title = "Detalhes";
+    ViewBag.Title = "Deletar Pneu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Detalhes</h2>
+<h2>Deletar Pneu</h2>
 
+<h3>Deseja deletar este Pneu?</h3>
 <div>
     <h4>Pneus</h4>
     <hr />
@@ -51,7 +52,7 @@
             @Html.DisplayFor(model => model.KmAtual)
         </dd>
 
-         <dt>
+        <dt>
             @Html.DisplayNameFor(model => model.DataAdicao)
         </dt>
 
@@ -59,10 +60,15 @@
             @Html.DisplayFor(model => model.DataAdicao)
         </dd>
 
+        
     </dl>
+
+    @using (Html.BeginForm("Deletar", "Pneus" )) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à Lista", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Deletar", "Deletar", new { id = Model.Id}) |
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) <br />
-    <button name="Voltar" onclick="javascript:history.back(-1);" runat="server">Voltar</button>
-</p>

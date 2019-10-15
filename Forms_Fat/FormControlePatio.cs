@@ -48,10 +48,9 @@ namespace Dll_Forms_Fat
 		private void GetMotoristas()
 		{
 
-			var motoristas = new ClientesPFDao().GetAll()
-								.Where(c => c.Cnh != null);
+			var motoristas = new ClientesPFDao().GetMotoristas();
 
-			comboMotorista.DataSource = motoristas.ToList();
+			comboMotorista.DataSource = motoristas;
 			comboMotorista.DisplayMember = "Nome";
 
 		}
@@ -59,9 +58,7 @@ namespace Dll_Forms_Fat
 		private void GetCarros()
 		{
 
-			var veiculos = new VeiculosDao().GetAll()
-				.Where(v => v.IsAtivo)
-				.ToList();
+			var veiculos = new VeiculosDao().GetVeiculosAtivos();
 
 			comboCarros.DataSource = veiculos;
 			comboCarros.DisplayMember = "Placa";
@@ -107,10 +104,14 @@ namespace Dll_Forms_Fat
 			c.ObservacoesSaida = txtObservacoes.Text;
 			c.Status = true;
 
-			new ControlePatioDao().DbAdd(c);
-
-			MessageBox.Show("Saida Registrada com Sucesso!");
-
+			if (new ControlePatioDao().DbAdd(c))
+			{
+				MessageBox.Show("Saida Registrada com Sucesso!");
+			}
+			else
+			{
+				MessageBox.Show("Problema no registro da saida, favor tentar novamente.");
+			}
 			AtualizaTabela();
 			AtualizaPlacasFora();
 			this.groupSaida.Controls.LimparTextBoxes();
@@ -127,9 +128,7 @@ namespace Dll_Forms_Fat
 		private void AtualizaTabela()
 		{
 
-			var carrosFora = new ControlePatioDao().GetAll()
-								.Where(c => c.Status == true)
-								.ToList();
+			var carrosFora = new ControlePatioDao().GetCarrosFora();
 
 
 			dataGridView1.DataSource = carrosFora;
@@ -142,7 +141,7 @@ namespace Dll_Forms_Fat
 		private void BtnSalvarRetorno_Click(object sender, EventArgs e)
 		{
 			ControlePatio controle = (ControlePatio)comboCarrosForaPlaca.SelectedItem;
-			var veiculo = GetVeiculo(controle);
+			var veiculo = new VeiculosDao().GetVeiculo(controle.VeiculoId);
 
 			if (RegistraRetorno(controle, veiculo))
 			{
@@ -156,18 +155,9 @@ namespace Dll_Forms_Fat
 			}
 		}
 
-		private Veiculos GetVeiculo(ControlePatio c)
-		{
-
-			return new VeiculosDao().GetAll()
-						.Where(v => v.Id == c.VeiculoId)
-						.SingleOrDefault();
-		}
 
 		private bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
 		{
-			bool ret = false;
-
 			controle.DataRetorno = dateRetorno.Value;
 			controle.HoraRetorno = timeRetorno.Value.TimeOfDay;
 			controle.EstadoRetorno = comboEstadoRetorno.ValueMember;
@@ -175,17 +165,7 @@ namespace Dll_Forms_Fat
 			controle.KmRetorno = Convert.ToInt32(txtkmRetorno.Text);
 			controle.Status = false;
 
-			if (new PneusDao().DbUpdateKm(controle, veiculo))
-			{
-				if (new VeiculosDao().RegistrarKmDb(veiculo, controle.KmRetorno))
-				{
-					if (new ControlePatioDao().DbUpdate(controle))
-					{
-						ret = true;
-					}
-				}
-			}
-			return ret;
+			return new ControlePatioDao().RegistraRetorno(controle, veiculo);
 		}
 
 		private void PreencheDados(ControlePatio c)

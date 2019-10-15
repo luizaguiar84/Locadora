@@ -50,7 +50,7 @@ namespace Dll_Forms_Fat
 
 		private void PreencherId()
 		{
-			var idCliente = new ClientesPFDao().BuscaId();
+			var idCliente = new ClientesPFDao().BuscaIdMax();
 			idCliente++;
 			txtId.Text = Convert.ToString(idCliente);
 		}

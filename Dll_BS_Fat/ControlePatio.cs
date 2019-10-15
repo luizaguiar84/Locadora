@@ -12,8 +12,12 @@ namespace Dll_BS_Fat
 
 		#region Anotações
 		[DefaultValue(true)]
+		[Display(Name = "Status")]
 		#endregion
 		public bool Status { get; set; }
+		#region Anotações
+		[Display(Name = "Placa")]
+		#endregion
 		public string Placa { get; set; }
 
 		#region Anotações

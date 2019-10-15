@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Dll_BS_Fat.ClientesPF>
+
+@{
+    ViewBag.Title = "Lista de Motoristas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo motorista...", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAtivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnderecoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CnhId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profissao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelResidencial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelComercial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelCelular)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAtivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnderecoId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CnhId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profissao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelResidencial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelComercial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelCelular)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

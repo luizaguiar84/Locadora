@@ -1,5 +1,6 @@
 ﻿using Dll_BS_Fat;
 using Dll_Db_Kernel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +18,7 @@ namespace Dll_DB_Fat
 		/// </summary>
 		public bool DbUpdate(ClientesPF cliente) => new DbKernel().DbUpdate<ClientesPF>(cliente);
 
-		public int BuscaId()
+		public int BuscaIdMax()
 		{
 			try
 			{
@@ -29,6 +30,17 @@ namespace Dll_DB_Fat
 				return 0;
 			}
 
+		}
+
+		public ClientesPF GetDetalhesMotorista(int id)
+		{
+			var motorista = GetMotoristas()
+							.Where(m => m.Id == id)
+							.SingleOrDefault();
+			motorista.Endereco = new EnderecosDao().GetEndereco(motorista.EnderecoId);
+			motorista.Cnh = new CnhsDao().GetCnh(motorista.CnhId);
+
+			return motorista;
 		}
 
 		/// <summary>
@@ -44,6 +56,13 @@ namespace Dll_DB_Fat
 		/// <param name="registro"></param>
 		/// <returns></returns>
 		public bool DeleteRegistro(ClientesPF registro) => new DbKernel().DeleteRegistro<ClientesPF>(registro);
+
+		public List<ClientesPF> GetMotoristas()
+		{
+				return GetAll()
+						.Where(c => c.Cnh != null)
+						.ToList();
+		}
 
 
 		/// <summary>

@@ -31,43 +31,43 @@ namespace Dll_BS_Fat
 		}
 
 		[Key]
-		public int Id { get; protected set; }
+		public int Id { get; set; }
 
 		[DefaultValue(true)]
-		public bool IsAtivo { get; protected set; }
+		public bool IsAtivo { get; set; }
 
 		[Display(Name = "Nome Completo", Description = "Nome e Sobrenome.")]
 		[Required(ErrorMessage = "O nome completo é obrigatório.")]
 		[RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")]
-		public string Nome { get; protected set; }
+		public string Nome { get; set; }
 
 		[Required(ErrorMessage = "O Email é obrigatório.")]
 		[StringLength(50, MinimumLength = 5, ErrorMessage = "O Email deve ter no mínimo 5 e no máximo 50 caracteres.")]
 		[Display(Name = "E-Mail")]
-		public string Email { get; protected set; }
+		public string Email { get; set; }
 		public Enderecos Endereco { get; set; }
 		public int EnderecoId { get; set; }
 		public Cnhs Cnh { get; set; }
 		public int CnhId { get; set; }
 
 		[MaxLength(20)]
-		public string Rg { get; protected set; }
+		public string Rg { get; set; }
 
-		public string Cpf { get; protected set; }
-		public DateTime? Nascimento { get; protected set; }
+		public string Cpf { get; set; }
+		public DateTime? Nascimento { get; set; }
 
 		[MaxLength(2)]
-		public TipoCliente TipoCliente { get; protected set; }
+		public TipoCliente TipoCliente { get; set; }
 		[MaxLength(50)]
-		public string Profissao { get; protected set; }
+		public string Profissao { get; set; }
 		[MaxLength(14)]
-		public string TelResidencial { get; protected set; }
-		public string TelComercial { get; protected set; }
+		public string TelResidencial { get; set; }
+		public string TelComercial { get; set; }
 		[MaxLength(14)]
-		public string TelCelular { get; protected set; }
+		public string TelCelular { get; set; }
 
 
-		public ICollection<ClienteLocacao> Locacao { get; protected set; }
+		public ICollection<ClienteLocacao> Locacao { get; set; }
 
 
 		//public int USUARIO_IDUSUARIO { get; set; }

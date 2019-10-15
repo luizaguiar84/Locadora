@@ -2,6 +2,7 @@
 using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dll_DB_Fat
 {
@@ -9,7 +10,7 @@ namespace Dll_DB_Fat
 	{
 		public bool DeleteRegistro(Estoque registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<Estoque>(registro);
 		}
 
 
@@ -26,6 +27,13 @@ namespace Dll_DB_Fat
 		public bool DbAdd(Estoque registro)
 		{
 			return new DbKernel().DbAdd<Estoque>(registro);
+		}
+
+		public object GetDetalhe(int id)
+		{
+			return GetAll()
+				.Where(e => e.Id == id)
+				.SingleOrDefault();
 		}
 
 		public bool DbUpdate(Estoque update)

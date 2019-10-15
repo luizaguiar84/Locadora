@@ -64,11 +64,18 @@ namespace Dll_DB_Fat
 			return new DbKernel().DeleteRegistro<Veiculos>(registro);
 		}
 
-		
+
 
 		public Veiculos GetRegistroPorCodigo(int classeId, string registro)
 		{
 			return new DbKernel().GetRegistroPorCodigo<Veiculos>(classeId, registro);
+		}
+
+		public List<Veiculos> GetVeiculosAtivos()
+		{
+			return GetAll()
+					.Where(v => v.IsAtivo)
+					.ToList();
 		}
 
 		/// <summary>

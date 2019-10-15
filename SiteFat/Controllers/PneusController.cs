@@ -48,18 +48,19 @@ namespace SiteFat.Controllers
 		}
 
         // GET: Pneus/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
-            return View();
+			var pneu = new PneusDao().GetPneuUnico(id);
+            return View(pneu);
         }
 
         // POST: Pneus/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editar(Pneus pneu)
         {
             try
             {
-                // TODO: Add update logic here
+				new PneusDao().DbUpdate(pneu);
 
                 return RedirectToAction("Index");
             }
@@ -70,18 +71,19 @@ namespace SiteFat.Controllers
         }
 
         // GET: Pneus/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Deletar(int id)
         {
-            return View();
+			var pneu = new PneusDao().GetPneuUnico(id);
+            return View(pneu);
         }
 
         // POST: Pneus/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Deletar(Pneus pneu)
         {
             try
             {
-                // TODO: Add delete logic here
+				new PneusDao().DeleteRegistro(pneu);
 
                 return RedirectToAction("Index");
             }

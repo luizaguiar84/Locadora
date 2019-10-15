@@ -55,7 +55,7 @@ namespace Dll_DB_Fat
 
 		public bool DeleteRegistro(Pneus Registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<Pneus>(Registro);
 		}
 
 		public List<Pneus> GetAll()
