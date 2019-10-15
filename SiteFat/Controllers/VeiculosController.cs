@@ -25,9 +25,17 @@ namespace SiteFat.Controllers
 		[HttpPost]
 		public ActionResult Adiciona(Veiculos veiculo)
 		{
-			var dao = new VeiculosDao();
-			var funcionou = dao.DbAdd(veiculo);
-			return RedirectToAction("Index");
+			try
+			{
+				new VeiculosDao().DbAdd(veiculo);
+				return RedirectToAction("Index");
+			}
+			catch (Exception)
+			{
+
+				return View();
+			}
+			
 		}
 
 		public ActionResult Reserva(int id)

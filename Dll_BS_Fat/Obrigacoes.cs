@@ -18,16 +18,16 @@ namespace Dll_BS_Fat
 			VeiculoId = veiculoId;
 		}
 
-		public int Id { get; private set; }
-		public DateTime Data { get; protected set; }
+		public int Id { get;  set; }
+		public DateTime Data { get;  set; }
 		[MaxLength(100)]
-		public string Tipo { get; protected set; }
-		public decimal Valor { get; protected set; }
+		public string Tipo { get;  set; }
+		public decimal Valor { get;  set; }
 		[MaxLength(250)]
-		public string Descricao { get; protected set; }
+		public string Descricao { get;  set; }
 
-		public int VeiculoId { get; protected set; }
-		public virtual Veiculos Veiculo { get; private set; }
+		public int VeiculoId { get;  set; }
+		public virtual Veiculos Veiculo { get;  set; }
 
 
 	}

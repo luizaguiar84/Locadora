@@ -8,9 +8,17 @@
 <h2>Reserva</h2>
 
 <div>
-    <h4>Veiculos</h4>
+    <h4>Veiculo</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAtivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAtivo)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Montadora)
         </dt>
@@ -178,19 +186,115 @@
         <dd>
             @Html.DisplayFor(model => model.Abs)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsAtivo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsAtivo)
-        </dd>
-
     </dl>
+    <hr />
+    <h4>Pneus</h4>
+    <a href="~/Pneus/Adicionar?veiculoId=@Model.Id">Adicionar novo Pneu...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Modelo
+            </th>
+            <th>
+                Marca
+            </th>
+            <th>
+                Quilometros Rodados
+            </th>
+            <th>
+                Mais Detalhes
+            </th>
+        </tr>
+        @{foreach (var pneu in Model.Pneu)
+            {
+
+                <tr>
+                    <td>
+                        @pneu.Modelo
+                    </td>
+                    <td>
+                        @pneu.Marca
+                    </td>
+                    <td>
+                        @pneu.KmAtual.ToString()
+                    </td>
+                    <td>
+                        <a href="~/Pneus/Details/@pneu.Id">Detalhes...</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <hr />
+    <h4>Manutenções</h4>
+    <a href="~/Manutencoes/Adicionar?veiculoId=@Model.Id">Adicionar nova Manutenção...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+        </tr>
+        @foreach (var manutencao in Model.Manutencao)
+        {
+            <tr>
+                <td>
+                    @manutencao.Data
+                </td>
+                <td>
+                    @manutencao.Descricao
+                </td>
+                <td>
+                    @manutencao.Valor.ToString("C")
+                </td>
+            </tr>
+        }
+    </table>
+    <hr />
+    <h4>Obrigações</h4>
+    <a href="~/Obrigacoes/Adicionar?veiculoId=@Model.Id">Adicionar nova Obrigação...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var obrigacao in Model.Obrigacoes)
+        {
+            <tr>
+                <td>
+                    @obrigacao.Data
+                </td>
+                <td>
+                    @obrigacao.Descricao
+                </td>
+                <td>
+                    @obrigacao.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Obrigacoes/Detalhes/@obrigacao.Id">Detalhes...</a>
+
+                </td>
+            </tr>
+        }
+    </table>
 </div>
+<hr />
 <p>
- 
     @Html.ActionLink("Voltar à Lista", "Index") |
     @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
     @Html.ActionLink("Deletar", "Deletar", new { id = Model.Id })

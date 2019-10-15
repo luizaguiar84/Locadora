@@ -191,6 +191,8 @@
     <Compile Include="Controllers\DespesasController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ObrigacoesController.cs" />
+    <Compile Include="Controllers\PneusController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -257,6 +259,10 @@
     <Content Include="Views\Despesas\Index.cshtml" />
     <Content Include="Views\ClientePj\Index.cshtml" />
     <Content Include="Views\Veiculos\Editar.cshtml" />
+    <Content Include="Views\Pneus\Details.cshtml" />
+    <Content Include="Views\Pneus\Adicionar.cshtml" />
+    <Content Include="Views\Obrigacoes\Detalhes.cshtml" />
+    <Content Include="Views\Obrigacoes\Adicionar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

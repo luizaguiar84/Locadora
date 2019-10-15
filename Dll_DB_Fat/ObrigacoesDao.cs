@@ -11,17 +11,23 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Obrigacoes registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DbUpdate<Obrigacoes>(registro);
 		}
 
 		public bool DeleteRegistro(Obrigacoes registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel().DeleteRegistro<Obrigacoes>(registro);
 		}
 
 		public List<Obrigacoes> GetAll()
 		{
-			throw new NotImplementedException();
+			return new DbKernel().GetAll<Obrigacoes>();
+		}
+
+		public Obrigacoes GetObrigacao(int id)
+		{
+			return GetAll().Where(o => o.Id == id)
+							.SingleOrDefault();
 		}
 
 		public Obrigacoes GetRegistroPorCodigo(int classeId, string registro)
