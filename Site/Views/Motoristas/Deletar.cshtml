@@ -1,0 +1,105 @@
+﻿@model Dll_BS_Fat.ClientesPF
+
+@{
+    ViewBag.Title = "Deletar Motorista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deletar Motorista</h2>
+
+<h3>Está certo que deseja deletar o Motorista?</h3>
+<div>
+    <h4>Motorista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAtivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAtivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profissao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profissao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelResidencial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelResidencial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelComercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelComercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelCelular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelCelular)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Deletar", "Motoristas")) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à Lista", "Index")
+        </div>
+    }
+</div>

@@ -3,6 +3,7 @@ using Dll_Db_Kernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Dll_DB_Fat
 {
@@ -10,12 +11,12 @@ namespace Dll_DB_Fat
 	{
 		public bool DbAdd(ClientesPJ registro)
 		{
-			return new DbKernel().DbAdd<ClientesPJ>(registro);
+			return new DbKernel().DbAdd(registro);
 		}
 
 		public bool DbUpdate(ClientesPJ registro)
 		{
-			return new DbKernel().DbUpdate<ClientesPJ>(registro);
+			return new DbKernel().DbUpdate(registro);
 		}
 
 		public bool DeleteRegistro(ClientesPJ registro)

@@ -1,0 +1,211 @@
+﻿@model Dll_BS_Fat.Funcionarios
+
+    <div>
+        <h4>Funcionarios</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAtivo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAtivo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rg)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rg)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cpf)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nascimento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TelResidencial)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TelResidencial)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TelCelular)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TelCelular)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Salario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Salario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Admissao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Admissao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ctps)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ctps)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Pis)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pis)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TituloEleitor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TituloEleitor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Demissao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Demissao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Observacoes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Observacoes)
+            </dd>
+
+            <h5>Endereço</h5>
+            <hr />
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Logradouro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Logradouro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Num)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Num)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Complemento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Complemento)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Bairro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Bairro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Cidade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Cidade)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco.Uf)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Uf)
+            </dd>
+
+            <h5>CNH</h5> 
+            <hr>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnh.Numero)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cnh.Numero)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnh.Categoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cnh.Categoria)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnh.Emissao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cnh.Emissao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnh.Validade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cnh.Validade)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+        @Html.ActionLink("Deletar", "Deletar", new { id = Model.Id}) |
+        @Html.ActionLink("Voltar à Lista", "Index")
+    </p>
+
