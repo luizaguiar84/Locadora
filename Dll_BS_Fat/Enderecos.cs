@@ -2,7 +2,7 @@
 
 namespace Dll_BS_Fat
 {
-	public class Enderecos
+	public class Enderecos : BaseModel
 	{
 		#region Construtores
 		public Enderecos()

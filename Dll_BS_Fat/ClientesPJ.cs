@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
-	public class ClientesPJ
+	public class ClientesPJ : BaseModel
 	{
 
 		#region CONSTRUTORES

@@ -20,7 +20,7 @@ namespace SiteFat.Controllers
         // GET: Pneus/Details/5
         public ActionResult Details(int id)
         {
-			var pneus = new PneusDao().GetPneuUnico(id);
+			var pneus = new PneusDao().GetPneu(id);
             return View(pneus);
         }
 
@@ -51,7 +51,7 @@ namespace SiteFat.Controllers
         // GET: Pneus/Edit/5
         public ActionResult Editar(int id)
         {
-			var pneu = new PneusDao().GetPneuUnico(id);
+			var pneu = new PneusDao().GetPneu(id);
             return View(pneu);
         }
 
@@ -74,7 +74,7 @@ namespace SiteFat.Controllers
         // GET: Pneus/Delete/5
         public ActionResult Deletar(int id)
         {
-			var pneu = new PneusDao().GetPneuUnico(id);
+			var pneu = new PneusDao().GetPneu(id);
             return View(pneu);
         }
 

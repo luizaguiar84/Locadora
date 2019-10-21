@@ -22,11 +22,13 @@ namespace SiteFat.Controllers
 			return View();
 		}
 
+		[ValidateAntiForgeryToken]
 		[HttpPost]
 		public ActionResult Adiciona(Veiculos veiculo)
 		{
 			try
 			{
+				veiculo.IsAtivo = true;
 				new VeiculosDao().DbAdd(veiculo);
 				return RedirectToAction("Index");
 			}
@@ -62,6 +64,7 @@ namespace SiteFat.Controllers
 		}
 		public ActionResult Atualizar (Veiculos veiculo)
 		{
+			veiculo.IsAtivo = true;
 			new VeiculosDao().DbUpdate(veiculo);
 
 			return RedirectToAction("Index");

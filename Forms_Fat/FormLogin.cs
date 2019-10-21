@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dll_BS_Fat;
+using Dll_DB_Fat;
+using System;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -13,9 +15,20 @@ namespace Dll_Forms_Fat
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			FormPrincipal form = new FormPrincipal();
-			form.Show();
-			this.Hide();
+			var usuario = new Usuarios();
+			usuario.Login = txtUsuario.Text;
+			usuario.Password = TxtSenha.Text;
+
+			if (new UsuariosDao().ConfereUsuario(usuario))
+			{
+				FormPrincipal form = new FormPrincipal();
+				form.Show();
+				this.Hide();
+			}
+			else
+			{
+				MessageBox.Show("Usuário Inválido!");
+			}
 		}
 
 		private void Login_Load(object sender, EventArgs e)

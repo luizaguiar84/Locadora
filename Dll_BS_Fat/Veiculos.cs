@@ -5,7 +5,7 @@ namespace Dll_BS_Fat
 	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Veiculos : IComparable
+	public class Veiculos : BaseModel, IComparable
 	{
 		#region Construtores
 		public Veiculos()
@@ -129,6 +129,7 @@ namespace Dll_BS_Fat
 		#region Anotações
 		[Display(Name = "Valor da diária")]
 		[DataType(DataType.Currency)]
+		[Required(ErrorMessage ="Favor informar o valor da diária.")]
 		#endregion
 		public decimal ValorDiaria { get; set; }
 

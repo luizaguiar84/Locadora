@@ -19,7 +19,7 @@ namespace SiteFat.Controllers
         // GET: Pneus/Details/5
         public ActionResult Details(int id)
         {
-			var pneus = new PneusDao().GetPneuUnico(id);
+			var pneus = new PneusDao().GetPneu(id);
             return View(pneus);
         }
 
@@ -33,7 +33,8 @@ namespace SiteFat.Controllers
 
         // POST: Pneus/Create
         [HttpPost]
-        public ActionResult Adicionar(Pneus pneu)
+		[ValidateAntiForgeryToken]
+		public ActionResult Adicionar(Pneus pneu)
         {
 			try
 			{
@@ -50,12 +51,13 @@ namespace SiteFat.Controllers
         // GET: Pneus/Edit/5
         public ActionResult Editar(int id)
         {
-			var pneu = new PneusDao().GetPneuUnico(id);
+			var pneu = new PneusDao().GetPneu(id);
             return View(pneu);
         }
 
         // POST: Pneus/Edit/5
         [HttpPost]
+		[ValidateAntiForgeryToken]
         public ActionResult Editar(Pneus pneu)
         {
             try
@@ -64,21 +66,22 @@ namespace SiteFat.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+			catch
             {
-                return View();
+				return View();
             }
         }
 
         // GET: Pneus/Delete/5
         public ActionResult Deletar(int id)
         {
-			var pneu = new PneusDao().GetPneuUnico(id);
+			var pneu = new PneusDao().GetPneu(id);
             return View(pneu);
         }
 
         // POST: Pneus/Delete/5
         [HttpPost]
+		[ValidateAntiForgeryToken]
         public ActionResult Deletar(Pneus pneu)
         {
             try

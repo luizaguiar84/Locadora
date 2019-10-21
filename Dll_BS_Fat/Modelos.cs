@@ -1,6 +1,6 @@
 namespace Dll_BS_Fat
 {
-	public class Modelos
+	public class Modelos : BaseModel
 	{
 		//public Modelos()
 		//{

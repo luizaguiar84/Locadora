@@ -4,7 +4,7 @@ namespace Dll_BS_Fat
 	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 
-	public class ControlePatio
+	public class ControlePatio : BaseModel
 	{
 		public int Id { get; set; }
 		public int VeiculoId { get; set; }

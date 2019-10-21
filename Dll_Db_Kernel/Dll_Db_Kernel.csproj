@@ -137,6 +137,10 @@
     <Compile Include="Migrations\20190924172833_Migracao.designer.cs">
       <DependentUpon>20190924172833_Migracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191020224951_Teste.cs" />
+    <Compile Include="Migrations\20191020224951_Teste.designer.cs">
+      <DependentUpon>20191020224951_Teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

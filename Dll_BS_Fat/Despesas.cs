@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
-	public class Despesas
+	public class Despesas : BaseModel
 	{
 		#region Construtores
 		public Despesas()

@@ -19,7 +19,10 @@
             $.each(data.modelos, function (key, val) {
                 items += ("<option value='" + val.codigo + "'>" + val.nome + "</option>");
             });
+
             $("#Modelo").html(items);
+            $("#MontadoraHidden").html = document.getElementById('Montadora').selectedOptions[0].text;
+
         });
     });
 
@@ -33,6 +36,9 @@
                 items += ("<option value='" + val.codigo + "'>" + val.nome + "</option>");
             });
             $("#Ano").html(items);
+            $("#ModeloHidden").innerText = data.modelos.nome;
+            $("#AnoHidden").innerText = jQuery("#AnoModelo").val().nome;
+
         });
     });
 });

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
-	public class Estoque
+	public class Estoque : BaseModel
 	{
 		#region Anotações
 		[Key]

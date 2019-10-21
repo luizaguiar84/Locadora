@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
-	public class Abastecimentos
+	public class Abastecimentos : BaseModel
 	{
 		public Abastecimentos()
 		{
@@ -24,6 +24,7 @@ namespace Dll_BS_Fat
 		public int Km { get; set; }
 		public string Combustivel { get; set; }
 		public decimal Litros { get; set; }
+
 		[Display(Name = "Valor Unitário")]
 		public decimal ValorUnitario { get; set; }
 		public int VeiculoId { get; set; }

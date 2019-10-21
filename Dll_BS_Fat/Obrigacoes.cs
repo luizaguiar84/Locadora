@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
-	public class Obrigacoes
+	public class Obrigacoes : BaseModel
 	{
 		#region Construtores
 		public Obrigacoes()

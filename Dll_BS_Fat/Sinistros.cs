@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dll_BS_Fat
 {
-	public class Sinistros
+	public class Sinistros : BaseModel
 	{
 		#region Consutrutores
 		public Sinistros()

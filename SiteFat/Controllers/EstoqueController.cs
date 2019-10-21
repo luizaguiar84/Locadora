@@ -30,8 +30,9 @@ namespace SiteFat.Controllers
             return View();
         }
 
-        // POST: Estoque/Create
-        [HttpPost]
+		// POST: Estoque/Create
+		[ValidateAntiForgeryToken]
+		[HttpPost]
         public ActionResult Adicionar(Estoque estoque)
         {
             try

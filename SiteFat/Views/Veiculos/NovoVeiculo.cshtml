@@ -2,11 +2,18 @@
 
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="~/Scripts/BuscaFipe.js"></script>
-@{ 
+@{
+
+
     ViewBag.Title = "Adicionar novo Veículo";
 }
 @using (Html.BeginForm("Adiciona", "Veiculos"))
 {
+
+    <input type="text" id="MontadoraHidden" name="veiculo.Montadora" hidden />
+    <input type="text" id="ModeloHidden" name="veiculo.Montadora"  hidden />
+    <input type="text" id="AnoHidden" name="veiculo.AnoModelo"  hidden />
+
 
     @Html.AntiForgeryToken()
 
@@ -17,16 +24,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Montadora, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select class="form-control" id="Montadora" name="veiculo.Montadora">
+                <select class="form-control" id="Montadora">
                 </select>
+
+                <script type="text/javascript">
+                    var textoMontadora = document.getElementById('Montadora').selectedOptions[0].text;
+                </script>
+
                 @Html.ValidationMessageFor(model => model.Montadora, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select class="form-control" id="Modelo" name="veiculo.Modelo">
+                <select class="form-control" id="Modelo">
                 </select>
                 @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger" })
             </div>
@@ -35,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AnoModelo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select class="form-control" id="Ano" name="veiculo.AnoModelo">
+                <select class="form-control" id="Ano">
                 </select>
                 @Html.ValidationMessageFor(model => model.AnoModelo, "", new { @class = "text-danger" })
             </div>

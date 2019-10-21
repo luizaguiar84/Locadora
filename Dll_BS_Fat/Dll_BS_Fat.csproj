@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Abastecimentos.cs" />
     <Compile Include="AbastecimentosBuilder.cs" />
+    <Compile Include="BaseModel.cs" />
     <Compile Include="Cargos.cs" />
     <Compile Include="ClienteLocacao.cs" />
     <Compile Include="ClientesPFBuilder.cs" />

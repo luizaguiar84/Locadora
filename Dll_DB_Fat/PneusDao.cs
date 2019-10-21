@@ -79,7 +79,7 @@ namespace Dll_DB_Fat
 				(p => p.VeiculoId == veiculoId)
 				.ToHashSet();
 		}
-		public Pneus GetPneuUnico(int pneuId)
+		public Pneus GetPneu(int pneuId)
 		{
 			return GetAll()
 				.Where(p => p.Id == pneuId)

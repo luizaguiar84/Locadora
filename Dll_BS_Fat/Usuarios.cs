@@ -3,7 +3,7 @@ namespace Dll_BS_Fat
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Usuarios
+	public class Usuarios : BaseModel
 	{
 		//	public Usuarios()
 		//	{
@@ -22,6 +22,7 @@ namespace Dll_BS_Fat
 		public bool IsAtivo { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor Informar o nível do usuário")]
 		[Display(Name = "Nivel do usuário")]
 		#endregion
 		public int Nivel { get; set; }

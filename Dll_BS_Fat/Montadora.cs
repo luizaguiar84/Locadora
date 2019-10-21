@@ -1,7 +1,7 @@
 
 namespace Dll_BS_Fat
 {
-	public class Montadora
+	public class Montadora : BaseModel
 	{
 		//public Montadora()
 		//{

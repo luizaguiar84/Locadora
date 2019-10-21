@@ -5,7 +5,7 @@ namespace Dll_BS_Fat
 	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 
-	public class ClientesPF
+	public class ClientesPF : BaseModel
 	{
 		public ClientesPF()
 		{

@@ -131,6 +131,8 @@ namespace Dll_Forms_Fat
 				.GetIsAtivo(ativo);
 
 			var veiculo = veiculoBuilder.Build();
+			
+			ValidarVeiculo(veiculo);
 
 			if (new VeiculosDao().DbAdd(veiculo))
 			{
@@ -281,6 +283,16 @@ namespace Dll_Forms_Fat
 		private void MaskedTxtPlaca_Leave(object sender, EventArgs e)
 		{
 			this.maskedTxtPlaca.Text.ToUpper();
+		}
+		
+  
+		private void ValidarVeiculo(object obj)
+		{
+			var erros = Validacao.getValidationErrors(obj);
+			foreach (var erro in erros)
+			{
+				MessageBox.Show(erro.ErrorMessage);
+			}
 		}
 	}
 }

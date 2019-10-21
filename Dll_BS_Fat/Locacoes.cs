@@ -5,7 +5,7 @@ namespace Dll_BS_Fat
 	using System.Collections.Generic;
 	using System.ComponentModel;
 
-	public class Locacoes
+	public class Locacoes : BaseModel
 	{
 		public Locacoes()
 		{

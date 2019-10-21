@@ -4,7 +4,7 @@ namespace Dll_BS_Fat
 	using System.ComponentModel;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Funcionarios
+	public class Funcionarios : BaseModel
 	{
 		#region Construtores
 		public Funcionarios()

@@ -41,7 +41,8 @@
                 <td>
                     @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
                     @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
-                    @Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.Id }) |
+                    <a href="~/Usuarios/Create?funcionarioId=@item.Id">Adicionar Usuário</a>
                 </td>
             </tr>
         }

@@ -4,7 +4,7 @@ namespace Dll_BS_Fat
 	using System;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Pneus
+	public class Pneus : BaseModel
 	{
 		#region Anotações
 		[Key]

@@ -1,6 +1,6 @@
 ﻿namespace Dll_BS_Fat
 {
-	public class Definicoes
+	public class Definicoes : BaseModel
 	{
 		public decimal ValorSeguroTerceiros { get; set; }
 		public decimal ValorSeguro { get; set; }

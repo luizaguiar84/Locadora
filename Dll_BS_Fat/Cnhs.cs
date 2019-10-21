@@ -3,7 +3,7 @@ namespace Dll_BS_Fat
 	using System;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Cnhs
+	public class Cnhs : BaseModel
 	{
 		#region Construtores
 		public Cnhs()

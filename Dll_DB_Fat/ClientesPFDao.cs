@@ -60,7 +60,7 @@ namespace Dll_DB_Fat
 		public List<ClientesPF> GetMotoristas()
 		{
 				return GetAll()
-						.Where(c => c.Cnh != null)
+						.Where(c => c.CnhId > 0)
 						.ToList();
 		}
 
