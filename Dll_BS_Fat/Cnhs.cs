@@ -10,7 +10,7 @@ namespace Dll_BS_Fat
 		{
 
 		}
-		public Cnhs(string numero, string categoria, DateTime? emissao, DateTime? validade)
+		public Cnhs(string numero, string categoria, DateTime emissao, DateTime validade)
 		{
 			Numero = numero;
 			Categoria = categoria;
@@ -26,29 +26,31 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 
 		#region Anotações
-		[Display(Name = "Número da CNH")]
+		[Required(ErrorMessage = "Favor inserir o número da CNH")]
+		[Display(Name = "Número da CNH", Description = "Número da CNH")]
 		[MaxLength(20)]
 		#endregion
-
-		public string Numero { get; set; }
+				public string Numero { get; set; }
 
 		#region Anotações
-		[MaxLength(2)]
 		[Required(ErrorMessage = "Favor selecionar a categoria da CNH")]
+		[MaxLength(2)]
 		#endregion
 		public string Categoria { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor inserir a data de emissão da CNH")]
 		[DataType(DataType.Date)]
 		[Display(Name = "Data de emissão")]
 		#endregion
-		public DateTime? Emissao { get; set; }
+		public DateTime Emissao { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor inserir a data de validade da CNH")]
 		[DataType(DataType.Date)]
 		[Display(Name = "Data de validade")]
 		#endregion
-		public DateTime? Validade { get; set; }
+		public DateTime Validade { get; set; }
 
 
 

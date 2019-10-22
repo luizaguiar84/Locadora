@@ -17,13 +17,15 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 
 		#region Anotações
-		[Display(Name = "Descrição")]
-
+	[Required(ErrorMessage = "Informe a descrição da peça")]	
+  [Display(Name = "Descrição")]
 		#endregion
 		public string Descricao { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Insira o valor da peça")]
 		[DataType(DataType.Currency)]
+		[DisplayFormat(DataFormatString = "{0,c}")]
 		#endregion
 		public decimal Valor { get; set; }
 

@@ -18,39 +18,44 @@ namespace Dll_BS_Fat
 			TipoDespesaId = tipoDespesaId;
 			Valor = valor;
 			Descricao = descricao;
-		} 
+		}
 		#endregion
 
 		#region Anotações
-		[Key] 
+		[Key]
 		#endregion
 		public int Id { get; set; }
-		
+
 		#region Anotações
-		[DefaultValue(true)] 
+		[Required]
+		[DefaultValue(true)]
 		#endregion
-		public bool IsAtiva { get;  set; }
-		
+		public bool IsAtiva { get; set; }
+
 		#region Anotações
-		[DataType(DataType.Date)] 
+		[Required]
+		[DataType(DataType.Date)]
 		#endregion
-		public DateTime Data { get;  set; }
-		public int TipoDespesaId { get;  set; }
-		
+		public DateTime Data { get; set; }
+		public int TipoDespesaId { get; set; }
+
 		#region Anotações
-		[Display(Name = "Tipo de despesa")] 
+		[Required]
+		[Display(Name = "Tipo de despesa")]
 		#endregion
-		public TipoDespesa TipoDespesa { get;  set; }
-		
+		public TipoDespesa TipoDespesa { get; set; }
+
 		#region Anotações
-		[DataType(DataType.Currency)] 
+		[Required(ErrorMessage = "Favor inserir o valor da Despesa")]
+		[DataType(DataType.Currency)]
+		[DisplayFormat(DataFormatString = "{0,c}")]
 		#endregion
-		public decimal Valor { get;  set; }
-		
+		public decimal Valor { get; set; }
+
 		#region Anotações
-		[Display(Name = "Descrição")] 
+		[Display(Name = "Descrição")]
 		#endregion
-		public string Descricao { get;  set; }
+		public string Descricao { get; set; }
 
 	}
 }

@@ -34,5 +34,12 @@ namespace Dll_DB_Fat
 		{
 			throw new NotImplementedException();
 		}
+
+		public List<ClienteLocacao> GetLocacoes(int clienteId)
+		{
+			return GetAll()
+					.Where(l => l.ClienteId == clienteId)
+					.ToList();
+		}
 	}
 }

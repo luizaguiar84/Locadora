@@ -61,61 +61,74 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor informar a Montadora")]
 		[Display(Name = "Montadora")]
 		#endregion
 		public string Montadora { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor informar o modelo do veículo")]
 		[Display(Name = "Modelo")]
 		#endregion
 		public string Modelo { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe o ano e modelo do veículo")]
 		[Display(Name = "Ano / Modelo", Description = "Ano e Modelo do veiculo")]
 		#endregion
 		public string AnoModelo { get; set; }
 
 		#region Anotações
-		[Display(Name = "N. de Portas")]
+		[Required(ErrorMessage = "Informe o Nº de portas do veiculo")]
+		[Display(Name = "Nº de Portas")]
 		#endregion
 		public int Portas { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe a cor do veículo")]
 		[Display(Name = "Cor")]
 		#endregion
 		public string Cor { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe a placa do veiculo")]
 		[Display(Name = "Placa")]
+		[MaxLength(7)]
 		#endregion
 		public string Placa { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe o RENAVAM do veiculo")]
 		[Display(Name = "RENAVAM")]
 		#endregion
 		public string Renavam { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe o chassi do veiculo")]
 		[Display(Name = "Chassi")]
 		#endregion
 		public string Chassi { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe o numero de lugares do veiculo")]
 		[Display(Name = "Lugares")]
 		#endregion
 		public int Lugares { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe a KM do veículo")]
 		[Display(Name = "Quilometragem")]
 		#endregion
 		public int Quilometragem { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "informe o Status do veiculo")]
 		[Display(Name = "Status")]
 		#endregion
 		public string Status { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe o tipo de combustivel do veiculo")]
 		[Display(Name = "Combustível")]
 		#endregion
 		public string Combustivel { get; set; }
@@ -127,9 +140,11 @@ namespace Dll_BS_Fat
 		public string ValorAtual { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor informar o valor da diária.")]
+		[DisplayFormat(DataFormatString = "{0,c}")]
 		[Display(Name = "Valor da diária")]
 		[DataType(DataType.Currency)]
-		[Required(ErrorMessage ="Favor informar o valor da diária.")]
+		[Range(1,9999, ErrorMessage ="O {0} deve estar entre {1} e {2}")]
 		#endregion
 		public decimal ValorDiaria { get; set; }
 
@@ -140,44 +155,51 @@ namespace Dll_BS_Fat
 		public string Observacoes { get; set; }
 
 		#region Anotações
+		[Required]
 		[DataType(DataType.Date)]
 		[Display(Name = "Data de Aquisição")]
 		#endregion
 		public DateTime? DataAquisicao { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(false)]
 		[Display(Name = "Ar Condicionado")]
 		#endregion
 		public bool ArCondicionado { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(false)]
 		[Display(Name = "Direção Hidráulica")]
 		#endregion
 		public bool DirecaoHidraulica { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(false)]
 		[Display(Name = "Vidros Elétricos")]
 		#endregion
 		public bool VidroEletrico { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(false)]
 		[Display(Name = "Air Bag")]
 		#endregion
 		public bool AirBag { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(false)]
 		[Display(Name = "Freios ABS")]
 		#endregion
 		public bool Abs { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(true)]
-		[Display(Name = "Ativo?")]
+		[Display(Name = "Veiculo Ativo?")]
 		#endregion
 		public bool IsAtivo { get; set; }
 

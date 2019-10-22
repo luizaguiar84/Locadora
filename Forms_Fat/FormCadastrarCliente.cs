@@ -484,16 +484,12 @@ namespace Dll_Forms_Fat
 
 			if (radioPessoaJuridica.Checked)
 			{
-				var cliente = new ClientesPjDao().GetAll()
-							   .Where(c => c.Id == id)
-							   .SingleOrDefault();
+				var cliente = new ClientesPjDao().GetCliente(id);
 				AtualizarPj(cliente);
 			}
 			else
 			{
-				var cliente = new ClientesPFDao().GetAll()
-							.Where(c => c.Id == id)
-							.SingleOrDefault();
+				var cliente = new ClientesPFDao().GetCliente(id);
 				AtualizarPf(cliente);
 			}
 		}

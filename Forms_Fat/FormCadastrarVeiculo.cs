@@ -121,7 +121,7 @@ namespace Dll_Forms_Fat
 				.GetStatus(comboStatus.Text)
 				.GetCombustivel(txtCombustivel.Text)
 				.GetValorAtual(txtValorAtualCarro.Text)
-				.GetValorDiaria(Convert.ToDecimal(txtValorDiaria.Text))
+				.GetValorDiaria(txtValorDiaria.Text)
 				.GetObservacoes(txtObservacoes.Text)
 				.GetArCondicionado(checkArCond.Checked)
 				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
@@ -231,7 +231,6 @@ namespace Dll_Forms_Fat
 			checkVidroEletrico.Checked = Convert.ToBoolean(v.VidroEletrico);
 			checkAbs.Checked = Convert.ToBoolean(v.Abs);
 			checkAirBag.Checked = Convert.ToBoolean(v.AirBag);
-
 		}
 
 		private void AtualizarVeiculo(Dll_BS_Fat.Veiculos veiculo)
@@ -252,7 +251,7 @@ namespace Dll_Forms_Fat
 				.GetStatus(comboStatus.Text)
 				.GetCombustivel(txtCombustivel.Text)
 				.GetValorAtual(txtValorAtualCarro.Text)
-				.GetValorDiaria(Convert.ToDecimal(txtValorDiaria.Text))
+				.GetValorDiaria(txtValorDiaria.Text)
 				.GetObservacoes(txtObservacoes.Text)
 				.GetArCondicionado(checkArCond.Checked)
 				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)

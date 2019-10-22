@@ -29,11 +29,15 @@ namespace Dll_Forms_Fat
 			estoque.IncluidoPor = txtIncluidoPor.Text;
 			estoque.Observacoes = txtObservacoes.Text;
 
-			new EstoqueDao().DbAdd(estoque);
-
-			MessageBox.Show("Produto adicionado com sucesso ao estoque!");
-
-			AtualizaTabela();
+			if (new EstoqueDao().DbAdd(estoque))
+			{
+				MessageBox.Show("Produto adicionado com sucesso ao estoque!");
+				AtualizaTabela();
+			}
+			else
+			{
+				MessageBox.Show("Erro ao adicionar entrada no estoque!");
+			}
 		}
 
 		private void AtualizaTabela()
@@ -65,9 +69,7 @@ namespace Dll_Forms_Fat
 		private void PreenchePeca(int id)
 		{
 
-			var peca = new EstoqueDao().GetAll()
-						.Where(e => e.Id == id)
-						.SingleOrDefault();
+			var peca = new EstoqueDao().GetDetalhe(id);
 
 			txtNomeSaida.Text = peca.Peca;
 		}

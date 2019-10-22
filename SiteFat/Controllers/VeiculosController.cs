@@ -16,10 +16,10 @@ namespace SiteFat.Controllers
 			List<Veiculos> lista = new VeiculosDao().GetAll();
 			return View(lista);
 		}
-
-		public ActionResult NovoVeiculo(Veiculos veiculo)
+		public ActionResult NovoVeiculo()
 		{
-			return View();
+			var veiculo = new Veiculos();
+			return View(veiculo);
 		}
 
 		[ValidateAntiForgeryToken]
@@ -28,6 +28,10 @@ namespace SiteFat.Controllers
 		{
 			try
 			{
+				if (!ModelState.IsValid)
+				{
+					return View(veiculo);
+				}
 				veiculo.IsAtivo = true;
 				new VeiculosDao().DbAdd(veiculo);
 				return RedirectToAction("Index");
@@ -37,7 +41,6 @@ namespace SiteFat.Controllers
 
 				return View();
 			}
-			
 		}
 
 		public ActionResult Reserva(int id)
@@ -50,7 +53,7 @@ namespace SiteFat.Controllers
 		public ActionResult Deletar(int id)
 		{
 			var veiculo = new VeiculosDao().GetVeiculo(id);
-			
+
 
 			return View(veiculo);
 		}
@@ -62,19 +65,23 @@ namespace SiteFat.Controllers
 
 			return View(veiculo);
 		}
-		public ActionResult Atualizar (Veiculos veiculo)
+		public ActionResult Atualizar(Veiculos veiculo)
 		{
 			veiculo.IsAtivo = true;
 			new VeiculosDao().DbUpdate(veiculo);
 
 			return RedirectToAction("Index");
 		}
-
+		[ValidateAntiForgeryToken]
 		[HttpPost]
 		public ActionResult Deletar(Veiculos veiculo)
 		{
 			try
 			{
+				if (!ModelState.IsValid)
+				{
+					return View(veiculo);
+				}
 				new VeiculosDao().DeleteRegistro(veiculo);
 
 				return RedirectToAction("Index", "Veiculos");

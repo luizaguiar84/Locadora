@@ -111,7 +111,8 @@ namespace Dll_DB_Fat
 
 			cliente.Cnh = new CnhsDao().GetCnh(cliente.CnhId);
 			cliente.Endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
-
+			cliente.Locacao = new ClienteLocacaoDao().GetLocacoes(cliente.Id);
+		
 			return cliente;
 		}
 

@@ -52,15 +52,15 @@ namespace Dll_DB_Fat
 
 			return null;
 		}
-		public ClientesPJ GetCliente(int id)
+		public ClientesPJ GetCliente(int clienteId)
 		{
 			var cliente = GetAll()
-				.Where(c => c.Id == id)
+				.Where(c => c.Id == clienteId)
 				.SingleOrDefault();
 
-			var endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
+			cliente.Endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
+			cliente.Locacao = new ClienteLocacaoDao().GetLocacoes(cliente.Id);
 
-			cliente.Endereco = endereco;
 			return cliente;
 		}
 	}

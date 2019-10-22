@@ -27,12 +27,15 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe a data do sinistro")]
 		[DataType(DataType.Date)]
+		[DisplayFormat(DataFormatString = "dd/mm/yyyy")]
 		#endregion
 		public DateTime Data { get; set; }
 
 		#region Anotações
-		[Display(Name = "Km")]
+				[Required (ErrorMessage = "Informe a KM no sinistro")]
+		[Display(Name = "KM")]
 		#endregion
 		public int Km { get; set; }
 
@@ -42,7 +45,10 @@ namespace Dll_BS_Fat
 		public string Descricao { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Informe o valor do sinistro")]
 		[DataType(DataType.Currency)]
+		[DisplayFormat(DataFormatString = "{0,c}")]
+		[Range(1,99999)]
 		#endregion
 		public decimal Valor { get; set; }
 

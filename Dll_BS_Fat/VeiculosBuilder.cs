@@ -55,9 +55,13 @@ namespace Dll_BS_Fat
 			this.ValorAtual = valorAtual;
 			return this;
 		}
-		public VeiculosBuilder GetValorDiaria(decimal valorDiaria)
+		public VeiculosBuilder GetValorDiaria(string valorDiaria)
 		{
-			this.ValorDiaria = valorDiaria;
+			if (string.IsNullOrEmpty(valorDiaria))
+			{
+				valorDiaria = "0";
+			}
+			this.ValorDiaria = Convert.ToDecimal(valorDiaria);
 			return this;
 		}
 		public VeiculosBuilder GetCombustivel(string combustivel)

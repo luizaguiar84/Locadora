@@ -88,10 +88,10 @@ namespace Dll_DB_Fat
 			veiculo.Quilometragem += kmRodada;
 			return DbUpdate(veiculo);
 		}
-		public Veiculos GetVeiculo(int id)
+		public Veiculos GetVeiculo(int veiculoId)
 		{
 			var veiculo = new VeiculosDao().GetAll()
-				.Where(v => v.Id == id)
+				.Where(v => v.Id == veiculoId)
 				.SingleOrDefault();
 
 			veiculo.Pneu = new PneusDao().GetPneus(veiculo.Id);

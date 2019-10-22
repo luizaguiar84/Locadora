@@ -27,6 +27,7 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Favor informar o CEP")]
 		[MaxLength(9)]
 		[Display(Name = "CEP")] 
 		#endregion
@@ -62,7 +63,6 @@ namespace Dll_BS_Fat
 		#region Anotações
 		[Display(Name = "UF")]
 		[MaxLength(2)]
-		[StringLength(2)]
 		#endregion
 		public string Uf { get; set; }
 

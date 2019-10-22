@@ -36,9 +36,7 @@ namespace Dll_Forms_Fat
 		{
 			int veiculoId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
-			var veiculo = new VeiculosDao().GetAll()
-											.Where(v => v.Id == veiculoId)
-											.SingleOrDefault();
+			var veiculo = new VeiculosDao().GetVeiculo(veiculoId);
 
 			var form = new FormCadastrarVeiculo(veiculo)
 			{

@@ -29,7 +29,7 @@ namespace Dll_DB_Fat
 			return new DbKernel().DbAdd<Estoque>(registro);
 		}
 
-		public object GetDetalhe(int id)
+		public Estoque GetDetalhe(int id)
 		{
 			return GetAll()
 				.Where(e => e.Id == id)

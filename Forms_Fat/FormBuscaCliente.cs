@@ -92,8 +92,6 @@ namespace Dll_Forms_Fat
 				ComboFiltro.Items.Add("CPF");
 				ComboFiltro.Items.Remove("Razão Social");
 				ComboFiltro.Items.Remove("CNPJ");
-
-
 			}
 		}
 	}

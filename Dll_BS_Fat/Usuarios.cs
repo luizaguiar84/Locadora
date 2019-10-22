@@ -22,8 +22,10 @@ namespace Dll_BS_Fat
 		public bool IsAtivo { get; set; }
 
 		#region Anotações
+		[MaxLength(1)]
 		[Required(ErrorMessage = "Favor Informar o nível do usuário")]
 		[Display(Name = "Nivel do usuário")]
+		[Range(1,4, ErrorMessage = "O nivel do usuário deve estar entre 1 e 4")]
 		#endregion
 		public int Nivel { get; set; }
 
@@ -36,7 +38,7 @@ namespace Dll_BS_Fat
 		#region Anotações
 		[Required(ErrorMessage = "Favor digitar a senha")]
 		[DataType(DataType.Password)]
-		[StringLength(10, MinimumLength = 4, ErrorMessage = "Senha deve ter entre {1} e {0} dígitos")]
+		[StringLength(20, MinimumLength = 3, ErrorMessage = "Senha deve ter entre {1} e {0} dígitos")]
 		[Display(Name = "Password")]
 		#endregion
 		public string Password { get; set; }

@@ -27,6 +27,7 @@ namespace Dll_BS_Fat
 		public int Id { get;  set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Inserir a data da multa")]
 		[Display(Name = "Data da Multa")]
 		[DataType(DataType.Date)] 
 		#endregion
@@ -39,17 +40,21 @@ namespace Dll_BS_Fat
 		public string Descricao { get;  set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Inserir a data de vencimento da multa")]
 		[Display(Name = "Data de vencimento")] 
 		#endregion
 		public DateTime Vencimento { get;  set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Inserir o valor da multa")]
 		[DataType(DataType.Currency)]
+		[DisplayFormat(DataFormatString = "{0,c}")]
 		#endregion
 		public decimal Valor { get;  set; }
 		
 		#region Anotações
-		[Display(Name = "Pontos")] 
+		[Required (ErrorMessage = "Inserir o numero de pontos da multa")]
+		[Display(Name = "Nº de Pontos")] 
 		#endregion
 		public int Pontos { get;  set; }
 

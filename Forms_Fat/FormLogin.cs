@@ -15,20 +15,20 @@ namespace Dll_Forms_Fat
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			var usuario = new Usuarios();
-			usuario.Login = txtUsuario.Text;
-			usuario.Password = TxtSenha.Text;
+			//var usuario = new Usuarios();
+			//usuario.Login = txtUsuario.Text;
+			//usuario.Password = TxtSenha.Text;
 
-			if (new UsuariosDao().ConfereUsuario(usuario))
-			{
+			//if (new UsuariosDao().ConfereUsuario(usuario))
+			//{
 				FormPrincipal form = new FormPrincipal();
 				form.Show();
 				this.Hide();
-			}
-			else
-			{
-				MessageBox.Show("Usuário Inválido!");
-			}
+			//}
+			//else
+			//{
+			//	MessageBox.Show("Usuário Inválido!");
+			//}
 		}
 
 		private void Login_Load(object sender, EventArgs e)

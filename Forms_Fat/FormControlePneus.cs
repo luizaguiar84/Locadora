@@ -50,9 +50,7 @@ namespace Dll_Forms_Fat
 		private void PreencheTabela(Veiculos veiculo)
 		{
 
-			var lista = new PneusDao().GetAll()
-						 .Where(p => p.VeiculoId == veiculo.Id)
-						 .ToList();
+			var lista = new PneusDao().GetPneus(veiculo.Id);
 
 			dataGridPneus.DataSource = lista;
 		}

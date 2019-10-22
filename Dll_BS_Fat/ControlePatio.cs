@@ -11,11 +11,14 @@ namespace Dll_BS_Fat
 		public int ClienteId { get; set; }
 
 		#region Anotações
+		[Required]
 		[DefaultValue(true)]
 		[Display(Name = "Status")]
 		#endregion
 		public bool Status { get; set; }
+
 		#region Anotações
+		[Required]
 		[Display(Name = "Placa")]
 		#endregion
 		public string Placa { get; set; }
@@ -27,6 +30,7 @@ namespace Dll_BS_Fat
 		public DateTime? DataSaida { get; set; }
 
 		#region Anotações
+
 		[DataType(DataType.Time)]
 		[Display(Name = "Hora da Saida")]
 		#endregion

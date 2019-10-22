@@ -11,6 +11,7 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor informar o nome da peça")]
 		[Display(Name = "Peça")]
 		#endregion
 		public string Peca { get; set; }
@@ -21,12 +22,16 @@ namespace Dll_BS_Fat
 		public string Descricao { get; set; }
 
 		#region Anotações
+		[Required]
 		[Display(Name = "Valor Unitário")]
 		[DataType(DataType.Currency)]
+		[DisplayFormat(DataFormatString = "{0,c}")]
+		[Range(1, 9999)]
 		#endregion
 		public decimal ValorUnitario { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Favor inserir a Data da Adição")]
 		[Display(Name = "Data de Adição")]
 		[DataType(DataType.Date)]
 		#endregion
@@ -39,7 +44,9 @@ namespace Dll_BS_Fat
 		public DateTime? DataSaida { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Inserir a quantidade")]
 		[Display(Name = "Quantidade")]
+		[Range(1, 9999)]
 		#endregion
 		public int Quantidade { get; set; }
 

@@ -12,6 +12,7 @@ namespace Dll_BS_Fat
 		public int Id { get; set; }
 
 		#region Anotações
+		[Required(ErrorMessage = "Insira a marca do pneu")]
 		[Display(Name = "Marca")]
 		#endregion
 		public string Marca { get; set; }
@@ -27,6 +28,7 @@ namespace Dll_BS_Fat
 		public string Estado { get; set; }
 
 		#region Anotações
+
 		[Display(Name = "Km Inicial")]
 		#endregion
 		public int KmInicial { get; set; }
@@ -37,6 +39,7 @@ namespace Dll_BS_Fat
 		public int KmAtual { get; set; }
 
 		#region Anotações
+		[Required]
 		[DataType(DataType.Date)]
 		[Display(Name = "Data da adição")]
 		#endregion

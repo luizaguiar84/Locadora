@@ -47,9 +47,9 @@ namespace Dll_BS_Fat
 			this.Cliente.Add(new ClienteLocacao() { ClienteId = cliente.Id });
 		}
 
-		public decimal CalculaValorTotal(Locacoes l, Veiculos v)
+		public decimal CalculaValorTotal(Locacoes locacao, Veiculos veiculo)
 		{
-			var diasLocados = (int)Math.Ceiling((decimal)l.DataFinal.Value.Subtract(l.DataInicio.Value).Days);
+			var diasLocados = (int)Math.Ceiling((decimal)locacao.DataFinal.Value.Subtract(locacao.DataInicio.Value).Days);
 
 			decimal valorSeguro = 0;
 			if (SeguroCarro)
@@ -61,7 +61,7 @@ namespace Dll_BS_Fat
 				//	valorSeguro += diasLocados * Program.Valores.ValorSeguroTerceiros;
 			}
 
-			return (v.ValorDiaria * diasLocados) + valorSeguro;
+			return (veiculo.ValorDiaria * diasLocados) + valorSeguro;
 
 
 		}

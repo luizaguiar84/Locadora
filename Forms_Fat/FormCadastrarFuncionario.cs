@@ -136,12 +136,10 @@ namespace Dll_Forms_Fat
 				.GetEndereco(endereco)
 				.GetCnh(cnh);
 
-			Funcionarios f = FBuilder.Build();
+			Funcionarios funcionario = FBuilder.Build();
 
-			f.Cnh = cnh;
-			f.Endereco = endereco;
-
-			new FuncionariosDao().DbAdd(f);
+			
+			new FuncionariosDao().DbAdd(funcionario);
 			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
 
 			this.Controls.LimparTextBoxes();

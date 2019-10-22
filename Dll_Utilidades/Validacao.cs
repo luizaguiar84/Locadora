@@ -16,8 +16,6 @@ namespace Dll_Utilidades
 			Validator.TryValidateObject(obj, contexto, resultadoValidacao, true);
 
 			return resultadoValidacao;
-	
-  
-  }
+		}
 	}
 }

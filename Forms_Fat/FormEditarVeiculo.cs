@@ -63,7 +63,7 @@ namespace Dll_Forms_Fat
 				.GetLugares(Convert.ToInt32(numericLugares.Value))
 				.GetQuilometragem(Convert.ToInt32(txtOdometro.Text))
 				.GetStatus(comboStatus.Text)
-				.GetValorDiaria(Convert.ToDecimal(txtValorDiaria.Text))
+				.GetValorDiaria(txtValorDiaria.Text)
 				.GetObservacoes(txtObservacoes.Text)
 				.GetArCondicionado(checkArCond.Checked)
 				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)

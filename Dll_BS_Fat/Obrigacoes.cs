@@ -26,18 +26,22 @@ namespace Dll_BS_Fat
 		public int Id { get;  set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Inserir a data da Obrigação")]
 		[DataType(DataType.Date)] 
 		#endregion
 		public DateTime Data { get;  set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Inserir o tipo de obrigação")]
 		[MaxLength(100)]
 		[Display(Name = "Tipo de Obrigação")] 
 		#endregion
 		public string Tipo { get;  set; }
 		
 		#region Anotações
+		[Required(ErrorMessage = "Inserir o valor da obrigação")]
 		[DataType(DataType.Currency)] 
+		[DisplayFormat(DataFormatString = "{0,c}")]
 		#endregion
 		public decimal Valor { get;  set; }
 		
