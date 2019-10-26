@@ -1,11 +1,11 @@
 ﻿namespace Dll_Utilidades
 {
-	using Caelum.Stella.CSharp.Validation;
+    using Caelum.Stella.CSharp.Format;
+    using Caelum.Stella.CSharp.Validation;
 	using Correios.CEP;
 	using System;
 	using System.Configuration;
 	using System.Windows.Forms;
-	using System.Globalization;
 
 	/// <summary>
 	/// Utilidades do sistema
@@ -38,6 +38,7 @@
 				  Char.IsSeparator(e.KeyChar)))
 
 				e.Handled = true;
+
 		}
 
 		/// <summary>
@@ -114,6 +115,16 @@
 			}
 		}
 
+		public static string FormatarCPF(this string cpf)
+		{
+			return new CPFFormatter().Format(cpf);
+		}
+
+		public static string FormatarCNPJ(this string cnpj)
+		{
+			return new CNPJFormatter().Format(cnpj);
+		}
+
 		/// <summary>
 		/// Valida o PIS
 		/// </summary>
@@ -183,10 +194,7 @@
 
 			return RetornaStringConexao;
 		}
-
-		public static string ToTitleCase(this string str)
-		{
-			return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
-		}
 	}
+
+
 }

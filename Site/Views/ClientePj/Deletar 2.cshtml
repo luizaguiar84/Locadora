@@ -1,0 +1,75 @@
+﻿@model Dll_BS_Fat.ClientesPJ
+
+@{
+    ViewBag.Title = "Deletar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deletar</h2>
+
+<h3>Deseja deletar este cliente?</h3>
+<div>
+    <h4>Deletar Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazaoSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cnpj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelComercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelComercial)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Deletar", "ClienePj"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à Lista", "Index")
+        </div>
+    }
+</div>

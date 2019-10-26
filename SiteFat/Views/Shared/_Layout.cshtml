@@ -27,6 +27,12 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Alugar", "Alugar", "Home")</li>
                     <li>@Html.ActionLink("Serviços", "Servicos", "Home")</li>
+                    <li>@Html.ActionLink("Controle de Pátio", "Index", "ControlePatio")</li>
+                    <li>@Html.ActionLink("Veiculos", "Index", "Veiculos")</li>
+                    <li>@Html.ActionLink("Funcionarios", "Index", "Funcionarios")</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "ClientePj")</li>
+
+
                 </ul>
             </div>
             <button id="but" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">Login</button>
@@ -49,7 +55,7 @@
                             <td><input class="inp" placeholder="Email" type="text" name="email" size="50"> <br /></td>
                         </tr>
                         <tr>
-                            <td><input class="inp" placeholder="Senha" type="text" name="senha" size="16"> <br /></td>
+                            <td><input class="inp" placeholder="Senha" type="password" name="senha" size="16"> <br /></td>
                         </tr>
                     </table>
 
@@ -75,7 +81,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p class="lado">&copy; @DateTime.Now.Year - Todos os direitos resevados a Fat Cars</p>
+            <p class="lado">&copy; @DateTime.Now.Year - Todos os direitos resevados a FatCars</p>
         </footer>
     </div>
 

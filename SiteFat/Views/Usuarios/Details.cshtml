@@ -1,0 +1,75 @@
+﻿@model Dll_BS_Fat.Usuarios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Error)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Error)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAtivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAtivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmaSenha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmaSenha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuncionariosId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuncionariosId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar Usuario", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

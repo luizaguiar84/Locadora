@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Fat Cars</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Utilidades.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/site.css" />
+    <environment names="Development">
+
+    </environment>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/Images/logobranco.png">
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Alugar", "Alugar", "Home")</li>
+                    <li>@Html.ActionLink("Serviços", "Servicos", "Home")</li>
+                    <li>@Html.ActionLink("Controle de Pátio", "Index", "ControlePatio")</li>
+                    <li>@Html.ActionLink("Veiculos", "Index", "Veiculos")</li>
+                    <li>@Html.ActionLink("Funcionarios", "Index", "Funcionarios")</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "ClientePj")</li>
+
+
+                </ul>
+            </div>
+            <button id="but" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">Login</button>
+        </div>
+    </div>
+
+    <!-- Modal do login-->
+    <div class="modal fade" id="ModalLongoExemplo" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalLongoExemplo">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <!--  <span aria-hidden="true">&times;</span>-->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td><input class="inp" placeholder="Email" type="text" name="email" size="50"> <br /></td>
+                        </tr>
+                        <tr>
+                            <td><input class="inp" placeholder="Senha" type="password" name="senha" size="16"> <br /></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="link">
+                    <table>
+                        <tr>
+                            <td><a href="#">Esqueceu a senha?</a><br /></td>
+                        </tr>
+                        <tr>
+                            <td><a href="cad.html">Cadastrar</a><br /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" id="cor" class="btn btn-primary" href="ca.html">Iniciar seção</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="lado">&copy; @DateTime.Now.Year - Todos os direitos resevados a FatCars</p>
+        </footer>
+    </div>
+    <style src="~/Content/bootstrap.css"></style>
+    <style src="~/Content/site.css"></style>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

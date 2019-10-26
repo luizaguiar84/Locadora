@@ -1,0 +1,227 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i');
+
+body {
+    background: #ededed;
+}
+
+.card a, h3, p {
+    color: black;
+}
+
+#cara {
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    font-family: 'Raleway', sans-serif;
+    -webkit-box-shadow: 0px -2px 21px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -2px 21px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -2px 21px 0px rgba(0,0,0,0.75);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    margin: 10px 10px 0 10px;
+}
+
+
+@media screen and (min-width: 1024px) {
+
+
+    #primeiro {
+        margin-top: 30px;
+    }
+
+        #primeiro img {
+            height: 550px;
+            width: 100%;
+        }
+
+    #ultimo {
+        margin-bottom: 65px;
+    }
+
+    .nome {
+        text-decoration: none;
+        color: black;
+        padding-left: 30px;
+    }
+
+    .foto img {
+        width: 250px;
+        height: 150px;
+    }
+
+    .foto {
+        padding-left: 150px;
+    }
+
+    .atributos, .preco {
+        padding-right: 10px;
+    }
+
+    .preco {
+        text-decoration: none;
+        color: black;
+        border-top: 3px solid grey;
+    }
+
+    .atributos {
+        text-decoration: none;
+        color: black;
+        position: relative;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 1023px) {
+
+
+    #primeiro {
+        margin-top: 20px;
+    }
+
+        #primeiro img {
+            height: 100%;
+            width: 100%;
+        }
+
+    #ultimo {
+        margin-bottom: 65px;
+    }
+
+    .nome {
+        padding-left: 30px;
+    }
+
+    .foto img {
+        width: 250px;
+        height: 150px;
+    }
+
+    .foto {
+        padding-left: 75px;
+        padding-bottom: 5px;
+    }
+
+    .atributos, .preco {
+        padding-right: 10px;
+    }
+
+    .preco {
+        border-top: 1px solid grey;
+        padding-bottom: 3px;
+    }
+
+    .atributos {
+        position: relative;
+    }
+}
+
+@media screen and (min-width:425px) and (max-width: 767px) {
+
+    #bt_menu:checked ~ .menu {
+        margin-top: 40px;
+    }
+
+    #primeiro img {
+        height: 100%;
+        width: 100%;
+    }
+
+    #ultimo {
+        margin-bottom: 65px;
+    }
+
+    .nome {
+        padding-left: 30px;
+    }
+
+    .foto img {
+        width: 200px;
+        height: 100px;
+    }
+
+    .foto {
+        padding-left: 50px;
+    }
+
+    .atributos, .preco {
+        padding-right: 10px;
+    }
+
+    .preco {
+        border-top: 1px solid grey;
+    }
+}
+
+@media screen and (max-width: 424px) {
+
+    #bt_menu:checked ~ .menu {
+        margin-top: 40px;
+    }
+
+    #primeiro img {
+        height: 200px;
+        width: 100%;
+    }
+
+    #ultimo {
+        margin-bottom: 65px;
+    }
+
+    .nome {
+        padding-left: 30px;
+    }
+
+    .foto img {
+        width: 150px;
+        height: 70px;
+    }
+
+    .foto {
+        padding-left: 10px;
+    }
+
+    .atributos, .preco {
+        padding-right: 10px;
+    }
+
+    .preco {
+        border-top: 1px solid grey;
+    }
+}
+
+/* menu debaixo*/
+#listab ul li {
+    display: inline;
+}
+/* animação do conteudo do menu*/
+#listab button:hover {
+    color: red;
+}
+
+#Filtrar, #Ordenar {
+    color: white;
+    position: absolute;
+    list-style-type: none;
+    text-decoration: none;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid white;
+    margin: 0;
+    height: 8vh;
+    bottom: 0px;
+}
+
+#Ordenar {
+    left: 0;
+    width: 50%;
+}
+
+#Filtrar {
+    right: 0;
+    width: 50%;
+}

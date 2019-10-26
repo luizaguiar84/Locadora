@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F254BB6-9A02-4301-ABB4-C694C4FA36D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Dll_Forms_Fat</RootNamespace>
+    <AssemblyName>Dll_Forms_Fat</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="hbehr.FipeAPI, Version=1.1.6246.38178, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\hbehr.FipeAPI.1.1.0\lib\net462\hbehr.FipeAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAddTipoDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddTipoDespesa.Designer.cs">
+      <DependentUpon>FormAddTipoDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscaCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscaCarro.Designer.cs">
+      <DependentUpon>FormBuscaCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscaCliente.Designer.cs">
+      <DependentUpon>FormBuscaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscaFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscaFuncionario.Designer.cs">
+      <DependentUpon>FormBuscaFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscaLocacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscaLocacao.Designer.cs">
+      <DependentUpon>FormBuscaLocacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarCliente.Designer.cs">
+      <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarDespesa.Designer.cs">
+      <DependentUpon>FormCadastrarDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarFuncionario.Designer.cs">
+      <DependentUpon>FormCadastrarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarMotorista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarMotorista.Designer.cs">
+      <DependentUpon>FormCadastrarMotorista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarUsuario.Designer.cs">
+      <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarVeiculo.Designer.cs">
+      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultarComprovantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultarComprovantes.Designer.cs">
+      <DependentUpon>FormConsultarComprovantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControleEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormControleEstoque.Designer.cs">
+      <DependentUpon>FormControleEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControlePatio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormControlePatio.Designer.cs">
+      <DependentUpon>FormControlePatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControlePneus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormControlePneus.Designer.cs">
+      <DependentUpon>FormControlePneus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControleUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormControleUsuarios.Designer.cs">
+      <DependentUpon>FormControleUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDefinicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefinicoes.Designer.cs">
+      <DependentUpon>FormDefinicoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDespesasCarro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDespesasCarro.Designer.cs">
+      <DependentUpon>FormDespesasCarro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDevolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDevolucao.Designer.cs">
+      <DependentUpon>FormDevolucao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditarVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarVeiculo.Designer.cs">
+      <DependentUpon>FormEditarVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMonitoramentoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMonitoramentoVeiculo.Designer.cs">
+      <DependentUpon>FormMonitoramentoVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNovaLocacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNovaLocacao.Designer.cs">
+      <DependentUpon>FormNovaLocacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipal1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal1.Designer.cs">
+      <DependentUpon>FormPrincipal1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRelatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelatorios.Designer.cs">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSobre.Designer.cs">
+      <DependentUpon>FormSobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormAddTipoDespesa.resx">
+      <DependentUpon>FormAddTipoDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscaCarro.resx">
+      <DependentUpon>FormBuscaCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscaCliente.resx">
+      <DependentUpon>FormBuscaCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscaFuncionario.resx">
+      <DependentUpon>FormBuscaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscaLocacao.resx">
+      <DependentUpon>FormBuscaLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarCliente.resx">
+      <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarDespesa.resx">
+      <DependentUpon>FormCadastrarDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarFuncionario.resx">
+      <DependentUpon>FormCadastrarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarMotorista.resx">
+      <DependentUpon>FormCadastrarMotorista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarUsuario.resx">
+      <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarVeiculo.resx">
+      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultarComprovantes.resx">
+      <DependentUpon>FormConsultarComprovantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControleEstoque.resx">
+      <DependentUpon>FormControleEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControlePatio.resx">
+      <DependentUpon>FormControlePatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControlePneus.resx">
+      <DependentUpon>FormControlePneus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControleUsuarios.resx">
+      <DependentUpon>FormControleUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefinicoes.resx">
+      <DependentUpon>FormDefinicoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDespesasCarro.resx">
+      <DependentUpon>FormDespesasCarro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDevolucao.resx">
+      <DependentUpon>FormDevolucao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarVeiculo.resx">
+      <DependentUpon>FormEditarVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMonitoramentoVeiculo.resx">
+      <DependentUpon>FormMonitoramentoVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNovaLocacao.resx">
+      <DependentUpon>FormNovaLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal1.resx">
+      <DependentUpon>FormPrincipal1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelatorios.resx">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSobre.resx">
+      <DependentUpon>FormSobre.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dll_BS_Fat\Dll_BS_Fat.csproj">
+      <Project>{12956bbe-710d-4cc3-92eb-5c9e6f28bb4b}</Project>
+      <Name>Dll_BS_Fat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll_DB_Fat\Dll_DB_Fat.csproj">
+      <Project>{adcbfe08-4399-4869-a4f6-c98881af0795}</Project>
+      <Name>Dll_DB_Fat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll_Utilidades\Dll_Utilidades.csproj">
+      <Project>{aea76a19-ddf3-4ee6-91dd-82228fdeed25}</Project>
+      <Name>Dll_Utilidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

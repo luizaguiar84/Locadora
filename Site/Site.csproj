@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Remove="wwwroot\Scripts\bootstrap.js" />
+    <None Remove="wwwroot\Scripts\bootstrap.min.js" />
+    <None Remove="wwwroot\Scripts\BuscaCEP.js" />
+    <None Remove="wwwroot\Scripts\BuscaFipe.js" />
+    <None Remove="wwwroot\Scripts\jquery-3.3.1.js" />
+    <None Remove="wwwroot\Scripts\jquery-3.3.1.min.js" />
+    <None Remove="wwwroot\Scripts\jquery-3.3.1.min.map" />
+    <None Remove="wwwroot\Scripts\jquery-3.3.1.slim.js" />
+    <None Remove="wwwroot\Scripts\jquery-3.3.1.slim.min.js" />
+    <None Remove="wwwroot\Scripts\jquery-3.3.1.slim.min.map" />
+    <None Remove="wwwroot\Scripts\jquery.validate.js" />
+    <None Remove="wwwroot\Scripts\jquery.validate.min.js" />
+    <None Remove="wwwroot\Scripts\jquery.validate.pt-br.js" />
+    <None Remove="wwwroot\Scripts\jquery.validate.pt-br.min.js" />
+    <None Remove="wwwroot\Scripts\jquery.validate.unobtrusive.js" />
+    <None Remove="wwwroot\Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Remove="wwwroot\Scripts\modernizr-2.8.3.js" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\alu.css" />
+    <None Include="wwwroot\Content\bootstrap-theme.css" />
+    <None Include="wwwroot\Content\bootstrap-theme.css.map" />
+    <None Include="wwwroot\Content\bootstrap-theme.min.css" />
+    <None Include="wwwroot\Content\bootstrap-theme.min.css.map" />
+    <None Include="wwwroot\Content\bootstrap.css" />
+    <None Include="wwwroot\Content\bootstrap.css.map" />
+    <None Include="wwwroot\Content\bootstrap.min.css" />
+    <None Include="wwwroot\Content\bootstrap.min.css.map" />
+    <None Include="wwwroot\Content\home.css" />
+    <None Include="wwwroot\Content\Servicos.css" />
+    <None Include="wwwroot\Content\Site.css" />
+    <None Include="wwwroot\Content\Utilidades.css" />
+    <None Include="wwwroot\Scripts\jquery-3.3.1.intellisense.js" />
+    <None Include="wwwroot\Scripts\jquery.validate-vsdoc.js" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Web.Optimization" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.7"></PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dll_BS_Fat\Dll_BS_Fat.csproj" />
+    <ProjectReference Include="..\Dll_DB_Fat\Dll_DB_Fat.csproj" />
+    <ProjectReference Include="..\Dll_Utilidades\Dll_Utilidades.csproj" />
+  </ItemGroup>
+
+</Project>

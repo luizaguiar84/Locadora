@@ -1,0 +1,74 @@
+﻿@model Dll_BS_Fat.Pneus
+
+@{
+    ViewBag.Title = "Deletar Pneu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deletar Pneu</h2>
+
+<h3>Deseja deletar este Pneu?</h3>
+<div>
+    <h4>Pneus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KmInicial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KmInicial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KmAtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KmAtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAdicao)
+        </dd>
+
+        
+    </dl>
+
+    @using (Html.BeginForm("Deletar", "Pneus" )) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à Lista", "Index")
+        </div>
+    }
+</div>

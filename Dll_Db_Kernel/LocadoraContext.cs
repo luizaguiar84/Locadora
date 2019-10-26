@@ -7,11 +7,13 @@ namespace Dll_Db_Kernel
 {
 	public class LocadoraContext : DbContext
 	{
-		string connectionString = "Data Source=LUIZAGUIARA508;Initial Catalog=Locadora;Integrated Security=True";
+		public string connectionString = //ConfigurationManager.ConnectionStrings["BdLocadora"].ConnectionString;
+			"Data Source=localhost;Initial Catalog=Locadora;Integrated Security=True";
 
 
 		public DbSet<Abastecimentos> Abastecimentos { get; set; }
-		public DbSet<Clientes> Clientes { get; set; }
+		public DbSet<ClientesPF> ClientesPF { get; set; }
+		public DbSet<ClientesPJ> ClientesPJ { get; set; }
 		public DbSet<Cnhs> Cnhs { get; set; }
 		public DbSet<Enderecos> Enderecos { get; set; }
 		public DbSet<Funcionarios> Funcionarios { get; set; }
@@ -50,8 +52,8 @@ namespace Dll_Db_Kernel
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer(connectionString);
-			//optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = Locadora; Integrated Security = True;");
 		}
+
 
 	}
 }
