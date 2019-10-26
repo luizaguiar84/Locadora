@@ -14,20 +14,21 @@ namespace SiteFat.Controllers
 		public ActionResult Index()
         {
 			var usuarios = new UsuariosDao().GetAll();
-            return View();
+            return View(usuarios);
         }
 
         // GET: Usuarios/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int funcionarioId)
         {
-            return View();
+			var usuario = new UsuariosDao().GetUsuarioDoFuncionario(funcionarioId);
+
+		 return View(usuario);
         }
 
         // GET: Usuarios/Create
         public ActionResult Create(int funcionarioId)
         {
-			Usuarios usuario = new Usuarios();
-			usuario.FuncionariosId = funcionarioId;
+			Usuarios usuario = new UsuariosDao().GetUsuarioDoFuncionario(funcionarioId);
             return View(usuario);
         }
 
@@ -35,43 +36,63 @@ namespace SiteFat.Controllers
         [HttpPost]
         public ActionResult Create(Usuarios usuario)
         {
+			var confereUsuario = new UsuariosDao().GetUsuario(usuario.Id);
+			if (confereUsuario != null)
+			{
+				return View(usuario);
+			}
 			usuario.IsAtivo = true;
 
             try
             {
+				if (!ModelState.IsValid)
+				{
+					return View(usuario);
+
+				}
 				if (new UsuariosDao().DbAdd(usuario))
 				{
 					return RedirectToAction("Index", "Funcionarios", "");
 				}
-
 				return View();
-				
-            }
-            catch
+
+
+			}
+			catch
             {
                 return View();
             }
         }
 
         // GET: Usuarios/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int funcionarioId)
         {
-            return View();
+			var usuario = new UsuariosDao().GetUsuarioDoFuncionario(funcionarioId);
+            return View(usuario);
         }
 
         // POST: Usuarios/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Usuarios usuario)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+				if (!ModelState.IsValid)
+				{
+					return View(usuario);
+				}
+				else
+				{
+					if (new UsuariosDao().DbUpdate(usuario))
+					{
+						return RedirectToAction("Index");
+					}
+					return View(usuario);
+				}
             }
             catch
             {
-                return View();
+                return View(usuario);
             }
         }
 

@@ -176,7 +176,7 @@ namespace Dll_Forms_Fat
 				.ToList();
 
 			var veiculo = new VeiculosDao().GetAll()
-				.Where(v => v.IsAtivo)
+				//.Where(v => v.IsAtivo)
 				.ToList();
 
 			comboCliente.DataSource = cliente;

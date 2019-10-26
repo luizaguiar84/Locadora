@@ -1,0 +1,91 @@
+﻿@model Dll_BS_Fat.Estoque
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Detalhes do Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Peca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncluidoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncluidoPor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RetiradoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RetiradoPor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Remover", "Remover", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar à Lista", "Index")
+</p>

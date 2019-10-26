@@ -163,8 +163,8 @@ namespace Dll_Forms_Fat
 			dateDemissao.Value = f.Demissao.Value;
 			txtCNH.Text = f.Cnh.Numero;
 			comboCategoriaCnh.Text = f.Cnh.Categoria;
-			dateCnhEmitida.Value = f.Cnh.Emissao.Value;
-			dateCnhValidade.Value = f.Cnh.Validade.Value;
+			dateCnhEmitida.Value = f.Cnh.Emissao;
+			dateCnhValidade.Value = f.Cnh.Validade;
 			maskedCEP.Text = f.Endereco.Cep;
 			txtLogradouro.Text = f.Endereco.Logradouro;
 			txtNumero.Text = f.Endereco.Num;

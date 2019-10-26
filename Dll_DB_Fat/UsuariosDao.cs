@@ -40,10 +40,20 @@ namespace Dll_DB_Fat
 			return false;
 		}
 
-		public Usuarios GetUsuario(int id)
+		public Usuarios GetUsuario(int usuarioId)
 		{
 			var usuario = GetAll()
-				.Where(u => u.Id == id)
+				.Where(u => u.Id == usuarioId)
+				.SingleOrDefault();
+			usuario.Funcionario = new FuncionariosDao().GetFuncionario(usuario.FuncionariosId);
+
+			return usuario;
+		}
+
+		public Usuarios GetUsuarioDoFuncionario(int funcionarioId)
+		{
+			var usuario = GetAll()
+				.Where(u => u.FuncionariosId == funcionarioId)
 				.SingleOrDefault();
 			usuario.Funcionario = new FuncionariosDao().GetFuncionario(usuario.FuncionariosId);
 

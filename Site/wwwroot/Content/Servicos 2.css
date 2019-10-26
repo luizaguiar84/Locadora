@@ -1,0 +1,104 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i');
+
+form {
+    font-family: 'Raleway', sans-serif;
+    -webkit-box-shadow: 0px -2px 21px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -2px 21px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -2px 21px 0px rgba(0,0,0,0.75);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    margin: 0px 10px 0 10px;
+}
+
+@media screen and (min-width: 1440px) {
+
+    .primeiro img {
+        height: 740px;
+        width: 100%;
+    }
+
+    .segundo {
+        margin-top: 10px;
+    }
+
+        .segundo img {
+            height: 740px;
+            width: 100%;
+        }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+
+    .primeiro img {
+        height: 570px;
+        width: 100%;
+    }
+
+    .segundo {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        .segundo img {
+            height: 590px;
+            width: 100%;
+        }
+
+    .ultimo {
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 1023px) {
+
+    .primeiro img {
+        height: 490px;
+        width: 100%;
+    }
+
+    .segundo {
+        margin-top: 20px;
+    }
+
+        .segundo img {
+            height: 440px;
+            width: 100%;
+        }
+}
+
+@media screen and (min-width:425px) and (max-width: 767px) {
+    #bt_menu:checked ~ .menu {
+        margin-top: 40px;
+    }
+
+    .primeiro {
+        margin-top: -20px;
+    }
+
+        .primeiro img {
+            height: 100%;
+            width: 100%;
+        }
+
+    .segundo {
+        margin-top: 20px;
+    }
+
+        .segundo img {
+            height: 440px;
+            width: 100%;
+        }
+}
+
+@media screen and (max-width: 424px) {
+
+    .primeiro {
+        margin-top: -10px;
+    }
+
+        .primeiro img {
+            height: 200px;
+            width: 100%;
+        }
+}

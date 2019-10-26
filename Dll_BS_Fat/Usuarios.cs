@@ -22,7 +22,6 @@ namespace Dll_BS_Fat
 		public bool IsAtivo { get; set; }
 
 		#region Anotações
-		[MaxLength(1)]
 		[Required(ErrorMessage = "Favor Informar o nível do usuário")]
 		[Display(Name = "Nivel do usuário")]
 		[Range(1,4, ErrorMessage = "O nivel do usuário deve estar entre 1 e 4")]

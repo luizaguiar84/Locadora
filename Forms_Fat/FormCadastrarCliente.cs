@@ -98,7 +98,7 @@ namespace Dll_Forms_Fat
 								$"Nome: {cliente.Nome}\n" +
 								$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
 								$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
-								$"Nascimento: {cliente.Nascimento.Value.ToShortDateString()} \n" +
+								$"Nascimento: {cliente.Nascimento.ToShortDateString()} \n" +
 								$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
 								$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
 								$"\nEndereço:\n\n" +
@@ -259,7 +259,7 @@ namespace Dll_Forms_Fat
 								$"Nome: {clientePf.Nome}\n" +
 								$"CPF: {clientePf.Cpf} - RG: {clientePf.Rg}\n" +
 								$"Profissão: {clientePf.Profissao} / Email: {clientePf.Email}\n" +
-								$"Nascimento: {clientePf.Nascimento.Value.ToShortDateString()} \n" +
+								$"Nascimento: {clientePf.Nascimento.ToShortDateString()} \n" +
 								$"Telefone Comercial: {clientePf.TelComercial} - Residencial {clientePf.TelResidencial} - Celular: {clientePf.TelCelular}\n" +
 								$"CNH: {clientePf.Cnh.Numero} / Categoria: {clientePf.Cnh.Categoria} \n" +
 								$"\nEndereço:\n\n" +
