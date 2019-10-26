@@ -7,6 +7,7 @@ namespace Dll_BS_Fat
 	{
 		public Abastecimentos()
 		{
+
 		}
 		public Abastecimentos(DateTime data, int km, string combustivel, decimal litros, decimal valorUnitario, int veiculoId)
 		{
