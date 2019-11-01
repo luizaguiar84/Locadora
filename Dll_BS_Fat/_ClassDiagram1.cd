@@ -1,202 +1,202 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Dll_BS_Fat.Abastecimentos" Collapsed="true">
+  <Class Name="BsFat.Abastecimentos" Collapsed="true">
     <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACCAAAEAAAAAAAAAAAAAAAAIAAAAFAAAAEAIAAAAAA=</HashCode>
       <FileName>Abastecimentos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.ClienteLocacao" Collapsed="true">
+  <Class Name="BsFat.ClienteLocacao" Collapsed="true">
     <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAABCQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ClienteLocacao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.ClientesPF" Collapsed="true">
+  <Class Name="BsFat.ClientesPF" Collapsed="true">
     <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAHAAAAACAAQAAEAAAQAAIAAAAAAAAIAABCAEWAMAA=</HashCode>
       <FileName>ClientesPF.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.ClientesPFBuilder" Collapsed="true">
+  <Class Name="BsFat.ClientesPFBuilder" Collapsed="true">
     <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AECEAAEECAAIBAgAAAAAAgEAEAAAAAAAAAACAAAAAAI=</HashCode>
       <FileName>ClientesPFBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.ClientesPJ" Collapsed="true">
+  <Class Name="BsFat.ClientesPJ" Collapsed="true">
     <Position X="2.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAHIAAAACBAEBAAAAAQAAAAEAAAAAAAAABAAAAAEAA=</HashCode>
       <FileName>ClientesPJ.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.ClientesPJBuilder" Collapsed="true">
+  <Class Name="BsFat.ClientesPJBuilder" Collapsed="true">
     <Position X="2.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAEECAAAAAAQAIAAABAAAAABAAAAAAAAAAEAAAA=</HashCode>
       <FileName>ClientesPJBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Cnhs" Collapsed="true">
+  <Class Name="BsFat.Cnhs" Collapsed="true">
     <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAIAgAAAAAAAAACAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Cnhs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.CnhsBuilder" Collapsed="true">
+  <Class Name="BsFat.CnhsBuilder" Collapsed="true">
     <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAII=</HashCode>
       <FileName>CnhsBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.ControlePatio" Collapsed="true">
+  <Class Name="BsFat.ControlePatio" Collapsed="true">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABEKAAAEBAEAAAgAARAAAAAEKEAAAAgAAAAAQIAAAAA=</HashCode>
       <FileName>ControlePatio.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Cor" Collapsed="true">
+  <Class Name="BsFat.Cor" Collapsed="true">
     <Position X="12" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Definicoes" Collapsed="true">
+  <Class Name="BsFat.Definicoes" Collapsed="true">
     <Position X="14" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Definicoes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Despesas" Collapsed="true">
+  <Class Name="BsFat.Despesas" Collapsed="true">
     <Position X="6.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACSAAAAAAABAAAAAAAAACAEAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Despesas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Enderecos" Collapsed="true">
+  <Class Name="BsFat.Enderecos" Collapsed="true">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>KAACAAIAAAAAACIEAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enderecos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.EnderecosBuilder" Collapsed="true">
+  <Class Name="BsFat.EnderecosBuilder" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgQIAAAAAAAgAAAAAgABAEAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>EnderecosBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Estoque" Collapsed="true">
+  <Class Name="BsFat.Estoque" Collapsed="true">
     <Position X="8.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAECAAAAAAABEAAAEAAAEAAAAAABAAAAAAAQIEAAAAA=</HashCode>
       <FileName>Estoque.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Funcionarios" Collapsed="true">
+  <Class Name="BsFat.Funcionarios" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAgHAEAAACAAAAAAAAACEAJAAAAIAEAAAAACAEWAMAA=</HashCode>
       <FileName>Funcionarios.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.FuncionariosBuilder" Collapsed="true">
+  <Class Name="BsFat.FuncionariosBuilder" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEQUAAEACEAIAAgAAAAAAgEAEAAACAAAAAACAAIAAAI=</HashCode>
       <FileName>FuncionariosBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Locacoes" Collapsed="true">
+  <Class Name="BsFat.Locacoes" Collapsed="true">
     <Position X="10.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CEBSAAoQQAIIAIAAAACQAIAEIEAAQBAIAAPABAAAAAA=</HashCode>
       <FileName>Locacoes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Manutencoes" Collapsed="true">
+  <Class Name="BsFat.Manutencoes" Collapsed="true">
     <Position X="12" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAEAAABAAAAAAAAAAAEIAAAABAAAAEAAAAAAAA=</HashCode>
       <FileName>Manutencoes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Modelos" Collapsed="true">
+  <Class Name="BsFat.Modelos" Collapsed="true">
     <Position X="14" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Modelos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Montadora" Collapsed="true">
+  <Class Name="BsFat.Montadora" Collapsed="true">
     <Position X="6.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAQAAAAAAAAAAAAAACAAAAAAAAEAAAA=</HashCode>
       <FileName>Montadora.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Multas" Collapsed="true">
+  <Class Name="BsFat.Multas" Collapsed="true">
     <Position X="8.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAABBAAAAAAAAAAgEIAAAAAAgAAEAAAAAAAA=</HashCode>
       <FileName>Multas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Obrigacoes" Collapsed="true">
+  <Class Name="BsFat.Obrigacoes" Collapsed="true">
     <Position X="10.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAABAAAAAAAAAAAEIAAAABAAAAEAAAAAAAQ=</HashCode>
       <FileName>Obrigacoes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Pecas" Collapsed="true">
+  <Class Name="BsFat.Pecas" Collapsed="true">
     <Position X="12" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pecas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Pneus" Collapsed="true">
+  <Class Name="BsFat.Pneus" Collapsed="true">
     <Position X="14" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAACABAAAAAAAAAAEAAAAAAAIAAAAAAAAAsAAAAAAAg=</HashCode>
       <FileName>Pneus.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Sinistros" Collapsed="true">
+  <Class Name="BsFat.Sinistros" Collapsed="true">
     <Position X="6.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAEAAABAAAAAAAAAAAEIAAAABAAAAEAAAAAAAA=</HashCode>
       <FileName>Sinistros.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.TipoDespesa" Collapsed="true">
+  <Class Name="BsFat.TipoDespesa" Collapsed="true">
     <Position X="8.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>TipoDespesa.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Usuarios" Collapsed="true">
+  <Class Name="BsFat.Usuarios" Collapsed="true">
     <Position X="10.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAGAAAABAQAIAAAAAAACAAAACAAAAACAAAQAAAQAAA=</HashCode>
       <FileName>Usuarios.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dll_BS_Fat.Veiculos" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="BsFat.Veiculos" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="12" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAKGAAAEQAAAACwAoAATEAAAAUEAAABAAggAAIAhAAg=</HashCode>

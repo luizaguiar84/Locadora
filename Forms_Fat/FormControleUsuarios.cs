@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

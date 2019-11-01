@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dll_BS_Fat
+namespace BsFat
 {
 	public class DespesasBuilder : Despesas
 	{

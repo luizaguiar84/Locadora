@@ -1,27 +1,27 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class SinistrosDao : IDbBanco<Sinistros>
 	{
 
 		public bool DbUpdate(Sinistros update)
 		{
-			return new DbKernel().DbUpdate<Sinistros>(update);
+			return new DbKernel.Db_Kernel().DbUpdate<Sinistros>(update);
 		}
 
 		public bool DeleteRegistro(Sinistros registro)
 		{
-			return new DbKernel().DeleteRegistro<Sinistros>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Sinistros>(registro);
 		}
 
 		public List<Sinistros> GetAll()
 		{
-			return new DbKernel().GetAll<Sinistros>();
+			return new DbKernel.Db_Kernel().GetAll<Sinistros>();
 		}
 
 		public Sinistros GetRegistroPorCodigo(int classeId, string registro)
@@ -31,10 +31,10 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Sinistros registro)
 		{
-			return new DbKernel().DbAdd<Sinistros>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Sinistros>(registro);
 		}
 
-		public Sinistros GetSinistro(int id)
+		public Sinistros GetById(int id)
 		{
 			return GetAll()
 				.Where(s => s.Id == id)
@@ -43,7 +43,7 @@ namespace Dll_DB_Fat
 
 		public HashSet<Sinistros> GetSinistros(int veiculoId)
 		{
-			return new DbKernel().GetAll<Sinistros>()
+			return new DbKernel.Db_Kernel().GetAll<Sinistros>()
 							.Where(s => s.VeiculoId == veiculoId)
 							.ToHashSet();
 		}

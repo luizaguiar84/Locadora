@@ -1,22 +1,22 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class ControlePatioDao : IDbBanco<ControlePatio>
 	{
 
 		public bool DeleteRegistro(ControlePatio registro)
 		{
-			return new DbKernel().DeleteRegistro<ControlePatio>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<ControlePatio>(registro);
 		}
 
 		public List<ControlePatio> GetAll()
 		{
-			return new DbKernel().GetAll<ControlePatio>();
+			return new DbKernel.Db_Kernel().GetAll<ControlePatio>();
 		}
 
 		public ControlePatio GetRegistroPorCodigo(int classeId, string registro)
@@ -26,12 +26,12 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(ControlePatio registro)
 		{
-			return new DbKernel().DbAdd<ControlePatio>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<ControlePatio>(registro);
 		}
 
 		public bool DbUpdate(ControlePatio update)
 		{
-			return new DbKernel().DbUpdate<ControlePatio>(update);
+			return new DbKernel.Db_Kernel().DbUpdate<ControlePatio>(update);
 		}
 
 		public List<ControlePatio> GetCarrosFora()
@@ -41,7 +41,7 @@ namespace Dll_DB_Fat
 					.ToList();
 		}
 
-		public ControlePatio GetControle(int id)
+		public ControlePatio GetById(int id)
 		{
 			return  GetAll()
 					.Where(c => c.Id == id)

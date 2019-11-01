@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,7 +66,7 @@ namespace Dll_Forms_Fat
 
 			int funcionarioId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
-			var funcionario = new FuncionariosDao().GetFuncionario(funcionarioId);
+			var funcionario = new FuncionariosDao().GetById(funcionarioId);
 
 			var form = new FormCadastrarFuncionario(funcionario)
 			{

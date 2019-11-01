@@ -3,7 +3,7 @@
 	using System.ComponentModel.DataAnnotations;
 	using System.Linq;
 
-namespace Dll_BS_Fat
+namespace BsFat
 {
 
 	public class BaseModel : IDataErrorInfo

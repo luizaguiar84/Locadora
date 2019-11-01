@@ -1,5 +1,5 @@
 
-namespace Dll_BS_Fat
+namespace BsFat
 {
 	using System;
 	using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace Dll_BS_Fat
 		public decimal ValorSeguro { get; set; }
 		public decimal ValorSeguroTerceiros { get; set; }
 
-		public void AddCliente(ClientesPF cliente)
+		public void AddCliente(Motoristas cliente)
 		{
 			this.Cliente.Add(new ClienteLocacao() { ClienteId = cliente.Id });
 		}

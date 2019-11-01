@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace SiteFat.Controllers
         [HttpPost]
         public ActionResult Create(Usuarios usuario)
         {
-			var confereUsuario = new UsuariosDao().GetUsuario(usuario.Id);
+			var confereUsuario = new UsuariosDao().GetById(usuario.Id);
 			if (confereUsuario != null)
 			{
 				return View(usuario);

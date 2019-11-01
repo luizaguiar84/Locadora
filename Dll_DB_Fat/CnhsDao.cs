@@ -1,18 +1,18 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class CnhsDao : IDbBanco<Cnhs>
 	{
 		public bool DbAdd(Cnhs Add)
 		{
-			return new DbKernel().DbAdd<Cnhs>(Add);
+			return new DbKernel.Db_Kernel().DbAdd(Add);
 		}
 
-		public Cnhs GetCnh(int cnhId)
+		public Cnhs GetById(int cnhId)
 		{
 			return GetAll()
 					.Where(c => c.Id == cnhId)
@@ -21,7 +21,7 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Cnhs Add)
 		{
-			return new DbKernel().DbUpdate<Cnhs>(Add);
+			return new DbKernel.Db_Kernel().DbUpdate<Cnhs>(Add);
 		}
 
 		public bool DeleteRegistro(Cnhs Registro)
@@ -31,12 +31,12 @@ namespace Dll_DB_Fat
 
 		public List<Cnhs> GetAll()
 		{
-			return new DbKernel().GetAll<Cnhs>();
+			return new DbKernel.Db_Kernel().GetAll<Cnhs>();
 		}
 
 		public Cnhs GetRegistroPorCodigo(int id, string registro)
 		{
-			return new DbKernel().GetRegistroPorCodigo<Cnhs>(id, registro);
+			return new DbKernel.Db_Kernel().GetRegistroPorCodigo<Cnhs>(id, registro);
 		}
 	}
 }

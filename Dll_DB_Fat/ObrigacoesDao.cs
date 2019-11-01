@@ -1,30 +1,30 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class ObrigacoesDao : IDbBanco<Obrigacoes>
 	{
 
 		public bool DbUpdate(Obrigacoes registro)
 		{
-			return new DbKernel().DbUpdate<Obrigacoes>(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<Obrigacoes>(registro);
 		}
 
 		public bool DeleteRegistro(Obrigacoes registro)
 		{
-			return new DbKernel().DeleteRegistro<Obrigacoes>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Obrigacoes>(registro);
 		}
 
 		public List<Obrigacoes> GetAll()
 		{
-			return new DbKernel().GetAll<Obrigacoes>();
+			return new DbKernel.Db_Kernel().GetAll<Obrigacoes>();
 		}
 
-		public Obrigacoes GetObrigacao(int id)
+		public Obrigacoes GetById(int id)
 		{
 			return GetAll().Where(o => o.Id == id)
 							.SingleOrDefault();
@@ -37,12 +37,12 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Obrigacoes registro)
 		{
-			return new DbKernel().DbAdd<Obrigacoes>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Obrigacoes>(registro);
 		}
 
 		public HashSet<Obrigacoes> GetObrigacoes(int id)
 		{
-			return new DbKernel().GetAll<Obrigacoes>()
+			return new DbKernel.Db_Kernel().GetAll<Obrigacoes>()
 				.Where(o => o.VeiculoId == id)
 				.ToHashSet();
 		}

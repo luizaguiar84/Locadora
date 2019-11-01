@@ -1,0 +1,145 @@
+﻿@model Dll_BS_Fat.Funcionarios
+
+@{
+    ViewBag.Title = "Deletar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deletar</h2>
+
+<h3>Deseja deletar esse funcionário?</h3>
+<div>
+    <h4>Funcionarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAtivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAtivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+         <dt>
+            @Html.DisplayNameFor(model => model.Rg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelResidencial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelResidencial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelCelular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelCelular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admissao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admissao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ctps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ctps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TituloEleitor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TituloEleitor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Demissao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Demissao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacoes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Deletar", "Funcionarios")) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar à Lista", "Index")
+        </div>
+    }
+</div>

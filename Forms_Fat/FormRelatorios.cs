@@ -1,4 +1,4 @@
-﻿using Dll_DB_Fat;
+﻿using DbFat;
 using System;
 using System.Windows.Forms;
 
@@ -18,7 +18,7 @@ namespace Dll_Forms_Fat
 
 		private void RadioButton3_CheckedChanged(object sender, EventArgs e)
 		{
-			var cliente = new ClientesPFDao();
+			var cliente = new MotoristasDao();
 			var listaClientes = cliente.GetAll();
 
 		}

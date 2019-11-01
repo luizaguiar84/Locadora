@@ -1,4 +1,4 @@
-﻿using Dll_DB_Fat;
+﻿using DbFat;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -23,7 +23,7 @@ namespace Dll_Forms_Fat
 
 			if (ComboFiltro.Text == "Pessoa Fisica")
 			{
-				var cliente = new ClientesPFDao().GetCliente(clienteId);
+				var cliente = new MotoristasDao().GetById(clienteId);
 				var form = new FormCadastrarCliente(cliente)
 				{
 					MdiParent = this.ParentForm
@@ -33,7 +33,7 @@ namespace Dll_Forms_Fat
 			}
 			else
 			{
-				var cliente = new ClientesPjDao().GetCliente(clienteId);
+				var cliente = new ClientesPjDao().GetById(clienteId);
 				var form = new FormCadastrarCliente(cliente)
 				{
 					MdiParent = this.ParentForm
@@ -61,7 +61,7 @@ namespace Dll_Forms_Fat
 			{
 				if (ComboFiltro.Text == "Pessoa Física")
 				{
-					var source = new ClientesPFDao().DbSearch(ComboFiltro.Text, txtPesquisa.Text);
+					var source = new MotoristasDao().DbSearch(ComboFiltro.Text, txtPesquisa.Text);
 					dataGridView1.DataSource = source;
 					dataGridView1.Visible = true;
 				}

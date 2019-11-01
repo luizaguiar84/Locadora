@@ -1,6 +1,6 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
-using Dll_Utilidades;
+﻿using BsFat;
+using DbFat;
+using Utilidades;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,7 +9,7 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormCadastrarCliente : Form
 	{
-		private ClientesPF clientePf = new ClientesPF();
+		private Motoristas clientePf = new Motoristas();
 		private ClientesPJ clientePj = new ClientesPJ();
 		#region VALIDACOES
 		private void TxtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
@@ -25,7 +25,7 @@ namespace Dll_Forms_Fat
 			btnAtualizar.Hide();
 
 		}
-		public FormCadastrarCliente(ClientesPF cliente)
+		public FormCadastrarCliente(Motoristas cliente)
 		{
 			InitializeComponent();
 			this.clientePf = cliente;
@@ -50,12 +50,12 @@ namespace Dll_Forms_Fat
 
 		private void PreencherId()
 		{
-			var idCliente = new ClientesPFDao().BuscaIdMax();
+			var idCliente = new MotoristasDao().BuscaIdMax();
 			idCliente++;
 			txtId.Text = Convert.ToString(idCliente);
 		}
 
-		private void AtualizarPf(ClientesPF cliente)
+		private void AtualizarPf(Motoristas cliente)
 		{
 			bool ativo = false;
 			if (checkAtivo.Checked) ativo = true;
@@ -77,12 +77,10 @@ namespace Dll_Forms_Fat
 				.GetCategoria(txtCategoria.Text);
 			var cnh = cnhBuilder.Build();
 
-			ClientesPFBuilder clienteBuilder = new ClientesPFBuilder()
+			MotoristasBuilder clienteBuilder = new MotoristasBuilder()
 				.GetIsAtivo(ativo)
-				.GetTipoCliente(TipoCliente.PF)
 				.GetNome(txtNome.Text)
 				.GetCpf(maskedCpf.Text)
-				.GetProfissao(txtProfissao.Text)
 				.GetEmail(txtEmail.Text)
 				.GetRg(txtRG.Text)
 				.GetNascimento(dateNascimento.Value)
@@ -97,7 +95,7 @@ namespace Dll_Forms_Fat
 			if (MessageBox.Show($"Favor confirmar a atualização dos dados:\n\n" +
 								$"Nome: {cliente.Nome}\n" +
 								$"CPF: {cliente.Cpf} - RG: {cliente.Rg}\n" +
-								$"Profissão: {cliente.Profissao} / Email: {cliente.Email}\n" +
+								$"Email: {cliente.Email}\n" +
 								$"Nascimento: {cliente.Nascimento.ToShortDateString()} \n" +
 								$"Telefone Comercial: {cliente.TelComercial} - Residencial {cliente.TelResidencial} - Celular: {cliente.TelCelular}\n" +
 								$"CNH: {cliente.Cnh.Numero} / Categoria: {cliente.Cnh.Categoria} \n" +
@@ -114,7 +112,7 @@ namespace Dll_Forms_Fat
 				cliente.Cnh.Id = id;
 				cliente.Endereco.Id = id;
 
-				new ClientesPFDao().DbAdd(cliente);
+				new MotoristasDao().DbAdd(cliente);
 				MessageBox.Show("Cadastro Atualizado com sucesso!");
 				LimpaTela();
 			}
@@ -239,12 +237,10 @@ namespace Dll_Forms_Fat
 				.GetUf(txtUF.Text);
 			Enderecos endereco = enderecoBuilder.Build();
 
-			ClientesPFBuilder cli = new ClientesPFBuilder()
+			MotoristasBuilder cli = new MotoristasBuilder()
 				.GetIsAtivo(ativo)
-				.GetTipoCliente(TipoCliente.PJ)
 				.GetNome(txtNome.Text)
 				.GetCpf(maskedCpf.Text)
-				.GetProfissao(txtProfissao.Text)
 				.GetEmail(txtEmail.Text)
 				.GetRg(txtRG.Text)
 				.GetNascimento(dateNascimento.Value)
@@ -258,7 +254,7 @@ namespace Dll_Forms_Fat
 			if (MessageBox.Show($"Favor confirmar os dados:\n\n" +
 								$"Nome: {clientePf.Nome}\n" +
 								$"CPF: {clientePf.Cpf} - RG: {clientePf.Rg}\n" +
-								$"Profissão: {clientePf.Profissao} / Email: {clientePf.Email}\n" +
+								$"Email: {clientePf.Email}\n" +
 								$"Nascimento: {clientePf.Nascimento.ToShortDateString()} \n" +
 								$"Telefone Comercial: {clientePf.TelComercial} - Residencial {clientePf.TelResidencial} - Celular: {clientePf.TelCelular}\n" +
 								$"CNH: {clientePf.Cnh.Numero} / Categoria: {clientePf.Cnh.Categoria} \n" +
@@ -270,7 +266,7 @@ namespace Dll_Forms_Fat
 								"Confirmação",
 								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				new ClientesPFDao().DbAdd(clientePf);
+				new MotoristasDao().DbAdd(clientePf);
 				MessageBox.Show("Cadastro Efetuado com sucesso!");
 				LimpaTela();
 			}
@@ -282,7 +278,7 @@ namespace Dll_Forms_Fat
 				try
 				{
 					var enderecos = new string[4];
-					enderecos = Utilidades.BuscaCep(maskedCEP);
+					enderecos = Utilidades.Utilidades.BuscaCep(maskedCEP);
 
 					if (enderecos != null)
 					{
@@ -306,7 +302,7 @@ namespace Dll_Forms_Fat
 		}
 		private void PreencherFormulario(Object cliente)
 		{
-			if (cliente is ClientesPF cli)
+			if (cliente is Motoristas cli)
 			{
 				radioPessoaFisica.Checked = true;
 				radioPessoaJuridica.Checked = false;
@@ -322,12 +318,11 @@ namespace Dll_Forms_Fat
 				txtId.Text = cli.Id.ToString();
 				txtNome.Text = cli.Nome;
 				maskedCpf.Text = cli.Cpf;
-				txtProfissao.Text = cli.Profissao;
 				txtEmail.Text = cli.Email;
 				txtRG.Text = cli.Rg;
-				dateNascimento.Value = (DateTime)cli.Nascimento;
-				dateCnhEmitida.Value = (DateTime)cli.Cnh.Emissao;
-				dateCnhValidade.Value = (DateTime)cli.Cnh.Validade;
+				dateNascimento.Value = cli.Nascimento;
+				dateCnhEmitida.Value = cli.Cnh.Emissao;
+				dateCnhValidade.Value = cli.Cnh.Validade;
 				txtTelCom.Text = cli.TelComercial;
 				txtTelRes.Text = cli.TelResidencial;
 				txtTelCel.Text = cli.TelCelular;
@@ -484,12 +479,12 @@ namespace Dll_Forms_Fat
 
 			if (radioPessoaJuridica.Checked)
 			{
-				var cliente = new ClientesPjDao().GetCliente(id);
+				var cliente = new ClientesPjDao().GetById(id);
 				AtualizarPj(cliente);
 			}
 			else
 			{
-				var cliente = new ClientesPFDao().GetCliente(id);
+				var cliente = new MotoristasDao().GetById(id);
 				AtualizarPf(cliente);
 			}
 		}

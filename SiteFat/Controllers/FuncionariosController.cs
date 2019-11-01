@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace SiteFat.Controllers
 
 		public ActionResult Detalhes(int id)
 		{
-			var funcionario = new FuncionariosDao().GetFuncionario(id);
+			var funcionario = new FuncionariosDao().GetById(id);
 
 			if (funcionario != null)
 			{
@@ -39,7 +39,7 @@ namespace SiteFat.Controllers
 		public ActionResult Editar(int id)
 		{
 
-			var funcionario = new FuncionariosDao().GetFuncionario(id);
+			var funcionario = new FuncionariosDao().GetById(id);
 
 			if (funcionario != null)
 			{
@@ -75,7 +75,7 @@ namespace SiteFat.Controllers
 		public ActionResult Deletar (int id)
 		{
 
-			var funcionario = new FuncionariosDao().GetFuncionario(id);
+			var funcionario = new FuncionariosDao().GetById(id);
 
 
 			return View(funcionario);

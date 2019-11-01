@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace SiteFat.Controllers
         // GET: Estoque/Details/5
         public ActionResult Detalhes(int id)
         {
-			var pecaEstoque = new EstoqueDao().GetDetalhe(id);
+			var pecaEstoque = new EstoqueDao().GetById(id);
             return View(pecaEstoque);
         }
 
@@ -51,7 +51,7 @@ namespace SiteFat.Controllers
         // GET: Estoque/Edit/5
         public ActionResult Remover(int id)
         {
-			var pecaEstoque = new EstoqueDao().GetDetalhe(id);
+			var pecaEstoque = new EstoqueDao().GetById(id);
             return View(pecaEstoque);
         }
 
@@ -75,7 +75,7 @@ namespace SiteFat.Controllers
         // GET: Estoque/Delete/5
         public ActionResult Deletar(int id)
         {
-			var pecaEstoque = new EstoqueDao().GetDetalhe(id);
+			var pecaEstoque = new EstoqueDao().GetById(id);
             return View(pecaEstoque);
         }
 

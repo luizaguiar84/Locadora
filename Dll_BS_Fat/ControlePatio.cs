@@ -1,4 +1,4 @@
-namespace Dll_BS_Fat
+namespace BsFat
 {
 	using System;
 	using System.ComponentModel;

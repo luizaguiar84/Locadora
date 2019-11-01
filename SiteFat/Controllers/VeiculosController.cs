@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,14 +45,14 @@ namespace SiteFat.Controllers
 
 		public ActionResult Reserva(int id)
 		{
-			var veiculo = new VeiculosDao().GetVeiculo(id);
+			var veiculo = new VeiculosDao().GetById(id);
 
 			return View(veiculo);
 		}
 
 		public ActionResult Deletar(int id)
 		{
-			var veiculo = new VeiculosDao().GetVeiculo(id);
+			var veiculo = new VeiculosDao().GetById(id);
 
 
 			return View(veiculo);
@@ -61,7 +61,7 @@ namespace SiteFat.Controllers
 
 		public ActionResult Editar(int id)
 		{
-			var veiculo = new VeiculosDao().GetVeiculo(id);
+			var veiculo = new VeiculosDao().GetById(id);
 
 			return View(veiculo);
 		}

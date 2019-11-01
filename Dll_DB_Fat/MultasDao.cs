@@ -1,10 +1,10 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class MultasDao : IDbBanco<Multas>
 	{
@@ -12,20 +12,20 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Multas Add)
 		{
-			return new DbKernel().DbUpdate<Multas>(Add);
+			return new DbKernel.Db_Kernel().DbUpdate<Multas>(Add);
 		}
 
 		public bool DeleteRegistro(Multas Registro)
 		{
-			return new DbKernel().DeleteRegistro<Multas>(Registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Multas>(Registro);
 		}
 
 		public List<Multas> GetAll()
 		{
-			return new DbKernel().GetAll<Multas>();
+			return new DbKernel.Db_Kernel().GetAll<Multas>();
 		}
 
-		public Multas GetMultaId(int id)
+		public Multas GetById(int id)
 		{
 			return GetAll()
 				.Where(m => m.Id == id)
@@ -39,7 +39,7 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Multas Add)
 		{
-			return new DbKernel().DbAdd<Multas>(Add);
+			return new DbKernel.Db_Kernel().DbAdd<Multas>(Add);
 		}
 
 		public Multas GetMulta(int veiculoId)
@@ -52,7 +52,7 @@ namespace Dll_DB_Fat
 
 		public HashSet<Multas> GetMultas(int id)
 		{
-			return new DbKernel().GetAll<Multas>()
+			return new DbKernel.Db_Kernel().GetAll<Multas>()
 							.Where(m => m.VeiculoId == id)
 							.ToHashSet();
 		}

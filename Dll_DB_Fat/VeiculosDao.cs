@@ -1,27 +1,27 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class VeiculosDao : IDbBanco<Veiculos>
 	{
 		public bool DbAdd(Veiculos veiculo)
 		{
-			return new DbKernel().DbAdd<Veiculos>(veiculo);
+			return new DbKernel.Db_Kernel().DbAdd<Veiculos>(veiculo);
 		}
 
 		public bool DbUpdate(Veiculos veiculo)
 		{
-			return new DbKernel().DbUpdate<Veiculos>(veiculo);
+			return new DbKernel.Db_Kernel().DbUpdate<Veiculos>(veiculo);
 		}
 
 		public List<Veiculos> DbSearch(string filtro, string pesquisa)
 		{
-			var busca = new DbKernel().GetAll<Veiculos>();
+			var busca = new DbKernel.Db_Kernel().GetAll<Veiculos>();
 
 			if (filtro == "Marca")
 			{
@@ -56,19 +56,19 @@ namespace Dll_DB_Fat
 		/// <returns></returns>
 		public List<Veiculos> GetAll()
 		{
-			return new DbKernel().GetAll<Veiculos>();
+			return new DbKernel.Db_Kernel().GetAll<Veiculos>();
 		}
 
 		public bool DeleteRegistro(Veiculos registro)
 		{
-			return new DbKernel().DeleteRegistro<Veiculos>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Veiculos>(registro);
 		}
 
 
 
 		public Veiculos GetRegistroPorCodigo(int classeId, string registro)
 		{
-			return new DbKernel().GetRegistroPorCodigo<Veiculos>(classeId, registro);
+			return new DbKernel.Db_Kernel().GetRegistroPorCodigo<Veiculos>(classeId, registro);
 		}
 
 		public List<Veiculos> GetVeiculosAtivos()
@@ -88,7 +88,7 @@ namespace Dll_DB_Fat
 			veiculo.Quilometragem += kmRodada;
 			return DbUpdate(veiculo);
 		}
-		public Veiculos GetVeiculo(int veiculoId)
+		public Veiculos GetById(int veiculoId)
 		{
 			var veiculo = new VeiculosDao().GetAll()
 				.Where(v => v.Id == veiculoId)

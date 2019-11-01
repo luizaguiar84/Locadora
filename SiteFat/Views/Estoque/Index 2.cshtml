@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Dll_BS_Fat.Estoque>
+
+@{
+    ViewBag.Title = "Estoque";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Estoque</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Item...", "Adicionar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Peca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorUnitario)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantidade)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Remover", "Remover", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

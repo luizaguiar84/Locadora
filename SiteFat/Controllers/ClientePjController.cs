@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using DbFat;
+using BsFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace SiteFat.Controllers
         // GET: ClientePj/Details/5
         public ActionResult Detalhes(int id)
         {
-			var cliente = new ClientesPjDao().GetCliente(id);
+			var cliente = new ClientesPjDao().GetById(id);
             return View(cliente);
         }
 
@@ -50,7 +50,7 @@ namespace SiteFat.Controllers
 		// GET: ClientePj/Edit/5
 		public ActionResult Editar(int id)
         {
-			var clientePj = new ClientesPjDao().GetCliente(id);
+			var clientePj = new ClientesPjDao().GetById(id);
 			return View(clientePj);
         }
 
@@ -72,7 +72,7 @@ namespace SiteFat.Controllers
         // GET: ClientePj/Delete/5
         public ActionResult Deletar(int id)
         {
-			var clientePj = new ClientesPjDao().GetCliente(id);
+			var clientePj = new ClientesPjDao().GetById(id);
 			return View(clientePj);
         }
 

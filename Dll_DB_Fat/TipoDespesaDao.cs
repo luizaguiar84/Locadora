@@ -1,9 +1,10 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class TipoDespesaDao : IDbBanco<TipoDespesa>
 	{
@@ -32,12 +33,12 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(TipoDespesa registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel.Db_Kernel().DbUpdate(registro);
 		}
 
 		public bool DeleteRegistro(TipoDespesa registro)
 		{
-			throw new NotImplementedException();
+			return new DbKernel.Db_Kernel().DeleteRegistro(registro);
 		}
 
 
@@ -49,12 +50,19 @@ namespace Dll_DB_Fat
 
 		public List<TipoDespesa> GetAll()
 		{
-			return new DbKernel().GetAll<TipoDespesa>();
+			return new DbKernel.Db_Kernel().GetAll<TipoDespesa>();
 		}
 
 		public bool DbAdd(TipoDespesa registro)
 		{
-			return new DbKernel().DbAdd<TipoDespesa>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<TipoDespesa>(registro);
+		}
+
+		public TipoDespesa GetById(int id)
+		{
+			return GetAll()
+				.Where(d => d.Id == id)
+				.SingleOrDefault();
 		}
 	}
 }

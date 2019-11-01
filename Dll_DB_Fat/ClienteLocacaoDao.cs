@@ -1,36 +1,36 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class ClienteLocacaoDao : IDbBanco<ClienteLocacao>
 	{
 		public bool DbAdd(ClienteLocacao registro)
 		{
-			return new DbKernel().DbAdd<ClienteLocacao>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<ClienteLocacao>(registro);
 		}
 
 		public bool DbUpdate(ClienteLocacao registro)
 		{
-			return new DbKernel().DbUpdate<ClienteLocacao>(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<ClienteLocacao>(registro);
 		}
 
 		public bool DeleteRegistro(ClienteLocacao registro)
 		{
-			return new DbKernel().DeleteRegistro<ClienteLocacao>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<ClienteLocacao>(registro);
 		}
 
 		public List<ClienteLocacao> GetAll()
 		{
-			return new DbKernel().GetAll<ClienteLocacao>();
+			return new DbKernel.Db_Kernel().GetAll<ClienteLocacao>();
 		}
 
-		public ClienteLocacao GetRegistroPorCodigo(int classeId, string registro)
+		public ClienteLocacao GetById(int id)
 		{
 			throw new NotImplementedException();
 		}

@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +13,14 @@ namespace SiteFat.Controllers
         // GET: Motoristas
         public ActionResult Index()
         {
-			var motoristas = new ClientesPFDao().GetMotoristas();
+			var motoristas = new MotoristasDao().GetMotoristas();
             return View(motoristas);
         }
 
         // GET: Motoristas/Details/5
         public ActionResult Detalhes(int id)
         {
-			var motorista = new ClientesPFDao().GetDetalhesMotorista(id);
+			var motorista = new MotoristasDao().GetDetalhesMotorista(id);
             return View(motorista);
         }
 
@@ -32,11 +32,11 @@ namespace SiteFat.Controllers
 
         // POST: Motoristas/Create
         [HttpPost]
-        public ActionResult Adicionar(ClientesPF motorista)
+        public ActionResult Adicionar(Motoristas motorista)
         {
             try
             {
-				new ClientesPFDao().DbAdd(motorista);
+				new MotoristasDao().DbAdd(motorista);
 
                 return RedirectToAction("Index");
             }
@@ -49,17 +49,17 @@ namespace SiteFat.Controllers
         // GET: Motoristas/Edit/5
         public ActionResult Editar(int id)
         {
-			var motorista = new ClientesPFDao().GetDetalhesMotorista(id);
+			var motorista = new MotoristasDao().GetDetalhesMotorista(id);
             return View(motorista);
         }
 
         // POST: Motoristas/Edit/5
         [HttpPost]
-        public ActionResult Editar(ClientesPF motorista)
+        public ActionResult Editar(Motoristas motorista)
         {
             try
             {
-				new ClientesPFDao().DbUpdate(motorista);
+				new MotoristasDao().DbUpdate(motorista);
 
                 return RedirectToAction("Index");
             }
@@ -72,17 +72,17 @@ namespace SiteFat.Controllers
         // GET: Motoristas/Delete/5
         public ActionResult Deletar(int id)
         {
-			var motorista = new ClientesPFDao().GetDetalhesMotorista(id);
+			var motorista = new MotoristasDao().GetDetalhesMotorista(id);
             return View(motorista);
         }
 
         // POST: Motoristas/Delete/5
         [HttpPost]
-        public ActionResult Deletar(ClientesPF motorista)
+        public ActionResult Deletar(Motoristas motorista)
         {
             try
             {
-				new ClientesPFDao().DeleteRegistro(motorista);
+				new MotoristasDao().DeleteRegistro(motorista);
 
                 return RedirectToAction("Index");
             }

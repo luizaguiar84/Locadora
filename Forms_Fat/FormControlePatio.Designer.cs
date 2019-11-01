@@ -1,4 +1,4 @@
-﻿using Dll_BS_Fat;
+﻿using BsFat;
 
 namespace Dll_Forms_Fat
 {

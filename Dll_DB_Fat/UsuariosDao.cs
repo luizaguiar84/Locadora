@@ -1,17 +1,17 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class UsuariosDao : IDbBanco<Usuarios>
 	{
 
 		public bool DeleteRegistro(Usuarios registro)
 		{
-			return new DbKernel().DeleteRegistro(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro(registro);
 		}
 
 		public Usuarios GetRegistroPorCodigo(int classeId, string registro)
@@ -21,7 +21,7 @@ namespace Dll_DB_Fat
 
 		public List<Usuarios> GetAll()
 		{
-			return new DbKernel().GetAll<Usuarios>();
+			return new DbKernel.Db_Kernel().GetAll<Usuarios>();
 			 
 		}
 
@@ -40,12 +40,12 @@ namespace Dll_DB_Fat
 			return false;
 		}
 
-		public Usuarios GetUsuario(int usuarioId)
+		public Usuarios GetById(int usuarioId)
 		{
 			var usuario = GetAll()
 				.Where(u => u.Id == usuarioId)
 				.SingleOrDefault();
-			usuario.Funcionario = new FuncionariosDao().GetFuncionario(usuario.FuncionariosId);
+			usuario.Funcionario = new FuncionariosDao().GetById(usuario.FuncionariosId);
 
 			return usuario;
 		}
@@ -55,7 +55,7 @@ namespace Dll_DB_Fat
 			var usuario = GetAll()
 				.Where(u => u.FuncionariosId == funcionarioId)
 				.SingleOrDefault();
-			usuario.Funcionario = new FuncionariosDao().GetFuncionario(usuario.FuncionariosId);
+			usuario.Funcionario = new FuncionariosDao().GetById(usuario.FuncionariosId);
 
 			return usuario;
 		}
@@ -70,14 +70,14 @@ namespace Dll_DB_Fat
 			}
 			else
 			{
-				return new DbKernel().DbAdd<Usuarios>(usuario);
+				return new DbKernel.Db_Kernel().DbAdd<Usuarios>(usuario);
 			}
 			
 		}
 
 		public bool DbUpdate(Usuarios registro)
 		{
-			return new DbKernel().DbUpdate<Usuarios>(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<Usuarios>(registro);
 		}
 	}
 }

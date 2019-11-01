@@ -1,0 +1,147 @@
+﻿@model Dll_BS_Fat.ControlePatio
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Detalhes...</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VeiculoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VeiculoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KmSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KmSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelCombustivelSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelCombustivelSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiberadoSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiberadoSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObservacoesSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObservacoesSaida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRetorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRetorno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraRetorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraRetorno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoRetorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoRetorno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelCombustivelRetorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelCombustivelRetorno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KmRetorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KmRetorno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecolhidoRetorno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecolhidoRetorno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar à Lista", "Index")
+</p>

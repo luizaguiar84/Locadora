@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace Dll_Db_Kernel.Migrations
+namespace DbKernel.Migrations
 {
 	public partial class Migracao : Migration
 	{

@@ -1,6 +1,6 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
-using Dll_Utilidades;
+﻿using BsFat;
+using DbFat;
+using Utilidades;
 using hbehr.FipeAPI;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace Dll_Forms_Fat
 	public partial class FormCadastrarVeiculo : Form
 	{
 		readonly FipeApi api = new FipeCarrosApi(); // For Cars
-		private readonly Dll_BS_Fat.Veiculos veiculo;
+		private readonly BsFat.Veiculos veiculo;
 
 		#region VALIDACOES
 		private void TxtOdometro_KeyPress(object sender, KeyPressEventArgs e)
@@ -62,7 +62,7 @@ namespace Dll_Forms_Fat
 			txtModelo.Hide();
 			txtAnoModelo.Hide();
 		}
-		public FormCadastrarVeiculo(Dll_BS_Fat.Veiculos veiculo)
+		public FormCadastrarVeiculo(BsFat.Veiculos veiculo)
 		{
 			InitializeComponent();
 			this.veiculo = veiculo;
@@ -132,7 +132,7 @@ namespace Dll_Forms_Fat
 
 			var veiculo = veiculoBuilder.Build();
 			
-			ValidarVeiculo(veiculo);
+			//ValidarVeiculo(veiculo);
 
 			if (new VeiculosDao().DbAdd(veiculo))
 			{
@@ -160,7 +160,7 @@ namespace Dll_Forms_Fat
 
 		private void CarregarCores()
 		{
-			foreach (var cor in Enum.GetValues(typeof(@string))) comboCor.Items.Add(cor);
+			foreach (var cor in Enum.GetValues(typeof(Cor))) comboCor.Items.Add(cor);
 		}
 
 		private void CarregaMontadoras()
@@ -203,7 +203,7 @@ namespace Dll_Forms_Fat
 			txtValorAtualCarro.Text = precoCorrente.preco;
 		}
 
-		private void PreencherFormulario(Dll_BS_Fat.Veiculos v)
+		private void PreencherFormulario(BsFat.Veiculos v)
 		{
 			txtId.Text = v.Id.ToString();
 
@@ -233,7 +233,7 @@ namespace Dll_Forms_Fat
 			checkAirBag.Checked = Convert.ToBoolean(v.AirBag);
 		}
 
-		private void AtualizarVeiculo(Dll_BS_Fat.Veiculos veiculo)
+		private void AtualizarVeiculo(BsFat.Veiculos veiculo)
 		{
 			var id = veiculo.Id;
 			var veiculoBuilder = new VeiculosBuilder()
@@ -283,15 +283,15 @@ namespace Dll_Forms_Fat
 		{
 			this.maskedTxtPlaca.Text.ToUpper();
 		}
-		
-  
-		private void ValidarVeiculo(object obj)
-		{
-			var erros = Validacao.getValidationErrors(obj);
-			foreach (var erro in erros)
-			{
-				MessageBox.Show(erro.ErrorMessage);
-			}
-		}
+
+
+		//private void ValidarVeiculo(object obj)
+		//{
+		//	var erros = Validacao.getValidationErrors(obj);
+		//	foreach (var erro in erros)
+		//	{
+		//		MessageBox.Show(erro.ErrorMessage);
+		//	}
+		//}
 	}
 }

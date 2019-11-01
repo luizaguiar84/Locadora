@@ -1,16 +1,13 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class DespesasDao : IDbBanco<Despesas>
 	{
-
-
-
 		public bool DeleteRegistro(Despesas registro)
 		{
 			throw new NotImplementedException();
@@ -18,7 +15,7 @@ namespace Dll_DB_Fat
 
 		public List<Despesas> GetAll()
 		{
-			return new DbKernel().GetAll<Despesas>();
+			return new DbKernel.Db_Kernel().GetAll<Despesas>();
 		}
 
 		
@@ -30,12 +27,19 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Despesas registro)
 		{
-			return new DbKernel().DbAdd<Despesas>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Despesas>(registro);
 		}
 
 		public bool DbUpdate(Despesas registro)
 		{
-			return new DbKernel().DbUpdate<Despesas>(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<Despesas>(registro);
+		}
+
+		public Despesas GetById(int id)
+		{
+			return GetAll()
+							.Where(x => x.Id == id)
+							.SingleOrDefault();
 		}
 	}
 }

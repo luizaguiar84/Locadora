@@ -1,11 +1,10 @@
-﻿
-using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class AbastecimentosDao : IDbBanco<Abastecimentos>
 	{
@@ -22,7 +21,7 @@ namespace Dll_DB_Fat
 
 		public List<Abastecimentos> GetAll()
 		{
-			return new DbKernel().GetAll<Abastecimentos>();
+			return new DbKernel.Db_Kernel().GetAll<Abastecimentos>();
 		}
 
 		public Abastecimentos GetRegistroPorCodigo(int classeId, string registro)
@@ -32,14 +31,21 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Abastecimentos Add)
 		{
-			return new DbKernel().DbAdd<Abastecimentos>(Add);
+			return new DbKernel.Db_Kernel().DbAdd<Abastecimentos>(Add);
 		}
 
 		public HashSet<Abastecimentos> GetAbastecimentos(int id)
 		{
-			return new DbKernel().GetAll<Abastecimentos>()
+			return new DbKernel.Db_Kernel().GetAll<Abastecimentos>()
 				.Where(a => a.VeiculoId == id)
 				.ToHashSet();
+		}
+
+		public Abastecimentos GetById(int id)
+		{
+			return GetAll()
+				.Where(a => a.Id == id)
+				.SingleOrDefault();
 		}
 	}
 }

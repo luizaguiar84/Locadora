@@ -1,9 +1,9 @@
-﻿namespace Dll_BS_Fat
+﻿namespace BsFat
 {
 	public class ClienteLocacao
 	{
 		public int ClienteId { get; set; }
-		public ClientesPF Cliente { get; set; }
+		public Motoristas Cliente { get; set; }
 
 		public int LocacaoId { get; set; }
 		public Locacoes Locacao { get; set; }

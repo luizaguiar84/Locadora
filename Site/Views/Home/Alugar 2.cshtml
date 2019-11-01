@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Dll_BS_Fat.Veiculos>
+
+@{
+    ViewBag.Title = "Alugar";
+}
+
+<link rel="stylesheet" href="~/Content/alu.css">
+
+<!--Menu aluguel-->
+<div class="menub">
+    <nav id="listab" class=" navbar navbar-fixed-bottom ">
+        <ul>
+            <li><button id="Ordenar">Ordenar</button></li>
+            <li><button id="Filtrar">Filtrar</button></li>
+        </ul>
+    </nav>
+</div>
+
+<!--espaço entre menu e div -->
+
+<a class="card" style="text-decoration:none" href="index.html">
+    <form id="primeiro">
+        <img src="~/Images/ofertas/civicpromo.png">
+    </form>
+</a>
+@foreach (var item in Model)
+{
+    <a class="card" style="text-decoration:none" href="reserva.html">
+        <form>
+            <div class="nome" align="left">
+                <h3>@item.Montadora @item.Modelo @item.AnoModelo </h3>
+            </div>
+            <div class="atributos" align="right">
+                <p>
+                    @item.Portas portas<br>
+                    @item.Lugares Lugares<br />
+                    Cor: @item.Cor <br />
+                    Automático <br>
+                    @if (item.VidroEletrico)
+                    {@:Vidros Elétricos <br />
+                    }
+                    @if (item.Abs)
+                    {@:Freios Abs <br>
+                    }
+                    @if (item.AirBag)
+                    {@:AirBag <br>
+                    }
+                    @if (item.DirecaoHidraulica)
+                    {@:Direção Hidráulica <br>
+                    }
+                    @if (item.ArCondicionado)
+                    {@:Ar Condicionado <br>
+                    }
+                    Combustível: @item.Combustivel
+                </p>
+            </div>
+            <div class="foto">
+                <img src="~/Images/ofertas/civ.png">
+            </div>
+            <div class="preco" align="right">
+                <h3>Valor da diária: @item.ValorDiaria.ToString("C") </h3>
+            </div>
+        </form>
+    </a>
+}
+<!--
+    <a style="text-decoration:none" href="reserva.html">
+        <form id="ultimo">
+            <div class="nome" align="left">
+                <h3>Civic 2019</h3>
+            </div>
+            <div class="atributos" align="right">
+                <p>4 portas<br>Automático</p>
+            </div>
+            <div class="foto">
+                <img src="~/Images/ofertas/civ.png">
+            </div>
+            <div class="preco" align="right">
+                <h3>R$ 130,00</h3>
+            </div>
+        </form>
+    </a>
+    -->

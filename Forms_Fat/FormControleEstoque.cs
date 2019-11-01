@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Data;
 using System.Linq;
@@ -69,7 +69,7 @@ namespace Dll_Forms_Fat
 		private void PreenchePeca(int id)
 		{
 
-			var peca = new EstoqueDao().GetDetalhe(id);
+			var peca = new EstoqueDao().GetById(id);
 
 			txtNomeSaida.Text = peca.Peca;
 		}

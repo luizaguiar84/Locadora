@@ -1,6 +1,6 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
-using Dll_Utilidades;
+﻿using BsFat;
+using DbFat;
+using Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -48,7 +48,7 @@ namespace Dll_Forms_Fat
 		private void GetMotoristas()
 		{
 
-			var motoristas = new ClientesPFDao().GetMotoristas();
+			var motoristas = new MotoristasDao().GetMotoristas();
 
 			comboMotorista.DataSource = motoristas;
 			comboMotorista.DisplayMember = "Nome";
@@ -91,7 +91,7 @@ namespace Dll_Forms_Fat
 			var veiculo = (Veiculos)comboCarros.SelectedItem;
 			c.VeiculoId = veiculo.Id;
 
-			var motorista = (ClientesPF)comboMotorista.SelectedItem;
+			var motorista = (Motoristas)comboMotorista.SelectedItem;
 			c.ClienteId = motorista.Id;
 
 			c.Placa = veiculo.Placa;
@@ -141,7 +141,7 @@ namespace Dll_Forms_Fat
 		private void BtnSalvarRetorno_Click(object sender, EventArgs e)
 		{
 			ControlePatio controle = (ControlePatio)comboCarrosForaPlaca.SelectedItem;
-			var veiculo = new VeiculosDao().GetVeiculo(controle.VeiculoId);
+			var veiculo = new VeiculosDao().GetById(controle.VeiculoId);
 
 			if (RegistraRetorno(controle, veiculo))
 			{

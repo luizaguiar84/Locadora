@@ -1,10 +1,10 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class EnderecosDao : IDbBanco<Enderecos>
 	{
@@ -34,7 +34,7 @@ namespace Dll_DB_Fat
 
 		public List<Enderecos> GetAll()
 		{
-			return new DbKernel().GetAll<Enderecos>();
+			return new DbKernel.Db_Kernel().GetAll<Enderecos>();
 		}
 
 		public Enderecos GetRegistroPorCodigo(int classeId, string registro)
@@ -42,7 +42,7 @@ namespace Dll_DB_Fat
 			throw new NotImplementedException();
 		}
 
-		public Enderecos GetEndereco(int enderecoId)
+		public Enderecos GetById(int enderecoId)
 		{
 			return GetAll()
 					.Where(e => e.Id == enderecoId)

@@ -1,32 +1,32 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class ClientesPjDao : IDbBanco<ClientesPJ>
 	{
 		public bool DbAdd(ClientesPJ registro)
 		{
-			return new DbKernel().DbAdd(registro);
+			return new DbKernel.Db_Kernel().DbAdd(registro);
 		}
 
 		public bool DbUpdate(ClientesPJ registro)
 		{
-			return new DbKernel().DbUpdate(registro);
+			return new DbKernel.Db_Kernel().DbUpdate(registro);
 		}
 
 		public bool DeleteRegistro(ClientesPJ registro)
 		{
-			return new DbKernel().DeleteRegistro<ClientesPJ>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<ClientesPJ>(registro);
 		}
 
 		public List<ClientesPJ> GetAll()
 		{
-			return new DbKernel().GetAll<ClientesPJ>();
+			return new DbKernel.Db_Kernel().GetAll<ClientesPJ>();
 		}
 
 		public ClientesPJ GetRegistroPorCodigo(int classeId, string registro)
@@ -52,13 +52,13 @@ namespace Dll_DB_Fat
 
 			return null;
 		}
-		public ClientesPJ GetCliente(int clienteId)
+		public ClientesPJ GetById(int clienteId)
 		{
 			var cliente = GetAll()
 				.Where(c => c.Id == clienteId)
 				.SingleOrDefault();
 
-			cliente.Endereco = new EnderecosDao().GetEndereco(cliente.EnderecoId);
+			cliente.Endereco = new EnderecosDao().GetById(cliente.EnderecoId);
 			cliente.Locacao = new ClienteLocacaoDao().GetLocacoes(cliente.Id);
 
 			return cliente;

@@ -1,6 +1,6 @@
-namespace Dll_BS_Fat
+namespace BsFat
 {
-	public enum @string
+	public enum Cor
 	{
 		Amarelo,
 		Azul,
@@ -16,11 +16,7 @@ namespace Dll_BS_Fat
 		Vermelho
 	}
 
-	public enum TipoCliente
-	{
-		PF,
-		PJ
-	}
+
 
 	public enum Combustivel
 	{

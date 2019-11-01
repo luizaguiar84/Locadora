@@ -1,17 +1,17 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class FuncionariosDao : IDbBanco<Funcionarios>
 	{
 
 		public List<Funcionarios> GetAll()
 		{
-			return new DbKernel().GetAll<Funcionarios>();
+			return new DbKernel.Db_Kernel().GetAll<Funcionarios>();
 		}
 
 		public List<Funcionarios> DbSearch(string filtro, string pesquisa)
@@ -54,36 +54,36 @@ namespace Dll_DB_Fat
 
 			int id = Convert.ToInt32(buscaId);
 
-			return GetFuncionario(id);
+			return GetById(id);
 
 		}
 
-		public Funcionarios GetFuncionario(int id)
+		public Funcionarios GetById(int id)
 		{
 			var funcionario = new FuncionariosDao().GetAll()
 				.Where(f => f.Id == id)
 				.SingleOrDefault();
 
-			funcionario.Cnh = new CnhsDao().GetCnh(funcionario.CnhId);
-			funcionario.Endereco = new EnderecosDao().GetEndereco(funcionario.EnderecoId);
+			funcionario.Cnh = new CnhsDao().GetById(funcionario.CnhId);
+			funcionario.Endereco = new EnderecosDao().GetById(funcionario.EnderecoId);
 
 			return funcionario;
 		}
 
 		public bool DbAdd(Funcionarios registro)
 		{
-			return new DbKernel().DbAdd<Funcionarios>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Funcionarios>(registro);
 		}
 
 		public bool DbUpdate(Funcionarios registro)
 		{
-			return new DbKernel().DbUpdate<Funcionarios>(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<Funcionarios>(registro);
 		}
 
 
 		public bool DeleteRegistro(Funcionarios registro)
 		{
-			return new DbKernel().DeleteRegistro<Funcionarios>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Funcionarios>(registro);
 		}
 
 		public Funcionarios GetRegistroPorCodigo(int classeId, string registro)

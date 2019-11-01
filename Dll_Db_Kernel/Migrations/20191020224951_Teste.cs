@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Dll_Db_Kernel.Migrations
+namespace DbKernel.Migrations
 {
     public partial class Teste : Migration
     {

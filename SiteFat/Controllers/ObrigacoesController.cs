@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace SiteFat.Controllers
 		// GET: Obrigacoes/Details/5
 		public ActionResult Detalhes(int id)
 		{
-			var obrigacao = new ObrigacoesDao().GetObrigacao(id);
+			var obrigacao = new ObrigacoesDao().GetById(id);
 			return View(obrigacao);
 		}
 
@@ -48,7 +48,7 @@ namespace SiteFat.Controllers
 		// GET: Obrigacoes/Edit/5
 		public ActionResult Editar(int id)
 		{
-			var obrigacao = new ObrigacoesDao().GetObrigacao(id);
+			var obrigacao = new ObrigacoesDao().GetById(id);
 			return View(obrigacao);
 		}
 
@@ -71,7 +71,7 @@ namespace SiteFat.Controllers
 		// GET: Obrigacoes/Delete/5
 		public ActionResult Deletar(int id)
 		{
-			var obrigacoes = new ObrigacoesDao().GetObrigacao(id);
+			var obrigacoes = new ObrigacoesDao().GetById(id);
 			new ObrigacoesDao().DeleteRegistro(obrigacoes);
 
 			return RedirectToAction("Index", "Veiculos");

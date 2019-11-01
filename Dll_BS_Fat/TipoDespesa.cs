@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Dll_BS_Fat
+namespace BsFat
 {
 	public class TipoDespesa : BaseModel
 	{

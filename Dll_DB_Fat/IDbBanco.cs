@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public interface IDbBanco<T>
 	{
@@ -8,7 +8,7 @@ namespace Dll_DB_Fat
 		bool DbUpdate(T registro);
 		List<T> GetAll();
 		bool DeleteRegistro(T registro);
-		T GetRegistroPorCodigo(int classeId, string registro);
+		T GetById(int id);
 
 	}
 }

@@ -1,6 +1,6 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
-using Dll_Utilidades;
+﻿using BsFat;
+using DbFat;
+using Utilidades;
 using System;
 using System.Windows.Forms;
 
@@ -44,7 +44,7 @@ namespace Dll_Forms_Fat
 		}
 		private void MaskedCpf_Leave(object sender, EventArgs e)
 		{
-			if (!Utilidades.ValidarCpf(maskedCpf.Text))
+			if (!Utilidades.Utilidades.ValidarCpf(maskedCpf.Text))
 			{
 				MessageBox.Show("CPF inválido, digite novamente");
 				maskedCpf.Text = "";
@@ -193,7 +193,7 @@ namespace Dll_Forms_Fat
 				try
 				{
 					var enderecos = new string[4];
-					enderecos = Utilidades.BuscaCep(maskedCEP);
+					enderecos = Utilidades.Utilidades.BuscaCep(maskedCEP);
 
 					if (enderecos != null)
 					{

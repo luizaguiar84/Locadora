@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace SiteFat.Controllers
 		// GET: ControlePatio/Details/5
 		public ActionResult Detalhes(int id)
         {
-			var controle = new ControlePatioDao().GetControle(id);
+			var controle = new ControlePatioDao().GetById(id);
             return View(controle);
         }
 
@@ -56,7 +56,7 @@ namespace SiteFat.Controllers
 
 		public ActionResult RegistrarRetorno (int id)
 		{
-			var retorno = new ControlePatioDao().GetControle(id);
+			var retorno = new ControlePatioDao().GetById(id);
 			
 			return View(retorno);
 		}
@@ -69,7 +69,7 @@ namespace SiteFat.Controllers
 				controle.DataRetorno = DateTime.Now;
 				controle.HoraRetorno = DateTime.Now.TimeOfDay;
 
-				var veiculo = new VeiculosDao().GetVeiculo(controle.VeiculoId);
+				var veiculo = new VeiculosDao().GetById(controle.VeiculoId);
 
 				new ControlePatioDao().RegistraRetorno(controle, veiculo);
 				
@@ -85,7 +85,7 @@ namespace SiteFat.Controllers
         // GET: ControlePatio/Edit/5
         public ActionResult Editar(int id)
         {
-			var controle = new ControlePatioDao().GetControle(id);
+			var controle = new ControlePatioDao().GetById(id);
             return View();
         }
 
@@ -108,7 +108,7 @@ namespace SiteFat.Controllers
         // GET: ControlePatio/Delete/5
         public ActionResult Deletar(int id)
         {
-			var controle = new ControlePatioDao().GetControle(id);
+			var controle = new ControlePatioDao().GetById(id);
             return View(controle);
         }
 

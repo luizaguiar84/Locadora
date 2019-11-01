@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Dll_Db_Kernel
+namespace DbKernel
 {
 	public class ConnectionFactory
 	{

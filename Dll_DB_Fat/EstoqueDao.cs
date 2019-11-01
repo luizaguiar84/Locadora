@@ -1,22 +1,22 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class EstoqueDao : IDbBanco<Estoque>
 	{
 		public bool DeleteRegistro(Estoque registro)
 		{
-			return new DbKernel().DeleteRegistro<Estoque>(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Estoque>(registro);
 		}
 
 
 		public List<Estoque> GetAll()
 		{
-			return new DbKernel().GetAll<Estoque>();
+			return new DbKernel.Db_Kernel().GetAll<Estoque>();
 		}
 
 		public Estoque GetRegistroPorCodigo(int classeId, string registro)
@@ -26,10 +26,10 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Estoque registro)
 		{
-			return new DbKernel().DbAdd<Estoque>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Estoque>(registro);
 		}
 
-		public Estoque GetDetalhe(int id)
+		public Estoque GetById(int id)
 		{
 			return GetAll()
 				.Where(e => e.Id == id)
@@ -38,7 +38,7 @@ namespace Dll_DB_Fat
 
 		public bool DbUpdate(Estoque update)
 		{
-			return new DbKernel().DbUpdate<Estoque>(update);
+			return new DbKernel.Db_Kernel().DbUpdate<Estoque>(update);
 		}
 	}
 }

@@ -173,17 +173,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dll_BS_Fat\Dll_BS_Fat.csproj">
+    <ProjectReference Include="..\Dll_BS_Fat\BsFat.csproj">
       <Project>{12956BBE-710D-4CC3-92EB-5C9E6F28BB4B}</Project>
-      <Name>Dll_BS_Fat</Name>
+      <Name>BsFat</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dll_DB_Fat\Dll_DB_Fat.csproj">
+    <ProjectReference Include="..\Dll_DB_Fat\DbFat.csproj">
       <Project>{adcbfe08-4399-4869-a4f6-c98881af0795}</Project>
-      <Name>Dll_DB_Fat</Name>
+      <Name>DbFat</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dll_Utilidades\Dll_Utilidades.csproj">
+    <ProjectReference Include="..\Dll_Utilidades\Utilidades.csproj">
       <Project>{aea76a19-ddf3-4ee6-91dd-82228fdeed25}</Project>
-      <Name>Dll_Utilidades</Name>
+      <Name>Utilidades</Name>
     </ProjectReference>
     <ProjectReference Include="..\Forms_Fat\Dll_Forms_Fat.csproj">
       <Project>{4f254bb6-9a02-4301-abb4-c694c4fa36d5}</Project>

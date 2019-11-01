@@ -1,11 +1,11 @@
-﻿using Dll_BS_Fat;
-using Dll_Db_Kernel;
+﻿using BsFat;
+using DbKernel;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace Dll_DB_Fat
+namespace DbFat
 {
 	public class LocacoesDao : IDbBanco<Locacoes>
 	{
@@ -28,12 +28,12 @@ namespace Dll_DB_Fat
 
 		public bool DbAdd(Locacoes registro)
 		{
-			return new DbKernel().DbAdd<Locacoes>(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Locacoes>(registro);
 		}
 
 		public bool DbUpdate(Locacoes registro)
 		{
-			return new DbKernel().DbUpdate<Locacoes>(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<Locacoes>(registro);
 		}
 		public DataTable GetViewLocacoes()
 		{
@@ -65,6 +65,11 @@ namespace Dll_DB_Fat
 				return q;
 			}
 
+		}
+
+		public Locacoes GetById(int id)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

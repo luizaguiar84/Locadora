@@ -1,9 +1,9 @@
-﻿using Dll_BS_Fat;
+﻿using BsFat;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using System.Linq;
 
-namespace Dll_Db_Kernel
+namespace DbKernel
 {
 	public class LocadoraContext : DbContext
 	{
@@ -12,7 +12,7 @@ namespace Dll_Db_Kernel
 
 
 		public DbSet<Abastecimentos> Abastecimentos { get; set; }
-		public DbSet<ClientesPF> ClientesPF { get; set; }
+		public DbSet<Motoristas> ClientesPF { get; set; }
 		public DbSet<ClientesPJ> ClientesPJ { get; set; }
 		public DbSet<Cnhs> Cnhs { get; set; }
 		public DbSet<Enderecos> Enderecos { get; set; }

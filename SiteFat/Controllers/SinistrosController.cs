@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace SiteFat.Controllers
         // GET: Sinistros/Details/5
         public ActionResult Detalhes(int id)
         {
-			var sinistro = new SinistrosDao().GetSinistro(id);
+			var sinistro = new SinistrosDao().GetById(id);
             return View(sinistro);
         }
 
@@ -49,7 +49,7 @@ namespace SiteFat.Controllers
         // GET: Sinistros/Edit/5
         public ActionResult Editar(int id)
         {
-			var sinistro = new SinistrosDao().GetSinistro(id);
+			var sinistro = new SinistrosDao().GetById(id);
             return View(sinistro);
         }
 
@@ -71,7 +71,7 @@ namespace SiteFat.Controllers
         // GET: Sinistros/Delete/5
         public ActionResult Deletar(int id)
         {
-			var sinistro = new SinistrosDao().GetSinistro(id);
+			var sinistro = new SinistrosDao().GetById(id);
             return View(sinistro);
         }
 

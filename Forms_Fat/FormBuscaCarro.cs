@@ -1,4 +1,4 @@
-﻿using Dll_DB_Fat;
+﻿using DbFat;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -36,7 +36,7 @@ namespace Dll_Forms_Fat
 		{
 			int veiculoId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
-			var veiculo = new VeiculosDao().GetVeiculo(veiculoId);
+			var veiculo = new VeiculosDao().GetById(veiculoId);
 
 			var form = new FormCadastrarVeiculo(veiculo)
 			{

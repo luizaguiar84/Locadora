@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Dll_BS_Fat
+namespace BsFat
 {
 	public class Despesas : BaseModel
 	{

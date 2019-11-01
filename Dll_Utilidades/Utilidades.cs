@@ -1,4 +1,4 @@
-﻿namespace Dll_Utilidades
+﻿namespace Utilidades
 {
     using Caelum.Stella.CSharp.Format;
     using Caelum.Stella.CSharp.Validation;

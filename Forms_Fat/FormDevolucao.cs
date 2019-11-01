@@ -1,5 +1,5 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
+﻿using BsFat;
+using DbFat;
 using System;
 using System.Windows.Forms;
 
@@ -7,9 +7,9 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormDevolucao : Form
 	{
-		private ClientesPF cliente;
+		private Motoristas cliente;
 
-		public ClientesPF Cliente { get; private set; }
+		public Motoristas Cliente { get; private set; }
 		public Locacoes Locacao { get; private set; }
 		public Veiculos Veiculo { get; private set; }
 
@@ -23,7 +23,7 @@ namespace Dll_Forms_Fat
 
 		}
 
-		public FormDevolucao(ClientesPF cliente)
+		public FormDevolucao(Motoristas cliente)
 		{
 			InitializeComponent();
 			this.cliente = cliente;
@@ -103,7 +103,7 @@ namespace Dll_Forms_Fat
 			//}
 		}
 
-		private void PreencherDados(ClientesPF c, Locacoes l)
+		private void PreencherDados(Motoristas c, Locacoes l)
 		{
 			txtNomeCliente.Text = c.Nome;
 			txtRetirada.Text = l.DataInicio.ToString();

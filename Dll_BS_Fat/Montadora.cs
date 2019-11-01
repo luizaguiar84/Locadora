@@ -1,5 +1,5 @@
 
-namespace Dll_BS_Fat
+namespace BsFat
 {
 	public class Montadora : BaseModel
 	{

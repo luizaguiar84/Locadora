@@ -1,6 +1,6 @@
-﻿using Dll_BS_Fat;
-using Dll_DB_Fat;
-using Dll_Utilidades;
+﻿using BsFat;
+using DbFat;
+using Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
