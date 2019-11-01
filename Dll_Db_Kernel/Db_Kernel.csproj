@@ -141,6 +141,10 @@
     <Compile Include="Migrations\20191020224951_Teste.designer.cs">
       <DependentUpon>20191020224951_Teste.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191101035759_TrocaDeClienteComMotorista.cs" />
+    <Compile Include="Migrations\20191101035759_TrocaDeClienteComMotorista.designer.cs">
+      <DependentUpon>20191101035759_TrocaDeClienteComMotorista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
