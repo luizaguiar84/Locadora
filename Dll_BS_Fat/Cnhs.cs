@@ -20,6 +20,7 @@ namespace BsFat
 
 		#endregion
 
+		#region Atributos
 		#region Anotações
 		[Key]
 		#endregion
@@ -30,7 +31,7 @@ namespace BsFat
 		[Display(Name = "Número da CNH", Description = "Número da CNH")]
 		[MaxLength(20)]
 		#endregion
-				public string Numero { get; set; }
+		public string Numero { get; set; }
 
 		#region Anotações
 		[Required(ErrorMessage = "Favor selecionar a categoria da CNH")]
@@ -50,7 +51,8 @@ namespace BsFat
 		[DataType(DataType.Date)]
 		[Display(Name = "Data de validade")]
 		#endregion
-		public DateTime Validade { get; set; }
+		public DateTime Validade { get; set; } 
+		#endregion
 
 
 

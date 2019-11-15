@@ -1,0 +1,107 @@
+﻿@model Dll_BS_Fat.ControlePatio
+
+@{
+    ViewBag.Title = "Registrar Retorno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RegistrarRetorno</h2>
+
+@using (Html.BeginForm("RegistrarRetorno", "ControlePatio"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Registrar Retorno do Veículo</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Status)
+        @Html.HiddenFor(model => model.VeiculoId)
+        @Html.HiddenFor(model => model.ClienteId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Placa, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Placa, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.Placa)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.DataSaida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.DataSaida)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoraSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.HoraSaida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.HoraSaida)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KmSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.KmSaida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.KmSaida)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NivelCombustivelSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.NivelCombustivelSaida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.NivelCombustivelSaida)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LiberadoSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.LiberadoSaida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.LiberadoSaida)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ObservacoesSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.ObservacoesSaida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.ObservacoesSaida)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EstadoRetorno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EstadoRetorno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EstadoRetorno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NivelCombustivelRetorno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NivelCombustivelRetorno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NivelCombustivelRetorno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KmRetorno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KmRetorno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KmRetorno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RecolhidoRetorno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RecolhidoRetorno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RecolhidoRetorno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar à Lista", "Index")
+</div>

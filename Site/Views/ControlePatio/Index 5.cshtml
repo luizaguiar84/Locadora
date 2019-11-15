@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Dll_BS_Fat.ControlePatio>
+
+@{
+    ViewBag.Title = "Controle de pátio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Carros Fora</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Saida", "Adicionar")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KmSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelCombustivelSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LiberadoSaida)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KmSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelCombustivelSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiberadoSaida)
+        </td>
+       
+
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Registrar Retorno", "RegistrarRetorno", new { id = item.Id}) |
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

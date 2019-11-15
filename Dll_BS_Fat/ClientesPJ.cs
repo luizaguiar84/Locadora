@@ -41,6 +41,7 @@ namespace BsFat
 		}
 		#endregion
 
+		#region Atributos
 		#region Anotações
 		[Key]
 		#endregion
@@ -105,6 +106,7 @@ namespace BsFat
 		public string TelComercial { get; set; }
 
 		public ICollection<ClienteLocacao> Locacao { get; set; }
-		public ICollection<Veiculos> ListaVeiculos { get; set; }
+		public ICollection<Veiculos> ListaVeiculos { get; set; } 
+		#endregion
 	}
 }

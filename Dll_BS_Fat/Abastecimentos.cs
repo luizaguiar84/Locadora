@@ -5,6 +5,7 @@ namespace BsFat
 {
 	public class Abastecimentos : BaseModel
 	{
+		#region Construtores
 		public Abastecimentos()
 		{
 		}
@@ -17,7 +18,9 @@ namespace BsFat
 			ValorUnitario = valorUnitario;
 			VeiculoId = veiculoId;
 		}
+		#endregion
 
+		#region Atributos
 		public int Id { get; set; }
 
 		[Required(ErrorMessage = "Favor informar a data do abastecimento")]
@@ -44,6 +47,7 @@ namespace BsFat
 
 		public int VeiculoId { get; set; }
 
-		public virtual Veiculos Veiculo { get; set; }
+		public virtual Veiculos Veiculo { get; set; } 
+		#endregion
 	}
 }

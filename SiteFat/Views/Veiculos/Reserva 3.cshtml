@@ -1,0 +1,383 @@
+﻿@model Dll_BS_Fat.Veiculos
+
+@{
+    ViewBag.Title = "Reserva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reserva</h2>
+
+<div>
+    <h4>Veiculo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAtivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAtivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Montadora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Montadora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnoModelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnoModelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Portas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Portas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renavam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renavam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chassi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chassi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lugares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lugares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quilometragem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quilometragem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Combustivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Combustivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorAtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorAtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorDiaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorDiaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAquisicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAquisicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArCondicionado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArCondicionado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirecaoHidraulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirecaoHidraulica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VidroEletrico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VidroEletrico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AirBag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AirBag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abs)
+        </dd>
+    </dl>
+    <hr />
+    <h4>Pneus</h4>
+    <a href="~/Pneus/Adicionar?veiculoId=@Model.Id">Adicionar novo Pneu...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Modelo
+            </th>
+            <th>
+                Marca
+            </th>
+            <th>
+                Quilometros Rodados
+            </th>
+            <th>
+                Mais Detalhes
+            </th>
+        </tr>
+        @{foreach (var pneu in Model.Pneu)
+            {
+
+                <tr>
+                    <td>
+                        @pneu.Modelo
+                    </td>
+                    <td>
+                        @pneu.Marca
+                    </td>
+                    <td>
+                        @pneu.KmAtual.ToString()
+                    </td>
+                    <td>
+                        <a href="~/Pneus/Details/@pneu.Id">Detalhes...</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <hr />
+    <h4>Manutenções</h4>
+    <a href="~/Manutencoes/Adicionar?veiculoId=@Model.Id">Adicionar nova Manutenção...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var manutencao in Model.Manutencao)
+        {
+            <tr>
+                <td>
+                    @manutencao.Data.Day/@manutencao.Data.Month/@manutencao.Data.Year
+                </td>
+                <td>
+                    @manutencao.Descricao
+                </td>
+                <td>
+                    @manutencao.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Manutencoes/Detalhes/@manutencao.Id">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <hr />
+    <h4>Obrigações</h4>
+    <a href="~/Obrigacoes/Adicionar?veiculoId=@Model.Id">Adicionar nova Obrigação...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var obrigacao in Model.Obrigacoes)
+        {
+            <tr>
+                <td>
+                    @obrigacao.Data.Day/@obrigacao.Data.Month/@obrigacao.Data.Year
+                </td>
+                <td>
+                    @obrigacao.Descricao
+                </td>
+                <td>
+                    @obrigacao.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Obrigacoes/Detalhes/@obrigacao.Id">Detalhes...</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <hr />
+    <h4>Multas</h4>
+    <a href="~/Multas/Adicionar?veiculoId=@Model.Id">Adicionar nova Multa...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var multa in Model.Multas)
+        {
+            <tr>
+                <td>
+                    @multa.DataMulta.Day/@multa.DataMulta.Month/@multa.DataMulta.Year
+                </td>
+                <td>
+                    @multa.Descricao
+                </td>
+                <td>
+                    @multa.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Multas/Detalhes/@multa.Id">Detalhes...</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+    <hr />
+    <h4>Sinistros</h4>
+    <a href="~/Sinistros/Adicionar?veiculoId=@Model.Id">Adicionar novo Sinistro...</a>
+    <table class="table-bordered">
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Detalhes
+            </th>
+        </tr>
+        @foreach (var sinistro in Model.Sinistros)
+        {
+            <tr>
+                <td>
+                    @sinistro.Data.Day/@sinistro.Data.Month/@sinistro.Data.Year
+                </td>
+                <td>
+                    @sinistro.Descricao
+                </td>
+                <td>
+                    @sinistro.Valor.ToString("C")
+                </td>
+                <td>
+                    <a href="~/Sinistros/Detalhes/@sinistro.Id">Detalhes...</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+<hr />
+<p>
+    @Html.ActionLink("Voltar à Lista", "Index") |
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Deletar", "Deletar", new { id = Model.Id })
+</p>

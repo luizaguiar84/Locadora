@@ -55,6 +55,7 @@ namespace BsFat
 
 		#endregion
 
+		#region Atributos
 		#region Anotações
 		[Key]
 		#endregion
@@ -144,7 +145,7 @@ namespace BsFat
 		[DisplayFormat(DataFormatString = "{0,c}")]
 		[Display(Name = "Valor da diária")]
 		[DataType(DataType.Currency)]
-		[Range(1,9999, ErrorMessage ="O {0} deve estar entre {1} e {2}")]
+		[Range(1, 9999, ErrorMessage = "O {0} deve estar entre {1} e {2}")]
 		#endregion
 		public decimal ValorDiaria { get; set; }
 
@@ -209,7 +210,8 @@ namespace BsFat
 		public virtual ICollection<Sinistros> Sinistros { get; set; }
 		public virtual ICollection<Obrigacoes> Obrigacoes { get; set; }
 		public virtual ICollection<Multas> Multas { get; set; }
-		public virtual ICollection<Pneus> Pneu { get; set; }
+		public virtual ICollection<Pneus> Pneu { get; set; } 
+		#endregion
 
 		public int CompareTo(object obj)
 		{
