@@ -7,7 +7,7 @@ namespace BsFat
 
 		public Motoristas Build()
 		{
-			return new Motoristas(Nome, Rg, Cpf, Nascimento, Email, TelResidencial, TelComercial, TelCelular, IsAtivo, Cnh, Endereco);
+			return new Motoristas(Nome, Rg, Cpf, Nascimento, Email, TelResidencial, TelCelular, IsAtivo, Cnh, Endereco);
 		}
 		public MotoristasBuilder GetRg(string rg)
 		{
@@ -30,11 +30,11 @@ namespace BsFat
 			this.TelResidencial = telResidencial;
 			return this;
 		}
-		public MotoristasBuilder GetTelComercial(string telComercial)
-		{
-			this.TelComercial = telComercial;
-			return this;
-		}
+		//public MotoristasBuilder GetTelComercial(string telComercial)
+		//{
+		//	this.TelComercial = telComercial;
+		//	return this;
+		//}
 		public MotoristasBuilder GetTelCelular(string telCelular)
 		{
 			this.TelCelular = telCelular;

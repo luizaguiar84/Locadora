@@ -27,17 +27,20 @@ namespace DbFat
 
 		public bool ConfereUsuario(Usuarios usuario)
 		{
-			var testaUsuario = GetAll()
+			if (usuario != null)
+			{
+				var testaUsuario = GetAll()
 				.Where(u => u.Login == usuario.Login)
 				.SingleOrDefault();
-			if (testaUsuario != null)
-			{
-				if (testaUsuario.Password == usuario.Password)
+				if (testaUsuario != null)
 				{
-					return true;
+					if (testaUsuario.Password == usuario.Password)
+					{
+						return true;
+					}
 				}
-			}
-			return false;
+			}		
+   		return false;
 		}
 
 		public Usuarios GetById(int usuarioId)

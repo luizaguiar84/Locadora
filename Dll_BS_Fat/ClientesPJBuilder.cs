@@ -1,11 +1,13 @@
-﻿namespace BsFat
+﻿using System;
+
+namespace BsFat
 {
 	public class ClientesPJBuilder : ClientesPJ
 	{
 
 		public ClientesPJ Build()
 		{
-			return new ClientesPJ(IsAtivo, RazaoSocial, Contato, Email, Cnpj, Ie, Endereco, TelComercial);
+			return new ClientesPJ(IsAtivo, RazaoSocial, Contato, Email, Cnpj, Ie, Endereco, TelComercial, TelCelular);
 		}
 		public ClientesPJBuilder GetIsAtivo(bool ativo)
 		{
@@ -45,6 +47,12 @@
 		public ClientesPJBuilder GetTelComercial(string telComercial)
 		{
 			this.TelComercial = telComercial;
+			return this;
+		}
+
+		public ClientesPJBuilder GetTelCelular(string telCelular)
+		{
+			this.TelCelular = telCelular;
 			return this;
 		}
 	}

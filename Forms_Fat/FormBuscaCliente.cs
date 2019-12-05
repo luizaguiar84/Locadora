@@ -15,7 +15,8 @@ namespace Dll_Forms_Fat
 
 		private void FormBuscaCliente_Load(object sender, EventArgs e)
 		{
-
+			ComboFiltro.Items.Add("Razão Social");
+			ComboFiltro.Items.Add("CNPJ");
 		}
 		private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -23,13 +24,14 @@ namespace Dll_Forms_Fat
 
 			if (ComboFiltro.Text == "Pessoa Fisica")
 			{
-				var cliente = new MotoristasDao().GetById(clienteId);
-				var form = new FormCadastrarCliente(cliente)
-				{
-					MdiParent = this.ParentForm
-				};
-				this.Close();
-				form.Show();
+				MessageBox.Show("Olha no codigo!");
+				//var cliente = new MotoristasDao().GetById(clienteId);
+				//var form = new FormCadastrarCliente(cliente)
+				//{
+				//	MdiParent = this.ParentForm
+				//};
+				//this.Close();
+				//form.Show();
 			}
 			else
 			{
@@ -53,46 +55,46 @@ namespace Dll_Forms_Fat
 			{
 				MessageBox.Show("Favor selecionar um filtro para a busca.");
 			}
-			if (string.IsNullOrWhiteSpace(ComboTipo.Text))
-			{
-				MessageBox.Show("Favor Escolher o tipo de cliente a ser buscado.");
-			}
+			//if (string.IsNullOrWhiteSpace(ComboTipo.Text))
+			//{
+			//	MessageBox.Show("Favor Escolher o tipo de cliente a ser buscado.");
+			//}
 			else
 			{
-				if (ComboFiltro.Text == "Pessoa Física")
-				{
-					var source = new MotoristasDao().DbSearch(ComboFiltro.Text, txtPesquisa.Text);
-					dataGridView1.DataSource = source;
-					dataGridView1.Visible = true;
-				}
-				else
-				{
+				//if (ComboFiltro.Text == "Pessoa Física")
+				//{
+				//	var source = new MotoristasDao().DbSearch(ComboFiltro.Text, txtPesquisa.Text);
+				//	dataGridView1.DataSource = source;
+				//	dataGridView1.Visible = true;
+				//}
+				//else
+				//{
 					var source = new ClientesPjDao().DbSearch(ComboFiltro.Text, txtPesquisa.Text);
 					dataGridView1.DataSource = source;
 					dataGridView1.Visible = true;
-				}
+				//}
 			}
 		}
 
-		private void ComboTipo_SelectedValueChanged(object sender, EventArgs e)
-		{
-			if (ComboTipo.Text == "Pessoa Jurídica")
-			{
-				ComboFiltro.Items.Add("Razão Social");
-				ComboFiltro.Items.Add("CNPJ");
-				ComboFiltro.Items.Remove("Nome");
-				ComboFiltro.Items.Remove("RG");
-				ComboFiltro.Items.Remove("CPF");
+		//private void ComboTipo_SelectedValueChanged(object sender, EventArgs e)
+		//{
+		//	if (ComboTipo.Text == "Pessoa Jurídica")
+		//	{
+		//		ComboFiltro.Items.Add("Razão Social");
+		//		ComboFiltro.Items.Add("CNPJ");
+		//		ComboFiltro.Items.Remove("Nome");
+		//		ComboFiltro.Items.Remove("RG");
+		//		ComboFiltro.Items.Remove("CPF");
 
-			}
-			else
-			{
-				ComboFiltro.Items.Add("Nome");
-				ComboFiltro.Items.Add("RG");
-				ComboFiltro.Items.Add("CPF");
-				ComboFiltro.Items.Remove("Razão Social");
-				ComboFiltro.Items.Remove("CNPJ");
-			}
-		}
+		//	}
+		//	else
+		//	{
+		//		ComboFiltro.Items.Add("Nome");
+		//		ComboFiltro.Items.Add("RG");
+		//		ComboFiltro.Items.Add("CPF");
+		//		ComboFiltro.Items.Remove("Razão Social");
+		//		ComboFiltro.Items.Remove("CNPJ");
+		//	}
+		//}
 	}
 }

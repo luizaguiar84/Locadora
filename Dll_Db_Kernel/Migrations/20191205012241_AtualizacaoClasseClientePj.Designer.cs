@@ -4,14 +4,16 @@ using DbKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbKernel.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20191205012241_AtualizacaoClasseClientePj")]
+    partial class AtualizacaoClasseClientePj
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,6 +266,8 @@ namespace DbKernel.Migrations
 
                     b.Property<DateTime>("Admissao");
 
+                    b.Property<int>("CnhId");
+
                     b.Property<string>("Cpf")
                         .IsRequired();
 
@@ -271,8 +275,7 @@ namespace DbKernel.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
+                    b.Property<DateTime?>("Demissao");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -282,7 +285,8 @@ namespace DbKernel.Migrations
 
                     b.Property<bool>("IsAtivo");
 
-                    b.Property<DateTime>("Nascimento");
+                    b.Property<DateTime?>("Nascimento")
+                        .IsRequired();
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -311,11 +315,11 @@ namespace DbKernel.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CnhId");
+
                     b.HasIndex("EnderecoId");
 
                     b.ToTable("Funcionarios");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Funcionarios");
                 });
 
             modelBuilder.Entity("BsFat.Locacoes", b =>
@@ -395,6 +399,51 @@ namespace DbKernel.Migrations
                     b.HasIndex("VeiculoId");
 
                     b.ToTable("Manutencoes");
+                });
+
+            modelBuilder.Entity("BsFat.Motoristas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CnhId");
+
+                    b.Property<string>("Cpf")
+                        .IsRequired();
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<int>("EnderecoId");
+
+                    b.Property<bool>("IsAtivo");
+
+                    b.Property<DateTime>("Nascimento");
+
+                    b.Property<string>("Nome")
+                        .IsRequired();
+
+                    b.Property<string>("Rg")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.Property<string>("TelCelular")
+                        .HasMaxLength(14);
+
+                    b.Property<string>("TelComercial");
+
+                    b.Property<string>("TelResidencial")
+                        .HasMaxLength(14);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CnhId");
+
+                    b.HasIndex("EnderecoId");
+
+                    b.ToTable("ClientesPF");
                 });
 
             modelBuilder.Entity("BsFat.Multas", b =>
@@ -630,17 +679,6 @@ namespace DbKernel.Migrations
                     b.ToTable("Veiculos");
                 });
 
-            modelBuilder.Entity("BsFat.Motoristas", b =>
-                {
-                    b.HasBaseType("BsFat.Funcionarios");
-
-                    b.Property<int>("CnhId");
-
-                    b.HasIndex("CnhId");
-
-                    b.HasDiscriminator().HasValue("Motoristas");
-                });
-
             modelBuilder.Entity("BsFat.Abastecimentos", b =>
                 {
                     b.HasOne("BsFat.Veiculos", "Veiculo")
@@ -684,6 +722,11 @@ namespace DbKernel.Migrations
 
             modelBuilder.Entity("BsFat.Funcionarios", b =>
                 {
+                    b.HasOne("BsFat.Cnhs", "Cnh")
+                        .WithMany()
+                        .HasForeignKey("CnhId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("BsFat.Enderecos", "Endereco")
                         .WithMany()
                         .HasForeignKey("EnderecoId")
@@ -707,6 +750,19 @@ namespace DbKernel.Migrations
                     b.HasOne("BsFat.Veiculos", "Veiculo")
                         .WithMany("Manutencao")
                         .HasForeignKey("VeiculoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("BsFat.Motoristas", b =>
+                {
+                    b.HasOne("BsFat.Cnhs", "Cnh")
+                        .WithMany()
+                        .HasForeignKey("CnhId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BsFat.Enderecos", "Endereco")
+                        .WithMany()
+                        .HasForeignKey("EnderecoId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
@@ -755,14 +811,6 @@ namespace DbKernel.Migrations
                     b.HasOne("BsFat.ClientesPJ")
                         .WithMany("ListaVeiculos")
                         .HasForeignKey("ClientesPJId");
-                });
-
-            modelBuilder.Entity("BsFat.Motoristas", b =>
-                {
-                    b.HasOne("BsFat.Cnhs", "Cnh")
-                        .WithMany()
-                        .HasForeignKey("CnhId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

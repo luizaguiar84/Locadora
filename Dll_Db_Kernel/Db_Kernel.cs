@@ -106,7 +106,7 @@ namespace DbKernel
 			}
 		}
 
-		public T GetRegistroPorCodigo<T>(int idClasse, string idBuscado) 
+		public T GetRegistroPorCodigo<T>(int idClasse, string idBuscado)
 			where T : class
 		{
 			if (idBuscado != "")

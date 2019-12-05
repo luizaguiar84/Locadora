@@ -15,7 +15,7 @@ namespace BsFat
 			this.Locacao = new List<ClienteLocacao>();
 		}
 
-		public ClientesPJ(bool isAtivo, string razaoSocial, string contato, string email, string cnpj, string ie, Enderecos endereco, string telComercial)
+		public ClientesPJ(bool isAtivo, string razaoSocial, string contato, string email, string cnpj, string ie, Enderecos endereco, string telComercial, string telCelular)
 		{
 			IsAtivo = isAtivo;
 			RazaoSocial = razaoSocial;
@@ -25,6 +25,7 @@ namespace BsFat
 			Ie = ie;
 			Endereco = endereco;
 			TelComercial = telComercial;
+			TelCelular = telCelular;
 			this.ListaVeiculos = new List<Veiculos>();
 			this.Locacao = new List<ClienteLocacao>();
 		}
@@ -104,6 +105,8 @@ namespace BsFat
 		[Display(Name = "Telefone Comercial")]
 		#endregion
 		public string TelComercial { get; set; }
+
+		public string TelCelular { get; set; }
 
 		public ICollection<ClienteLocacao> Locacao { get; set; }
 		public ICollection<Veiculos> ListaVeiculos { get; set; } 

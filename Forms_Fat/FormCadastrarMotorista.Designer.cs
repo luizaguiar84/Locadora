@@ -29,29 +29,18 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarMotorista));
-			this.btnAddMotorista = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtCnh = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtCategoria = new System.Windows.Forms.TextBox();
 			this.btnSalvar = new System.Windows.Forms.Button();
-			this.maskedEmitida = new System.Windows.Forms.MaskedTextBox();
 			this.lblEmitida = new System.Windows.Forms.Label();
-			this.maskedValidade = new System.Windows.Forms.MaskedTextBox();
 			this.lblValidade = new System.Windows.Forms.Label();
-			this.comboMotoristas = new System.Windows.Forms.ComboBox();
+			this.dateEmitida = new System.Windows.Forms.DateTimePicker();
+			this.dateValidade = new System.Windows.Forms.DateTimePicker();
+			this.txtNomeMotorista = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
-			// 
-			// btnAddMotorista
-			// 
-			this.btnAddMotorista.Location = new System.Drawing.Point(285, 30);
-			this.btnAddMotorista.Name = "btnAddMotorista";
-			this.btnAddMotorista.Size = new System.Drawing.Size(20, 21);
-			this.btnAddMotorista.TabIndex = 0;
-			this.btnAddMotorista.Text = "+";
-			this.btnAddMotorista.UseVisualStyleBackColor = true;
-			this.btnAddMotorista.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// label1
 			// 
@@ -105,18 +94,6 @@
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.Button3_Click);
 			// 
-			// maskedEmitida
-			// 
-			this.maskedEmitida.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-			this.maskedEmitida.HidePromptOnLeave = true;
-			this.maskedEmitida.Location = new System.Drawing.Point(15, 114);
-			this.maskedEmitida.Mask = "00/00/0000";
-			this.maskedEmitida.Name = "maskedEmitida";
-			this.maskedEmitida.Size = new System.Drawing.Size(75, 20);
-			this.maskedEmitida.TabIndex = 245;
-			this.maskedEmitida.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-			this.maskedEmitida.ValidatingType = typeof(System.DateTime);
-			// 
 			// lblEmitida
 			// 
 			this.lblEmitida.AutoSize = true;
@@ -126,35 +103,37 @@
 			this.lblEmitida.TabIndex = 244;
 			this.lblEmitida.Text = "Emitida em:";
 			// 
-			// maskedValidade
-			// 
-			this.maskedValidade.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-			this.maskedValidade.HidePromptOnLeave = true;
-			this.maskedValidade.Location = new System.Drawing.Point(99, 114);
-			this.maskedValidade.Mask = "00/00/0000";
-			this.maskedValidade.Name = "maskedValidade";
-			this.maskedValidade.Size = new System.Drawing.Size(75, 20);
-			this.maskedValidade.TabIndex = 243;
-			this.maskedValidade.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-			this.maskedValidade.ValidatingType = typeof(System.DateTime);
-			// 
 			// lblValidade
 			// 
 			this.lblValidade.AutoSize = true;
-			this.lblValidade.Location = new System.Drawing.Point(96, 98);
+			this.lblValidade.Location = new System.Drawing.Point(114, 98);
 			this.lblValidade.Name = "lblValidade";
 			this.lblValidade.Size = new System.Drawing.Size(51, 13);
 			this.lblValidade.TabIndex = 242;
 			this.lblValidade.Text = "Validade:";
 			// 
-			// comboMotoristas
+			// dateEmitida
 			// 
-			this.comboMotoristas.FormattingEnabled = true;
-			this.comboMotoristas.Location = new System.Drawing.Point(15, 30);
-			this.comboMotoristas.Name = "comboMotoristas";
-			this.comboMotoristas.Size = new System.Drawing.Size(264, 21);
-			this.comboMotoristas.TabIndex = 246;
-			this.comboMotoristas.SelectedIndexChanged += new System.EventHandler(this.ComboMotoristas_SelectedIndexChanged);
+			this.dateEmitida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dateEmitida.Location = new System.Drawing.Point(15, 115);
+			this.dateEmitida.Name = "dateEmitida";
+			this.dateEmitida.Size = new System.Drawing.Size(85, 20);
+			this.dateEmitida.TabIndex = 247;
+			// 
+			// dateValidade
+			// 
+			this.dateValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dateValidade.Location = new System.Drawing.Point(117, 114);
+			this.dateValidade.Name = "dateValidade";
+			this.dateValidade.Size = new System.Drawing.Size(85, 20);
+			this.dateValidade.TabIndex = 248;
+			// 
+			// txtNomeMotorista
+			// 
+			this.txtNomeMotorista.Location = new System.Drawing.Point(12, 31);
+			this.txtNomeMotorista.Name = "txtNomeMotorista";
+			this.txtNomeMotorista.Size = new System.Drawing.Size(267, 20);
+			this.txtNomeMotorista.TabIndex = 249;
 			// 
 			// FormCadastrarMotorista
 			// 
@@ -162,10 +141,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(329, 213);
-			this.Controls.Add(this.comboMotoristas);
-			this.Controls.Add(this.maskedEmitida);
+			this.Controls.Add(this.txtNomeMotorista);
+			this.Controls.Add(this.dateValidade);
+			this.Controls.Add(this.dateEmitida);
 			this.Controls.Add(this.lblEmitida);
-			this.Controls.Add(this.maskedValidade);
 			this.Controls.Add(this.lblValidade);
 			this.Controls.Add(this.btnSalvar);
 			this.Controls.Add(this.txtCategoria);
@@ -173,7 +152,6 @@
 			this.Controls.Add(this.txtCnh);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btnAddMotorista);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormCadastrarMotorista";
 			this.Text = "Motoristas";
@@ -184,18 +162,16 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Button btnAddMotorista;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtCnh;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txtCategoria;
 		private System.Windows.Forms.Button btnSalvar;
-		private System.Windows.Forms.MaskedTextBox maskedEmitida;
 		private System.Windows.Forms.Label lblEmitida;
-		private System.Windows.Forms.MaskedTextBox maskedValidade;
 		private System.Windows.Forms.Label lblValidade;
-		private System.Windows.Forms.ComboBox comboMotoristas;
+		private System.Windows.Forms.DateTimePicker dateEmitida;
+		private System.Windows.Forms.DateTimePicker dateValidade;
+		private System.Windows.Forms.TextBox txtNomeMotorista;
 	}
 }

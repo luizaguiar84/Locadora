@@ -64,12 +64,12 @@ namespace Dll_Forms_Fat
 				.GetUf(txtUF.Text);
 			var endereco = enderecoBuilder.Build();
 
-			CnhsBuilder cnhBuilder = new CnhsBuilder()
-				.GetEmissao(dateCnhEmitida.Value)
-				.GetValidade(dateCnhValidade.Value)
-				.GetNumero(txtCNH.Text)
-				.GetCategoria(comboCategoriaCnh.Text);
-			var cnh = cnhBuilder.Build();
+			//CnhsBuilder cnhBuilder = new CnhsBuilder()
+			//	.GetEmissao(dateCnhEmitida.Value)
+			//	.GetValidade(dateCnhValidade.Value)
+			//	.GetNumero(txtCNH.Text)
+			//	.GetCategoria(comboCategoriaCnh.Text);
+			//var cnh = cnhBuilder.Build();
 
 			FuncionariosBuilder FBuilder = new FuncionariosBuilder()
 				.GetNome(txtNome.Text)
@@ -84,15 +84,15 @@ namespace Dll_Forms_Fat
 				.GetPis(txtPIS.Text)
 				.GetTituloEleitor(txtTitEleitor.Text)
 				.GetNascimento(dateNascimento.Value)
-				.GetDemissao(dateDemissao.Value)
-				.GetEndereco(endereco)
-				.GetCnh(cnh);
+				//.GetDemissao(dateDemissao.Value)
+				.GetEndereco(endereco);
+				//.GetCnh(cnh)
 
 			funcionario = FBuilder.Build();
 
 			int id = Convert.ToInt32(txtId.Text);
 
-			funcionario.Cnh.Id = id;
+			//funcionario.Cnh.Id = id;
 			funcionario.Endereco.Id = id;
 
 			new FuncionariosDao().DbUpdate(funcionario);
@@ -100,14 +100,15 @@ namespace Dll_Forms_Fat
 			this.Controls.LimparTextBoxes();
 			this.groupEndereco.Controls.LimparTextBoxes();
 		}
-		private void CadastrarNovoFuncionario()
+		private void CadastrarNovoFuncionario(Funcionarios funcionario)
 		{
-			CnhsBuilder cnhBuilder = new CnhsBuilder()
-				.GetEmissao(dateCnhEmitida.Value)
-				.GetValidade(dateCnhValidade.Value)
-				.GetNumero(txtCNH.Text)
-				.GetCategoria(comboCategoriaCnh.Text);
-			var cnh = cnhBuilder.Build();
+			
+			//CnhsBuilder cnhBuilder = new CnhsBuilder()
+			//	.GetEmissao(dateCnhEmitida.Value)
+			//	.GetValidade(dateCnhValidade.Value)
+			//	.GetNumero(txtCNH.Text)
+			//	.GetCategoria(comboCategoriaCnh.Text);
+			//var cnh = cnhBuilder.Build();
 
 			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
 				.GetCep(maskedCEP.Text)
@@ -132,14 +133,21 @@ namespace Dll_Forms_Fat
 				.GetPis(txtPIS.Text)
 				.GetTituloEleitor(txtTitEleitor.Text)
 				.GetNascimento(dateNascimento.Value)
-				.GetDemissao(dateDemissao.Value)
-				.GetEndereco(endereco)
-				.GetCnh(cnh);
+				//.GetDemissao(dateDemissao.Value)
+				.GetEndereco(endereco);
+				//.GetCnh(cnh);
 
-			Funcionarios funcionario = FBuilder.Build();
-
-			
+			 funcionario = FBuilder.Build();
 			new FuncionariosDao().DbAdd(funcionario);
+
+			if (MessageBox.Show("Adicionar uma CNH ao funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				var cadastrarCnh = new FormCadastrarMotorista(funcionario)
+				{
+
+				};
+			}
+
 			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
 
 			this.Controls.LimparTextBoxes();
@@ -160,11 +168,11 @@ namespace Dll_Forms_Fat
 			txtPIS.Text = f.Pis;
 			txtTitEleitor.Text = f.TituloEleitor;
 			dateNascimento.Text = f.Nascimento.ToString();
-			dateDemissao.Value = f.Demissao.Value;
-			txtCNH.Text = f.Cnh.Numero;
-			comboCategoriaCnh.Text = f.Cnh.Categoria;
-			dateCnhEmitida.Value = f.Cnh.Emissao;
-			dateCnhValidade.Value = f.Cnh.Validade;
+			//dateDemissao.Value = f.Demissao.Value;
+			//txtCNH.Text = f.Cnh.Numero;
+			//comboCategoriaCnh.Text = f.Cnh.Categoria;
+			//dateCnhEmitida.Value = f.Cnh.Emissao;
+			//dateCnhValidade.Value = f.Cnh.Validade;
 			maskedCEP.Text = f.Endereco.Cep;
 			txtLogradouro.Text = f.Endereco.Logradouro;
 			txtNumero.Text = f.Endereco.Num;
@@ -174,15 +182,17 @@ namespace Dll_Forms_Fat
 		}
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
+			var funcionario = new Funcionarios();
 
 			if (txtId.Text != "")
 			{
-				var funcionario = new FuncionariosDao().GetFuncionario(txtId.Text);
+				funcionario = new FuncionariosDao().GetFuncionario(txtId.Text);
 				AtualizarFuncionario(funcionario);
 			}
+
 			else
 			{
-				CadastrarNovoFuncionario();
+				CadastrarNovoFuncionario(funcionario);
 			}
 
 		}

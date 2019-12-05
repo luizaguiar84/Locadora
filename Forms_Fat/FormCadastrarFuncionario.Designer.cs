@@ -42,7 +42,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtCTPS = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
 			this.groupEndereco = new System.Windows.Forms.GroupBox();
 			this.maskedCEP = new System.Windows.Forms.MaskedTextBox();
 			this.lblCep = new System.Windows.Forms.Label();
@@ -58,17 +57,12 @@
 			this.txtComplemento = new System.Windows.Forms.TextBox();
 			this.txtCidade = new System.Windows.Forms.TextBox();
 			this.lblBairro = new System.Windows.Forms.Label();
-			this.lblEmitida = new System.Windows.Forms.Label();
 			this.txtTelCel = new System.Windows.Forms.MaskedTextBox();
 			this.lblTelCel = new System.Windows.Forms.Label();
 			this.txtTelRes = new System.Windows.Forms.MaskedTextBox();
 			this.lblTelRes = new System.Windows.Forms.Label();
-			this.lblValidade = new System.Windows.Forms.Label();
 			this.lblProfissao = new System.Windows.Forms.Label();
-			this.lblCategoria = new System.Windows.Forms.Label();
-			this.txtCNH = new System.Windows.Forms.TextBox();
 			this.lblNascimento = new System.Windows.Forms.Label();
-			this.lblCNH = new System.Windows.Forms.Label();
 			this.maskedCpf = new System.Windows.Forms.MaskedTextBox();
 			this.lblCpf = new System.Windows.Forms.Label();
 			this.lblRG = new System.Windows.Forms.Label();
@@ -79,12 +73,8 @@
 			this.txtNome = new System.Windows.Forms.TextBox();
 			this.btnSalvar = new System.Windows.Forms.Button();
 			this.dateAdmissao = new System.Windows.Forms.DateTimePicker();
-			this.dateDemissao = new System.Windows.Forms.DateTimePicker();
 			this.dateNascimento = new System.Windows.Forms.DateTimePicker();
-			this.dateCnhValidade = new System.Windows.Forms.DateTimePicker();
-			this.dateCnhEmitida = new System.Windows.Forms.DateTimePicker();
 			this.btnLocalizar = new System.Windows.Forms.Button();
-			this.comboCategoriaCnh = new System.Windows.Forms.ComboBox();
 			this.txtSalario = new System.Windows.Forms.MaskedTextBox();
 			this.groupEndereco.SuspendLayout();
 			this.SuspendLayout();
@@ -196,15 +186,6 @@
 			this.label2.Size = new System.Drawing.Size(39, 13);
 			this.label2.TabIndex = 369;
 			this.label2.Text = "Nº PIS";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(16, 156);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(79, 13);
-			this.label1.TabIndex = 368;
-			this.label1.Text = "Data Demissão";
 			// 
 			// groupEndereco
 			// 
@@ -353,15 +334,6 @@
 			this.lblBairro.TabIndex = 13;
 			this.lblBairro.Text = "Bairro";
 			// 
-			// lblEmitida
-			// 
-			this.lblEmitida.AutoSize = true;
-			this.lblEmitida.Location = new System.Drawing.Point(382, 156);
-			this.lblEmitida.Name = "lblEmitida";
-			this.lblEmitida.Size = new System.Drawing.Size(61, 13);
-			this.lblEmitida.TabIndex = 366;
-			this.lblEmitida.Text = "Emitida em:";
-			// 
 			// txtTelCel
 			// 
 			this.txtTelCel.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
@@ -401,15 +373,6 @@
 			this.lblTelRes.TabIndex = 361;
 			this.lblTelRes.Text = "Telefone Res.";
 			// 
-			// lblValidade
-			// 
-			this.lblValidade.AutoSize = true;
-			this.lblValidade.Location = new System.Drawing.Point(484, 155);
-			this.lblValidade.Name = "lblValidade";
-			this.lblValidade.Size = new System.Drawing.Size(51, 13);
-			this.lblValidade.TabIndex = 364;
-			this.lblValidade.Text = "Validade:";
-			// 
 			// lblProfissao
 			// 
 			this.lblProfissao.AutoSize = true;
@@ -419,22 +382,6 @@
 			this.lblProfissao.TabIndex = 360;
 			this.lblProfissao.Text = "Data Admissão";
 			// 
-			// lblCategoria
-			// 
-			this.lblCategoria.AutoSize = true;
-			this.lblCategoria.Location = new System.Drawing.Point(328, 156);
-			this.lblCategoria.Name = "lblCategoria";
-			this.lblCategoria.Size = new System.Drawing.Size(55, 13);
-			this.lblCategoria.TabIndex = 365;
-			this.lblCategoria.Text = "Categoria:";
-			// 
-			// txtCNH
-			// 
-			this.txtCNH.Location = new System.Drawing.Point(124, 172);
-			this.txtCNH.Name = "txtCNH";
-			this.txtCNH.Size = new System.Drawing.Size(205, 20);
-			this.txtCNH.TabIndex = 348;
-			// 
 			// lblNascimento
 			// 
 			this.lblNascimento.AutoSize = true;
@@ -443,15 +390,6 @@
 			this.lblNascimento.Size = new System.Drawing.Size(80, 13);
 			this.lblNascimento.TabIndex = 358;
 			this.lblNascimento.Text = "Dt. Nascimento";
-			// 
-			// lblCNH
-			// 
-			this.lblCNH.AutoSize = true;
-			this.lblCNH.Location = new System.Drawing.Point(121, 156);
-			this.lblCNH.Name = "lblCNH";
-			this.lblCNH.Size = new System.Drawing.Size(88, 13);
-			this.lblCNH.TabIndex = 363;
-			this.lblCNH.Text = "Número da CNH:";
 			// 
 			// maskedCpf
 			// 
@@ -543,14 +481,6 @@
 			this.dateAdmissao.Size = new System.Drawing.Size(98, 20);
 			this.dateAdmissao.TabIndex = 312;
 			// 
-			// dateDemissao
-			// 
-			this.dateDemissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateDemissao.Location = new System.Drawing.Point(18, 172);
-			this.dateDemissao.Name = "dateDemissao";
-			this.dateDemissao.Size = new System.Drawing.Size(98, 20);
-			this.dateDemissao.TabIndex = 377;
-			// 
 			// dateNascimento
 			// 
 			this.dateNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -558,22 +488,6 @@
 			this.dateNascimento.Name = "dateNascimento";
 			this.dateNascimento.Size = new System.Drawing.Size(98, 20);
 			this.dateNascimento.TabIndex = 378;
-			// 
-			// dateCnhValidade
-			// 
-			this.dateCnhValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateCnhValidade.Location = new System.Drawing.Point(487, 172);
-			this.dateCnhValidade.Name = "dateCnhValidade";
-			this.dateCnhValidade.Size = new System.Drawing.Size(98, 20);
-			this.dateCnhValidade.TabIndex = 379;
-			// 
-			// dateCnhEmitida
-			// 
-			this.dateCnhEmitida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateCnhEmitida.Location = new System.Drawing.Point(383, 172);
-			this.dateCnhEmitida.Name = "dateCnhEmitida";
-			this.dateCnhEmitida.Size = new System.Drawing.Size(98, 20);
-			this.dateCnhEmitida.TabIndex = 380;
 			// 
 			// btnLocalizar
 			// 
@@ -584,21 +498,6 @@
 			this.btnLocalizar.Text = "Localizar...";
 			this.btnLocalizar.UseVisualStyleBackColor = true;
 			this.btnLocalizar.Click += new System.EventHandler(this.BtnLocalizar_Click);
-			// 
-			// comboCategoriaCnh
-			// 
-			this.comboCategoriaCnh.FormattingEnabled = true;
-			this.comboCategoriaCnh.Items.AddRange(new object[] {
-            "A",
-            "AB",
-            "B",
-            "C",
-            "D",
-            "E"});
-			this.comboCategoriaCnh.Location = new System.Drawing.Point(335, 171);
-			this.comboCategoriaCnh.Name = "comboCategoriaCnh";
-			this.comboCategoriaCnh.Size = new System.Drawing.Size(43, 21);
-			this.comboCategoriaCnh.TabIndex = 382;
 			// 
 			// txtSalario
 			// 
@@ -618,12 +517,8 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.ControlBox = false;
 			this.Controls.Add(this.txtSalario);
-			this.Controls.Add(this.comboCategoriaCnh);
 			this.Controls.Add(this.btnLocalizar);
-			this.Controls.Add(this.dateCnhEmitida);
-			this.Controls.Add(this.dateCnhValidade);
 			this.Controls.Add(this.dateNascimento);
-			this.Controls.Add(this.dateDemissao);
 			this.Controls.Add(this.dateAdmissao);
 			this.Controls.Add(this.comboCargo);
 			this.Controls.Add(this.label9);
@@ -638,19 +533,13 @@
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.txtCTPS);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.groupEndereco);
-			this.Controls.Add(this.lblEmitida);
 			this.Controls.Add(this.txtTelCel);
 			this.Controls.Add(this.lblTelCel);
 			this.Controls.Add(this.txtTelRes);
 			this.Controls.Add(this.lblTelRes);
-			this.Controls.Add(this.lblValidade);
 			this.Controls.Add(this.lblProfissao);
-			this.Controls.Add(this.lblCategoria);
-			this.Controls.Add(this.txtCNH);
 			this.Controls.Add(this.lblNascimento);
-			this.Controls.Add(this.lblCNH);
 			this.Controls.Add(this.maskedCpf);
 			this.Controls.Add(this.lblCpf);
 			this.Controls.Add(this.lblRG);
@@ -686,7 +575,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txtCTPS;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.GroupBox groupEndereco;
 		private System.Windows.Forms.MaskedTextBox maskedCEP;
 		private System.Windows.Forms.Label lblCep;
@@ -702,17 +590,12 @@
 		private System.Windows.Forms.TextBox txtComplemento;
 		private System.Windows.Forms.TextBox txtCidade;
 		private System.Windows.Forms.Label lblBairro;
-		private System.Windows.Forms.Label lblEmitida;
 		private System.Windows.Forms.MaskedTextBox txtTelCel;
 		private System.Windows.Forms.Label lblTelCel;
 		private System.Windows.Forms.MaskedTextBox txtTelRes;
 		private System.Windows.Forms.Label lblTelRes;
-		private System.Windows.Forms.Label lblValidade;
 		private System.Windows.Forms.Label lblProfissao;
-		private System.Windows.Forms.Label lblCategoria;
-		private System.Windows.Forms.TextBox txtCNH;
 		private System.Windows.Forms.Label lblNascimento;
-		private System.Windows.Forms.Label lblCNH;
 		private System.Windows.Forms.MaskedTextBox maskedCpf;
 		private System.Windows.Forms.Label lblCpf;
 		private System.Windows.Forms.Label lblRG;
@@ -723,12 +606,8 @@
 		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.DateTimePicker dateAdmissao;
-		private System.Windows.Forms.DateTimePicker dateDemissao;
 		private System.Windows.Forms.DateTimePicker dateNascimento;
-		private System.Windows.Forms.DateTimePicker dateCnhValidade;
-		private System.Windows.Forms.DateTimePicker dateCnhEmitida;
 		private System.Windows.Forms.Button btnLocalizar;
-		private System.Windows.Forms.ComboBox comboCategoriaCnh;
 		private System.Windows.Forms.MaskedTextBox txtSalario;
 	}
 }

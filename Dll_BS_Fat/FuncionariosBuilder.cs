@@ -7,7 +7,7 @@ namespace BsFat
 
 		public Funcionarios Build()
 		{
-			return new Funcionarios(IsAtivo, Nome, Email, Endereco, Cnh, Rg, Cpf, Nascimento, TelResidencial, TelCelular, Salario, Admissao, Ctps, Pis, TituloEleitor, Demissao, Observacoes);
+			return new Funcionarios(IsAtivo, Nome, Email, Endereco, Rg, Cpf, Nascimento, TelResidencial, TelCelular, Salario, Admissao, Ctps, Pis, TituloEleitor, Observacoes);
 		}
 
 
@@ -31,11 +31,11 @@ namespace BsFat
 			this.Endereco = endereco;
 			return this;
 		}
-		public FuncionariosBuilder GetCnh(Cnhs cnh)
-		{
-			this.Cnh = cnh;
-			return this;
-		}
+		//public FuncionariosBuilder GetCnh(Cnhs cnh)
+		//{
+		//	this.Cnh = cnh;
+		//	return this;
+		//}
 		public FuncionariosBuilder GetRg(string rg)
 		{
 			this.Rg = rg;
@@ -86,11 +86,11 @@ namespace BsFat
 			this.TituloEleitor = tituloEleitor;
 			return this;
 		}
-		public FuncionariosBuilder GetDemissao(DateTime demissao)
-		{
-			this.Demissao = demissao;
-			return this;
-		}
+		//public FuncionariosBuilder GetDemissao(DateTime demissao)
+		//{
+		//	this.Demissao = demissao;
+		//	return this;
+		//}
 		public FuncionariosBuilder GetObservacoes(string observacoes)
 		{
 			this.Observacoes = observacoes;

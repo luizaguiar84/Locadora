@@ -10,16 +10,14 @@ namespace BsFat
 		public Funcionarios()
 		{
 			this.Endereco = new Enderecos();
-			this.Cnh = new Cnhs();
 		}
 
-		public Funcionarios(bool isAtivo, string nome, string email, Enderecos endereco, Cnhs cnh, string rg, string cpf, DateTime? nascimento, string telResidencial, string telCelular, decimal salario, DateTime admissao, string ctps, string pis, string tituloEleitor, DateTime? demissao, string observacoes)
+		public Funcionarios(bool isAtivo, string nome, string email, Enderecos endereco, string rg, string cpf, DateTime nascimento, string telResidencial, string telCelular, decimal salario, DateTime admissao, string ctps, string pis, string tituloEleitor, string observacoes)
 		{
 			IsAtivo = isAtivo;
 			Nome = nome;
 			Email = email;
 			Endereco = endereco;
-			Cnh = cnh;
 			Rg = rg;
 			Cpf = cpf;
 			Nascimento = nascimento;
@@ -30,7 +28,6 @@ namespace BsFat
 			Ctps = ctps;
 			Pis = pis;
 			TituloEleitor = tituloEleitor;
-			Demissao = demissao;
 			Observacoes = observacoes;
 		}
 
@@ -84,7 +81,7 @@ namespace BsFat
 		[RegularExpression(@"^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))| 
 		(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Data invalida")]
 		#endregion
-		public DateTime? Nascimento { get; set; }
+		public DateTime Nascimento { get; set; }
 
 		#region Anotações
 		[DataType(DataType.PhoneNumber)]
@@ -137,11 +134,11 @@ namespace BsFat
 		#endregion
 		public string TituloEleitor { get; set; }
 
-		#region Anotações
-		[DataType(DataType.Date)]
-		[Display(Name = "Data de Demissão")]
-		#endregion
-		public DateTime? Demissao { get; set; }
+		//#region Anotações
+		//[DataType(DataType.Date)]
+		//[Display(Name = "Data de Demissão")]
+		//#endregion
+		//public DateTime? Demissao { get; set; }
 
 		#region Anotações
 		[DataType(DataType.MultilineText)]
@@ -153,8 +150,8 @@ namespace BsFat
 
 		public Enderecos Endereco { get; set; }
 		public int EnderecoId { get; set; }
-		public Cnhs Cnh { get; set; }
-		public int CnhId { get; set; }
+		//public Cnhs Cnh { get; set; }
+		//public int CnhId { get; set; }
 
 
 		//public int CARGOS_IDCARGO { get; set; }

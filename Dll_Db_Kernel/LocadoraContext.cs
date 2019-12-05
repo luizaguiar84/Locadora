@@ -8,11 +8,12 @@ namespace DbKernel
 	public class LocadoraContext : DbContext
 	{
 		public string connectionString = //ConfigurationManager.ConnectionStrings["BdLocadora"].ConnectionString;
-			"Data Source=localhost;Initial Catalog=Locadora;Integrated Security=True";
+										 "Data Source=localhost;Initial Catalog=Locadora;Integrated Security=True";
+										//"Data Source=SQL5041.site4now.net;Initial Catalog=DB_A50851_fatcars;User Id=DB_A50851_fatcars_admin;Password=Fatcars0807";
 
 
 		public DbSet<Abastecimentos> Abastecimentos { get; set; }
-		public DbSet<Motoristas> ClientesPF { get; set; }
+		public DbSet<Motoristas> Motoristas { get; set; }
 		public DbSet<ClientesPJ> ClientesPJ { get; set; }
 		public DbSet<Cnhs> Cnhs { get; set; }
 		public DbSet<Enderecos> Enderecos { get; set; }

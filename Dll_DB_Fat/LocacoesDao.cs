@@ -46,16 +46,16 @@ namespace DbFat
 			{
 				var q =  from locacao in contexto.Locacoes
 					   join cl in contexto.ClienteLocacao on locacao.Id equals cl.LocacaoId
-					   join cliente in contexto.ClientesPF on cl.ClienteId equals cliente.Id
+					   join motorista in contexto.Motoristas on cl.ClienteId equals motorista.Id
 					   join veiculo in contexto.Veiculos on locacao.VeiculoId equals veiculo.Id
 					   where
-					   cliente.Id == cl.ClienteId &&
+					   motorista.Id == cl.ClienteId &&
 					   locacao.Id == cl.LocacaoId &&
 					   veiculo.Id == locacao.VeiculoId
 					   select new
 					   {
 						   OS = locacao.Id,
-						   Cliente = cliente.Nome,
+						   Cliente = motorista.Nome,
 						   VeiculoAlugado = veiculo.Modelo,
 						   veiculo.Placa,
 						   DataInicio = locacao.DataInicio,

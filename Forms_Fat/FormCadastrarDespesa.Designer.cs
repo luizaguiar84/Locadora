@@ -65,8 +65,7 @@
 			// 
 			// comboTipo
 			// 
-			this.comboTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-			this.comboTipo.FormattingEnabled = true;
+			this.comboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboTipo.Location = new System.Drawing.Point(179, 32);
 			this.comboTipo.Name = "comboTipo";
 			this.comboTipo.Size = new System.Drawing.Size(309, 21);
@@ -85,7 +84,7 @@
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.Location = new System.Drawing.Point(623, 33);
+			this.btnSalvar.Location = new System.Drawing.Point(623, 73);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(75, 21);
 			this.btnSalvar.TabIndex = 6;
@@ -115,7 +114,7 @@
 			// 
 			this.txtDescricao.Location = new System.Drawing.Point(18, 74);
 			this.txtDescricao.Name = "txtDescricao";
-			this.txtDescricao.Size = new System.Drawing.Size(680, 20);
+			this.txtDescricao.Size = new System.Drawing.Size(599, 20);
 			this.txtDescricao.TabIndex = 7;
 			// 
 			// label25

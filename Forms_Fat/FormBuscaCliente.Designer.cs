@@ -36,8 +36,6 @@
 			this.txtPesquisa = new System.Windows.Forms.TextBox();
 			this.btnPesquisar = new System.Windows.Forms.Button();
 			this.lblFiltro = new System.Windows.Forms.Label();
-			this.ComboTipo = new System.Windows.Forms.ComboBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
@@ -71,21 +69,21 @@
 			// ComboFiltro
 			// 
 			this.ComboFiltro.FormattingEnabled = true;
-			this.ComboFiltro.Location = new System.Drawing.Point(162, 63);
+			this.ComboFiltro.Location = new System.Drawing.Point(19, 55);
 			this.ComboFiltro.Name = "ComboFiltro";
 			this.ComboFiltro.Size = new System.Drawing.Size(121, 21);
 			this.ComboFiltro.TabIndex = 16;
 			// 
 			// txtPesquisa
 			// 
-			this.txtPesquisa.Location = new System.Drawing.Point(317, 64);
+			this.txtPesquisa.Location = new System.Drawing.Point(174, 56);
 			this.txtPesquisa.Name = "txtPesquisa";
-			this.txtPesquisa.Size = new System.Drawing.Size(180, 20);
+			this.txtPesquisa.Size = new System.Drawing.Size(312, 20);
 			this.txtPesquisa.TabIndex = 14;
 			// 
 			// btnPesquisar
 			// 
-			this.btnPesquisar.Location = new System.Drawing.Point(514, 62);
+			this.btnPesquisar.Location = new System.Drawing.Point(517, 56);
 			this.btnPesquisar.Name = "btnPesquisar";
 			this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
 			this.btnPesquisar.TabIndex = 15;
@@ -97,39 +95,17 @@
 			// 
 			this.lblFiltro.AutoSize = true;
 			this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.lblFiltro.Location = new System.Drawing.Point(158, 40);
+			this.lblFiltro.Location = new System.Drawing.Point(15, 32);
 			this.lblFiltro.Name = "lblFiltro";
 			this.lblFiltro.Size = new System.Drawing.Size(44, 20);
 			this.lblFiltro.TabIndex = 13;
 			this.lblFiltro.Text = "Filtro";
 			// 
-			// ComboTipo
-			// 
-			this.ComboTipo.FormattingEnabled = true;
-			this.ComboTipo.Items.AddRange(new object[] {
-            "Pessoa Física",
-            "Pessoa Jurídica"});
-			this.ComboTipo.Location = new System.Drawing.Point(12, 63);
-			this.ComboTipo.Name = "ComboTipo";
-			this.ComboTipo.Size = new System.Drawing.Size(121, 21);
-			this.ComboTipo.TabIndex = 19;
-			this.ComboTipo.SelectedValueChanged += new System.EventHandler(this.ComboTipo_SelectedValueChanged);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.label1.Location = new System.Drawing.Point(8, 40);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(114, 20);
-			this.label1.TabIndex = 20;
-			this.label1.Text = "Tipo do Cliente";
-			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			this.label2.Location = new System.Drawing.Point(313, 41);
+			this.label2.Location = new System.Drawing.Point(170, 33);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(54, 20);
 			this.label2.TabIndex = 21;
@@ -141,8 +117,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(715, 394);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.ComboTipo);
 			this.Controls.Add(this.lblConsultarClientes);
 			this.Controls.Add(this.ComboFiltro);
 			this.Controls.Add(this.txtPesquisa);
@@ -166,8 +140,6 @@
 		private System.Windows.Forms.TextBox txtPesquisa;
 		private System.Windows.Forms.Button btnPesquisar;
 		private System.Windows.Forms.Label lblFiltro;
-		private System.Windows.Forms.ComboBox ComboTipo;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 	}
 
