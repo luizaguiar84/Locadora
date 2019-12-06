@@ -58,6 +58,12 @@
     <Compile Include="FormAddTipoDespesa.Designer.cs">
       <DependentUpon>FormAddTipoDespesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdicionarCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdicionarCargo.Designer.cs">
+      <DependentUpon>FormAdicionarCargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscaCarro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormAddTipoDespesa.resx">
       <DependentUpon>FormAddTipoDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdicionarCargo.resx">
+      <DependentUpon>FormAdicionarCargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscaCarro.resx">
       <DependentUpon>FormBuscaCarro.cs</DependentUpon>

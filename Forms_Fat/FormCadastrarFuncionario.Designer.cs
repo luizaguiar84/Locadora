@@ -81,6 +81,7 @@
 			// 
 			// comboCargo
 			// 
+			this.comboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCargo.FormattingEnabled = true;
 			this.comboCargo.Location = new System.Drawing.Point(123, 132);
 			this.comboCargo.Name = "comboCargo";

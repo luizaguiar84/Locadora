@@ -30,12 +30,14 @@ namespace Dll_Forms_Fat
 		}
 		public FormCadastrarFuncionario(Funcionarios funcionario)
 		{
-			this.funcionario = funcionario;
 			InitializeComponent();
+			this.funcionario = funcionario;
 			PreencherFormulario(funcionario);
 		}
 		private void FormCadastrarFuncionario_Load(object sender, EventArgs e)
 		{
+			comboCargo.DataSource = new CargosDao().GetAll();		
+			comboCargo.DisplayMember = nameof(Cargos.Cargo);
 		}
 		private void Button2_Click(object sender, EventArgs e)
 		{

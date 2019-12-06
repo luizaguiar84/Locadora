@@ -35,6 +35,9 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtSeguroTerceiros = new System.Windows.Forms.TextBox();
 			this.btnSalvar = new System.Windows.Forms.Button();
+			this.comboCargos = new System.Windows.Forms.ComboBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -50,7 +53,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(46, 52);
+			this.label2.Location = new System.Drawing.Point(12, 52);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(139, 13);
 			this.label2.TabIndex = 1;
@@ -58,7 +61,7 @@
 			// 
 			// txtSegFurtoBatida
 			// 
-			this.txtSegFurtoBatida.Location = new System.Drawing.Point(49, 68);
+			this.txtSegFurtoBatida.Location = new System.Drawing.Point(157, 49);
 			this.txtSegFurtoBatida.Name = "txtSegFurtoBatida";
 			this.txtSegFurtoBatida.Size = new System.Drawing.Size(100, 20);
 			this.txtSegFurtoBatida.TabIndex = 2;
@@ -69,7 +72,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(224, 52);
+			this.label3.Location = new System.Drawing.Point(12, 88);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(117, 13);
 			this.label3.TabIndex = 3;
@@ -77,7 +80,7 @@
 			// 
 			// txtSeguroTerceiros
 			// 
-			this.txtSeguroTerceiros.Location = new System.Drawing.Point(227, 68);
+			this.txtSeguroTerceiros.Location = new System.Drawing.Point(157, 85);
 			this.txtSeguroTerceiros.Name = "txtSeguroTerceiros";
 			this.txtSeguroTerceiros.Size = new System.Drawing.Size(100, 20);
 			this.txtSeguroTerceiros.TabIndex = 4;
@@ -87,7 +90,7 @@
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.Location = new System.Drawing.Point(140, 131);
+			this.btnSalvar.Location = new System.Drawing.Point(197, 182);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(97, 48);
 			this.btnSalvar.TabIndex = 5;
@@ -95,12 +98,42 @@
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
 			// 
+			// comboCargos
+			// 
+			this.comboCargos.FormattingEnabled = true;
+			this.comboCargos.Location = new System.Drawing.Point(154, 124);
+			this.comboCargos.Name = "comboCargos";
+			this.comboCargos.Size = new System.Drawing.Size(121, 21);
+			this.comboCargos.TabIndex = 6;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(12, 132);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(40, 13);
+			this.label4.TabIndex = 7;
+			this.label4.Text = "Cargos";
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(296, 124);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(118, 23);
+			this.button1.TabIndex = 8;
+			this.button1.Text = "Adicionar cargo";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// FormDefinicoes
 			// 
 			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(394, 207);
+			this.ClientSize = new System.Drawing.Size(534, 252);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.comboCargos);
 			this.Controls.Add(this.btnSalvar);
 			this.Controls.Add(this.txtSeguroTerceiros);
 			this.Controls.Add(this.label3);
@@ -124,5 +157,8 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txtSeguroTerceiros;
 		private System.Windows.Forms.Button btnSalvar;
+		private System.Windows.Forms.ComboBox comboCargos;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button button1;
 	}
 }

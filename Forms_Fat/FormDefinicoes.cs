@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BsFat;
+using DbFat;
+using System;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -36,10 +38,15 @@ namespace Dll_Forms_Fat
 
 		private void FormTabelaDePrecos_Load(object sender, EventArgs e)
 		{
+			PreencheCargos();
 			//txtSeguroTerceiros.Text = Program.Valores.ValorSeguroTerceiros.ToString("F2");
 			//txtSegFurtoBatida.Text = Program.Valores.ValorSeguro.ToString("F2");
+		}
 
-
+		private void PreencheCargos()
+		{
+			comboCargos.DataSource = new CargosDao().GetAll();
+			comboCargos.DisplayMember = nameof(Cargos.Cargo);
 		}
 
 		private void TxtSegFurtoBatida_TextChanged(object sender, EventArgs e)
@@ -60,6 +67,12 @@ namespace Dll_Forms_Fat
 		private void txtSeguroTerceiros_Enter(object sender, EventArgs e)
 		{
 
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			var adicionarCargo = new FormAdicionarCargo();
+			adicionarCargo.Show();
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace BsFat
 
 		public Funcionarios Build()
 		{
-			return new Funcionarios(IsAtivo, Nome, Email, Endereco, Rg, Cpf, Nascimento, TelResidencial, TelCelular, Salario, Admissao, Ctps, Pis, TituloEleitor, Observacoes);
+			return new Funcionarios(IsAtivo, Nome, Email, Endereco, Rg, Cpf, Nascimento, TelResidencial, TelCelular, Salario, Admissao, Ctps, Pis, TituloEleitor, Observacoes, Cargo);
 		}
 
 
@@ -94,6 +94,11 @@ namespace BsFat
 		public FuncionariosBuilder GetObservacoes(string observacoes)
 		{
 			this.Observacoes = observacoes;
+			return this;
+		}
+		public FuncionariosBuilder GetCargo(Cargos cargo)
+		{
+			this.Cargo = cargo;
 			return this;
 		}
 

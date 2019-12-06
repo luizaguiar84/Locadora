@@ -12,7 +12,7 @@ namespace BsFat
 			this.Endereco = new Enderecos();
 		}
 
-		public Funcionarios(bool isAtivo, string nome, string email, Enderecos endereco, string rg, string cpf, DateTime nascimento, string telResidencial, string telCelular, decimal salario, DateTime admissao, string ctps, string pis, string tituloEleitor, string observacoes)
+		public Funcionarios(bool isAtivo, string nome, string email, Enderecos endereco, string rg, string cpf, DateTime nascimento, string telResidencial, string telCelular, decimal salario, DateTime admissao, string ctps, string pis, string tituloEleitor, string observacoes, Cargos cargo)
 		{
 			IsAtivo = isAtivo;
 			Nome = nome;
@@ -29,11 +29,7 @@ namespace BsFat
 			Pis = pis;
 			TituloEleitor = tituloEleitor;
 			Observacoes = observacoes;
-		}
-
-		public object GetMotoristas()
-		{
-			throw new NotImplementedException();
+			Cargo = cargo;
 		}
 
 		#endregion
@@ -142,11 +138,8 @@ namespace BsFat
 		public Cnhs Cnh { get; set; }
 		public int? CnhId { get; set; }
 
-		//#region Anotações
-		//[DataType(DataType.Date)]
-		//[Display(Name = "Data de Demissão")]
-		//#endregion
-		//public DateTime? Demissao { get; set; }
+		public Cargos Cargo { get; set; }
+		public int CargoId { get; set; }
 
 		#region Anotações
 		[DataType(DataType.MultilineText)]
@@ -154,13 +147,14 @@ namespace BsFat
 		#endregion
 		public string Observacoes { get; set; }
 
-
-
 		public Enderecos Endereco { get; set; }
 		public int EnderecoId { get; set; }
-		//public Cnhs Cnh { get; set; }
-		//public int CnhId { get; set; }
 
+		//#region Anotações
+		//[DataType(DataType.Date)]
+		//[Display(Name = "Data de Demissão")]
+		//#endregion
+		//public DateTime? Demissao { get; set; }
 
 		//public int CARGOS_IDCARGO { get; set; }
 		//public int USUARIOS_IDUSUARIO { get; set; }

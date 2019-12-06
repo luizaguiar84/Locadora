@@ -9,7 +9,7 @@ namespace DbKernel
 	{
 		public string connectionString = //ConfigurationManager.ConnectionStrings["BdLocadora"].ConnectionString;
 										 "Data Source=localhost;Initial Catalog=Locadora;Integrated Security=True";
-										//"Data Source=SQL5041.site4now.net;Initial Catalog=DB_A50851_fatcars;User Id=DB_A50851_fatcars_admin;Password=Fatcars0807";
+		//"Data Source=SQL5041.site4now.net;Initial Catalog=DB_A50851_fatcars;User Id=DB_A50851_fatcars_admin;Password=Fatcars0807";
 
 
 		public DbSet<Abastecimentos> Abastecimentos { get; set; }
@@ -32,7 +32,7 @@ namespace DbKernel
 		public DbSet<Pneus> Pneus { get; set; }
 		public DbSet<Locacoes> Locacoes { get; set; }
 		public DbSet<ClienteLocacao> ClienteLocacao { get; set; }
-		//public DbSet<Cargos> Cargos { get; set; }
+		public DbSet<Cargos> Cargos { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

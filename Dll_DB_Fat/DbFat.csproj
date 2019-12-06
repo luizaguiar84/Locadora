@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbastecimentosDao.cs" />
+    <Compile Include="CargosDao.cs" />
     <Compile Include="ClienteLocacaoDao.cs" />
     <Compile Include="MotoristasDao.cs" />
     <Compile Include="ClientesPjDao.cs" />
