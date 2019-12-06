@@ -28,6 +28,8 @@ namespace BsFat
 			TelCelular = telCelular;
 			this.ListaVeiculos = new List<Veiculos>();
 			this.Locacao = new List<ClienteLocacao>();
+			this.ListaDeFuncionarios = new List<Funcionarios>();
+
 		}
 		public ClientesPJ(string razaoSocial, string contato, string email, string cnpj, string ie)
 		{
@@ -39,6 +41,7 @@ namespace BsFat
 			this.Endereco = new Enderecos();
 			this.ListaVeiculos = new List<Veiculos>();
 			this.Locacao = new List<ClienteLocacao>();
+			this.ListaDeFuncionarios = new List<Funcionarios>();
 		}
 		#endregion
 
@@ -109,7 +112,8 @@ namespace BsFat
 		public string TelCelular { get; set; }
 
 		public ICollection<ClienteLocacao> Locacao { get; set; }
-		public ICollection<Veiculos> ListaVeiculos { get; set; } 
+		public ICollection<Veiculos> ListaVeiculos { get; set; }
+		public ICollection<Funcionarios> ListaDeFuncionarios { get; set; }
 		#endregion
 	}
 }

@@ -18,8 +18,8 @@ namespace Dll_Forms_Fat
 
 		private void RadioButton3_CheckedChanged(object sender, EventArgs e)
 		{
-			var cliente = new MotoristasDao();
-			var listaClientes = cliente.GetAll();
+			var cliente = new FuncionariosDao();
+			var listaClientes = cliente.GetMotoristas();
 
 		}
 	}

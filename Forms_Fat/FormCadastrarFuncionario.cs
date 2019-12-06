@@ -144,8 +144,9 @@ namespace Dll_Forms_Fat
 			{
 				var cadastrarCnh = new FormCadastrarMotorista(funcionario)
 				{
-
+					
 				};
+				cadastrarCnh.Show();
 			}
 
 			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");

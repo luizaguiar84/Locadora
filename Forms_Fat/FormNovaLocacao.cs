@@ -171,7 +171,7 @@ namespace Dll_Forms_Fat
 		private void PreencherComboBoxes()
 		{
 
-			var cliente = new MotoristasDao().GetAll()
+			var cliente = new FuncionariosDao().GetMotoristas()
 				.Where(c => c.IsAtivo)
 				.ToList();
 
@@ -187,9 +187,9 @@ namespace Dll_Forms_Fat
 
 		}
 
-		private Motoristas GetCliente()
+		private Funcionarios GetCliente()
 		{
-			return (Motoristas)comboCliente.SelectedItem;
+			return (Funcionarios)comboCliente.SelectedItem;
 		}
 
 		private Veiculos GetVeiculo()

@@ -17,9 +17,9 @@ namespace Dll_Forms_Fat
 
 		public FormCadastrarMotorista(Funcionarios funcionario)
 		{
+			InitializeComponent();
 			this.funcionario = funcionario;
 			PreencheCampos(funcionario);
-			InitializeComponent();
 		}
 
 		private void PreencheCampos(Funcionarios funcionario)
@@ -29,17 +29,18 @@ namespace Dll_Forms_Fat
 
 		private void Button3_Click(object sender, EventArgs e)
 		{
-			Motoristas motorista = new Motoristas();
-			motorista = funcionario as Motoristas;
-			CnhsBuilder cnh = new CnhsBuilder();
-			cnh.GetNumero(txtCnh.Text)
-				.GetCategoria(txtCategoria.Text)
-				.GetEmissao(dateEmitida.Value.Date)
-				.GetValidade(dateValidade.Value.Date);
 			
-			motorista.Cnh = cnh.Build();
+			
+			var cnh = new CnhsBuilder()
+			.GetNumero(txtCnh.Text)
+			.GetCategoria(txtCategoria.Text)
+			.GetEmissao(dateEmitida.Value.Date)
+			.GetValidade(dateValidade.Value.Date)
+			.Build();
+			
+			funcionario.Cnh = cnh;
 
-			if (new MotoristasDao().DbUpdate(motorista))
+			if (new FuncionariosDao().DbUpdate(funcionario))
 			{
 				MessageBox.Show("Motorista adicionado com sucesso!");
 				this.Hide();

@@ -48,7 +48,7 @@ namespace Dll_Forms_Fat
 		private void GetMotoristas()
 		{
 
-			var motoristas = new MotoristasDao().GetMotoristas();
+			var motoristas = new FuncionariosDao().GetMotoristas();
 
 			comboMotorista.DataSource = motoristas;
 			comboMotorista.DisplayMember = "Nome";
@@ -91,7 +91,7 @@ namespace Dll_Forms_Fat
 			var veiculo = (Veiculos)comboCarros.SelectedItem;
 			c.VeiculoId = veiculo.Id;
 
-			var motorista = (Motoristas)comboMotorista.SelectedItem;
+			var motorista = (Funcionarios)comboMotorista.SelectedItem;
 			c.ClienteId = motorista.Id;
 
 			c.Placa = veiculo.Placa;

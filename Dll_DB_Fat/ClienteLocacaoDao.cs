@@ -38,7 +38,7 @@ namespace DbFat
 		public List<ClienteLocacao> GetLocacoes(int clienteId)
 		{
 			return GetAll()
-					.Where(l => l.ClienteId == clienteId)
+					.Where(l => l.FuncionarioId == clienteId)
 					.ToList();
 		}
 	}

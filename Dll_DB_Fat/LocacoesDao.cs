@@ -40,32 +40,32 @@ namespace DbFat
 			string query = "SELECT * FROM [dbo].[VW_LOCACOES]";
 			return new DbKernelAdo().Select(query);
 		}
-		public IQueryable GetLocacoes()
-		{
-			using (var contexto = new LocadoraContext())
-			{
-				var q =  from locacao in contexto.Locacoes
-					   join cl in contexto.ClienteLocacao on locacao.Id equals cl.LocacaoId
-					   join motorista in contexto.Motoristas on cl.ClienteId equals motorista.Id
-					   join veiculo in contexto.Veiculos on locacao.VeiculoId equals veiculo.Id
-					   where
-					   motorista.Id == cl.ClienteId &&
-					   locacao.Id == cl.LocacaoId &&
-					   veiculo.Id == locacao.VeiculoId
-					   select new
-					   {
-						   OS = locacao.Id,
-						   Cliente = motorista.Nome,
-						   VeiculoAlugado = veiculo.Modelo,
-						   veiculo.Placa,
-						   DataInicio = locacao.DataInicio,
-						   locacao.DataFinal,
-						   IsAtiva = locacao.IsAtiva
-					   };
-				return q;
-			}
+		//public IQueryable GetLocacoes()
+		//{
+			//using (var contexto = new LocadoraContext())
+			//{
+			//	var q =  from locacao in contexto.Locacoes
+			//		   join cl in contexto.ClienteLocacao on locacao.Id equals cl.LocacaoId
+			//		   join motorista in contexto.Funcionarios on cl.FuncionarioId equals motorista.Id
+			//		   join veiculo in contexto.Veiculos on locacao.VeiculoId equals veiculo.Id
+			//		   where
+			//		   motorista.Id == cl.ClienteId &&
+			//		   locacao.Id == cl.LocacaoId &&
+			//		   veiculo.Id == locacao.VeiculoId
+			//		   select new
+			//		   {
+			//			   OS = locacao.Id,
+			//			   Cliente = motorista.Nome,
+			//			   VeiculoAlugado = veiculo.Modelo,
+			//			   veiculo.Placa,
+			//			   DataInicio = locacao.DataInicio,
+			//			   locacao.DataFinal,
+			//			   IsAtiva = locacao.IsAtiva
+			//		   };
+			//	return q;
+			//}
 
-		}
+		//}
 
 		public Locacoes GetById(int id)
 		{

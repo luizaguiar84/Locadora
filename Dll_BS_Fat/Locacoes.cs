@@ -42,9 +42,9 @@ namespace BsFat
 		public decimal ValorSeguro { get; set; }
 		public decimal ValorSeguroTerceiros { get; set; }
 
-		public void AddCliente(Motoristas cliente)
+		public void AddCliente(Funcionarios funcionario)
 		{
-			this.Cliente.Add(new ClienteLocacao() { ClienteId = cliente.Id });
+			this.Cliente.Add(new ClienteLocacao() { FuncionarioId = funcionario.Id });
 		}
 
 		public decimal CalculaValorTotal(Locacoes locacao, Veiculos veiculo)

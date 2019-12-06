@@ -13,14 +13,14 @@ namespace SiteFat.Controllers
         // GET: Motoristas
         public ActionResult Index()
         {
-			var motoristas = new MotoristasDao().GetMotoristas();
+			var motoristas = new FuncionariosDao().GetMotoristas();
             return View(motoristas);
         }
 
         // GET: Motoristas/Details/5
         public ActionResult Detalhes(int id)
         {
-			var motorista = new MotoristasDao().GetDetalhesMotorista(id);
+			var motorista = new FuncionariosDao().GetById(id);
             return View(motorista);
         }
 
@@ -32,11 +32,11 @@ namespace SiteFat.Controllers
 
         // POST: Motoristas/Create
         [HttpPost]
-        public ActionResult Adicionar(Motoristas motorista)
+        public ActionResult Adicionar(Funcionarios motorista)
         {
             try
             {
-				new MotoristasDao().DbAdd(motorista);
+				new FuncionariosDao().DbAdd(motorista);
 
                 return RedirectToAction("Index");
             }
@@ -49,17 +49,17 @@ namespace SiteFat.Controllers
         // GET: Motoristas/Edit/5
         public ActionResult Editar(int id)
         {
-			var motorista = new MotoristasDao().GetDetalhesMotorista(id);
+			var motorista = new FuncionariosDao().GetById(id);
             return View(motorista);
         }
 
         // POST: Motoristas/Edit/5
         [HttpPost]
-        public ActionResult Editar(Motoristas motorista)
+        public ActionResult Editar(Funcionarios motorista)
         {
             try
             {
-				new MotoristasDao().DbUpdate(motorista);
+				new FuncionariosDao().DbUpdate(motorista);
 
                 return RedirectToAction("Index");
             }
@@ -72,17 +72,17 @@ namespace SiteFat.Controllers
         // GET: Motoristas/Delete/5
         public ActionResult Deletar(int id)
         {
-			var motorista = new MotoristasDao().GetDetalhesMotorista(id);
+			var motorista = new FuncionariosDao().GetById(id);
             return View(motorista);
         }
 
         // POST: Motoristas/Delete/5
         [HttpPost]
-        public ActionResult Deletar(Motoristas motorista)
+        public ActionResult Deletar(Funcionarios motorista)
         {
             try
             {
-				new MotoristasDao().DeleteRegistro(motorista);
+				new FuncionariosDao().DeleteRegistro(motorista);
 
                 return RedirectToAction("Index");
             }

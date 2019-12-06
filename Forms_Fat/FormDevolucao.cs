@@ -7,9 +7,9 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormDevolucao : Form
 	{
-		private Motoristas cliente;
+		private Funcionarios motorista;
 
-		public Motoristas Cliente { get; private set; }
+		public Funcionarios Motoristas { get; private set; }
 		public Locacoes Locacao { get; private set; }
 		public Veiculos Veiculo { get; private set; }
 
@@ -23,11 +23,11 @@ namespace Dll_Forms_Fat
 
 		}
 
-		public FormDevolucao(Motoristas cliente)
+		public FormDevolucao(Funcionarios motorista)
 		{
 			InitializeComponent();
-			this.cliente = cliente;
-			this.txtNomeCliente.Text = cliente.Nome;
+			this.motorista = motorista;
+			this.txtNomeCliente.Text = motorista.Nome;
 		}
 
 		private void button3_Click(object sender, EventArgs e)
@@ -103,9 +103,9 @@ namespace Dll_Forms_Fat
 			//}
 		}
 
-		private void PreencherDados(Motoristas c, Locacoes l)
+		private void PreencherDados(Funcionarios f, Locacoes l)
 		{
-			txtNomeCliente.Text = c.Nome;
+			txtNomeCliente.Text = f.Nome;
 			txtRetirada.Text = l.DataInicio.ToString();
 
 			lblValorDiaria.Text = Veiculo.ValorDiaria.ToString("C");
@@ -130,7 +130,7 @@ namespace Dll_Forms_Fat
 
 		private void FinalizarDevolucao()
 		{
-			if (Cliente == null || Locacao == null)
+			if (Motoristas == null || Locacao == null)
 			{
 				MessageBox.Show("Favor preencher corretamente o Numero da OS.");
 			}

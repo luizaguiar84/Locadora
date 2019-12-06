@@ -13,7 +13,7 @@ namespace DbKernel
 
 
 		public DbSet<Abastecimentos> Abastecimentos { get; set; }
-		public DbSet<Motoristas> Motoristas { get; set; }
+		//public DbSet<Motoristas> Motoristas { get; set; }
 		public DbSet<ClientesPJ> ClientesPJ { get; set; }
 		public DbSet<Cnhs> Cnhs { get; set; }
 		public DbSet<Enderecos> Enderecos { get; set; }
@@ -38,7 +38,7 @@ namespace DbKernel
 		{
 			modelBuilder
 				.Entity<ClienteLocacao>()
-				.HasKey(pp => new { pp.LocacaoId, pp.ClienteId });
+				.HasKey(pp => new { pp.LocacaoId, pp.FuncionarioId });
 
 			foreach (var entityType in modelBuilder.Model.GetEntityTypes())
 			{

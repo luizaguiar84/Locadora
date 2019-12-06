@@ -49,6 +49,13 @@ namespace DbFat
 			return null;
 		}
 
+		public List<Funcionarios> GetMotoristas()
+		{
+			return GetAll()
+				.Where(c => c.CnhId != null)
+				.ToList();
+		}
+
 		public Funcionarios GetFuncionario(string buscaId)
 		{
 
@@ -57,8 +64,22 @@ namespace DbFat
 			return GetById(id);
 
 		}
+			public int BuscaIdMax()
+		{
+			try
+			{
+				return new DbKernel.Db_Kernel().GetAll<Funcionarios>()
+				.Max(c => c.Id);
+			}
+			catch (System.Exception)
+			{
+				return 0;
+			}
 
-		public Funcionarios GetById(int id)
+		}
+	
+
+	public Funcionarios GetById(int id)
 		{
 			var funcionario = new FuncionariosDao().GetAll()
 				.Where(f => f.Id == id)

@@ -31,8 +31,13 @@ namespace BsFat
 			Observacoes = observacoes;
 		}
 
+		public object GetMotoristas()
+		{
+			throw new NotImplementedException();
+		}
+
 		#endregion
-		
+
 		#region Anotações
 		[Key] 
 		#endregion
@@ -133,6 +138,9 @@ namespace BsFat
 		[MaxLength(20)]
 		#endregion
 		public string TituloEleitor { get; set; }
+	
+		public Cnhs Cnh { get; set; }
+		public int? CnhId { get; set; }
 
 		//#region Anotações
 		//[DataType(DataType.Date)]

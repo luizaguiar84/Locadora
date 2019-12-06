@@ -9,7 +9,7 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormCadastrarCliente : Form
 	{
-		private Motoristas clientePf = new Motoristas();
+		private Funcionarios funcionario = new Funcionarios();
 		private ClientesPJ clientePj = new ClientesPJ();
 		#region VALIDACOES
 		private void TxtNrPontos_KeyPress(object sender, KeyPressEventArgs e)
@@ -43,7 +43,7 @@ namespace Dll_Forms_Fat
 
 		private void PreencherId()
 		{
-			var idCliente = new MotoristasDao().BuscaIdMax();
+			var idCliente = new FuncionariosDao().BuscaIdMax();
 			idCliente++;
 			txtId.Text = Convert.ToString(idCliente);
 		}
