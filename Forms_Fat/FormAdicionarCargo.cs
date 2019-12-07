@@ -31,7 +31,7 @@ namespace Dll_Forms_Fat
 				cargo.Cargo = txtCargo.Text;
 				if (new CargosDao().DbAdd(cargo))
 				{
-					if (MessageBox.Show("Cargo Adicionado com sucesso! Adicionar novo cargo?","Confirmação", MessageBoxButtons.YesNo) 
+					if (MessageBox.Show("Cargo Adicionado com sucesso! Adicionar novo cargo?", "Confirmação", MessageBoxButtons.YesNo)
 						== DialogResult.Yes)
 					{
 						txtCargo.Text = "";
@@ -40,15 +40,11 @@ namespace Dll_Forms_Fat
 					{
 						this.Close();
 					}
-				}			
+				}
 			}
 
 		}
 
-
-
-		var newCargo = new Cargos();
-
-		}
 	}
 }
+
