@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace BsFat
 {
 	public enum Cor
@@ -23,5 +26,25 @@ namespace BsFat
 		Gasolina,
 		Alcool,
 		Diesel
+	}
+
+	public enum NivelAcesso
+	{
+		A,
+		B,
+		C
+	}
+
+	public enum CategoriaCnh
+	{
+		A,
+		B,
+		AB,
+		C,
+		AC,
+		D,
+		AD,
+		E,
+		AE
 	}
 }

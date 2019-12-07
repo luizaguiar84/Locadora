@@ -76,7 +76,18 @@
 			this.dateNascimento = new System.Windows.Forms.DateTimePicker();
 			this.btnLocalizar = new System.Windows.Forms.Button();
 			this.txtSalario = new System.Windows.Forms.MaskedTextBox();
+			this.dateEmitida = new System.Windows.Forms.DateTimePicker();
+			this.dateValidade = new System.Windows.Forms.DateTimePicker();
+			this.groupCNH = new System.Windows.Forms.GroupBox();
+			this.txtCNH = new System.Windows.Forms.TextBox();
+			this.txtCategoria = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.btnAtualizarCnh = new System.Windows.Forms.Button();
 			this.groupEndereco.SuspendLayout();
+			this.groupCNH.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// comboCargo
@@ -116,7 +127,7 @@
 			// 
 			// richTextBox1
 			// 
-			this.richTextBox1.Location = new System.Drawing.Point(15, 348);
+			this.richTextBox1.Location = new System.Drawing.Point(23, 379);
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.Size = new System.Drawing.Size(516, 61);
 			this.richTextBox1.TabIndex = 354;
@@ -125,7 +136,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(12, 331);
+			this.label6.Location = new System.Drawing.Point(20, 362);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(115, 13);
 			this.label6.TabIndex = 373;
@@ -204,9 +215,9 @@
 			this.groupEndereco.Controls.Add(this.txtComplemento);
 			this.groupEndereco.Controls.Add(this.txtCidade);
 			this.groupEndereco.Controls.Add(this.lblBairro);
-			this.groupEndereco.Location = new System.Drawing.Point(16, 198);
+			this.groupEndereco.Location = new System.Drawing.Point(24, 229);
 			this.groupEndereco.Name = "groupEndereco";
-			this.groupEndereco.Size = new System.Drawing.Size(728, 115);
+			this.groupEndereco.Size = new System.Drawing.Size(759, 115);
 			this.groupEndereco.TabIndex = 352;
 			this.groupEndereco.TabStop = false;
 			this.groupEndereco.Text = "Endereço";
@@ -466,7 +477,7 @@
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.Location = new System.Drawing.Point(607, 367);
+			this.btnSalvar.Location = new System.Drawing.Point(615, 398);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(136, 42);
 			this.btnSalvar.TabIndex = 355;
@@ -492,7 +503,7 @@
 			// 
 			// btnLocalizar
 			// 
-			this.btnLocalizar.Location = new System.Drawing.Point(607, 319);
+			this.btnLocalizar.Location = new System.Drawing.Point(615, 350);
 			this.btnLocalizar.Name = "btnLocalizar";
 			this.btnLocalizar.Size = new System.Drawing.Size(136, 42);
 			this.btnLocalizar.TabIndex = 381;
@@ -510,13 +521,114 @@
 			this.txtSalario.TabIndex = 383;
 			this.txtSalario.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
+			// dateEmitida
+			// 
+			this.dateEmitida.Enabled = false;
+			this.dateEmitida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dateEmitida.Location = new System.Drawing.Point(361, 20);
+			this.dateEmitida.Name = "dateEmitida";
+			this.dateEmitida.Size = new System.Drawing.Size(96, 20);
+			this.dateEmitida.TabIndex = 384;
+			// 
+			// dateValidade
+			// 
+			this.dateValidade.Enabled = false;
+			this.dateValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dateValidade.Location = new System.Drawing.Point(548, 20);
+			this.dateValidade.Name = "dateValidade";
+			this.dateValidade.Size = new System.Drawing.Size(96, 20);
+			this.dateValidade.TabIndex = 385;
+			// 
+			// groupCNH
+			// 
+			this.groupCNH.Controls.Add(this.btnAtualizarCnh);
+			this.groupCNH.Controls.Add(this.label11);
+			this.groupCNH.Controls.Add(this.label10);
+			this.groupCNH.Controls.Add(this.label8);
+			this.groupCNH.Controls.Add(this.label1);
+			this.groupCNH.Controls.Add(this.txtCategoria);
+			this.groupCNH.Controls.Add(this.txtCNH);
+			this.groupCNH.Controls.Add(this.dateEmitida);
+			this.groupCNH.Controls.Add(this.dateValidade);
+			this.groupCNH.Location = new System.Drawing.Point(19, 168);
+			this.groupCNH.Name = "groupCNH";
+			this.groupCNH.Size = new System.Drawing.Size(764, 55);
+			this.groupCNH.TabIndex = 386;
+			this.groupCNH.TabStop = false;
+			this.groupCNH.Text = "Dados da CNH";
+			this.groupCNH.Visible = false;
+			// 
+			// txtCNH
+			// 
+			this.txtCNH.Location = new System.Drawing.Point(56, 20);
+			this.txtCNH.Name = "txtCNH";
+			this.txtCNH.ReadOnly = true;
+			this.txtCNH.Size = new System.Drawing.Size(124, 20);
+			this.txtCNH.TabIndex = 386;
+			// 
+			// txtCategoria
+			// 
+			this.txtCategoria.Location = new System.Drawing.Point(259, 19);
+			this.txtCategoria.Name = "txtCategoria";
+			this.txtCategoria.ReadOnly = true;
+			this.txtCategoria.Size = new System.Drawing.Size(34, 20);
+			this.txtCategoria.TabIndex = 387;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(10, 27);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(33, 13);
+			this.label1.TabIndex = 388;
+			this.label1.Text = "CNH:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(198, 26);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(55, 13);
+			this.label8.TabIndex = 389;
+			this.label8.Text = "Categoria:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(311, 26);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(49, 13);
+			this.label10.TabIndex = 390;
+			this.label10.Text = "Emissão:";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(487, 26);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(51, 13);
+			this.label11.TabIndex = 391;
+			this.label11.Text = "Validade:";
+			this.label11.Click += new System.EventHandler(this.label11_Click);
+			// 
+			// btnAtualizarCnh
+			// 
+			this.btnAtualizarCnh.Location = new System.Drawing.Point(650, 18);
+			this.btnAtualizarCnh.Name = "btnAtualizarCnh";
+			this.btnAtualizarCnh.Size = new System.Drawing.Size(92, 23);
+			this.btnAtualizarCnh.TabIndex = 392;
+			this.btnAtualizarCnh.Text = "Atualizar CNH";
+			this.btnAtualizarCnh.UseVisualStyleBackColor = true;
+			this.btnAtualizarCnh.Click += new System.EventHandler(this.btnAtualizarCnh_Click);
+			// 
 			// FormCadastrarFuncionario
 			// 
 			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(807, 450);
 			this.ControlBox = false;
+			this.Controls.Add(this.groupCNH);
 			this.Controls.Add(this.txtSalario);
 			this.Controls.Add(this.btnLocalizar);
 			this.Controls.Add(this.dateNascimento);
@@ -556,6 +668,8 @@
 			this.Load += new System.EventHandler(this.FormCadastrarFuncionario_Load);
 			this.groupEndereco.ResumeLayout(false);
 			this.groupEndereco.PerformLayout();
+			this.groupCNH.ResumeLayout(false);
+			this.groupCNH.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -610,5 +724,15 @@
 		private System.Windows.Forms.DateTimePicker dateNascimento;
 		private System.Windows.Forms.Button btnLocalizar;
 		private System.Windows.Forms.MaskedTextBox txtSalario;
+		private System.Windows.Forms.DateTimePicker dateEmitida;
+		private System.Windows.Forms.DateTimePicker dateValidade;
+		private System.Windows.Forms.GroupBox groupCNH;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox txtCategoria;
+		private System.Windows.Forms.TextBox txtCNH;
+		private System.Windows.Forms.Button btnAtualizarCnh;
 	}
 }

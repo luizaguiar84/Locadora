@@ -102,12 +102,12 @@ namespace Dll_Forms_Fat
 		private void CadastrarNovoFuncionario(Funcionarios funcionario)
 		{
 
-			//CnhsBuilder cnhBuilder = new CnhsBuilder()
-			//	.GetEmissao(dateCnhEmitida.Value)
-			//	.GetValidade(dateCnhValidade.Value)
-			//	.GetNumero(txtCNH.Text)
-			//	.GetCategoria(comboCategoriaCnh.Text);
-			//var cnh = cnhBuilder.Build();
+			CnhsBuilder cnhBuilder = new CnhsBuilder()
+				.GetEmissao(DateTime.Now)
+				.GetValidade(DateTime.Now)
+				.GetNumero("")
+				.GetCategoria("");
+			var cnh = cnhBuilder.Build();
 
 			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
 				.GetCep(maskedCEP.Text)
@@ -136,7 +136,8 @@ namespace Dll_Forms_Fat
 				.GetEndereco(endereco);
 
 			funcionario = FBuilder.Build();
-			funcionario.CnhId = 0;
+			funcionario.CargoId = ((Cargos)comboCargo.SelectedItem).Id;
+			funcionario.Cnh = cnh;
 			new FuncionariosDao().DbAdd(funcionario);
 			CriarCnh(funcionario);
 
@@ -171,16 +172,21 @@ namespace Dll_Forms_Fat
 			txtTitEleitor.Text = f.TituloEleitor;
 			dateNascimento.Text = f.Nascimento.ToString();
 			//dateDemissao.Value = f.Demissao.Value;
-			//txtCNH.Text = f.Cnh.Numero;
-			//comboCategoriaCnh.Text = f.Cnh.Categoria;
-			//dateCnhEmitida.Value = f.Cnh.Emissao;
-			//dateCnhValidade.Value = f.Cnh.Validade;
 			maskedCEP.Text = f.Endereco.Cep;
 			txtLogradouro.Text = f.Endereco.Logradouro;
 			txtNumero.Text = f.Endereco.Num;
 			txtBairro.Text = f.Endereco.Bairro;
 			txtCidade.Text = f.Endereco.Cidade;
 			txtUF.Text = f.Endereco.Uf;
+			
+				if (f.Cnh.Numero != "")
+			{
+				groupCNH.Visible = true;
+				txtCNH.Text = f.Cnh.Numero;
+				txtCategoria.Text = f.Cnh.Categoria;
+				dateEmitida.Value = f.Cnh.Emissao;
+				dateValidade.Value = f.Cnh.Validade;
+			}
 		}
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
@@ -237,6 +243,18 @@ namespace Dll_Forms_Fat
 
 			this.Close();
 			busca.Show();
+
+		}
+
+		private void label11_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAtualizarCnh_Click(object sender, EventArgs e)
+		{
+			var atualizar = new FormCadastrarMotorista(funcionario);
+			atualizar.Show();
 
 		}
 	}

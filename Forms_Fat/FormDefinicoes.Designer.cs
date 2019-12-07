@@ -29,21 +29,11 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDefinicoes));
-			this.btnSalvar = new System.Windows.Forms.Button();
 			this.comboCargos = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// btnSalvar
-			// 
-			this.btnSalvar.Location = new System.Drawing.Point(132, 74);
-			this.btnSalvar.Name = "btnSalvar";
-			this.btnSalvar.Size = new System.Drawing.Size(97, 29);
-			this.btnSalvar.TabIndex = 5;
-			this.btnSalvar.Text = "Salvar";
-			this.btnSalvar.UseVisualStyleBackColor = true;
 			// 
 			// comboCargos
 			// 
@@ -85,15 +75,13 @@
 			// 
 			// FormDefinicoes
 			// 
-			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(368, 115);
+			this.ClientSize = new System.Drawing.Size(368, 81);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.comboCargos);
-			this.Controls.Add(this.btnSalvar);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormDefinicoes";
 			this.Text = "Adicionar Cargo";
@@ -104,7 +92,6 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.ComboBox comboCargos;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button button1;

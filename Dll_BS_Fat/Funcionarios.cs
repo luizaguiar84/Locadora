@@ -136,7 +136,7 @@ namespace BsFat
 		public string TituloEleitor { get; set; }
 	
 		public Cnhs Cnh { get; set; }
-		public int CnhId { get; set; }
+		public int? CnhId { get; set; }
 
 		public Cargos Cargo { get; set; }
 		public int CargoId { get; set; }

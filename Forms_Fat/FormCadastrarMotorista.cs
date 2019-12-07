@@ -25,6 +25,10 @@ namespace Dll_Forms_Fat
 		private void PreencheCampos(Funcionarios funcionario)
 		{
 			txtNomeMotorista.Text = funcionario.Nome;
+			txtCnh.Text = funcionario.Cnh.Numero;
+			comboCategoria.SelectedItem = funcionario.Cnh.Categoria;
+			dateEmitida.Value = funcionario.Cnh.Emissao;
+			dateValidade.Value = funcionario.Cnh.Validade;
 	    }
 
 		private void Button3_Click(object sender, EventArgs e)
@@ -33,7 +37,7 @@ namespace Dll_Forms_Fat
 			
 			var cnh = new CnhsBuilder()
 			.GetNumero(txtCnh.Text)
-			.GetCategoria(txtCategoria.Text)
+			.GetCategoria(comboCategoria.SelectedText)
 			.GetEmissao(dateEmitida.Value.Date)
 			.GetValidade(dateValidade.Value.Date)
 			.Build();
