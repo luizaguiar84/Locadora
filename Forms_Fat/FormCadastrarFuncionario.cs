@@ -102,12 +102,12 @@ namespace Dll_Forms_Fat
 		private void CadastrarNovoFuncionario(Funcionarios funcionario)
 		{
 
-			//CnhsBuilder cnhBuilder = new CnhsBuilder()
-			//	.GetEmissao(dateCnhEmitida.Value)
-			//	.GetValidade(dateCnhValidade.Value)
-			//	.GetNumero(txtCNH.Text)
-			//	.GetCategoria(comboCategoriaCnh.Text);
-			//var cnh = cnhBuilder.Build();
+			CnhsBuilder cnhBuilder = new CnhsBuilder()
+				.GetEmissao(DateTime.Now)
+				.GetValidade(DateTime.Now)
+				.GetNumero("")
+				.GetCategoria("");
+			var cnh = cnhBuilder.Build();
 
 			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
 				.GetCep(maskedCEP.Text)
@@ -136,7 +136,8 @@ namespace Dll_Forms_Fat
 				.GetEndereco(endereco);
 
 			funcionario = FBuilder.Build();
-			funcionario.CnhId = 0;
+			funcionario.CargoId = ((Cargos)comboCargo.SelectedItem).Id;
+			funcionario.Cnh = cnh;
 			new FuncionariosDao().DbAdd(funcionario);
 			CriarCnh(funcionario);
 

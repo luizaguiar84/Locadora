@@ -84,8 +84,12 @@ namespace DbFat
 			var funcionario = new FuncionariosDao().GetAll()
 				.Where(f => f.Id == id)
 				.SingleOrDefault();
-
-			funcionario.Cnh = new CnhsDao().GetById(funcionario.CnhId);
+			//if (funcionario.CnhId != null)
+			//{
+			//	int _id = (int)funcionario.CnhId;
+			//	funcionario.Cnh = new CnhsDao().GetById(_id);
+			//}
+			funcionario.Cnh = new CnhsDao().GetById((int)funcionario.CnhId);
 			funcionario.Endereco = new EnderecosDao().GetById(funcionario.EnderecoId);
 
 			return funcionario;
