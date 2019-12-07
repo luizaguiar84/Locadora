@@ -97,10 +97,10 @@ namespace Dll_Forms_Fat
 			c.Placa = veiculo.Placa;
 
 			c.DataSaida = dateSaida.Value;
-			c.HoraSaida = timeRetorno.Value.TimeOfDay;
+			c.HoraSaida = timeSaida.Value.TimeOfDay;
 			c.KmSaida = Convert.ToInt32(txtKmSaida.Text);
 			c.NivelCombustivelSaida = comboCombustivelSaida.Text;
-			c.LiberadoSaida = comboLiberadoSaida.Text;
+			//c.LiberadoSaida = comboLiberadoSaida.Text;
 			c.ObservacoesSaida = txtObservacoes.Text;
 			c.Status = true;
 
@@ -130,11 +130,20 @@ namespace Dll_Forms_Fat
 
 			var carrosFora = new ControlePatioDao().GetCarrosFora();
 
-
 			dataGridView1.DataSource = carrosFora;
 			dataGridView1.Columns["Id"].Visible = false;
+			dataGridView1.Columns["VeiculoId"].Visible = false;
+			dataGridView1.Columns["ClienteId"].Visible = false;
+			dataGridView1.Columns["Status"].Visible = false;
+			dataGridView1.Columns["NivelCombustivelSaida"].Visible = false;
+			dataGridView1.Columns["ObservacoesSaida"].Visible = false;
+			dataGridView1.Columns["DataRetorno"].Visible = false;
+			dataGridView1.Columns["HoraRetorno"].Visible = false;
+			dataGridView1.Columns["EstadoRetorno"].Visible = false;
+			dataGridView1.Columns["NivelCombustivelRetorno"].Visible = false;
+			dataGridView1.Columns["KmRetorno"].Visible = false;
 
-			CarrosFora = carrosFora;
+		CarrosFora = carrosFora;
 
 		}
 
@@ -158,10 +167,10 @@ namespace Dll_Forms_Fat
 
 		private bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
 		{
-			controle.DataRetorno = dateRetorno.Value;
+			controle.DataRetorno = dateRetorno.Value.Date;
 			controle.HoraRetorno = timeRetorno.Value.TimeOfDay;
-			controle.EstadoRetorno = comboEstadoRetorno.ValueMember;
-			controle.NivelCombustivelRetorno = comboCombustivelRetorno.ValueMember;
+			controle.EstadoRetorno = comboEstadoRetorno.Text;
+			controle.NivelCombustivelRetorno = comboCombustivelRetorno.Text;
 			controle.KmRetorno = Convert.ToInt32(txtkmRetorno.Text);
 			controle.Status = false;
 

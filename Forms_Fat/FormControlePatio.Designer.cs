@@ -30,7 +30,6 @@ namespace Dll_Forms_Fat
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormControlePatio));
 			this.label2 = new System.Windows.Forms.Label();
 			this.groupSaida = new System.Windows.Forms.GroupBox();
@@ -39,11 +38,9 @@ namespace Dll_Forms_Fat
 			this.dateSaida = new System.Windows.Forms.DateTimePicker();
 			this.brnSalvarSaida = new System.Windows.Forms.Button();
 			this.comboCombustivelSaida = new System.Windows.Forms.ComboBox();
-			this.comboLiberadoSaida = new System.Windows.Forms.ComboBox();
 			this.label23 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.txtObservacoes = new System.Windows.Forms.RichTextBox();
-			this.label3 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtKmSaida = new System.Windows.Forms.TextBox();
 			this.groupRetorno = new System.Windows.Forms.GroupBox();
@@ -55,9 +52,7 @@ namespace Dll_Forms_Fat
 			this.label11 = new System.Windows.Forms.Label();
 			this.comboCombustivelRetorno = new System.Windows.Forms.ComboBox();
 			this.label15 = new System.Windows.Forms.Label();
-			this.comboRecolhido = new System.Windows.Forms.ComboBox();
 			this.btnSalvarRetorno = new System.Windows.Forms.Button();
-			this.label9 = new System.Windows.Forms.Label();
 			this.comboEstadoRetorno = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.txtkmRetorno = new System.Windows.Forms.TextBox();
@@ -73,20 +68,11 @@ namespace Dll_Forms_Fat
 			this.label13 = new System.Windows.Forms.Label();
 			this.comboCarros = new System.Windows.Forms.ComboBox();
 			this.label12 = new System.Windows.Forms.Label();
-			this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.SaidaPatio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.controlePatioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.veiculoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.veiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.groupSaida.SuspendLayout();
 			this.groupRetorno.SuspendLayout();
 			this.groupVeicFora.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupRegistro.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.controlePatioBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.veiculoBindingSource1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.veiculoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -105,11 +91,9 @@ namespace Dll_Forms_Fat
 			this.groupSaida.Controls.Add(this.dateSaida);
 			this.groupSaida.Controls.Add(this.brnSalvarSaida);
 			this.groupSaida.Controls.Add(this.comboCombustivelSaida);
-			this.groupSaida.Controls.Add(this.comboLiberadoSaida);
 			this.groupSaida.Controls.Add(this.label23);
 			this.groupSaida.Controls.Add(this.label4);
 			this.groupSaida.Controls.Add(this.txtObservacoes);
-			this.groupSaida.Controls.Add(this.label3);
 			this.groupSaida.Controls.Add(this.label1);
 			this.groupSaida.Controls.Add(this.txtKmSaida);
 			this.groupSaida.Controls.Add(this.label2);
@@ -172,14 +156,6 @@ namespace Dll_Forms_Fat
 			this.comboCombustivelSaida.Size = new System.Drawing.Size(121, 21);
 			this.comboCombustivelSaida.TabIndex = 6;
 			// 
-			// comboLiberadoSaida
-			// 
-			this.comboLiberadoSaida.FormattingEnabled = true;
-			this.comboLiberadoSaida.Location = new System.Drawing.Point(9, 118);
-			this.comboLiberadoSaida.Name = "comboLiberadoSaida";
-			this.comboLiberadoSaida.Size = new System.Drawing.Size(332, 21);
-			this.comboLiberadoSaida.TabIndex = 7;
-			// 
 			// label23
 			// 
 			this.label23.AutoSize = true;
@@ -205,15 +181,6 @@ namespace Dll_Forms_Fat
 			this.txtObservacoes.Size = new System.Drawing.Size(332, 64);
 			this.txtObservacoes.TabIndex = 8;
 			this.txtObservacoes.Text = "";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 103);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(69, 13);
-			this.label3.TabIndex = 6;
-			this.label3.Text = "Liberado por:";
 			// 
 			// label1
 			// 
@@ -244,9 +211,7 @@ namespace Dll_Forms_Fat
 			this.groupRetorno.Controls.Add(this.label11);
 			this.groupRetorno.Controls.Add(this.comboCombustivelRetorno);
 			this.groupRetorno.Controls.Add(this.label15);
-			this.groupRetorno.Controls.Add(this.comboRecolhido);
 			this.groupRetorno.Controls.Add(this.btnSalvarRetorno);
-			this.groupRetorno.Controls.Add(this.label9);
 			this.groupRetorno.Controls.Add(this.comboEstadoRetorno);
 			this.groupRetorno.Controls.Add(this.label7);
 			this.groupRetorno.Controls.Add(this.txtkmRetorno);
@@ -269,6 +234,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboCarrosForaPlaca
 			// 
+			this.comboCarrosForaPlaca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCarrosForaPlaca.FormattingEnabled = true;
 			this.comboCarrosForaPlaca.Location = new System.Drawing.Point(9, 31);
 			this.comboCarrosForaPlaca.Name = "comboCarrosForaPlaca";
@@ -338,14 +304,6 @@ namespace Dll_Forms_Fat
 			this.label15.TabIndex = 39;
 			this.label15.Text = "Nivel de combustível:";
 			// 
-			// comboRecolhido
-			// 
-			this.comboRecolhido.FormattingEnabled = true;
-			this.comboRecolhido.Location = new System.Drawing.Point(9, 149);
-			this.comboRecolhido.Name = "comboRecolhido";
-			this.comboRecolhido.Size = new System.Drawing.Size(323, 21);
-			this.comboRecolhido.TabIndex = 16;
-			// 
 			// btnSalvarRetorno
 			// 
 			this.btnSalvarRetorno.Location = new System.Drawing.Point(125, 229);
@@ -355,15 +313,6 @@ namespace Dll_Forms_Fat
 			this.btnSalvarRetorno.Text = "Registrar Retorno";
 			this.btnSalvarRetorno.UseVisualStyleBackColor = true;
 			this.btnSalvarRetorno.Click += new System.EventHandler(this.BtnSalvarRetorno_Click);
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(6, 133);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(76, 13);
-			this.label9.TabIndex = 19;
-			this.label9.Text = "Recolhido por:";
 			// 
 			// comboEstadoRetorno
 			// 
@@ -419,13 +368,7 @@ namespace Dll_Forms_Fat
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.AutoGenerateColumns = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Placa,
-            this.SaidaPatio});
-			this.dataGridView1.DataSource = this.controlePatioBindingSource;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataGridView1.Location = new System.Drawing.Point(3, 16);
 			this.dataGridView1.Name = "dataGridView1";
@@ -490,6 +433,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboMotorista
 			// 
+			this.comboMotorista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboMotorista.FormattingEnabled = true;
 			this.comboMotorista.Location = new System.Drawing.Point(9, 113);
 			this.comboMotorista.Name = "comboMotorista";
@@ -507,6 +451,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboCarros
 			// 
+			this.comboCarros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCarros.FormattingEnabled = true;
 			this.comboCarros.Location = new System.Drawing.Point(9, 32);
 			this.comboCarros.Name = "comboCarros";
@@ -523,39 +468,6 @@ namespace Dll_Forms_Fat
 			this.label12.Size = new System.Drawing.Size(37, 13);
 			this.label12.TabIndex = 12;
 			this.label12.Text = "Placa:";
-			// 
-			// Placa
-			// 
-			this.Placa.DataPropertyName = "Placa";
-			this.Placa.HeaderText = "Placa";
-			this.Placa.Name = "Placa";
-			this.Placa.ReadOnly = true;
-			// 
-			// SaidaPatio
-			// 
-			this.SaidaPatio.DataPropertyName = "SaidaPatio";
-			this.SaidaPatio.HeaderText = "Hora de Saida";
-			this.SaidaPatio.Name = "SaidaPatio";
-			this.SaidaPatio.ReadOnly = true;
-			// 
-			// Id
-			// 
-			this.Id.DataPropertyName = "Id";
-			this.Id.HeaderText = "Id";
-			this.Id.Name = "Id";
-			this.Id.ReadOnly = true;
-			// 
-			// controlePatioBindingSource
-			// 
-			this.controlePatioBindingSource.DataSource = typeof(ControlePatio);
-			// 
-			// veiculoBindingSource1
-			// 
-			this.veiculoBindingSource1.DataSource = typeof(Veiculos);
-			// 
-			// veiculoBindingSource
-			// 
-			this.veiculoBindingSource.DataSource = typeof(Veiculos);
 			// 
 			// FormControlePatio
 			// 
@@ -579,9 +491,6 @@ namespace Dll_Forms_Fat
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupRegistro.ResumeLayout(false);
 			this.groupRegistro.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.controlePatioBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.veiculoBindingSource1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.veiculoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -591,7 +500,6 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.GroupBox groupSaida;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.RichTextBox txtObservacoes;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txtKmSaida;
 		private System.Windows.Forms.GroupBox groupRetorno;
@@ -602,7 +510,6 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.Button btnSalvarRetorno;
 		private System.Windows.Forms.GroupBox groupVeicFora;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.GroupBox groupRegistro;
 		private System.Windows.Forms.TextBox txtVeiculo;
 		private System.Windows.Forms.Label label14;
@@ -612,15 +519,12 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Button btnAddMotorista;
 		private System.Windows.Forms.Button btnAddCarro;
-		private System.Windows.Forms.ComboBox comboLiberadoSaida;
-		private System.Windows.Forms.ComboBox comboRecolhido;
 		private System.Windows.Forms.ComboBox comboCombustivelSaida;
 		private System.Windows.Forms.Label label23;
 		private System.Windows.Forms.ComboBox comboCombustivelRetorno;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Button brnSalvarSaida;
 		private System.Windows.Forms.DateTimePicker dateSaida;
-		private System.Windows.Forms.BindingSource controlePatioBindingSource;
 		private System.Windows.Forms.ComboBox comboCarrosForaPlaca;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label8;
@@ -629,10 +533,5 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.DateTimePicker timeRetorno;
 		private System.Windows.Forms.DateTimePicker dateRetorno;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.BindingSource veiculoBindingSource1;
-		private System.Windows.Forms.BindingSource veiculoBindingSource;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
-		private System.Windows.Forms.DataGridViewTextBoxColumn SaidaPatio;
 	}
 }

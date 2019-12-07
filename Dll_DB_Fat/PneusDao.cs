@@ -20,7 +20,7 @@ namespace DbFat
 			var listaPneus = GetAll()
 						.Where(p => p.Id == veiculo.Id)
 						.ToList();
-
+			if (listaPneus.Count == 0) ret = true;
 			var kmRodada = controle.KmRetorno - controle.KmSaida;
 			foreach (var pneu in listaPneus)
 			{

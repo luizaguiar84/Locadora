@@ -47,11 +47,6 @@ namespace BsFat
 		public string NivelCombustivelSaida { get; set; }
 
 		#region Anotações
-		[Display(Name = "Liberado por")]
-		#endregion
-		public string LiberadoSaida { get; set; }
-
-		#region Anotações
 		[Display(Name = "Observações")]
 		#endregion
 		public string ObservacoesSaida { get; set; }
@@ -84,11 +79,17 @@ namespace BsFat
 		#endregion
 		public int KmRetorno { get; set; }
 
-		#region Anotações
-		[Display(Name = "Recolhido por")]
+		//#region Anotações
+		//[Display(Name = "Liberado por")]
+		//#endregion
+		//public string LiberadoSaida { get; set; }
 
-		#endregion
-		public string RecolhidoRetorno { get; set; }
+
+		//#region Anotações
+		//[Display(Name = "Recolhido por")]
+
+		//#endregion
+		//public string RecolhidoRetorno { get; set; }
 
 	}
 }
