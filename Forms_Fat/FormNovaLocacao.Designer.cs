@@ -148,7 +148,6 @@
 			this.dateTimeDevolucao.Name = "dateTimeDevolucao";
 			this.dateTimeDevolucao.Size = new System.Drawing.Size(231, 20);
 			this.dateTimeDevolucao.TabIndex = 12;
-			this.dateTimeDevolucao.ValueChanged += new System.EventHandler(this.DateTimeDevolucao_ValueChanged);
 			// 
 			// label5
 			// 
@@ -515,7 +514,6 @@
 			this.comboCarro.Name = "comboCarro";
 			this.comboCarro.Size = new System.Drawing.Size(299, 21);
 			this.comboCarro.TabIndex = 40;
-			this.comboCarro.SelectedIndexChanged += new System.EventHandler(this.ComboCarro_SelectedIndexChanged);
 			// 
 			// comboCliente
 			// 

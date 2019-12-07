@@ -7,7 +7,7 @@ namespace BsFat
 
 		public Veiculos Build()
 		{
-			return new Veiculos(Montadora, Modelo, AnoModelo, Portas, Cor, Placa, Renavam, Chassi, Lugares, Quilometragem, Status, Combustivel, ValorAtual, ValorDiaria, Observacoes, DataAquisicao, ArCondicionado, DirecaoHidraulica, VidroEletrico, AirBag, Abs, IsAtivo);
+			return new Veiculos(Montadora, Modelo, AnoModelo, Portas, Cor, Placa, Renavam, Chassi, Lugares, Quilometragem, Status, Combustivel, ValorAtual, Observacoes, DataAquisicao, ArCondicionado, DirecaoHidraulica, VidroEletrico, AirBag, Abs, IsAtivo);
 		}
 		public VeiculosBuilder GetIsAtivo(bool isAtivo)
 		{
@@ -55,15 +55,15 @@ namespace BsFat
 			this.ValorAtual = valorAtual;
 			return this;
 		}
-		public VeiculosBuilder GetValorDiaria(string valorDiaria)
-		{
-			if (string.IsNullOrEmpty(valorDiaria))
-			{
-				valorDiaria = "0";
-			}
-			this.ValorDiaria = Convert.ToDecimal(valorDiaria);
-			return this;
-		}
+		//public VeiculosBuilder GetValorDiaria(string valorDiaria)
+		//{
+		//	if (string.IsNullOrEmpty(valorDiaria))
+		//	{
+		//		valorDiaria = "0";
+		//	}
+		//	this.ValorDiaria = Convert.ToDecimal(valorDiaria);
+		//	return this;
+		//}
 		public VeiculosBuilder GetCombustivel(string combustivel)
 		{
 			this.Combustivel = combustivel;

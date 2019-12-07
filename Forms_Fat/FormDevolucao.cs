@@ -103,25 +103,25 @@ namespace Dll_Forms_Fat
 			//}
 		}
 
-		private void PreencherDados(Funcionarios f, Locacoes l)
-		{
-			txtNomeCliente.Text = f.Nome;
-			txtRetirada.Text = l.DataInicio.ToString();
+		//private void PreencherDados(Funcionarios f, Locacoes l)
+		//{
+		//	txtNomeCliente.Text = f.Nome;
+		//	txtRetirada.Text = l.DataInicio.ToString();
 
-			lblValorDiaria.Text = Veiculo.ValorDiaria.ToString("C");
+		//	lblValorDiaria.Text = Veiculo.ValorDiaria.ToString("C");
 
-			var dias = (int)Math.Ceiling((decimal)l.DataFinal.Value.Subtract(l.DataInicio.Value).Days);
-			lblDias.Text = dias.ToString();
+		//	var dias = (int)Math.Ceiling((decimal)l.DataFinal.Value.Subtract(l.DataInicio.Value).Days);
+		//	lblDias.Text = dias.ToString();
 
-			lblSubTotal.Text = (dias * Veiculo.ValorDiaria).ToString("C");
+		//	lblSubTotal.Text = (dias * Veiculo.ValorDiaria).ToString("C");
 
-			lblValorSeguro.Text = (Locacao.ValorSeguro + Locacao.ValorSeguroTerceiros).ToString("C");
+		//	lblValorSeguro.Text = (Locacao.ValorSeguro + Locacao.ValorSeguroTerceiros).ToString("C");
 
-			lblAdiantamento.Text = l.ValorAntecipado.ToString("C");
+		//	lblAdiantamento.Text = l.ValorAntecipado.ToString("C");
 
-			lblValorRestante.Text = (l.ValorTotal - l.ValorAntecipado).ToString("C");
+		//	lblValorRestante.Text = (l.ValorTotal - l.ValorAntecipado).ToString("C");
 
-		}
+		//}
 
 		private void btnFinalizar_Click(object sender, EventArgs e)
 		{

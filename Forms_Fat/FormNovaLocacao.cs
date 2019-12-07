@@ -128,33 +128,33 @@ namespace Dll_Forms_Fat
 			}
 		}
 
-		private void DateTimeDevolucao_ValueChanged(object sender, EventArgs e)
-		{
-			PreencheResumo();
-		}
-		private void PreencheResumo()
-		{
-			var veiculo = GetVeiculo();
-			int dias = GetDias();
+		//private void DateTimeDevolucao_ValueChanged(object sender, EventArgs e)
+		//{
+		//	PreencheResumo();
+		//}
+		//private void PreencheResumo()
+		//{
+		//	var veiculo = GetVeiculo();
+		//	int dias = GetDias();
 
-			lblValorDiaria.Text = veiculo.ValorDiaria.ToString("C");
-			lblDias.Text = dias.ToString();
-			ValorRestante = veiculo.ValorDiaria * dias;
-			lblSubTotal.Text = ValorRestante.ToString("C");
+		//	lblValorDiaria.Text = veiculo.ValorDiaria.ToString("C");
+		//	lblDias.Text = dias.ToString();
+		//	ValorRestante = veiculo.ValorDiaria * dias;
+		//	lblSubTotal.Text = ValorRestante.ToString("C");
 
-			if (checkSegRoubo.Checked)
-			{
-				//Seguro += dias * Program.Valores.ValorSeguro;
-			}
-			if (checkSegTerceiros.Checked)
-			{
-				//Seguro += dias * Program.Valores.ValorSeguroTerceiros;
-			}
+		//	if (checkSegRoubo.Checked)
+		//	{
+		//		//Seguro += dias * Program.Valores.ValorSeguro;
+		//	}
+		//	if (checkSegTerceiros.Checked)
+		//	{
+		//		//Seguro += dias * Program.Valores.ValorSeguroTerceiros;
+		//	}
 
-			lblValorSeguro.Text = Seguro.ToString("C");
-			ValorRestante += Seguro;
-			lblValorRestante.Text = ValorRestante.ToString("C");
-		}
+		//	lblValorSeguro.Text = Seguro.ToString("C");
+		//	ValorRestante += Seguro;
+		//	lblValorRestante.Text = ValorRestante.ToString("C");
+		//}
 
 		private int GetDias()
 		{
@@ -226,7 +226,7 @@ namespace Dll_Forms_Fat
 			locacao.ValorAntecipado = Convert.ToDecimal(txtPagoRetirada.Text);
 			locacao.LiberadoPor = comboLiberado.Text;
 			locacao.FormaDePagamento = comboFormaPagamento.Text;
-			locacao.ValorTotal = locacao.CalculaValorTotal(locacao, veiculo);
+			//locacao.ValorTotal = locacao.CalculaValorTotal(locacao, veiculo);
 
 			new LocacoesDao().DbAdd(locacao);
 
@@ -246,11 +246,11 @@ namespace Dll_Forms_Fat
 			this.IsNumeros(e);
 		}
 
-		private void ComboCarro_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			var v = GetVeiculo();
-			txtKm.Text = v.Quilometragem.ToString();
-			lblValorDiaria.Text = v.ValorDiaria.ToString("C");
-		}
+		//private void ComboCarro_SelectedIndexChanged(object sender, EventArgs e)
+		//{
+		//	var v = GetVeiculo();
+		//	txtKm.Text = v.Quilometragem.ToString();
+		//	lblValorDiaria.Text = v.ValorDiaria.ToString("C");
+		//}
 	}
 }

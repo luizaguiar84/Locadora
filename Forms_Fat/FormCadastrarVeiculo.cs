@@ -121,7 +121,7 @@ namespace Dll_Forms_Fat
 				.GetStatus(comboStatus.Text)
 				.GetCombustivel(txtCombustivel.Text)
 				.GetValorAtual(txtValorAtualCarro.Text)
-				.GetValorDiaria(txtValorDiaria.Text)
+				//.GetValorDiaria(txtValorDiaria.Text)
 				.GetObservacoes(txtObservacoes.Text)
 				.GetArCondicionado(checkArCond.Checked)
 				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
@@ -224,7 +224,7 @@ namespace Dll_Forms_Fat
 			comboStatus.Text = v.Status;
 			txtCombustivel.Text = v.Combustivel;
 			txtValorAtualCarro.Text = v.ValorAtual;
-			txtValorDiaria.Text = v.ValorDiaria.ToString();
+			//txtValorDiaria.Text = v.ValorDiaria.ToString();
 			txtObservacoes.Text = v.Observacoes;
 			checkArCond.Checked = Convert.ToBoolean(v.ArCondicionado);
 			checkDirecaoHidraulica.Checked = Convert.ToBoolean(v.DirecaoHidraulica);
@@ -251,7 +251,7 @@ namespace Dll_Forms_Fat
 				.GetStatus(comboStatus.Text)
 				.GetCombustivel(txtCombustivel.Text)
 				.GetValorAtual(txtValorAtualCarro.Text)
-				.GetValorDiaria(txtValorDiaria.Text)
+				//.GetValorDiaria(txtValorDiaria.Text)
 				.GetObservacoes(txtObservacoes.Text)
 				.GetArCondicionado(checkArCond.Checked)
 				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
