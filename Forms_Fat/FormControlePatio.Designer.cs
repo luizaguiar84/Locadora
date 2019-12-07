@@ -53,8 +53,6 @@ namespace Dll_Forms_Fat
 			this.comboCombustivelRetorno = new System.Windows.Forms.ComboBox();
 			this.label15 = new System.Windows.Forms.Label();
 			this.btnSalvarRetorno = new System.Windows.Forms.Button();
-			this.comboEstadoRetorno = new System.Windows.Forms.ComboBox();
-			this.label7 = new System.Windows.Forms.Label();
 			this.txtkmRetorno = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.groupVeicFora = new System.Windows.Forms.GroupBox();
@@ -103,6 +101,7 @@ namespace Dll_Forms_Fat
 			this.groupSaida.TabIndex = 3;
 			this.groupSaida.TabStop = false;
 			this.groupSaida.Text = "Registro de Saída do pátio";
+			this.groupSaida.Enter += new System.EventHandler(this.groupSaida_Enter);
 			// 
 			// label8
 			// 
@@ -144,6 +143,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboCombustivelSaida
 			// 
+			this.comboCombustivelSaida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCombustivelSaida.FormattingEnabled = true;
 			this.comboCombustivelSaida.Items.AddRange(new object[] {
             "Cheio",
@@ -212,8 +212,6 @@ namespace Dll_Forms_Fat
 			this.groupRetorno.Controls.Add(this.comboCombustivelRetorno);
 			this.groupRetorno.Controls.Add(this.label15);
 			this.groupRetorno.Controls.Add(this.btnSalvarRetorno);
-			this.groupRetorno.Controls.Add(this.comboEstadoRetorno);
-			this.groupRetorno.Controls.Add(this.label7);
 			this.groupRetorno.Controls.Add(this.txtkmRetorno);
 			this.groupRetorno.Controls.Add(this.label5);
 			this.groupRetorno.Location = new System.Drawing.Point(379, 209);
@@ -283,6 +281,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboCombustivelRetorno
 			// 
+			this.comboCombustivelRetorno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCombustivelRetorno.FormattingEnabled = true;
 			this.comboCombustivelRetorno.Items.AddRange(new object[] {
             "Cheio",
@@ -313,26 +312,6 @@ namespace Dll_Forms_Fat
 			this.btnSalvarRetorno.Text = "Registrar Retorno";
 			this.btnSalvarRetorno.UseVisualStyleBackColor = true;
 			this.btnSalvarRetorno.Click += new System.EventHandler(this.BtnSalvarRetorno_Click);
-			// 
-			// comboEstadoRetorno
-			// 
-			this.comboEstadoRetorno.AutoCompleteCustomSource.AddRange(new string[] {
-            "SEM INCIDENTES",
-            "ACIDENTADO"});
-			this.comboEstadoRetorno.FormattingEnabled = true;
-			this.comboEstadoRetorno.Location = new System.Drawing.Point(240, 71);
-			this.comboEstadoRetorno.Name = "comboEstadoRetorno";
-			this.comboEstadoRetorno.Size = new System.Drawing.Size(92, 21);
-			this.comboEstadoRetorno.TabIndex = 13;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(237, 55);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(43, 13);
-			this.label7.TabIndex = 11;
-			this.label7.Text = "Estado:";
 			// 
 			// txtkmRetorno
 			// 
@@ -503,8 +482,6 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txtKmSaida;
 		private System.Windows.Forms.GroupBox groupRetorno;
-		private System.Windows.Forms.ComboBox comboEstadoRetorno;
-		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox txtkmRetorno;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button btnSalvarRetorno;

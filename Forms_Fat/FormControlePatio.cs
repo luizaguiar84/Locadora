@@ -127,6 +127,9 @@ namespace Dll_Forms_Fat
 
 		private void AtualizaTabela()
 		{
+			comboCombustivelRetorno.SelectedIndex = 0;
+			comboCombustivelSaida.SelectedIndex = 0;
+			
 
 			var carrosFora = new ControlePatioDao().GetCarrosFora();
 
@@ -139,7 +142,6 @@ namespace Dll_Forms_Fat
 			dataGridView1.Columns["ObservacoesSaida"].Visible = false;
 			dataGridView1.Columns["DataRetorno"].Visible = false;
 			dataGridView1.Columns["HoraRetorno"].Visible = false;
-			dataGridView1.Columns["EstadoRetorno"].Visible = false;
 			dataGridView1.Columns["NivelCombustivelRetorno"].Visible = false;
 			dataGridView1.Columns["KmRetorno"].Visible = false;
 
@@ -149,27 +151,36 @@ namespace Dll_Forms_Fat
 
 		private void BtnSalvarRetorno_Click(object sender, EventArgs e)
 		{
-			ControlePatio controle = (ControlePatio)comboCarrosForaPlaca.SelectedItem;
-			var veiculo = new VeiculosDao().GetById(controle.VeiculoId);
-
-			if (RegistraRetorno(controle, veiculo))
+			if (String.IsNullOrWhiteSpace(txtkmRetorno.Text))
 			{
-				MessageBox.Show("Retorno do carro registrado com êxito");
+				MessageBox.Show("Favor informar a Quilometragem do carro no retorno!");
+			}
+			else
+			{
+				ControlePatio controle = (ControlePatio)comboCarrosForaPlaca.SelectedItem;
+				var veiculo = new VeiculosDao().GetById(controle.VeiculoId);
 
-				AtualizaTabela();
-				AtualizaPlacasFora();
+				if (RegistraRetorno(controle, veiculo))
+				{
+					MessageBox.Show("Retorno do carro registrado com êxito");
 
-				this.groupRetorno.Controls.LimparTextBoxes();
-				this.groupSaida.Controls.LimparTextBoxes();
+					AtualizaTabela();
+					AtualizaPlacasFora();
+
+					this.groupRetorno.Controls.LimparTextBoxes();
+					this.groupSaida.Controls.LimparTextBoxes();
+				}
+
+
 			}
 		}
 
 
-		private bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
+			private bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
 		{
 			controle.DataRetorno = dateRetorno.Value.Date;
 			controle.HoraRetorno = timeRetorno.Value.TimeOfDay;
-			controle.EstadoRetorno = comboEstadoRetorno.Text;
+			//controle.EstadoRetorno = comboEstadoRetorno.Text;
 			controle.NivelCombustivelRetorno = comboCombustivelRetorno.Text;
 			controle.KmRetorno = Convert.ToInt32(txtkmRetorno.Text);
 			controle.Status = false;
@@ -222,6 +233,11 @@ namespace Dll_Forms_Fat
 				txtkmRetorno.Text = "";
 				txtkmRetorno.Focus();
 			}
+		}
+
+		private void groupSaida_Enter(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

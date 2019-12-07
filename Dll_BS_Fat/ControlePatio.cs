@@ -63,10 +63,10 @@ namespace BsFat
 		#endregion
 		public TimeSpan? HoraRetorno { get; set; }
 
-		#region Anotações
-		[Display(Name = "Estado do carro")]
-		#endregion
-		public string EstadoRetorno { get; set; }
+		//#region Anotações
+		//[Display(Name = "Estado do carro")]
+		//#endregion
+		//public string EstadoRetorno { get; set; }
 
 		#region Anotações
 		[Display(Name = "Nível de combustível")]
