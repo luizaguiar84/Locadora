@@ -14,13 +14,30 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormAdicionarCargo : Form
 	{
+		private Cargos cargo = new Cargos();
+
 		public FormAdicionarCargo()
 		{
 			InitializeComponent();
 		}
+		public FormAdicionarCargo(Cargos cargo)
+		{
+			InitializeComponent();
+			this.cargo = cargo;
+			txtCargo.Text = cargo.Cargo;
+		}
 
 		private void btnSalvar_Click(object sender, EventArgs e)
 		{
+			if (this.cargo != null)
+			{
+				cargo.Cargo = txtCargo.Text;
+				if (new CargosDao().DbUpdate(cargo))
+				{
+					MessageBox.Show("Cargo Atualizado com Sucesso!");
+					this.Close();
+				}
+			}
 			if (new CargosDao().CheckCargo(txtCargo.Text))
 			{
 				MessageBox.Show("Cargo já cadastrado no sistema");

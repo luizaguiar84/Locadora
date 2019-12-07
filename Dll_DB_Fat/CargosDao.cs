@@ -11,30 +11,38 @@ namespace DbFat
 	{
 		public bool DbAdd(Cargos registro)
 		{
-			return new DbKernel.Db_Kernel().DbAdd(registro);
+			return new DbKernel.Db_Kernel().DbAdd<Cargos>(registro);
 		}
 
 		public bool DbUpdate(Cargos registro)
 		{
-			return new DbKernel.Db_Kernel().DbUpdate(registro);
+			return new DbKernel.Db_Kernel().DbUpdate<Cargos>(registro);
 		}
 
 		public bool DeleteRegistro(Cargos registro)
 		{
-			return new DbKernel.Db_Kernel().DeleteRegistro(registro);
+			return new DbKernel.Db_Kernel().DeleteRegistro<Cargos>(registro);
 		}
 
 		public bool CheckCargo(string cargo)
 		{
 			bool cargoExiste = false;
 			var listaCargos = GetAll();
-			foreach (var cargos in listaCargos)
+			if (listaCargos == null)
 			{
-				if (cargos.Equals(cargo))
+				cargoExiste = false;
+			}
+			else
+			{
+				foreach (var cargos in listaCargos)
 				{
-					cargoExiste = true;
+					if (String.Equals(cargo, cargos.Cargo, StringComparison.OrdinalIgnoreCase))
+					{
+						cargoExiste = true;
+					}
 				}
 			}
+			
 			return cargoExiste;
 		}
 

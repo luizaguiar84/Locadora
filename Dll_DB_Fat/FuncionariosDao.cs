@@ -85,7 +85,7 @@ namespace DbFat
 				.Where(f => f.Id == id)
 				.SingleOrDefault();
 
-			//funcionario.Cnh = new CnhsDao().GetById(funcionario.CnhId);
+			funcionario.Cnh = new CnhsDao().GetById(funcionario.CnhId);
 			funcionario.Endereco = new EnderecosDao().GetById(funcionario.EnderecoId);
 
 			return funcionario;

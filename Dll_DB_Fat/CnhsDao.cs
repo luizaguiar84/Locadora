@@ -16,7 +16,7 @@ namespace DbFat
 		{
 			return GetAll()
 					.Where(c => c.Id == cnhId)
-					.Single();
+					.SingleOrDefault();
 		}
 
 		public bool DbUpdate(Cnhs Add)

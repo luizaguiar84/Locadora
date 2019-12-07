@@ -66,13 +66,6 @@ namespace Dll_Forms_Fat
 				.GetUf(txtUF.Text);
 			var endereco = enderecoBuilder.Build();
 
-			//CnhsBuilder cnhBuilder = new CnhsBuilder()
-			//	.GetEmissao(dateCnhEmitida.Value)
-			//	.GetValidade(dateCnhValidade.Value)
-			//	.GetNumero(txtCNH.Text)
-			//	.GetCategoria(comboCategoriaCnh.Text);
-			//var cnh = cnhBuilder.Build();
-
 			FuncionariosBuilder FBuilder = new FuncionariosBuilder()
 				.GetNome(txtNome.Text)
 				.GetCpf(maskedCpf.Text)
@@ -99,12 +92,16 @@ namespace Dll_Forms_Fat
 
 			new FuncionariosDao().DbUpdate(funcionario);
 			MessageBox.Show("Dados do funcionário Atualizado com Sucesso.", "Alerta");
+			if (funcionario.CnhId == 0)
+			{
+				CriarCnh(funcionario);
+			}
 			this.Controls.LimparTextBoxes();
 			this.groupEndereco.Controls.LimparTextBoxes();
 		}
 		private void CadastrarNovoFuncionario(Funcionarios funcionario)
 		{
-			
+
 			//CnhsBuilder cnhBuilder = new CnhsBuilder()
 			//	.GetEmissao(dateCnhEmitida.Value)
 			//	.GetValidade(dateCnhValidade.Value)
@@ -137,25 +134,27 @@ namespace Dll_Forms_Fat
 				.GetNascimento(dateNascimento.Value)
 				//.GetDemissao(dateDemissao.Value)
 				.GetEndereco(endereco);
-				//.GetCnh(cnh);
 
-			 funcionario = FBuilder.Build();
+			funcionario = FBuilder.Build();
+			funcionario.CnhId = 0;
 			new FuncionariosDao().DbAdd(funcionario);
-
-			if (MessageBox.Show("Adicionar uma CNH ao funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-			{
-				var cadastrarCnh = new FormCadastrarMotorista(funcionario)
-				{
-					
-				};
-				cadastrarCnh.Show();
-			}
+			CriarCnh(funcionario);
 
 			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
 
 			this.Controls.LimparTextBoxes();
 			this.groupEndereco.Controls.LimparTextBoxes();
 		}
+
+		private static void CriarCnh(Funcionarios funcionario)
+		{
+			if (MessageBox.Show("Adicionar uma CNH ao funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				var cadastrarCnh = new FormCadastrarMotorista(funcionario);
+				cadastrarCnh.Show();
+			}
+		}
+
 		private void PreencherFormulario(Funcionarios f)
 		{
 			txtId.Text = f.Id.ToString();

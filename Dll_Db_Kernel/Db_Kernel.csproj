@@ -161,6 +161,10 @@
     <Compile Include="Migrations\20191205232726_MudancaClasses.designer.cs">
       <DependentUpon>20191205232726_MudancaClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191207170258_AdicaoDeTabelas.cs" />
+    <Compile Include="Migrations\20191207170258_AdicaoDeTabelas.designer.cs">
+      <DependentUpon>20191207170258_AdicaoDeTabelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

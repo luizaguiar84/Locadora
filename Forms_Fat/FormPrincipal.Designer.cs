@@ -31,12 +31,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.administraçaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.novaLocaçaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.controleDePátioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.cadastrarNovoUsuárioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.controleDePreçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.efetuarLogoffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,12 +86,9 @@
 			// administraçaoToolStripMenuItem
 			// 
 			this.administraçaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novaLocaçaoToolStripMenuItem,
-            this.devoluçãoToolStripMenuItem,
             this.controleDePátioToolStripMenuItem,
             this.toolStripSeparator2,
             this.cadastrarNovoUsuárioToolStripMenuItem1,
-            this.toolStripSeparator3,
             this.controleDePreçosToolStripMenuItem,
             this.toolStripSeparator4,
             this.efetuarLogoffToolStripMenuItem,
@@ -102,20 +96,6 @@
 			this.administraçaoToolStripMenuItem.Name = "administraçaoToolStripMenuItem";
 			this.administraçaoToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
 			this.administraçaoToolStripMenuItem.Text = "Administração";
-			// 
-			// novaLocaçaoToolStripMenuItem
-			// 
-			this.novaLocaçaoToolStripMenuItem.Name = "novaLocaçaoToolStripMenuItem";
-			this.novaLocaçaoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-			this.novaLocaçaoToolStripMenuItem.Text = "Nova Locação...";
-			this.novaLocaçaoToolStripMenuItem.Click += new System.EventHandler(this.NovaLocaçaoToolStripMenuItem_Click);
-			// 
-			// devoluçãoToolStripMenuItem
-			// 
-			this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-			this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-			this.devoluçãoToolStripMenuItem.Text = "Devolução...";
-			this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
 			// 
 			// controleDePátioToolStripMenuItem
 			// 
@@ -136,16 +116,11 @@
 			this.cadastrarNovoUsuárioToolStripMenuItem1.Text = "Cadastrar Novo Usuário...";
 			this.cadastrarNovoUsuárioToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarNovoUsuárioToolStripMenuItem1_Click);
 			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(205, 6);
-			// 
 			// controleDePreçosToolStripMenuItem
 			// 
 			this.controleDePreçosToolStripMenuItem.Name = "controleDePreçosToolStripMenuItem";
 			this.controleDePreçosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-			this.controleDePreçosToolStripMenuItem.Text = "Definições do sistema...";
+			this.controleDePreçosToolStripMenuItem.Text = "Editar Cargos...";
 			this.controleDePreçosToolStripMenuItem.Click += new System.EventHandler(this.controleDePreçosToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator4
@@ -410,13 +385,10 @@
 		private System.Windows.Forms.ToolStripMenuItem consultarReservasAtivasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem consultarComprovantesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem novaLocaçaoToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem registrarAlertaToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cadastrarNovoUsuárioToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem controleDePátioToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem controleDePneusToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem1;
