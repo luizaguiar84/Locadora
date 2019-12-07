@@ -94,7 +94,7 @@ namespace BsFat
 		#region Anotações
 		[Required(ErrorMessage = "Informe a placa do veiculo")]
 		[Display(Name = "Placa")]
-		[MaxLength(7)]
+		[MaxLength(8)]
 		#endregion
 		public string Placa { get; set; }
 

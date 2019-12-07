@@ -172,16 +172,21 @@ namespace Dll_Forms_Fat
 			txtTitEleitor.Text = f.TituloEleitor;
 			dateNascimento.Text = f.Nascimento.ToString();
 			//dateDemissao.Value = f.Demissao.Value;
-			//txtCNH.Text = f.Cnh.Numero;
-			//comboCategoriaCnh.Text = f.Cnh.Categoria;
-			//dateCnhEmitida.Value = f.Cnh.Emissao;
-			//dateCnhValidade.Value = f.Cnh.Validade;
 			maskedCEP.Text = f.Endereco.Cep;
 			txtLogradouro.Text = f.Endereco.Logradouro;
 			txtNumero.Text = f.Endereco.Num;
 			txtBairro.Text = f.Endereco.Bairro;
 			txtCidade.Text = f.Endereco.Cidade;
 			txtUF.Text = f.Endereco.Uf;
+			
+				if (f.Cnh.Numero != "")
+			{
+				groupCNH.Visible = true;
+				txtCNH.Text = f.Cnh.Numero;
+				txtCategoria.Text = f.Cnh.Categoria;
+				dateEmitida.Value = f.Cnh.Emissao;
+				dateValidade.Value = f.Cnh.Validade;
+			}
 		}
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
@@ -238,6 +243,18 @@ namespace Dll_Forms_Fat
 
 			this.Close();
 			busca.Show();
+
+		}
+
+		private void label11_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAtualizarCnh_Click(object sender, EventArgs e)
+		{
+			var atualizar = new FormCadastrarMotorista(funcionario);
+			atualizar.Show();
 
 		}
 	}

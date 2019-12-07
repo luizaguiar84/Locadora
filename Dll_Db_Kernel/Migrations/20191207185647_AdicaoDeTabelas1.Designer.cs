@@ -4,14 +4,16 @@ using DbKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbKernel.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20191207185647_AdicaoDeTabelas1")]
+    partial class AdicaoDeTabelas1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace DbKernel.Migrations
 
                     b.Property<string>("Cargo");
 
-                    b.Property<string>("NivelAcesso");
+                    b.Property<int>("NivelAcesso");
 
                     b.HasKey("Id");
 
@@ -124,8 +126,7 @@ namespace DbKernel.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Categoria")
-                        .IsRequired()
+                    b.Property<int>("Categoria")
                         .HasMaxLength(2);
 
                     b.Property<DateTime>("Emissao");
@@ -627,7 +628,7 @@ namespace DbKernel.Migrations
 
                     b.Property<string>("Placa")
                         .IsRequired()
-                        .HasMaxLength(8);
+                        .HasMaxLength(7);
 
                     b.Property<int>("Portas");
 

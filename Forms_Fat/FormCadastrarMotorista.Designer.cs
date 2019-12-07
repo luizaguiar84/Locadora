@@ -33,13 +33,13 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtCnh = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.txtCategoria = new System.Windows.Forms.TextBox();
 			this.btnSalvar = new System.Windows.Forms.Button();
 			this.lblEmitida = new System.Windows.Forms.Label();
 			this.lblValidade = new System.Windows.Forms.Label();
 			this.dateEmitida = new System.Windows.Forms.DateTimePicker();
 			this.dateValidade = new System.Windows.Forms.DateTimePicker();
 			this.txtNomeMotorista = new System.Windows.Forms.TextBox();
+			this.comboCategoria = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -75,14 +75,6 @@
 			this.label3.Size = new System.Drawing.Size(55, 13);
 			this.label3.TabIndex = 6;
 			this.label3.Text = "Categoria:";
-			// 
-			// txtCategoria
-			// 
-			this.txtCategoria.Location = new System.Drawing.Point(240, 70);
-			this.txtCategoria.MaxLength = 2;
-			this.txtCategoria.Name = "txtCategoria";
-			this.txtCategoria.Size = new System.Drawing.Size(39, 20);
-			this.txtCategoria.TabIndex = 7;
 			// 
 			// btnSalvar
 			// 
@@ -135,19 +127,38 @@
 			this.txtNomeMotorista.Size = new System.Drawing.Size(267, 20);
 			this.txtNomeMotorista.TabIndex = 249;
 			// 
+			// comboCategoria
+			// 
+			this.comboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboCategoria.FormattingEnabled = true;
+			this.comboCategoria.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "AB",
+            "C",
+            "AC",
+            "D",
+            "AD",
+            "E",
+            "AE"});
+			this.comboCategoria.Location = new System.Drawing.Point(241, 68);
+			this.comboCategoria.Name = "comboCategoria";
+			this.comboCategoria.Size = new System.Drawing.Size(38, 21);
+			this.comboCategoria.TabIndex = 250;
+			// 
 			// FormCadastrarMotorista
 			// 
 			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(329, 213);
+			this.Controls.Add(this.comboCategoria);
 			this.Controls.Add(this.txtNomeMotorista);
 			this.Controls.Add(this.dateValidade);
 			this.Controls.Add(this.dateEmitida);
 			this.Controls.Add(this.lblEmitida);
 			this.Controls.Add(this.lblValidade);
 			this.Controls.Add(this.btnSalvar);
-			this.Controls.Add(this.txtCategoria);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.txtCnh);
 			this.Controls.Add(this.label2);
@@ -166,12 +177,12 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtCnh;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox txtCategoria;
 		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.Label lblEmitida;
 		private System.Windows.Forms.Label lblValidade;
 		private System.Windows.Forms.DateTimePicker dateEmitida;
 		private System.Windows.Forms.DateTimePicker dateValidade;
 		private System.Windows.Forms.TextBox txtNomeMotorista;
+		private System.Windows.Forms.ComboBox comboCategoria;
 	}
 }

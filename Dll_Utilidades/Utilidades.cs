@@ -4,7 +4,8 @@
     using Caelum.Stella.CSharp.Validation;
 	using Correios.CEP;
 	using System;
-	using System.Configuration;
+    using System.Collections.Generic;
+    using System.Configuration;
 	using System.Windows.Forms;
 
 	/// <summary>
@@ -193,6 +194,30 @@
 			}
 
 			return RetornaStringConexao;
+		}
+
+		/// <summary>
+		/// Recupera lista de Enum
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
+		public static IList<T> EnumToList<T>()
+		{
+			if (!typeof(T).IsEnum)
+				throw new Exception("T isn't an enumerated type");
+
+			IList<T> list = new List<T>();
+			Type type = typeof(T);
+			if (type != null)
+			{
+				Array enumValues = Enum.GetValues(type);
+				foreach (T value in enumValues)
+				{
+					list.Add(value);
+				}
+			}
+
+			return list;
 		}
 	}
 

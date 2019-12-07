@@ -90,6 +90,7 @@ namespace DbFat
 			//	funcionario.Cnh = new CnhsDao().GetById(_id);
 			//}
 			funcionario.Cnh = new CnhsDao().GetById((int)funcionario.CnhId);
+			funcionario.Cargo = new CargosDao().GetById(funcionario.CargoId);
 			funcionario.Endereco = new EnderecosDao().GetById(funcionario.EnderecoId);
 
 			return funcionario;

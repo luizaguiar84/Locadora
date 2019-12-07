@@ -131,7 +131,7 @@ namespace Dll_Forms_Fat
 				.GetIsAtivo(ativo);
 
 			var veiculo = veiculoBuilder.Build();
-			
+			veiculo.DataAquisicao = DateTime.Now;
 			//ValidarVeiculo(veiculo);
 
 			if (new VeiculosDao().DbAdd(veiculo))
