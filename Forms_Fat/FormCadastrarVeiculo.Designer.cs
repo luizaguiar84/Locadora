@@ -41,8 +41,6 @@
 			this.checkVidroEletrico = new System.Windows.Forms.CheckBox();
 			this.checkDirecaoHidraulica = new System.Windows.Forms.CheckBox();
 			this.comboAno = new System.Windows.Forms.ComboBox();
-			this.txtValorDiaria = new System.Windows.Forms.TextBox();
-			this.label29 = new System.Windows.Forms.Label();
 			this.txtCombustivel = new System.Windows.Forms.TextBox();
 			this.numericLugares = new System.Windows.Forms.NumericUpDown();
 			this.lblLugares = new System.Windows.Forms.Label();
@@ -99,8 +97,6 @@
 			this.tabInformacoes.Controls.Add(this.txtMontadora);
 			this.tabInformacoes.Controls.Add(this.groupOpcionais);
 			this.tabInformacoes.Controls.Add(this.comboAno);
-			this.tabInformacoes.Controls.Add(this.txtValorDiaria);
-			this.tabInformacoes.Controls.Add(this.label29);
 			this.tabInformacoes.Controls.Add(this.txtCombustivel);
 			this.tabInformacoes.Controls.Add(this.numericLugares);
 			this.tabInformacoes.Controls.Add(this.lblLugares);
@@ -236,23 +232,6 @@
 			this.comboAno.TabIndex = 3;
 			this.comboAno.SelectedIndexChanged += new System.EventHandler(this.ComboAno_SelectedIndexChanged);
 			// 
-			// txtValorDiaria
-			// 
-			this.txtValorDiaria.Location = new System.Drawing.Point(424, 144);
-			this.txtValorDiaria.MaxLength = 7;
-			this.txtValorDiaria.Name = "txtValorDiaria";
-			this.txtValorDiaria.Size = new System.Drawing.Size(85, 20);
-			this.txtValorDiaria.TabIndex = 12;
-			// 
-			// label29
-			// 
-			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(421, 127);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(100, 13);
-			this.label29.TabIndex = 82;
-			this.label29.Text = "Valor diário locação";
-			// 
 			// txtCombustivel
 			// 
 			this.txtCombustivel.Location = new System.Drawing.Point(246, 144);
@@ -355,6 +334,7 @@
 			// 
 			// comboStatus
 			// 
+			this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboStatus.FormattingEnabled = true;
 			this.comboStatus.Items.AddRange(new object[] {
             "ATIVO",
@@ -624,8 +604,6 @@
 		private System.Windows.Forms.TextBox txtValorAtualCarro;
 		private System.Windows.Forms.NumericUpDown numericLugares;
 		private System.Windows.Forms.Label lblLugares;
-		private System.Windows.Forms.TextBox txtValorDiaria;
-		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.TextBox txtCombustivel;
 		private System.Windows.Forms.ComboBox comboAno;
 		private System.Windows.Forms.GroupBox groupOpcionais;

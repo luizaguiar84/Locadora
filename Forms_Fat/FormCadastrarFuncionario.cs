@@ -139,10 +139,8 @@ namespace Dll_Forms_Fat
 			funcionario.CargoId = ((Cargos)comboCargo.SelectedItem).Id;
 			funcionario.Cnh = cnh;
 			new FuncionariosDao().DbAdd(funcionario);
-			CriarCnh(funcionario);
-
 			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
-
+			CriarCnh(funcionario);
 			this.Controls.LimparTextBoxes();
 			this.groupEndereco.Controls.LimparTextBoxes();
 		}

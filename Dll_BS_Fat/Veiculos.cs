@@ -19,7 +19,7 @@ namespace BsFat
 		}
 
 		public Veiculos(string montadora, string modelo, string anoModelo, int portas, string cor, string placa, string renavam, string chassi, int lugares, int quilometragem, string status,
-			string combustivel, string valorAtual, decimal valorDiaria, string observacoes, DateTime? dataAquisicao, bool arCondicionado, bool direcaoHidraulica, bool vidroEletrico,
+			string combustivel, string valorAtual, string observacoes, DateTime? dataAquisicao, bool arCondicionado, bool direcaoHidraulica, bool vidroEletrico,
 			bool airBag, bool abs, bool isAtivo)
 		{
 			Montadora = montadora;
@@ -35,7 +35,7 @@ namespace BsFat
 			Status = status;
 			Combustivel = combustivel;
 			ValorAtual = valorAtual;
-			ValorDiaria = valorDiaria;
+			//ValorDiaria = valorDiaria;
 			Observacoes = observacoes;
 			DataAquisicao = dataAquisicao;
 			ArCondicionado = arCondicionado;
@@ -140,14 +140,14 @@ namespace BsFat
 		#endregion
 		public string ValorAtual { get; set; }
 
-		#region Anotações
-		[Required(ErrorMessage = "Favor informar o valor da diária.")]
-		[DisplayFormat(DataFormatString = "{0,c}")]
-		[Display(Name = "Valor da diária")]
-		[DataType(DataType.Currency)]
-		[Range(1, 9999, ErrorMessage = "O {0} deve estar entre {1} e {2}")]
-		#endregion
-		public decimal ValorDiaria { get; set; }
+		//#region Anotações
+		//[Required(ErrorMessage = "Favor informar o valor da diária.")]
+		//[DisplayFormat(DataFormatString = "{0,c}")]
+		//[Display(Name = "Valor da diária")]
+		//[DataType(DataType.Currency)]
+		//[Range(1, 9999, ErrorMessage = "O {0} deve estar entre {1} e {2}")]
+		//#endregion
+		//public decimal ValorDiaria { get; set; }
 
 		#region Anotações
 		[Display(Name = "Observações")]

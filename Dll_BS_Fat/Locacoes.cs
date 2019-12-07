@@ -47,24 +47,24 @@ namespace BsFat
 			this.Cliente.Add(new ClienteLocacao() { FuncionarioId = funcionario.Id });
 		}
 
-		public decimal CalculaValorTotal(Locacoes locacao, Veiculos veiculo)
-		{
-			var diasLocados = (int)Math.Ceiling((decimal)locacao.DataFinal.Value.Subtract(locacao.DataInicio.Value).Days);
+		//public decimal CalculaValorTotal(Locacoes locacao, Veiculos veiculo)
+		//{
+		//	var diasLocados = (int)Math.Ceiling((decimal)locacao.DataFinal.Value.Subtract(locacao.DataInicio.Value).Days);
 
-			decimal valorSeguro = 0;
-			if (SeguroCarro)
-			{
-				//valorSeguro += diasLocados * Program.Valores.ValorSeguro;
-			}
-			if (SeguroTerceiros)
-			{
-				//	valorSeguro += diasLocados * Program.Valores.ValorSeguroTerceiros;
-			}
+		//	decimal valorSeguro = 0;
+		//	if (SeguroCarro)
+		//	{
+		//		//valorSeguro += diasLocados * Program.Valores.ValorSeguro;
+		//	}
+		//	if (SeguroTerceiros)
+		//	{
+		//		//	valorSeguro += diasLocados * Program.Valores.ValorSeguroTerceiros;
+		//	}
 
-			return (veiculo.ValorDiaria * diasLocados) + valorSeguro;
+		//	return (veiculo.ValorDiaria * diasLocados) + valorSeguro;
 
 
-		}
+		//}
 
 
 		//public virtual ICollection<Contratocarro> contratocarro { get; set; }
