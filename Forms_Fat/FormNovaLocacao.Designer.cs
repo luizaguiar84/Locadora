@@ -509,6 +509,7 @@
 			// 
 			// comboCarro
 			// 
+			this.comboCarro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCarro.FormattingEnabled = true;
 			this.comboCarro.Location = new System.Drawing.Point(17, 80);
 			this.comboCarro.Name = "comboCarro";
@@ -517,6 +518,7 @@
 			// 
 			// comboCliente
 			// 
+			this.comboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCliente.FormattingEnabled = true;
 			this.comboCliente.Location = new System.Drawing.Point(17, 30);
 			this.comboCliente.Name = "comboCliente";

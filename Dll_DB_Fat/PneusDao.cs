@@ -73,11 +73,11 @@ namespace DbFat
 			return new DbKernel.Db_Kernel().DbAdd<Pneus>(Add);
 		}
 
-		public HashSet<Pneus> GetPneus(int veiculoId)
+		public List<Pneus> GetPneus(int veiculoId)
 		{
 			return GetAll().Where
 				(p => p.VeiculoId == veiculoId)
-				.ToHashSet();
+				.ToList();
 		}
 		public Pneus GetById(int pneuId)
 		{

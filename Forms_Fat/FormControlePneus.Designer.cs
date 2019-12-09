@@ -30,7 +30,6 @@ namespace Dll_Forms_Fat
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormControlePneus));
 			this.lblPlaca = new System.Windows.Forms.Label();
 			this.comboPlaca = new System.Windows.Forms.ComboBox();
@@ -44,14 +43,7 @@ namespace Dll_Forms_Fat
 			this.dataGridPneus = new System.Windows.Forms.DataGridView();
 			this.btnAddPneu = new System.Windows.Forms.Button();
 			this.datePneu = new System.Windows.Forms.DateTimePicker();
-			this.pneusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.marcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.modeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.kmInicialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.kmAtualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridPneus)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pneusBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblPlaca
@@ -65,6 +57,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboPlaca
 			// 
+			this.comboPlaca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboPlaca.FormattingEnabled = true;
 			this.comboPlaca.Location = new System.Drawing.Point(20, 25);
 			this.comboPlaca.Name = "comboPlaca";
@@ -115,6 +108,7 @@ namespace Dll_Forms_Fat
 			// 
 			// comboEstado
 			// 
+			this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboEstado.FormattingEnabled = true;
 			this.comboEstado.Items.AddRange(new object[] {
             "NOVO",
@@ -137,15 +131,7 @@ namespace Dll_Forms_Fat
 			// 
 			// dataGridPneus
 			// 
-			this.dataGridPneus.AutoGenerateColumns = false;
 			this.dataGridPneus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridPneus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.marcaDataGridViewTextBoxColumn,
-            this.modeloDataGridViewTextBoxColumn,
-            this.estadoDataGridViewTextBoxColumn,
-            this.kmInicialDataGridViewTextBoxColumn,
-            this.kmAtualDataGridViewTextBoxColumn});
-			this.dataGridPneus.DataSource = this.pneusBindingSource;
 			this.dataGridPneus.Location = new System.Drawing.Point(20, 155);
 			this.dataGridPneus.Name = "dataGridPneus";
 			this.dataGridPneus.Size = new System.Drawing.Size(550, 150);
@@ -168,40 +154,6 @@ namespace Dll_Forms_Fat
 			this.datePneu.Name = "datePneu";
 			this.datePneu.Size = new System.Drawing.Size(96, 20);
 			this.datePneu.TabIndex = 14;
-			// 
-			// pneusBindingSource
-			// 
-			this.pneusBindingSource.DataSource = typeof(Pneus);
-			// 
-			// marcaDataGridViewTextBoxColumn
-			// 
-			this.marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
-			this.marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
-			this.marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
-			// 
-			// modeloDataGridViewTextBoxColumn
-			// 
-			this.modeloDataGridViewTextBoxColumn.DataPropertyName = "Modelo";
-			this.modeloDataGridViewTextBoxColumn.HeaderText = "Modelo";
-			this.modeloDataGridViewTextBoxColumn.Name = "modeloDataGridViewTextBoxColumn";
-			// 
-			// estadoDataGridViewTextBoxColumn
-			// 
-			this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
-			this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
-			this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-			// 
-			// kmInicialDataGridViewTextBoxColumn
-			// 
-			this.kmInicialDataGridViewTextBoxColumn.DataPropertyName = "KmInicial";
-			this.kmInicialDataGridViewTextBoxColumn.HeaderText = "KmInicial";
-			this.kmInicialDataGridViewTextBoxColumn.Name = "kmInicialDataGridViewTextBoxColumn";
-			// 
-			// kmAtualDataGridViewTextBoxColumn
-			// 
-			this.kmAtualDataGridViewTextBoxColumn.DataPropertyName = "KmAtual";
-			this.kmAtualDataGridViewTextBoxColumn.HeaderText = "KmAtual";
-			this.kmAtualDataGridViewTextBoxColumn.Name = "kmAtualDataGridViewTextBoxColumn";
 			// 
 			// FormControlePneus
 			// 
@@ -226,7 +178,6 @@ namespace Dll_Forms_Fat
 			this.Text = "Controle de Pneus";
 			this.Load += new System.EventHandler(this.FormControlePneus_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridPneus)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pneusBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -246,11 +197,5 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.DataGridView dataGridPneus;
 		private System.Windows.Forms.Button btnAddPneu;
 		private System.Windows.Forms.DateTimePicker datePneu;
-		private System.Windows.Forms.DataGridViewTextBoxColumn marcaDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn kmInicialDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn kmAtualDataGridViewTextBoxColumn;
-		private System.Windows.Forms.BindingSource pneusBindingSource;
 	}
 }

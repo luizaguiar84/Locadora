@@ -102,6 +102,7 @@
 			// 
 			// comboFiltro
 			// 
+			this.comboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboFiltro.FormattingEnabled = true;
 			this.comboFiltro.Items.AddRange(new object[] {
             "Peça",
@@ -225,6 +226,7 @@
 			this.txtValorUnitEntrada.Name = "txtValorUnitEntrada";
 			this.txtValorUnitEntrada.Size = new System.Drawing.Size(77, 20);
 			this.txtValorUnitEntrada.TabIndex = 61;
+			this.txtValorUnitEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorUnitEntrada_KeyPress);
 			// 
 			// label10
 			// 
@@ -242,6 +244,7 @@
 			this.txtQuantidadeEntrada.Name = "txtQuantidadeEntrada";
 			this.txtQuantidadeEntrada.Size = new System.Drawing.Size(61, 20);
 			this.txtQuantidadeEntrada.TabIndex = 58;
+			this.txtQuantidadeEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidadeEntrada_KeyPress);
 			// 
 			// btnSalvarEntrada
 			// 
@@ -311,6 +314,7 @@
 			this.txtIdSaida.ReadOnly = true;
 			this.txtIdSaida.Size = new System.Drawing.Size(61, 20);
 			this.txtIdSaida.TabIndex = 73;
+			this.txtIdSaida.TextChanged += new System.EventHandler(this.txtIdSaida_TextChanged);
 			// 
 			// label15
 			// 
@@ -375,6 +379,7 @@
 			this.txtValorUnitSaida.Location = new System.Drawing.Point(472, 58);
 			this.txtValorUnitSaida.MaxLength = 4;
 			this.txtValorUnitSaida.Name = "txtValorUnitSaida";
+			this.txtValorUnitSaida.ReadOnly = true;
 			this.txtValorUnitSaida.Size = new System.Drawing.Size(77, 20);
 			this.txtValorUnitSaida.TabIndex = 47;
 			// 
@@ -394,6 +399,7 @@
 			this.txtQuantidadeSaida.Name = "txtQuantidadeSaida";
 			this.txtQuantidadeSaida.Size = new System.Drawing.Size(61, 20);
 			this.txtQuantidadeSaida.TabIndex = 44;
+			this.txtQuantidadeSaida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidadeSaida_KeyPress);
 			// 
 			// btnSalvarSaida
 			// 
@@ -441,6 +447,8 @@
 			this.dataGridConsulta.ReadOnly = true;
 			this.dataGridConsulta.Size = new System.Drawing.Size(734, 188);
 			this.dataGridConsulta.TabIndex = 32;
+			this.dataGridConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridConsulta_CellClick);
+			this.dataGridConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridConsulta_CellContentClick);
 			// 
 			// FormControleEstoque
 			// 

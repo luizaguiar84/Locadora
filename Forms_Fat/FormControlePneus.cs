@@ -17,6 +17,7 @@ namespace Dll_Forms_Fat
 		private void FormControlePneus_Load(object sender, EventArgs e)
 		{
 			PreenchePlacas();
+			comboEstado.SelectedIndex = 0;
 		}
 
 		private void PreenchePlacas()
@@ -29,23 +30,50 @@ namespace Dll_Forms_Fat
 
 		private void BtnAddPneu_Click(object sender, EventArgs e)
 		{
-			var pneu = new Pneus();
-			var veiculo = GetVeiculo();
+			if (validacao())
+			{
+				var pneu = new Pneus();
+				var veiculo = GetVeiculo();
 
-			pneu.VeiculoId = veiculo.Id;
-			pneu.Marca = txtMarca.Text;
-			pneu.Estado = comboEstado.Text;
-			pneu.DataAdicao = datePneu.Value;
-			pneu.Modelo = txtModelo.Text;
+				pneu.VeiculoId = veiculo.Id;
+				pneu.Marca = txtMarca.Text;
+				pneu.Estado = comboEstado.Text;
+				pneu.DataAdicao = datePneu.Value;
+				pneu.Modelo = txtModelo.Text;
 
-			new PneusDao().DbAdd(pneu);
+				if (new PneusDao().DbAdd(pneu))
+				{
+					MessageBox.Show($"Pneu vinculado ao veiculo com sucesso");
+				}
+				else
+				{
+					MessageBox.Show("Erro na adição do Pneu");
+				}
 
-			MessageBox.Show($"Pneu vinculado ao veiculo com sucesso");
-
-			PreencheTabela(veiculo);
+				PreencheTabela(veiculo);
+			}		
+   
+   
 		}
 
-
+		private bool validacao()
+		{
+			bool retorno = false;
+			if (String.IsNullOrWhiteSpace(txtMarca.Text))
+			{
+				MessageBox.Show("Favor preencher a marca do pneu.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtModelo.Text))
+			{
+				MessageBox.Show("Favor preencher o modelo do pneu");
+			}
+			else
+			{
+				retorno = true;
+			}
+			
+			return retorno;
+		}
 
 		private void PreencheTabela(Veiculos veiculo)
 		{

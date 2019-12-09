@@ -86,35 +86,55 @@ namespace Dll_Forms_Fat
 
 		private void BtnSalvarSaida_Click(object sender, EventArgs e)
 		{
-			var controle = new ControlePatio();
-
-			var veiculo = (Veiculos)comboCarros.SelectedItem;
-			controle.VeiculoId = veiculo.Id;
-
-			var motorista = (Funcionarios)comboMotorista.SelectedItem;
-			controle.ClienteId = motorista.Id;
-
-			controle.Placa = veiculo.Placa;
-
-			controle.DataSaida = dateSaida.Value;
-			controle.HoraSaida = timeSaida.Value.TimeOfDay;
-			controle.KmSaida = Convert.ToInt32(txtKmSaida.Text);
-			controle.NivelCombustivelSaida = comboCombustivelSaida.Text;
-			//c.LiberadoSaida = comboLiberadoSaida.Text;
-			controle.ObservacoesSaida = txtObservacoes.Text;
-			controle.Status = true;
-
-			if (new ControlePatioDao().DbAdd(controle))
+			if (validaSaida())
 			{
-				MessageBox.Show("Saida Registrada com Sucesso!");
+				var controle = new ControlePatio();
+
+				var veiculo = (Veiculos)comboCarros.SelectedItem;
+				controle.VeiculoId = veiculo.Id;
+
+				var motorista = (Funcionarios)comboMotorista.SelectedItem;
+				controle.ClienteId = motorista.Id;
+
+				controle.Placa = veiculo.Placa;
+
+				controle.DataSaida = dateSaida.Value;
+				controle.HoraSaida = timeSaida.Value.TimeOfDay;
+				controle.KmSaida = Convert.ToInt32(txtKmSaida.Text);
+				controle.NivelCombustivelSaida = comboCombustivelSaida.Text;
+				//c.LiberadoSaida = comboLiberadoSaida.Text;
+				controle.ObservacoesSaida = txtObservacoes.Text;
+				controle.Status = true;
+
+				if (new ControlePatioDao().DbAdd(controle))
+				{
+					MessageBox.Show("Saida Registrada com Sucesso!");
+					GetCarros();
+				}
+				else
+				{
+					MessageBox.Show("Veiculo já se encontra fora do pátio, favor selecionar outro.");
+				}
+				AtualizaTabela();
+				AtualizaPlacasFora();
+				this.groupSaida.Controls.LimparTextBoxes();
+			}
+		}
+
+		private bool validaSaida()
+		{
+			bool ret = false;
+
+			if (String.IsNullOrWhiteSpace(txtKmSaida.Text))
+			{
+				MessageBox.Show("Favor selecionar um veiculo na lista!");
 			}
 			else
 			{
-				MessageBox.Show("Veiculo já se encontra fora do pátio, favor selecionar outro.");
+				ret = true;
 			}
-			AtualizaTabela();
-			AtualizaPlacasFora();
-			this.groupSaida.Controls.LimparTextBoxes();
+
+			return ret;
 		}
 
 		private void AtualizaPlacasFora()
@@ -129,7 +149,7 @@ namespace Dll_Forms_Fat
 		{
 			comboCombustivelRetorno.SelectedIndex = 0;
 			comboCombustivelSaida.SelectedIndex = 0;
-			
+
 
 			var carrosFora = new ControlePatioDao().GetCarrosFora();
 
@@ -145,13 +165,36 @@ namespace Dll_Forms_Fat
 			dataGridView1.Columns["NivelCombustivelRetorno"].Visible = false;
 			dataGridView1.Columns["KmRetorno"].Visible = false;
 
-		CarrosFora = carrosFora;
+			CarrosFora = carrosFora;
 
 		}
 
 		private void BtnSalvarRetorno_Click(object sender, EventArgs e)
 		{
-			if (String.IsNullOrEmpty(txtKmSaida.Text))
+			if (validaRetorno())
+			{
+				ControlePatio controle = (ControlePatio)comboCarrosForaPlaca.SelectedItem;
+				var veiculo = new VeiculosDao().GetById(controle.VeiculoId);
+
+				if (RegistraRetorno(controle, veiculo))
+				{
+					MessageBox.Show("Retorno do carro registrado com êxito");
+
+					GetCarros();
+					AtualizaTabela();
+					AtualizaPlacasFora();
+
+					this.groupRetorno.Controls.LimparTextBoxes();
+					this.groupSaida.Controls.LimparTextBoxes();
+				}
+			}
+		
+		}
+
+		private bool validaRetorno()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(txtKmSaida.Text))
 			{
 				MessageBox.Show("Favor selecionar o carro na lista");
 			}
@@ -161,26 +204,12 @@ namespace Dll_Forms_Fat
 			}
 			else
 			{
-				ControlePatio controle = (ControlePatio)comboCarrosForaPlaca.SelectedItem;
-				var veiculo = new VeiculosDao().GetById(controle.VeiculoId);
-
-				if (RegistraRetorno(controle, veiculo))
-				{
-					MessageBox.Show("Retorno do carro registrado com êxito");
-
-					AtualizaTabela();
-					AtualizaPlacasFora();
-
-					this.groupRetorno.Controls.LimparTextBoxes();
-					this.groupSaida.Controls.LimparTextBoxes();
-				}
-
-
+				ret = true;
 			}
+			return ret;
 		}
 
-
-			private bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
+		private bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
 		{
 			controle.DataRetorno = dateRetorno.Value.Date;
 			controle.HoraRetorno = timeRetorno.Value.TimeOfDay;
@@ -188,6 +217,7 @@ namespace Dll_Forms_Fat
 			controle.NivelCombustivelRetorno = comboCombustivelRetorno.Text;
 			controle.KmRetorno = Convert.ToInt32(txtkmRetorno.Text);
 			controle.Status = false;
+			veiculo.Disponivel = true;
 
 			return new ControlePatioDao().RegistraRetorno(controle, veiculo);
 		}
@@ -231,15 +261,20 @@ namespace Dll_Forms_Fat
 
 		private void TxtkmRetorno_Leave(object sender, EventArgs e)
 		{
-			if (Convert.ToInt32(txtkmRetorno.Text) < Convert.ToInt32(txtKmSaida.Text))
-			{
-				MessageBox.Show("Favor inserir o número de Quilometros rodados corretamente.");
-				txtkmRetorno.Text = "";
-				txtkmRetorno.Focus();
-			}
+			//if (Convert.ToInt32(txtkmRetorno.Text) < Convert.ToInt32(txtKmSaida.Text))
+			//{
+			//	MessageBox.Show("Favor inserir o número de Quilometros rodados corretamente.");
+			//	txtkmRetorno.Text = "";
+			//	txtkmRetorno.Focus();
+			//}
 		}
 
 		private void groupSaida_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
 		}

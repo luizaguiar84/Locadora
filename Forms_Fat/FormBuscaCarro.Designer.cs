@@ -72,6 +72,7 @@
 			// 
 			// ComboFiltro
 			// 
+			this.ComboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ComboFiltro.FormattingEnabled = true;
 			this.ComboFiltro.Items.AddRange(new object[] {
             "Marca",

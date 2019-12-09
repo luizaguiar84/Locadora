@@ -58,11 +58,9 @@ namespace Dll_Forms_Fat
 		}
 		private void AtualizarPj(ClientesPJ cliente)
 		{
-			bool ativo = true;
-			//if (checkAtivo.Checked)
-			//{
-			//	ativo = true;
-			//}
+			int id = Convert.ToInt32(txtId.Text);
+			cliente.Endereco.Id = id;
+
 			EnderecosBuilder enderecoBuilder = new EnderecosBuilder()
 				.GetCep(maskedCEP.Text)
 				.GetLogradouro(txtLogradouro.Text)
@@ -72,17 +70,15 @@ namespace Dll_Forms_Fat
 				.GetCidade(txtCidade.Text)
 				.GetUf(txtUF.Text);
 			Enderecos endereco = enderecoBuilder.Build();
-			ClientesPJBuilder PjBuilder = new ClientesPJBuilder()
-				.GetIsAtivo(ativo)
-				.GetRazaoSocial(txtNome.Text)
-				.GetCnpj(maskedCpf.Text)
-				.GetContato(txtProfissao.Text)
-				.GetEmail(txtEmail.Text)
-				.GetIe(txtRG.Text)
-				.GetTelComercial(txtTelCom.Text)
-				.GetEndereco(endereco)
-				.GetTelCelular(txtTelCel.Text);
-			cliente = PjBuilder.Build();
+
+			cliente.Endereco = endereco;
+			cliente.RazaoSocial = txtNome.Text;
+			cliente.Cnpj = maskedCpf.Text;
+			cliente.Contato = txtProfissao.Text;
+			cliente.Email = txtEmail.Text;
+			cliente.Ie = txtRG.Text;
+			cliente.TelComercial = txtTelCom.Text;
+			cliente.TelCelular = txtTelCel.Text;
 
 			if (MessageBox.Show($"Favor confirmar a atualização:\n" +
 								$"Nome da empresa:{cliente.RazaoSocial}\n" +
@@ -96,11 +92,16 @@ namespace Dll_Forms_Fat
 								"Confirmação",
 								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
-				int id = Convert.ToInt32(txtId.Text);
-				cliente.Endereco.Id = id;
-				new ClientesPjDao().DbUpdate(cliente);
-				LimpaTela();
+
+				if (new ClientesPjDao().DbUpdate(cliente))
+				{
+					MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
+					LimpaTela();
+				}
+				else
+				{
+					MessageBox.Show("Erro na atualização, tente novamente.");
+				}
 			}
 		}
 		private void CadastrarPj()
@@ -255,9 +256,12 @@ namespace Dll_Forms_Fat
 			//{
 			//	CadastrarPf();
 			//}
-		
+
+			if (validaCliente())
+			{
 				CadastrarPj();
-			
+			}
+
 
 		}
 		private void MaskedCEP_Leave(object sender, EventArgs e)
@@ -279,17 +283,61 @@ namespace Dll_Forms_Fat
 
 		private void BtnAtualizar_Click(object sender, EventArgs e)
 		{
-			int id = Convert.ToInt32(txtId.Text);
-
-			
+			if (validaCliente())
+			{
+				int id = Convert.ToInt32(txtId.Text);
 				var cliente = new ClientesPjDao().GetById(id);
 				AtualizarPj(cliente);
+			}
+			
 			//}
 			//else
 			//{
 			//	var cliente = new MotoristasDao().GetById(id);
 			//	AtualizarPf(cliente);
 			//}
+		}
+
+		private bool validaCliente()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(txtNome.Text))
+			{
+				MessageBox.Show("Favor preencher a razão Social do Cliente");
+			}
+			else if (String.IsNullOrWhiteSpace(maskedCpf.Text))
+			{
+				MessageBox.Show("Favor informar o CNPJ do cliente.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtEmail.Text))
+			{
+				MessageBox.Show("Favor informar o E-Mail do cliente.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtRG.Text))
+			{
+				MessageBox.Show("Favor informar a IE do cliente.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtTelCom.Text))
+			{
+				MessageBox.Show("Favor informar o Telefone comercial do cliente.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtProfissao.Text))
+			{
+				MessageBox.Show("Favor informar um nome de contato do cliente.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtTelCel.Text))
+			{
+				MessageBox.Show("Favor informar o celular do contato do cliente.");
+			}
+			else if (String.IsNullOrWhiteSpace(maskedCEP.Text))
+			{
+				MessageBox.Show("Favor informar o endereço do cliente.");
+			}
+			else
+			{
+				ret = true;
+			}
+			return ret;
 		}
 
 		private void checkAtivo_CheckedChanged(object sender, EventArgs e)
@@ -507,5 +555,10 @@ namespace Dll_Forms_Fat
 		//	txtTelRes.Hide();
 		//}
 		#endregion
+
+		private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			txtNumero.IsNumeros(e);
+		}
 	}
 }

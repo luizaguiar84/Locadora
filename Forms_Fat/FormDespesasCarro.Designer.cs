@@ -42,9 +42,7 @@
 			this.dateAbastecimento = new System.Windows.Forms.DateTimePicker();
 			this.btnAddAbastecimento = new System.Windows.Forms.Button();
 			this.txtTotalAbastecimento = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
 			this.lblTotal = new System.Windows.Forms.Label();
-			this.txtKmAbastecimento = new System.Windows.Forms.TextBox();
 			this.txtValorUnitAbastecimento = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
@@ -91,14 +89,13 @@
 			this.label22 = new System.Windows.Forms.Label();
 			this.label23 = new System.Windows.Forms.Label();
 			this.tabObrigacoes = new System.Windows.Forms.TabPage();
+			this.txtTipoObrigacao = new System.Windows.Forms.TextBox();
 			this.dateObrigacoes = new System.Windows.Forms.DateTimePicker();
 			this.lblValorTotalObrigacoes = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.groupBox10 = new System.Windows.Forms.GroupBox();
 			this.dataGridObrigacoes = new System.Windows.Forms.DataGridView();
 			this.label27 = new System.Windows.Forms.Label();
-			this.comboTipoObrigacoes = new System.Windows.Forms.ComboBox();
-			this.btnAddTipoObrigacoes = new System.Windows.Forms.Button();
 			this.btnAddObrigacoes = new System.Windows.Forms.Button();
 			this.txtValorObrigacoes = new System.Windows.Forms.TextBox();
 			this.label26 = new System.Windows.Forms.Label();
@@ -251,9 +248,7 @@
 			this.groupAbastecimento.Controls.Add(this.dateAbastecimento);
 			this.groupAbastecimento.Controls.Add(this.btnAddAbastecimento);
 			this.groupAbastecimento.Controls.Add(this.txtTotalAbastecimento);
-			this.groupAbastecimento.Controls.Add(this.label5);
 			this.groupAbastecimento.Controls.Add(this.lblTotal);
-			this.groupAbastecimento.Controls.Add(this.txtKmAbastecimento);
 			this.groupAbastecimento.Controls.Add(this.txtValorUnitAbastecimento);
 			this.groupAbastecimento.Controls.Add(this.label6);
 			this.groupAbastecimento.Controls.Add(this.label9);
@@ -278,7 +273,7 @@
 			// 
 			// btnAddAbastecimento
 			// 
-			this.btnAddAbastecimento.Location = new System.Drawing.Point(702, 39);
+			this.btnAddAbastecimento.Location = new System.Drawing.Point(618, 40);
 			this.btnAddAbastecimento.Name = "btnAddAbastecimento";
 			this.btnAddAbastecimento.Size = new System.Drawing.Size(23, 20);
 			this.btnAddAbastecimento.TabIndex = 12;
@@ -288,45 +283,30 @@
 			// 
 			// txtTotalAbastecimento
 			// 
-			this.txtTotalAbastecimento.Location = new System.Drawing.Point(595, 39);
+			this.txtTotalAbastecimento.Location = new System.Drawing.Point(511, 40);
 			this.txtTotalAbastecimento.Name = "txtTotalAbastecimento";
 			this.txtTotalAbastecimento.ReadOnly = true;
 			this.txtTotalAbastecimento.Size = new System.Drawing.Size(100, 20);
 			this.txtTotalAbastecimento.TabIndex = 11;
 			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(110, 24);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(109, 13);
-			this.label5.TabIndex = 0;
-			this.label5.Text = "Km no abastecimento";
-			// 
 			// lblTotal
 			// 
 			this.lblTotal.AutoSize = true;
-			this.lblTotal.Location = new System.Drawing.Point(592, 23);
+			this.lblTotal.Location = new System.Drawing.Point(508, 24);
 			this.lblTotal.Name = "lblTotal";
 			this.lblTotal.Size = new System.Drawing.Size(31, 13);
 			this.lblTotal.TabIndex = 10;
 			this.lblTotal.Text = "Total";
 			// 
-			// txtKmAbastecimento
-			// 
-			this.txtKmAbastecimento.Location = new System.Drawing.Point(113, 40);
-			this.txtKmAbastecimento.MaxLength = 7;
-			this.txtKmAbastecimento.Name = "txtKmAbastecimento";
-			this.txtKmAbastecimento.Size = new System.Drawing.Size(100, 20);
-			this.txtKmAbastecimento.TabIndex = 1;
-			// 
 			// txtValorUnitAbastecimento
 			// 
-			this.txtValorUnitAbastecimento.Location = new System.Drawing.Point(465, 40);
+			this.txtValorUnitAbastecimento.Location = new System.Drawing.Point(381, 41);
 			this.txtValorUnitAbastecimento.MaxLength = 6;
 			this.txtValorUnitAbastecimento.Name = "txtValorUnitAbastecimento";
 			this.txtValorUnitAbastecimento.Size = new System.Drawing.Size(100, 20);
 			this.txtValorUnitAbastecimento.TabIndex = 9;
+			this.txtValorUnitAbastecimento.TextChanged += new System.EventHandler(this.txtValorUnitAbastecimento_TextChanged);
+			this.txtValorUnitAbastecimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorUnitAbastecimento_KeyPress);
 			// 
 			// label6
 			// 
@@ -340,7 +320,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(462, 24);
+			this.label9.Location = new System.Drawing.Point(378, 25);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(73, 13);
 			this.label9.TabIndex = 8;
@@ -353,24 +333,31 @@
             "Gasolina",
             "GNV",
             "Diesel"});
+			this.comboCombustivelAbastecimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCombustivelAbastecimento.FormattingEnabled = true;
-			this.comboCombustivelAbastecimento.Location = new System.Drawing.Point(232, 39);
+			this.comboCombustivelAbastecimento.Items.AddRange(new object[] {
+            "GASOLINA",
+            "ETANOL",
+            "DIESEL"});
+			this.comboCombustivelAbastecimento.Location = new System.Drawing.Point(148, 40);
 			this.comboCombustivelAbastecimento.Name = "comboCombustivelAbastecimento";
 			this.comboCombustivelAbastecimento.Size = new System.Drawing.Size(121, 21);
 			this.comboCombustivelAbastecimento.TabIndex = 4;
 			// 
 			// txtQtdLitrosAbastecimento
 			// 
-			this.txtQtdLitrosAbastecimento.Location = new System.Drawing.Point(359, 40);
+			this.txtQtdLitrosAbastecimento.Location = new System.Drawing.Point(275, 41);
 			this.txtQtdLitrosAbastecimento.MaxLength = 3;
 			this.txtQtdLitrosAbastecimento.Name = "txtQtdLitrosAbastecimento";
 			this.txtQtdLitrosAbastecimento.Size = new System.Drawing.Size(100, 20);
 			this.txtQtdLitrosAbastecimento.TabIndex = 7;
+			this.txtQtdLitrosAbastecimento.TextChanged += new System.EventHandler(this.txtQtdLitrosAbastecimento_TextChanged);
+			this.txtQtdLitrosAbastecimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdLitrosAbastecimento_KeyPress);
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(229, 23);
+			this.label7.Location = new System.Drawing.Point(145, 24);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(64, 13);
 			this.label7.TabIndex = 5;
@@ -379,7 +366,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(356, 24);
+			this.label8.Location = new System.Drawing.Point(272, 25);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(55, 13);
 			this.label8.TabIndex = 6;
@@ -531,6 +518,7 @@
 			this.txtKmManutencao.Name = "txtKmManutencao";
 			this.txtKmManutencao.Size = new System.Drawing.Size(100, 20);
 			this.txtKmManutencao.TabIndex = 1;
+			this.txtKmManutencao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmManutencao_KeyPress);
 			// 
 			// txtValorManutencao
 			// 
@@ -539,6 +527,7 @@
 			this.txtValorManutencao.Name = "txtValorManutencao";
 			this.txtValorManutencao.Size = new System.Drawing.Size(100, 20);
 			this.txtValorManutencao.TabIndex = 9;
+			this.txtValorManutencao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorManutencao_KeyPress);
 			// 
 			// label14
 			// 
@@ -715,6 +704,7 @@
 			this.txtKmSinistro.Name = "txtKmSinistro";
 			this.txtKmSinistro.Size = new System.Drawing.Size(100, 20);
 			this.txtKmSinistro.TabIndex = 1;
+			this.txtKmSinistro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmSinistro_KeyPress);
 			// 
 			// txtValorSinistro
 			// 
@@ -723,6 +713,7 @@
 			this.txtValorSinistro.Name = "txtValorSinistro";
 			this.txtValorSinistro.Size = new System.Drawing.Size(100, 20);
 			this.txtValorSinistro.TabIndex = 9;
+			this.txtValorSinistro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorSinistro_KeyPress);
 			// 
 			// label21
 			// 
@@ -754,13 +745,12 @@
 			// tabObrigacoes
 			// 
 			this.tabObrigacoes.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.tabObrigacoes.Controls.Add(this.txtTipoObrigacao);
 			this.tabObrigacoes.Controls.Add(this.dateObrigacoes);
 			this.tabObrigacoes.Controls.Add(this.lblValorTotalObrigacoes);
 			this.tabObrigacoes.Controls.Add(this.label28);
 			this.tabObrigacoes.Controls.Add(this.groupBox10);
 			this.tabObrigacoes.Controls.Add(this.label27);
-			this.tabObrigacoes.Controls.Add(this.comboTipoObrigacoes);
-			this.tabObrigacoes.Controls.Add(this.btnAddTipoObrigacoes);
 			this.tabObrigacoes.Controls.Add(this.btnAddObrigacoes);
 			this.tabObrigacoes.Controls.Add(this.txtValorObrigacoes);
 			this.tabObrigacoes.Controls.Add(this.label26);
@@ -772,6 +762,13 @@
 			this.tabObrigacoes.Size = new System.Drawing.Size(752, 354);
 			this.tabObrigacoes.TabIndex = 4;
 			this.tabObrigacoes.Text = "Obrigações Financeiras";
+			// 
+			// txtTipoObrigacao
+			// 
+			this.txtTipoObrigacao.Location = new System.Drawing.Point(129, 26);
+			this.txtTipoObrigacao.Name = "txtTipoObrigacao";
+			this.txtTipoObrigacao.Size = new System.Drawing.Size(372, 20);
+			this.txtTipoObrigacao.TabIndex = 15;
 			// 
 			// dateObrigacoes
 			// 
@@ -830,26 +827,9 @@
 			this.label27.TabIndex = 9;
 			this.label27.Text = "Descrição:";
 			// 
-			// comboTipoObrigacoes
-			// 
-			this.comboTipoObrigacoes.FormattingEnabled = true;
-			this.comboTipoObrigacoes.Location = new System.Drawing.Point(129, 24);
-			this.comboTipoObrigacoes.Name = "comboTipoObrigacoes";
-			this.comboTipoObrigacoes.Size = new System.Drawing.Size(381, 21);
-			this.comboTipoObrigacoes.TabIndex = 8;
-			// 
-			// btnAddTipoObrigacoes
-			// 
-			this.btnAddTipoObrigacoes.Location = new System.Drawing.Point(516, 25);
-			this.btnAddTipoObrigacoes.Name = "btnAddTipoObrigacoes";
-			this.btnAddTipoObrigacoes.Size = new System.Drawing.Size(26, 21);
-			this.btnAddTipoObrigacoes.TabIndex = 7;
-			this.btnAddTipoObrigacoes.Text = "+";
-			this.btnAddTipoObrigacoes.UseVisualStyleBackColor = true;
-			// 
 			// btnAddObrigacoes
 			// 
-			this.btnAddObrigacoes.Location = new System.Drawing.Point(645, 25);
+			this.btnAddObrigacoes.Location = new System.Drawing.Point(645, 28);
 			this.btnAddObrigacoes.Name = "btnAddObrigacoes";
 			this.btnAddObrigacoes.Size = new System.Drawing.Size(75, 21);
 			this.btnAddObrigacoes.TabIndex = 6;
@@ -859,11 +839,12 @@
 			// 
 			// txtValorObrigacoes
 			// 
-			this.txtValorObrigacoes.Location = new System.Drawing.Point(552, 25);
+			this.txtValorObrigacoes.Location = new System.Drawing.Point(552, 28);
 			this.txtValorObrigacoes.MaxLength = 7;
 			this.txtValorObrigacoes.Name = "txtValorObrigacoes";
 			this.txtValorObrigacoes.Size = new System.Drawing.Size(87, 20);
 			this.txtValorObrigacoes.TabIndex = 5;
+			this.txtValorObrigacoes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorObrigacoes_KeyPress);
 			// 
 			// label26
 			// 
@@ -976,9 +957,11 @@
 			// txtPontosMulta
 			// 
 			this.txtPontosMulta.Location = new System.Drawing.Point(262, 64);
+			this.txtPontosMulta.MaxLength = 2;
 			this.txtPontosMulta.Name = "txtPontosMulta";
 			this.txtPontosMulta.Size = new System.Drawing.Size(69, 20);
 			this.txtPontosMulta.TabIndex = 18;
+			this.txtPontosMulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPontosMulta_KeyPress);
 			// 
 			// label29
 			// 
@@ -992,9 +975,11 @@
 			// txtValorMulta
 			// 
 			this.txtValorMulta.Location = new System.Drawing.Point(136, 64);
+			this.txtValorMulta.MaxLength = 10;
 			this.txtValorMulta.Name = "txtValorMulta";
 			this.txtValorMulta.Size = new System.Drawing.Size(100, 20);
 			this.txtValorMulta.TabIndex = 16;
+			this.txtValorMulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorMulta_KeyPress);
 			// 
 			// txtDescricaoMulta
 			// 
@@ -1023,6 +1008,7 @@
 			// 
 			// comboPlaca
 			// 
+			this.comboPlaca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboPlaca.FormattingEnabled = true;
 			this.comboPlaca.Location = new System.Drawing.Point(73, 29);
 			this.comboPlaca.Name = "comboPlaca";
@@ -1108,9 +1094,7 @@
 		private System.Windows.Forms.GroupBox groupAbastecimento;
 		private System.Windows.Forms.Button btnAddAbastecimento;
 		private System.Windows.Forms.TextBox txtTotalAbastecimento;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label lblTotal;
-		private System.Windows.Forms.TextBox txtKmAbastecimento;
 		private System.Windows.Forms.TextBox txtValorUnitAbastecimento;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label9;
@@ -1159,8 +1143,6 @@
 		private System.Windows.Forms.GroupBox groupBox10;
 		private System.Windows.Forms.DataGridView dataGridObrigacoes;
 		private System.Windows.Forms.Label label27;
-		private System.Windows.Forms.ComboBox comboTipoObrigacoes;
-		private System.Windows.Forms.Button btnAddTipoObrigacoes;
 		private System.Windows.Forms.Button btnAddObrigacoes;
 		private System.Windows.Forms.TextBox txtValorObrigacoes;
 		private System.Windows.Forms.Label label26;
@@ -1188,5 +1170,6 @@
 		private System.Windows.Forms.DateTimePicker dateSinistros;
 		private System.Windows.Forms.DateTimePicker dateObrigacoes;
 		private System.Windows.Forms.TextBox txtValorManutencao;
+		private System.Windows.Forms.TextBox txtTipoObrigacao;
 	}
 }

@@ -68,6 +68,7 @@
 			// 
 			// ComboFiltro
 			// 
+			this.ComboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ComboFiltro.FormattingEnabled = true;
 			this.ComboFiltro.Location = new System.Drawing.Point(19, 55);
 			this.ComboFiltro.Name = "ComboFiltro";

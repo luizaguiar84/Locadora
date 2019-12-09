@@ -446,6 +446,7 @@
 			// 
 			// comboCor
 			// 
+			this.comboCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCor.FormattingEnabled = true;
 			this.comboCor.Location = new System.Drawing.Point(79, 103);
 			this.comboCor.Name = "comboCor";

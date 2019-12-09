@@ -29,6 +29,8 @@ namespace DbFat
 			var carro = new VeiculosDao().GetById(registro.VeiculoId);
 			if (carro.Disponivel == true)
 			{
+				carro.Disponivel = false;
+				new VeiculosDao().DbUpdate(carro);
 				return new DbKernel.Db_Kernel().DbAdd<ControlePatio>(registro);
 			}
 			return false;

@@ -188,20 +188,82 @@ namespace Dll_Forms_Fat
 		}
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
-			var funcionario = new Funcionarios();
-
-			if (txtId.Text != "")
+			if (validaFuncionario())
 			{
-				funcionario = new FuncionariosDao().GetFuncionario(txtId.Text);
-				AtualizarFuncionario(funcionario);
-			}
+				var funcionario = new Funcionarios();
 
-			else
-			{
-				CadastrarNovoFuncionario(funcionario);
+				if (txtId.Text != "")
+				{
+					funcionario = new FuncionariosDao().GetFuncionario(txtId.Text);
+					AtualizarFuncionario(funcionario);
+				}
+
+				else
+				{
+					CadastrarNovoFuncionario(funcionario);
+				}
 			}
 
 		}
+
+		private bool validaFuncionario()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(txtNome.Text))
+			{
+				MessageBox.Show("Favor preencher o nome do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(maskedCpf.Text))
+			{
+				MessageBox.Show("Favor preencher o CPF do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtRG.Text))
+			{
+				MessageBox.Show("Favor preencher o RG do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtEmail.Text))
+			{
+				MessageBox.Show("Favor preencher o Email do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtTelCel.Text))
+			{
+				MessageBox.Show("Favor preencher o Telefone Celular do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtSalario.Text))
+			{
+				MessageBox.Show("Favor preencher o Salário do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(comboCargo.Text))
+			{
+				if (comboCargo.Items.Count < 1)
+				{
+					MessageBox.Show("Nenhum Cargo Cadastrado, Favor Cadastrar na área correspondente.");
+				}
+				MessageBox.Show("Favor preencher o Cargo do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtCTPS.Text))
+			{
+				MessageBox.Show("Favor preencher o numero da CTPS do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtPIS.Text))
+			{
+				MessageBox.Show("Favor preencher o PIS do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtTitEleitor.Text))
+			{
+				MessageBox.Show("Favor preencher o Titulo de eleitor do funcionário.");
+			}
+			else if (String.IsNullOrWhiteSpace(maskedCEP.Text))
+			{
+				MessageBox.Show("Favor preencher o endereço do funcionário.");
+			}
+			else
+			{
+				ret = true;
+			}
+			return ret;
+		}
+
 		private void MaskedCEP_Leave_1(object sender, EventArgs e)
 		{
 			if (!string.IsNullOrWhiteSpace(maskedCEP.Text))
@@ -254,6 +316,11 @@ namespace Dll_Forms_Fat
 			var atualizar = new FormCadastrarMotorista(funcionario);
 			atualizar.Show();
 
+		}
+
+		private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			txtNumero.IsNumeros(e);
 		}
 	}
 }

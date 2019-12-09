@@ -46,10 +46,10 @@
 			this.comboCargo = new System.Windows.Forms.ComboBox();
 			this.btnAdicionarUsuario = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkStatus = new System.Windows.Forms.CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.lblEmail = new System.Windows.Forms.Label();
 			this.txtRegFuncionario = new System.Windows.Forms.TextBox();
-			this.checkStatus = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -64,6 +64,7 @@
 			// 
 			// comboBox1
 			// 
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Location = new System.Drawing.Point(18, 26);
 			this.comboBox1.Name = "comboBox1";
@@ -224,6 +225,16 @@
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			// 
+			// checkStatus
+			// 
+			this.checkStatus.AutoSize = true;
+			this.checkStatus.Location = new System.Drawing.Point(158, 83);
+			this.checkStatus.Name = "checkStatus";
+			this.checkStatus.Size = new System.Drawing.Size(50, 17);
+			this.checkStatus.TabIndex = 17;
+			this.checkStatus.Text = "Ativo";
+			this.checkStatus.UseVisualStyleBackColor = true;
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -248,16 +259,6 @@
 			this.txtRegFuncionario.Name = "txtRegFuncionario";
 			this.txtRegFuncionario.Size = new System.Drawing.Size(120, 20);
 			this.txtRegFuncionario.TabIndex = 14;
-			// 
-			// checkStatus
-			// 
-			this.checkStatus.AutoSize = true;
-			this.checkStatus.Location = new System.Drawing.Point(158, 83);
-			this.checkStatus.Name = "checkStatus";
-			this.checkStatus.Size = new System.Drawing.Size(50, 17);
-			this.checkStatus.TabIndex = 17;
-			this.checkStatus.Text = "Ativo";
-			this.checkStatus.UseVisualStyleBackColor = true;
 			// 
 			// FormControleUsuarios
 			// 

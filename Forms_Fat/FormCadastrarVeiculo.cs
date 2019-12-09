@@ -90,15 +90,40 @@ namespace Dll_Forms_Fat
 
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
-			if (txtId.Text == "")
+			if (validaVeiculo())
 			{
-				CadastrarVeiculo();
+				if (txtId.Text == "")
+				{
+					CadastrarVeiculo();
+				}
+				else
+				{
+					AtualizarVeiculo(veiculo);
+				}
+
+			}
+		}
+
+		private bool validaVeiculo()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(maskedTxtPlaca.Text))
+			{
+				MessageBox.Show("Favor preencher a placa do veículo");
+			}
+			else if (String.IsNullOrWhiteSpace(txtRenavam.Text))
+			{
+				MessageBox.Show("Favor preencher o numero do renavam do veículo.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtChassi.Text))
+			{
+				MessageBox.Show("Favor preencher o numero do Chassi do veículo.");
 			}
 			else
 			{
-				AtualizarVeiculo(veiculo);
+				ret = true;
 			}
-
+			return ret;
 		}
 
 		private void CadastrarVeiculo()
@@ -156,6 +181,8 @@ namespace Dll_Forms_Fat
 		{
 			CarregaMontadoras();
 			CarregarCores();
+			comboStatus.SelectedIndex = 0;
+			comboCor.SelectedIndex = 0;
 		}
 
 		private void CarregarCores()

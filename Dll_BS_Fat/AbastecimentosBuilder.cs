@@ -6,7 +6,7 @@ namespace BsFat
 	{
 		public Abastecimentos Build()
 		{
-			return new Abastecimentos(Data, Km, Combustivel, Litros, ValorUnitario, VeiculoId);
+			return new Abastecimentos(Data, Combustivel, Litros, ValorUnitario, VeiculoId);
 		}
 
 		public AbastecimentosBuilder GetData(DateTime data)
@@ -14,11 +14,7 @@ namespace BsFat
 			this.Data = data;
 			return this;
 		}
-		public AbastecimentosBuilder GetKm(int km)
-		{
-			this.Km = km;
-			return this;
-		}
+		
 		public AbastecimentosBuilder GetCombustivel(string combustivel)
 		{
 			this.Combustivel = combustivel;

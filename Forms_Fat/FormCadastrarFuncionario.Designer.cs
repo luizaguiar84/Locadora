@@ -79,13 +79,13 @@
 			this.dateEmitida = new System.Windows.Forms.DateTimePicker();
 			this.dateValidade = new System.Windows.Forms.DateTimePicker();
 			this.groupCNH = new System.Windows.Forms.GroupBox();
-			this.txtCNH = new System.Windows.Forms.TextBox();
-			this.txtCategoria = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
 			this.btnAtualizarCnh = new System.Windows.Forms.Button();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.txtCategoria = new System.Windows.Forms.TextBox();
+			this.txtCNH = new System.Windows.Forms.TextBox();
 			this.groupEndereco.SuspendLayout();
 			this.groupCNH.SuspendLayout();
 			this.SuspendLayout();
@@ -97,7 +97,7 @@
 			this.comboCargo.Location = new System.Drawing.Point(123, 132);
 			this.comboCargo.Name = "comboCargo";
 			this.comboCargo.Size = new System.Drawing.Size(110, 21);
-			this.comboCargo.TabIndex = 342;
+			this.comboCargo.TabIndex = 9;
 			// 
 			// label9
 			// 
@@ -156,7 +156,7 @@
 			this.txtTitEleitor.Location = new System.Drawing.Point(522, 132);
 			this.txtTitEleitor.Name = "txtTitEleitor";
 			this.txtTitEleitor.Size = new System.Drawing.Size(115, 20);
-			this.txtTitEleitor.TabIndex = 345;
+			this.txtTitEleitor.TabIndex = 12;
 			// 
 			// label4
 			// 
@@ -172,7 +172,7 @@
 			this.txtPIS.Location = new System.Drawing.Point(385, 133);
 			this.txtPIS.Name = "txtPIS";
 			this.txtPIS.Size = new System.Drawing.Size(125, 20);
-			this.txtPIS.TabIndex = 344;
+			this.txtPIS.TabIndex = 11;
 			// 
 			// label3
 			// 
@@ -188,7 +188,7 @@
 			this.txtCTPS.Location = new System.Drawing.Point(240, 133);
 			this.txtCTPS.Name = "txtCTPS";
 			this.txtCTPS.Size = new System.Drawing.Size(139, 20);
-			this.txtCTPS.TabIndex = 343;
+			this.txtCTPS.TabIndex = 10;
 			// 
 			// label2
 			// 
@@ -320,6 +320,7 @@
 			this.txtNumero.Name = "txtNumero";
 			this.txtNumero.Size = new System.Drawing.Size(70, 20);
 			this.txtNumero.TabIndex = 310;
+			this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
 			// 
 			// txtComplemento
 			// 
@@ -354,7 +355,7 @@
 			this.txtTelCel.Mask = "(00) 00000-0000";
 			this.txtTelCel.Name = "txtTelCel";
 			this.txtTelCel.Size = new System.Drawing.Size(94, 20);
-			this.txtTelCel.TabIndex = 339;
+			this.txtTelCel.TabIndex = 6;
 			// 
 			// lblTelCel
 			// 
@@ -373,7 +374,7 @@
 			this.txtTelRes.Mask = "(00) 0000-0000";
 			this.txtTelRes.Name = "txtTelRes";
 			this.txtTelRes.Size = new System.Drawing.Size(81, 20);
-			this.txtTelRes.TabIndex = 338;
+			this.txtTelRes.TabIndex = 5;
 			this.txtTelRes.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// lblTelRes
@@ -411,7 +412,7 @@
 			this.maskedCpf.Mask = "000.000.000-00";
 			this.maskedCpf.Name = "maskedCpf";
 			this.maskedCpf.Size = new System.Drawing.Size(87, 20);
-			this.maskedCpf.TabIndex = 335;
+			this.maskedCpf.TabIndex = 2;
 			this.maskedCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// lblCpf
@@ -458,21 +459,21 @@
 			this.txtRG.MaxLength = 10;
 			this.txtRG.Name = "txtRG";
 			this.txtRG.Size = new System.Drawing.Size(108, 20);
-			this.txtRG.TabIndex = 336;
+			this.txtRG.TabIndex = 3;
 			// 
 			// txtEmail
 			// 
 			this.txtEmail.Location = new System.Drawing.Point(19, 91);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(402, 20);
-			this.txtEmail.TabIndex = 337;
+			this.txtEmail.TabIndex = 4;
 			// 
 			// txtNome
 			// 
 			this.txtNome.Location = new System.Drawing.Point(96, 52);
 			this.txtNome.Name = "txtNome";
 			this.txtNome.Size = new System.Drawing.Size(433, 20);
-			this.txtNome.TabIndex = 334;
+			this.txtNome.TabIndex = 1;
 			this.txtNome.Tag = "";
 			// 
 			// btnSalvar
@@ -491,7 +492,7 @@
 			this.dateAdmissao.Location = new System.Drawing.Point(18, 132);
 			this.dateAdmissao.Name = "dateAdmissao";
 			this.dateAdmissao.Size = new System.Drawing.Size(98, 20);
-			this.dateAdmissao.TabIndex = 312;
+			this.dateAdmissao.TabIndex = 8;
 			// 
 			// dateNascimento
 			// 
@@ -499,7 +500,7 @@
 			this.dateNascimento.Location = new System.Drawing.Point(643, 132);
 			this.dateNascimento.Name = "dateNascimento";
 			this.dateNascimento.Size = new System.Drawing.Size(98, 20);
-			this.dateNascimento.TabIndex = 378;
+			this.dateNascimento.TabIndex = 13;
 			// 
 			// btnLocalizar
 			// 
@@ -518,7 +519,7 @@
 			this.txtSalario.Mask = "$ 9999,99";
 			this.txtSalario.Name = "txtSalario";
 			this.txtSalario.Size = new System.Drawing.Size(108, 20);
-			this.txtSalario.TabIndex = 383;
+			this.txtSalario.TabIndex = 7;
 			this.txtSalario.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// dateEmitida
@@ -558,48 +559,15 @@
 			this.groupCNH.Text = "Dados da CNH";
 			this.groupCNH.Visible = false;
 			// 
-			// txtCNH
+			// btnAtualizarCnh
 			// 
-			this.txtCNH.Location = new System.Drawing.Point(56, 20);
-			this.txtCNH.Name = "txtCNH";
-			this.txtCNH.ReadOnly = true;
-			this.txtCNH.Size = new System.Drawing.Size(124, 20);
-			this.txtCNH.TabIndex = 386;
-			// 
-			// txtCategoria
-			// 
-			this.txtCategoria.Location = new System.Drawing.Point(259, 19);
-			this.txtCategoria.Name = "txtCategoria";
-			this.txtCategoria.ReadOnly = true;
-			this.txtCategoria.Size = new System.Drawing.Size(34, 20);
-			this.txtCategoria.TabIndex = 387;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(10, 27);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(33, 13);
-			this.label1.TabIndex = 388;
-			this.label1.Text = "CNH:";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(198, 26);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(55, 13);
-			this.label8.TabIndex = 389;
-			this.label8.Text = "Categoria:";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(311, 26);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(49, 13);
-			this.label10.TabIndex = 390;
-			this.label10.Text = "Emissão:";
+			this.btnAtualizarCnh.Location = new System.Drawing.Point(650, 18);
+			this.btnAtualizarCnh.Name = "btnAtualizarCnh";
+			this.btnAtualizarCnh.Size = new System.Drawing.Size(92, 23);
+			this.btnAtualizarCnh.TabIndex = 392;
+			this.btnAtualizarCnh.Text = "Atualizar CNH";
+			this.btnAtualizarCnh.UseVisualStyleBackColor = true;
+			this.btnAtualizarCnh.Click += new System.EventHandler(this.btnAtualizarCnh_Click);
 			// 
 			// label11
 			// 
@@ -611,15 +579,48 @@
 			this.label11.Text = "Validade:";
 			this.label11.Click += new System.EventHandler(this.label11_Click);
 			// 
-			// btnAtualizarCnh
+			// label10
 			// 
-			this.btnAtualizarCnh.Location = new System.Drawing.Point(650, 18);
-			this.btnAtualizarCnh.Name = "btnAtualizarCnh";
-			this.btnAtualizarCnh.Size = new System.Drawing.Size(92, 23);
-			this.btnAtualizarCnh.TabIndex = 392;
-			this.btnAtualizarCnh.Text = "Atualizar CNH";
-			this.btnAtualizarCnh.UseVisualStyleBackColor = true;
-			this.btnAtualizarCnh.Click += new System.EventHandler(this.btnAtualizarCnh_Click);
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(311, 26);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(49, 13);
+			this.label10.TabIndex = 390;
+			this.label10.Text = "Emissão:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(198, 26);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(55, 13);
+			this.label8.TabIndex = 389;
+			this.label8.Text = "Categoria:";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(10, 27);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(33, 13);
+			this.label1.TabIndex = 388;
+			this.label1.Text = "CNH:";
+			// 
+			// txtCategoria
+			// 
+			this.txtCategoria.Location = new System.Drawing.Point(259, 19);
+			this.txtCategoria.Name = "txtCategoria";
+			this.txtCategoria.ReadOnly = true;
+			this.txtCategoria.Size = new System.Drawing.Size(34, 20);
+			this.txtCategoria.TabIndex = 387;
+			// 
+			// txtCNH
+			// 
+			this.txtCNH.Location = new System.Drawing.Point(56, 20);
+			this.txtCNH.Name = "txtCNH";
+			this.txtCNH.ReadOnly = true;
+			this.txtCNH.Size = new System.Drawing.Size(124, 20);
+			this.txtCNH.TabIndex = 386;
 			// 
 			// FormCadastrarFuncionario
 			// 

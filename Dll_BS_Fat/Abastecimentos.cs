@@ -9,10 +9,9 @@ namespace BsFat
 		public Abastecimentos()
 		{
 		}
-		public Abastecimentos(DateTime data, int km, string combustivel, decimal litros, decimal valorUnitario, int veiculoId)
+		public Abastecimentos(DateTime data, string combustivel, decimal litros, decimal valorUnitario, int veiculoId)
 		{
 			Data = data;
-			Km = km;
 			Combustivel = combustivel;
 			Litros = litros;
 			ValorUnitario = valorUnitario;
@@ -27,10 +26,6 @@ namespace BsFat
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "mm/dd/yyyy")]
 		public DateTime Data { get; set; }
-
-		[Required(ErrorMessage = "Favor informar a Km do carro no abastecimento")]
-		[Display(Name = "KM")]
-		public int Km { get; set; }
 
 		[Required(ErrorMessage = "Favor informar o tipo de combustível")]
 		[Display(Name = "Combustível")]

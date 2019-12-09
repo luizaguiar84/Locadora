@@ -20,8 +20,10 @@
 		/// <param name="e"></param>
 		public static void IsNumeros(this object obj, KeyPressEventArgs e)
 		{
-			if (!(Char.IsNumber(e.KeyChar) &&
-				  Char.IsDigit(e.KeyChar)))
+			if (!(Char.IsNumber(e.KeyChar) ||
+				  Char.IsControl(e.KeyChar) ||
+				  Char.IsDigit(e.KeyChar)
+				  ))
 			{
 				e.Handled = true;
 			}

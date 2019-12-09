@@ -193,6 +193,10 @@
     <Compile Include="Migrations\20191209001418_classeMenu1.designer.cs">
       <DependentUpon>20191209001418_classeMenu1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191209035234_atualizacaoTabelaAbastecimento.cs" />
+    <Compile Include="Migrations\20191209035234_atualizacaoTabelaAbastecimento.designer.cs">
+      <DependentUpon>20191209035234_atualizacaoTabelaAbastecimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

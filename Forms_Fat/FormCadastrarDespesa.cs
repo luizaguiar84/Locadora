@@ -27,6 +27,7 @@ namespace Dll_Forms_Fat
 		{
 			CarregarTabela();
 			CarregaTiposDespesa();
+			PreencheComboTipo();
 		}
 
 		private void CarregaTiposDespesa()
@@ -42,6 +43,11 @@ namespace Dll_Forms_Fat
 		{
 			var despesas = new DespesasDao().GetAll();
 
+			foreach (var despesa in despesas)
+			{
+				new DespesasDao().GetById(despesa.Id);
+			}
+
 			dataGridView1.DataSource = despesas;
 			dataGridView1.Columns["Data"].Visible = true;
 			dataGridView1.Columns["Descricao"].Visible = true;
@@ -54,15 +60,41 @@ namespace Dll_Forms_Fat
 
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
-			SalvaDespesa();
+			if (validaDespesa())
+			{
+				SalvaDespesa();
+			}
+		}
+
+		private bool validaDespesa()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(txtDescricao.Text))
+			{
+				MessageBox.Show("Favor informar a descrição da despesa!");
+			}
+			else if (String.IsNullOrWhiteSpace(txtValor.Text))
+			{
+				MessageBox.Show("Favor informar o valor da despesa!");
+			}
+			else if (comboTipo.Items.Count < 1)
+			{
+				if (MessageBox.Show("Não existe tipo de despesa cadastrado, cadastrar?", "Importante!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+
+					AdicionaDespesa();
+				}
+			}
+			else
+			{
+				ret = true;
+			}
+
+			return ret;
 		}
 
 		private void SalvaDespesa()
 		{
-			var tipoDespesa = new TipoDespesaDao().GetAll();
-
-			comboTipo.DataSource = tipoDespesa;
-			comboTipo.ValueMember = "Tipo";
 			TipoDespesa tipo = (TipoDespesa)comboTipo.SelectedItem;
 
 			var despesaBuilder = new DespesasBuilder()
@@ -74,13 +106,37 @@ namespace Dll_Forms_Fat
 
 			Despesas despesa = despesaBuilder.Build();
 
-			new DespesasDao().DbAdd(despesa);
-			CarregarTabela();
+			if (new DespesasDao().DbAdd(despesa))
+			{
+				MessageBox.Show("Despesa cadastrada com sucessso!");
+				CarregarTabela();
+				LimpaTextBoxes();
+			}
+			else
+			{
+				MessageBox.Show("Erro na adição de despesa, favor tentar novamente.");
+			}
 		}
 
+		private void LimpaTextBoxes()
+		{
+			this.Controls.LimparTextBoxes();
+		}
 
+		private void PreencheComboTipo()
+		{
+			var tipoDespesa = new TipoDespesaDao().GetAll();
+
+			comboTipo.DataSource = tipoDespesa;
+			comboTipo.ValueMember = "Tipo";
+		}
 
 		private void BtnAddTipo_Click(object sender, EventArgs e)
+		{
+			AdicionaDespesa();
+		}
+
+		private static void AdicionaDespesa()
 		{
 			var formAdd = new FormAddTipoDespesa();
 			formAdd.Show();

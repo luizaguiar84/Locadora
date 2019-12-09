@@ -37,9 +37,12 @@ namespace DbFat
 
 		public Despesas GetById(int id)
 		{
-			return GetAll()
+			var despesa = GetAll()
 							.Where(x => x.Id == id)
 							.SingleOrDefault();
+			despesa.TipoDespesa = new TipoDespesaDao().GetById(despesa.TipoDespesaId);
+			
+			return despesa;
 		}
 	}
 }

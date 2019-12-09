@@ -11,7 +11,7 @@
     <ProjectGuid>{ADCBFE08-4399-4869-A4F6-C98881AF0795}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dll_DB_Fat</RootNamespace>
+    <RootNamespace>DbFat</RootNamespace>
     <AssemblyName>Dll_DB_Fat</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

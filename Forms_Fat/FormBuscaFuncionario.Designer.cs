@@ -87,6 +87,7 @@
 			// 
 			// ComboFiltro
 			// 
+			this.ComboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ComboFiltro.FormattingEnabled = true;
 			this.ComboFiltro.Items.AddRange(new object[] {
             "Nome",
@@ -136,6 +137,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBuscaFuncionario";
 			this.Text = "FormBuscaFuncionario";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FormBuscaFuncionario_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);

@@ -33,28 +33,41 @@ namespace Dll_Forms_Fat
 
 		private void Button3_Click(object sender, EventArgs e)
 		{
-			
-			
-			var cnh = new CnhsBuilder()
+			if (validaMotorista())
+			{
+				var cnh = new CnhsBuilder()
 			.GetNumero(txtCnh.Text)
 			.GetCategoria(comboCategoria.SelectedText)
 			.GetEmissao(dateEmitida.Value.Date)
 			.GetValidade(dateValidade.Value.Date)
 			.Build();
-			
-			funcionario.Cnh = cnh;
 
-			if (new FuncionariosDao().DbUpdate(funcionario))
+				funcionario.Cnh = cnh;
+
+				if (new FuncionariosDao().DbUpdate(funcionario))
+				{
+					MessageBox.Show("Motorista adicionado com sucesso!");
+					this.Hide();
+				}
+				else
+				{
+					MessageBox.Show("Erro na adição do Motorista, tente novamente.");
+				}
+			}	   
+		}
+
+		private bool validaMotorista()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(txtCnh.Text))
 			{
-				MessageBox.Show("Motorista adicionado com sucesso!");
-				this.Hide();
+				MessageBox.Show("Favor inserir o numero da CNH");
 			}
 			else
 			{
-				MessageBox.Show("Erro na adição do Motorista, tente novamente.");
+				ret = true;
 			}
-			
-		   
+			return ret;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -65,6 +78,7 @@ namespace Dll_Forms_Fat
 		}
 		private void FormCadastrarMotorista_Load(object sender, EventArgs e)
 		{
+			comboCategoria.SelectedIndex = 0;
 		}
 
 		//private void CarregaMotoristas()
