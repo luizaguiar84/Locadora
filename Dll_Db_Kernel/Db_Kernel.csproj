@@ -189,6 +189,10 @@
     <Compile Include="Migrations\20191209000959_classeMenu.designer.cs">
       <DependentUpon>20191209000959_classeMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191209001418_classeMenu1.cs" />
+    <Compile Include="Migrations\20191209001418_classeMenu1.designer.cs">
+      <DependentUpon>20191209001418_classeMenu1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -33,6 +33,7 @@ namespace DbKernel
 		public DbSet<Locacoes> Locacoes { get; set; }
 		public DbSet<ClienteLocacao> ClienteLocacao { get; set; }
 		public DbSet<Cargos> Cargos { get; set; }
+		public DbSet<Menu> Menu { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
