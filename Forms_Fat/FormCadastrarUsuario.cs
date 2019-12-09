@@ -1,7 +1,8 @@
 ﻿using Utilidades;
 using System;
 using System.Windows.Forms;
-
+using BsFat;
+using DbFat;
 
 namespace Dll_Forms_Fat
 {
@@ -23,10 +24,55 @@ namespace Dll_Forms_Fat
 
 		private void Btn_Salvar_Click(object sender, EventArgs e)
 		{
+			if (validaUsuario())
+			{
+				var usuario = new Usuarios
+				{
+					Login = txtUsuario.Text,
+					Password = txtSenha.Text,
+					ConfirmaSenha = txtConfirmaSenha.Text,
+					IsAtivo = true,
+					Nivel = Convert.ToInt32(ComboNivelAcesso.Text)
+				};
+				if (new UsuariosDao().DbAdd(usuario))
+				{
+					MessageBox.Show("Usuário Cadastrado com Sucesso!");
+					this.Controls.LimparTextBoxes();
+					this.Hide();
+				}
+				else
+				{
+					MessageBox.Show("Erro na adição de usuário!");
+				}
+	
+			}
+			
+		}
 
-			MessageBox.Show("Usuário Cadastrado com Sucesso!");
-			this.Controls.LimparTextBoxes();
-			this.Hide();
+		private bool validaUsuario()
+		{
+			bool ret = false;
+			if (String.IsNullOrWhiteSpace(txtUsuario.Text))
+			{
+				MessageBox.Show("Favor informar o nome de usuário");
+			}
+			else if (String.IsNullOrWhiteSpace(txtSenha.Text))
+			{
+				MessageBox.Show("Favor digitar a senha.");
+			}
+			else if (String.IsNullOrWhiteSpace(txtConfirmaSenha.Text))
+			{
+				MessageBox.Show("Favor Confirmar a senha.");
+			}
+			else if (!(txtSenha.Text.Equals(txtConfirmaSenha.Text)))
+			{
+				MessageBox.Show("Senha e conformação são diferentes!");
+			}
+			else
+			{
+				ret = true;
+			}
+			return ret;
 		}
 
 		private void FormCadastrarUsuario_Resize(object sender, EventArgs e)

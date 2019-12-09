@@ -221,7 +221,26 @@
 
 			return list;
 		}
+		//public static void AbrirNovoForm<T>(string TAG) where T : Form, new()
+		//{
+		//	foreach (Form f in System.Windows.Forms.MdiChildren)
+		//	{
+		//		if (f.GetType() == typeof(T))
+		//		{
+		//			f.Activate();
+		//			return;
+		//		}
+		//	}
+
+		//	Form form = new T
+		//	{
+		//		MdiParent = this,
+		//		ControlBox = false,
+		//		ShowIcon = false,
+		//		WindowState = FormWindowState.Maximized,
+		//		Tag = TAG
+		//	};
+		//	form.Show();
+		//}
 	}
-
-
 }

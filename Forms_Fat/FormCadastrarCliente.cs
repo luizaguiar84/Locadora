@@ -96,7 +96,7 @@ namespace Dll_Forms_Fat
 				if (new ClientesPjDao().DbUpdate(cliente))
 				{
 					MessageBox.Show("Cadastro Atualizado com sucesso!", "Sucesso!");
-					LimpaTela();
+					ConfirmaSaida();
 				}
 				else
 				{
@@ -104,6 +104,19 @@ namespace Dll_Forms_Fat
 				}
 			}
 		}
+
+		private void ConfirmaSaida()
+		{
+			if (MessageBox.Show("Gostaria de Adicionar outro cliente?","Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				LimpaTela();
+			}
+			else
+			{
+				this.Close();
+			}
+		}
+
 		private void CadastrarPj()
 		{
 			bool ativo = true;
@@ -143,9 +156,15 @@ namespace Dll_Forms_Fat
 								"Confirmação",
 								MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
-				new ClientesPjDao().DbAdd(clientePj);
-				LimpaTela();
+				if (new ClientesPjDao().DbAdd(clientePj))
+				{
+					MessageBox.Show("Cadastro Efetuado com sucesso!", "Sucesso!");
+					ConfirmaSaida();
+				}
+				else
+				{
+					MessageBox.Show("Erro ao adicionar cliente, tente novamente!");
+				}
 			}
 		}
 
@@ -340,11 +359,7 @@ namespace Dll_Forms_Fat
 			return ret;
 		}
 
-		private void checkAtivo_CheckedChanged(object sender, EventArgs e)
-		{
-
-		}
-
+		
 		#region Comentados
 		//private void RadioPessoaJuridica_CheckedChanged(object sender, EventArgs e)
 		//{

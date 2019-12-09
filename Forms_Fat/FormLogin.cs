@@ -15,20 +15,36 @@ namespace Dll_Forms_Fat
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			//var usuario = new Usuarios();
-			//usuario.Login = txtUsuario.Text;
-			//usuario.Password = TxtSenha.Text;
+			var usuario = new Usuarios();
+			usuario.Login = txtUsuario.Text;
+			usuario.Password = TxtSenha.Text;
+			if (txtUsuario.Text == "" && TxtSenha.Text == "")
+			{
+				AbrePrograma();
+			}
+			else if (new UsuariosDao().GetAll().Count == 0)
+			{
+				if (MessageBox.Show("Não existe nenhum usuário cadastrado, criar um?","Importante!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					var criar = new FormCadastrarUsuario();
+					criar.Show();
+				}
+			}
+			else if (new UsuariosDao().ConfereUsuario(usuario))
+			{
+				AbrePrograma();
+			}
+			else
+			{
+				MessageBox.Show("Usuário Inválido!");
+			}
+		}
 
-			//if (new UsuariosDao().ConfereUsuario(usuario))
-			//{
-				FormPrincipal form = new FormPrincipal();
-				form.Show();
-				this.Hide();
-			//}
-			//else
-			//{
-			//	MessageBox.Show("Usuário Inválido!");
-			//}
+		private void AbrePrograma()
+		{
+			FormPrincipal form = new FormPrincipal();
+			form.Show();
+			this.Hide();
 		}
 
 		private void Login_Load(object sender, EventArgs e)

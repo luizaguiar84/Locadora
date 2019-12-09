@@ -100,7 +100,6 @@ namespace Dll_Forms_Fat
 				{
 					AtualizarVeiculo(veiculo);
 				}
-
 			}
 		}
 
@@ -162,11 +161,23 @@ namespace Dll_Forms_Fat
 			if (new VeiculosDao().DbAdd(veiculo))
 			{
 				MessageBox.Show("Carro Adicionado com Sucesso!", "Sucesso!");
-				LimpaTela();
+				ConfirmaSaida();
 			}
 			else
 			{
 				MessageBox.Show("Erro ao salvar, favor tentar novamente!", "Erro!");
+			}
+		}
+
+		private void ConfirmaSaida()
+		{
+			if (MessageBox.Show("Gostaria de Adicionar outro veiculo?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				LimpaTela();
+			}
+			else
+			{
+				this.Close();
 			}
 		}
 
@@ -262,37 +273,31 @@ namespace Dll_Forms_Fat
 
 		private void AtualizarVeiculo(BsFat.Veiculos veiculo)
 		{
-			var id = veiculo.Id;
-			var veiculoBuilder = new VeiculosBuilder()
-				.GetMontadora(txtMontadora.Text)
-				.GetModelo(txtModelo.Text)
-				.GetAnoModelo(txtAnoModelo.Text)
-				.GetPortas(Convert.ToInt32(numericPortas.Value))
-				//.GetCor((@string)Enum.Parse(typeof(@string), comboCor.SelectedText))
-				.GetCor(comboCor.Text)
-				.GetPlaca(maskedTxtPlaca.Text.ToUpper())
-				.GetRenavam(txtRenavam.Text)
-				.GetChassi(txtChassi.Text)
-				.GetLugares(Convert.ToInt32(numericLugares.Value))
-				.GetQuilometragem(Convert.ToInt32(txtOdometro.Text))
-				.GetStatus(comboStatus.Text)
-				.GetCombustivel(txtCombustivel.Text)
-				.GetValorAtual(txtValorAtualCarro.Text)
-				//.GetValorDiaria(txtValorDiaria.Text)
-				.GetObservacoes(txtObservacoes.Text)
-				.GetArCondicionado(checkArCond.Checked)
-				.GetDirecaoHidraulica(checkDirecaoHidraulica.Checked)
-				.GetVidroEletrico(checkVidroEletrico.Checked)
-				.GetAbs(checkAbs.Checked)
-				.GetAirBag(checkAirBag.Checked)
-				.GetIsAtivo(true);
+			veiculo.Portas = Convert.ToInt32(numericPortas.Value);
+			veiculo.Cor = comboCor.Text;
+			veiculo.Placa = maskedTxtPlaca.Text.ToUpper();
+			veiculo.Renavam = txtRenavam.Text;
+			veiculo.Chassi = txtChassi.Text;
+			veiculo.Lugares = Convert.ToInt32(numericLugares.Value);
+			veiculo.Quilometragem = Convert.ToInt32(txtOdometro.Text);
+			veiculo.Status = comboStatus.Text;
+			veiculo.Combustivel = txtCombustivel.Text;
+			veiculo.ArCondicionado = checkArCond.Checked;
+			veiculo.DirecaoHidraulica = checkDirecaoHidraulica.Checked;
+			veiculo.VidroEletrico = checkVidroEletrico.Checked;
+			veiculo.Abs = checkAbs.Checked;
+			veiculo.AirBag = checkAirBag.Checked;
 
-			veiculo = veiculoBuilder.Build();
-			veiculo.Id = id;
-
-			new VeiculosDao().DbUpdate(veiculo);
-
-			ReabrirForm();
+			if (new VeiculosDao().DbUpdate(veiculo))
+			{
+				MessageBox.Show("Veiculo Atualizado com sucesso!");
+				ConfirmaSaida();
+			}
+			else
+			{
+				MessageBox.Show("Erro na atualização do veiculo, tente novamente!");
+			}
+			//ReabrirForm();
 		}
 
 		private void ReabrirForm()

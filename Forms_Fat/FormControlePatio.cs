@@ -26,14 +26,14 @@ namespace Dll_Forms_Fat
 		private void Button2_Click(object sender, EventArgs e)
 		{
 			FormCadastrarMotorista formCadastrarMotorista = new FormCadastrarMotorista();
-			formCadastrarMotorista.ControlBox = true;
+			formCadastrarMotorista.MdiParent = this.MdiParent;
 			formCadastrarMotorista.Show();
 		}
 
 		private void BtnAddCarro_Click(object sender, EventArgs e)
 		{
 			FormCadastrarVeiculo formCadastrarNovoVeiculo = new FormCadastrarVeiculo();
-			formCadastrarNovoVeiculo.ControlBox = true;
+			formCadastrarNovoVeiculo.MdiParent = this.MdiParent;
 			formCadastrarNovoVeiculo.Show();
 		}
 

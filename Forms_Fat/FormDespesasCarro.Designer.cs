@@ -1029,9 +1029,9 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(73, 10);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(94, 13);
+			this.label1.Size = new System.Drawing.Size(104, 13);
 			this.label1.TabIndex = 21;
-			this.label1.Text = "Selecione o Carro:";
+			this.label1.Text = "Selecione o Veiculo:";
 			// 
 			// FormDespesasCarro
 			// 
@@ -1043,7 +1043,8 @@
 			this.Controls.Add(this.comboPlaca);
 			this.Controls.Add(this.TabCadastroVeiculos);
 			this.Name = "FormDespesasCarro";
-			this.Text = "FormDespesasCarro";
+			this.ShowIcon = false;
+			this.Text = "Despesas do Veiculo";
 			this.Load += new System.EventHandler(this.FormDespesasCarro_Load);
 			this.TabCadastroVeiculos.ResumeLayout(false);
 			this.tabAbastecimentos.ResumeLayout(false);

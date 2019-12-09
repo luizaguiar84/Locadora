@@ -47,7 +47,7 @@ namespace Dll_Forms_Fat
 				if (new FuncionariosDao().DbUpdate(funcionario))
 				{
 					MessageBox.Show("Motorista adicionado com sucesso!");
-					this.Hide();
+					this.Close();
 				}
 				else
 				{
@@ -73,7 +73,7 @@ namespace Dll_Forms_Fat
 		private void button1_Click(object sender, EventArgs e)
 		{
 			FormCadastrarCliente formCadastrarCliente = new FormCadastrarCliente();
-			formCadastrarCliente.ControlBox = true;
+			formCadastrarCliente.MdiParent = this.MdiParent;
 			formCadastrarCliente.Show();
 		}
 		private void FormCadastrarMotorista_Load(object sender, EventArgs e)

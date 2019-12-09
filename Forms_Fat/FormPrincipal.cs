@@ -46,49 +46,35 @@ namespace Dll_Forms_Fat
 			{
 				var login = new FormLogin();
 				login.Show();
-				this.Hide();
+				this.Close();
 			}
 		}
 
 		private void cadastrarNovoVeículoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var cadastrarNovoVeiculo = new FormCadastrarVeiculo
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			cadastrarNovoVeiculo.Show();
-
+			AbrirNovoForm<FormCadastrarVeiculo>("CadastrarVeiculos");
 		}
 
 		private void editarExcluirVeículosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var editarVeiculo = new FormEditarVeiculo
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			editarVeiculo.Show();
+			AbrirNovoForm<FormEditarVeiculo>("EditarVeiculo");
+			//var editarVeiculo = new FormEditarVeiculo
+			//{
+			//	ControlBox = false,
+			//	MdiParent = this
+			//};
+			//editarVeiculo.Show();
 		}
 
 		private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			var consultarCliente = new FormBuscaCliente()
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			consultarCliente.Show();
+			AbrirNovoForm<FormBuscaCliente>("BuscarCliente");
 		}
 
 		private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var consultarVeiculo = new FormBuscaCarro()
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			consultarVeiculo.Show();
+			AbrirNovoForm<FormBuscaCarro>("BuscarCarro");
+
 		}
 
 		private void FormPrincipal_Load(object sender, EventArgs e)
@@ -104,56 +90,36 @@ namespace Dll_Forms_Fat
 		private void cadastrarClienteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
-			var cadastrarCliente = new FormCadastrarCliente
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			cadastrarCliente.Show();
+			AbrirNovoForm<FormCadastrarCliente>("CadastrarCliente");
+
 
 		}
 
-
 		private void monitorarVeículosAtivosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var formMonitoramentoVeiculo = new FormMonitoramentoVeiculo
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			formMonitoramentoVeiculo.Show();
+			AbrirNovoForm<FormMonitoramentoVeiculo>("MonitoramentoVeiculo");
+
 		}
 
 		private void consultarComprovantesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var formConsultarComprovantes = new FormConsultarComprovantes
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			formConsultarComprovantes.Show();
+			AbrirNovoForm<FormConsultarComprovantes>("ConsultaComprovantes");
+
 		}
 
 		private void RelatóriosToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
-			var formRelatorios = new FormRelatorios();
-			formRelatorios.Show();
+			AbrirNovoForm<FormRelatorios>("Relatorios");
 		}
 
 		private void NovaLocaçaoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var formNovaLocacao = new FormNovaLocacao
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			formNovaLocacao.Show();
+			AbrirNovoForm<FormNovaLocacao>("NovaLocacao");
 		}
 
 		private void cadastrarNovoUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			var cadastrarUsuario = new FormCadastrarUsuario();
-			cadastrarUsuario.Show();
+			AbrirNovoForm<FormCadastrarUsuario>("CadastroUsuarios");
 		}
 
 		private void controleDePátioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,12 +145,7 @@ namespace Dll_Forms_Fat
 
 		private void controleDePreçosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var definicoes = new FormDefinicoes
-			{
-				ControlBox = true
-			};
-			definicoes.Show();
-
+			AbrirNovoForm<FormDefinicoes>("Definicoes");
 		}
 
 		private void consultarEditarEstoqueDePeçasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,33 +187,19 @@ namespace Dll_Forms_Fat
 
 		private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var cadastrarFuncionario = new FormCadastrarFuncionario
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			cadastrarFuncionario.Show();
+			AbrirNovoForm<FormCadastrarFuncionario>("CadastrarFuncionario");
+
 
 		}
 
 		private void despesasToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var cadastrarDespesa = new FormCadastrarDespesa
-			{
-				ControlBox = false,
-				MdiParent = this
-			};
-			cadastrarDespesa.Show();
+			AbrirNovoForm<FormCadastrarDespesa>("CadastrarDespesa");
 		}
 
 		private void despesasDeCarrosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var despesaCarro = new FormDespesasCarro
-			{
-				MdiParent = this,
-				ControlBox = false
-			};
-			despesaCarro.Show();
+			AbrirNovoForm<FormDespesasCarro>("DespesasCarro");
 		}
 
 		void AbrirNovoForm<T>(string TAG) where T : Form, new()
@@ -269,6 +216,9 @@ namespace Dll_Forms_Fat
 			Form form = new T
 			{
 				MdiParent = this,
+				ControlBox = false,
+				ShowIcon = false,
+				WindowState = FormWindowState.Maximized,
 				Tag = TAG
 			};
 			form.Show();

@@ -66,38 +66,41 @@ namespace Dll_Forms_Fat
 				.GetUf(txtUF.Text);
 			var endereco = enderecoBuilder.Build();
 
-			FuncionariosBuilder FBuilder = new FuncionariosBuilder()
-				.GetNome(txtNome.Text)
-				.GetCpf(maskedCpf.Text)
-				.GetRg(txtRG.Text)
-				.GetEmail(txtEmail.Text)
-				.GetTelResidencial(txtTelRes.Text)
-				.GetTelCelular(txtTelCel.Text)
-				.GetSalario(Convert.ToDecimal(txtSalario.Text))
-				.GetAdmissao(dateAdmissao.Value)
-				.GetCtps(txtCTPS.Text)
-				.GetPis(txtPIS.Text)
-				.GetTituloEleitor(txtTitEleitor.Text)
-				.GetNascimento(dateNascimento.Value)
-				//.GetDemissao(dateDemissao.Value)
-				.GetEndereco(endereco);
-				//.GetCnh(cnh)
-
-			funcionario = FBuilder.Build();
+			funcionario.Nome = txtNome.Text;
+			funcionario.Cpf = maskedCpf.Text;
+			funcionario.Rg = txtRG.Text;
+			funcionario.Email = txtEmail.Text;
+			funcionario.TelResidencial = txtTelRes.Text;
+			funcionario.TelCelular = txtTelCel.Text;
+			funcionario.Salario = Convert.ToDecimal(txtSalario.Text);
+			funcionario.Ctps = txtCTPS.Text;
+			funcionario.Pis = txtPIS.Text;
+			funcionario.TituloEleitor = txtTitEleitor.Text;
+			funcionario.Nascimento = dateNascimento.Value;
+			funcionario.Endereco = endereco;
 
 			int id = Convert.ToInt32(txtId.Text);
-
-			//funcionario.Cnh.Id = id;
 			funcionario.Endereco.Id = id;
 
-			new FuncionariosDao().DbUpdate(funcionario);
-			MessageBox.Show("Dados do funcionário Atualizado com Sucesso.", "Alerta");
-			if (funcionario.CnhId == 0)
+			if (new FuncionariosDao().DbUpdate(funcionario))
 			{
-				CriarCnh(funcionario);
+				MessageBox.Show("Dados do funcionário Atualizado com Sucesso.", "Alerta");
+				if (funcionario.CnhId == 0)
+				{
+					if (!CriarCnh(funcionario))
+					{
+						ConfirmaSaida();
+					}
+				}
+				else
+				{
+					ConfirmaSaida();
+				}
 			}
-			this.Controls.LimparTextBoxes();
-			this.groupEndereco.Controls.LimparTextBoxes();
+			else
+			{
+				MessageBox.Show("Erro na atualização do funcionário, tente novamente!");
+			}
 		}
 		private void CadastrarNovoFuncionario(Funcionarios funcionario)
 		{
@@ -138,20 +141,48 @@ namespace Dll_Forms_Fat
 			funcionario = FBuilder.Build();
 			funcionario.CargoId = ((Cargos)comboCargo.SelectedItem).Id;
 			funcionario.Cnh = cnh;
-			new FuncionariosDao().DbAdd(funcionario);
-			MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
-			CriarCnh(funcionario);
+			if (new FuncionariosDao().DbAdd(funcionario))
+			{
+				MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
+				if (!CriarCnh(funcionario))
+				{
+					ConfirmaSaida();
+				}
+				else
+				{
+					MessageBox.Show("Erro na adição do funcionario, tente novamente!");
+				}
+			}
+		}
+
+		private void LimpaTela()
+		{
 			this.Controls.LimparTextBoxes();
 			this.groupEndereco.Controls.LimparTextBoxes();
 		}
 
-		private static void CriarCnh(Funcionarios funcionario)
+		private void ConfirmaSaida()
 		{
+			if (MessageBox.Show("Gostaria de adicionar um novo funcionario?", "Pergunta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				LimpaTela();
+			}
+			else
+			{
+				this.Close();
+			}
+		}
+
+		private static bool CriarCnh(Funcionarios funcionario)
+		{
+			bool ret = false;
 			if (MessageBox.Show("Adicionar uma CNH ao funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				var cadastrarCnh = new FormCadastrarMotorista(funcionario);
 				cadastrarCnh.Show();
+				return true;
 			}
+			return ret;
 		}
 
 		private void PreencherFormulario(Funcionarios f)
@@ -197,13 +228,11 @@ namespace Dll_Forms_Fat
 					funcionario = new FuncionariosDao().GetFuncionario(txtId.Text);
 					AtualizarFuncionario(funcionario);
 				}
-
 				else
 				{
 					CadastrarNovoFuncionario(funcionario);
 				}
 			}
-
 		}
 
 		private bool validaFuncionario()

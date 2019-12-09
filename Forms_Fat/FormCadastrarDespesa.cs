@@ -108,9 +108,15 @@ namespace Dll_Forms_Fat
 
 			if (new DespesasDao().DbAdd(despesa))
 			{
-				MessageBox.Show("Despesa cadastrada com sucessso!");
-				CarregarTabela();
-				LimpaTextBoxes();
+				if(MessageBox.Show("Despesa cadastrada com sucessso!\nCadastrar Nova?", "Pergunta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+					CarregarTabela();
+					LimpaTextBoxes();
+				}
+				else
+				{
+					this.Close();
+				}
 			}
 			else
 			{

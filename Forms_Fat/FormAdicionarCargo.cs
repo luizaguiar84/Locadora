@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -37,8 +38,7 @@ namespace Dll_Forms_Fat
 
 				if (new CargosDao().DbUpdate(cargo))
 				{
-					MessageBox.Show("Cargo Atualizado com Sucesso!");
-					this.Close();
+					ConfirmaSaida();
 				}
 			}
 			if (new CargosDao().CheckCargo(txtCargo.Text))
@@ -53,18 +53,21 @@ namespace Dll_Forms_Fat
 
 				if (new CargosDao().DbAdd(cargo))
 				{
-					if (MessageBox.Show("Cargo Adicionado com sucesso! Adicionar novo cargo?", "Confirmação", MessageBoxButtons.YesNo)
-						== DialogResult.Yes)
-					{
-						txtCargo.Text = "";
-					}
-					else
-					{
-						this.Close();
-					}
+					ConfirmaSaida();
 				}
 			}
+		}
 
+		private void ConfirmaSaida()
+		{
+			if (MessageBox.Show("Cargo Atualizado com Sucesso!\nAdicionar novo cargo?", "Pergunta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				this.Controls.LimparTextBoxes();
+			}
+			else
+			{
+				this.Close();
+			}
 		}
 
 		private void FormAdicionarCargo_Load(object sender, EventArgs e)
