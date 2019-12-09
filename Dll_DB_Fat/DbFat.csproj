@@ -116,6 +116,7 @@
     <Compile Include="AbastecimentosDao.cs" />
     <Compile Include="CargosDao.cs" />
     <Compile Include="ClienteLocacaoDao.cs" />
+    <Compile Include="MenuDao.cs" />
     <Compile Include="MotoristasDao.cs" />
     <Compile Include="ClientesPjDao.cs" />
     <Compile Include="CnhsDao.cs" />

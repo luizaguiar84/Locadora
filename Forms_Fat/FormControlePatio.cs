@@ -86,31 +86,31 @@ namespace Dll_Forms_Fat
 
 		private void BtnSalvarSaida_Click(object sender, EventArgs e)
 		{
-			var c = new ControlePatio();
+			var controle = new ControlePatio();
 
 			var veiculo = (Veiculos)comboCarros.SelectedItem;
-			c.VeiculoId = veiculo.Id;
+			controle.VeiculoId = veiculo.Id;
 
 			var motorista = (Funcionarios)comboMotorista.SelectedItem;
-			c.ClienteId = motorista.Id;
+			controle.ClienteId = motorista.Id;
 
-			c.Placa = veiculo.Placa;
+			controle.Placa = veiculo.Placa;
 
-			c.DataSaida = dateSaida.Value;
-			c.HoraSaida = timeSaida.Value.TimeOfDay;
-			c.KmSaida = Convert.ToInt32(txtKmSaida.Text);
-			c.NivelCombustivelSaida = comboCombustivelSaida.Text;
+			controle.DataSaida = dateSaida.Value;
+			controle.HoraSaida = timeSaida.Value.TimeOfDay;
+			controle.KmSaida = Convert.ToInt32(txtKmSaida.Text);
+			controle.NivelCombustivelSaida = comboCombustivelSaida.Text;
 			//c.LiberadoSaida = comboLiberadoSaida.Text;
-			c.ObservacoesSaida = txtObservacoes.Text;
-			c.Status = true;
+			controle.ObservacoesSaida = txtObservacoes.Text;
+			controle.Status = true;
 
-			if (new ControlePatioDao().DbAdd(c))
+			if (new ControlePatioDao().DbAdd(controle))
 			{
 				MessageBox.Show("Saida Registrada com Sucesso!");
 			}
 			else
 			{
-				MessageBox.Show("Problema no registro da saida, favor tentar novamente.");
+				MessageBox.Show("Veiculo já se encontra fora do pátio, favor selecionar outro.");
 			}
 			AtualizaTabela();
 			AtualizaPlacasFora();
@@ -151,7 +151,11 @@ namespace Dll_Forms_Fat
 
 		private void BtnSalvarRetorno_Click(object sender, EventArgs e)
 		{
-			if (String.IsNullOrWhiteSpace(txtkmRetorno.Text))
+			if (String.IsNullOrEmpty(txtKmSaida.Text))
+			{
+				MessageBox.Show("Favor selecionar o carro na lista");
+			}
+			else if (String.IsNullOrWhiteSpace(txtkmRetorno.Text))
 			{
 				MessageBox.Show("Favor informar a Quilometragem do carro no retorno!");
 			}

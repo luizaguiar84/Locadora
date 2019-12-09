@@ -73,9 +73,10 @@ namespace DbFat
 
 		public List<Veiculos> GetVeiculosAtivos()
 		{
-			return GetAll()
-					.Where(v => v.IsAtivo)
+			return  GetAll()
+					.Where(v => v.IsAtivo && v.Disponivel)
 					.ToList();
+
 		}
 
 		/// <summary>

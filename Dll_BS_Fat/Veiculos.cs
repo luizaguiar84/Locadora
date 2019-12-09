@@ -139,6 +139,9 @@ namespace BsFat
 		[DataType(DataType.Currency)]
 		#endregion
 		public string ValorAtual { get; set; }
+		[DefaultValue(true)]
+		public bool Disponivel { get; set; }
+
 
 		//#region Anotações
 		//[Required(ErrorMessage = "Favor informar o valor da diária.")]

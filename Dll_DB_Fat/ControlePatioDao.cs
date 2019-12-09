@@ -26,7 +26,12 @@ namespace DbFat
 
 		public bool DbAdd(ControlePatio registro)
 		{
-			return new DbKernel.Db_Kernel().DbAdd<ControlePatio>(registro);
+			var carro = new VeiculosDao().GetById(registro.VeiculoId);
+			if (carro.Disponivel == true)
+			{
+				return new DbKernel.Db_Kernel().DbAdd<ControlePatio>(registro);
+			}
+			return false;
 		}
 
 		public bool DbUpdate(ControlePatio update)

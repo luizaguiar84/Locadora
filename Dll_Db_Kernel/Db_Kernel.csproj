@@ -185,6 +185,10 @@
     <Compile Include="Migrations\20191207225005_AdicaoDeTabelas5.designer.cs">
       <DependentUpon>20191207225005_AdicaoDeTabelas5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191209000959_classeMenu.cs" />
+    <Compile Include="Migrations\20191209000959_classeMenu.designer.cs">
+      <DependentUpon>20191209000959_classeMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

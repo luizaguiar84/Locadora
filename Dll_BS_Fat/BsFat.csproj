@@ -7,8 +7,8 @@
     <ProjectGuid>{12956BBE-710D-4CC3-92EB-5C9E6F28BB4B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dll_BS_Fat</RootNamespace>
-    <AssemblyName>Dll_BS_Fat</AssemblyName>
+    <RootNamespace>BsFat</RootNamespace>
+    <AssemblyName>Dll_Bs_Fat</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -47,6 +47,7 @@
     <Compile Include="BaseModel.cs" />
     <Compile Include="Cargos.cs" />
     <Compile Include="ClienteLocacao.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="MotoristasBuilder.cs" />
     <Compile Include="ClientesPJBuilder.cs" />
     <Compile Include="ClientesPJ.cs" />
