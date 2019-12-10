@@ -9,9 +9,17 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormBuscaFuncionario : Form
 	{
+		private Usuarios usuario;
+
 		public FormBuscaFuncionario()
 		{
 			InitializeComponent();
+		}
+
+		public FormBuscaFuncionario(Usuarios usuario)
+		{
+			InitializeComponent();
+			this.usuario = usuario;
 		}
 
 		private void FormBuscaFuncionario_Load(object sender, EventArgs e)
@@ -67,7 +75,16 @@ namespace Dll_Forms_Fat
 			int funcionarioId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
 			var funcionario = new FuncionariosDao().GetById(funcionarioId);
-
+			if (this.usuario != null)
+			{
+				usuario.Funcionario = funcionario;
+				var cadastro = new FormCadastrarUsuario(usuario);
+				cadastro.MdiParent = this.MdiParent;
+				cadastro.ControlBox = false;
+				cadastro.WindowState = FormWindowState.Maximized;
+				cadastro.Show();
+				this.Close();
+			}
 			var form = new FormCadastrarFuncionario(funcionario)
 			{
 				MdiParent = this.ParentForm

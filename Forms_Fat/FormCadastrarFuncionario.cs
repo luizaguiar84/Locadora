@@ -279,7 +279,10 @@ namespace Dll_Forms_Fat
 						cargos.Show();
 					}
 				}
-				MessageBox.Show("Favor preencher o Cargo do funcionário.");
+				else
+				{
+					MessageBox.Show("Favor preencher o Cargo do funcionário.");
+				}
 			}
 			else if (String.IsNullOrWhiteSpace(txtCTPS.Text))
 			{

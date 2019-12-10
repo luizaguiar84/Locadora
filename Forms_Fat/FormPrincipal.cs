@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BsFat;
+using System;
 using System.Windows.Forms;
 
 namespace Dll_Forms_Fat
@@ -6,11 +7,59 @@ namespace Dll_Forms_Fat
 	public partial class FormPrincipal : Form
 	{
 
+		public FormPrincipal(BsFat.Usuarios usuario)
+		{
+			InitializeComponent();
+			// = usuario;
+		}
+
 		public FormPrincipal()
 		{
 			InitializeComponent();
 		}
 
+		private void controleDeAcesso(Usuarios usuario)
+		{
+			cadastrarClienteToolStripMenuItem.Visible = false;
+			if (usuario.Nivel == 3)
+			{
+
+			}
+			else if (usuario.Nivel == 2)
+			{
+
+			}
+			else
+			{
+				cadastrarToolStripMenuItem.Visible = false;
+				cadastrarClienteToolStripMenuItem.Visible = false;
+				cadastrarNovoVeículoToolStripMenuItem.Visible = false;
+				monitorarVeículosAtivosToolStripMenuItem.Visible = false;
+				consultarComprovantesToolStripMenuItem.Visible = false;
+				relatóriosToolStripMenuItem2.Visible = false;
+				cadastrarNovoUsuárioToolStripMenuItem1.Visible = false;
+				controleDePneusToolStripMenuItem.Visible = false;
+				controleDePreçosToolStripMenuItem.Visible = false;
+			}
+			//sobreToolStripMenuItem.Visible = true;
+			//clientesToolStripMenuItem1.Visible = true; // Busca Cliente
+			//veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
+			//cadastrarClienteToolStripMenuItem.Visible = true; // Cadastrar Cliente
+			//monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
+			//consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
+			//relatóriosToolStripMenuItem2.Visible = true; //Relatorios
+			//cadastrarNovoUsuárioToolStripMenuItem1.Visible = true; // cadastrar novo usuario
+			//controleDePátioToolStripMenuItem.Visible = true; // controle de patio
+			//controleDePneusToolStripMenuItem.Visible = true; // controle de pneus
+			//estoqueToolStripMenuItem1.Visible = true; // controle de estoque
+			//controleDePreçosToolStripMenuItem.Visible = true; // Editar Cargos
+			//consultarEditarEstoqueDePeçasToolStripMenuItem.Visible = true; // controle de estoque
+			//consultarEditarUsuáriosToolStripMenuItem.Visible = true; // consultar / editar usuarios
+			//consultarEditarMotoristasToolStripMenuItem.Visible = true; // consultar e editar motoristas
+			//registrarAlertaToolStripMenuItem.Visible = true; // registrar alerta
+			//despesasToolStripMenuItem.Visible = true; // registrar despesas
+			//despesasDeCarrosToolStripMenuItem.Visible = true; // despesas de carros
+		}
 		private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var sobre = new FormSobre();
@@ -55,11 +104,6 @@ namespace Dll_Forms_Fat
 			AbrirNovoForm<FormCadastrarVeiculo>("CadastrarVeiculos");
 		}
 
-		private void editarExcluirVeículosToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			
-		}
-
 		private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormBuscaCliente>("BuscarCliente");
@@ -100,7 +144,6 @@ namespace Dll_Forms_Fat
 			AbrirNovoForm<FormConsultarComprovantes>("ConsultaComprovantes");
 
 		}
-
 		private void RelatóriosToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormRelatorios>("Relatorios");
@@ -110,7 +153,7 @@ namespace Dll_Forms_Fat
 		{
 			AbrirNovoForm<FormNovaLocacao>("NovaLocacao");
 		}
-
+		
 		private void cadastrarNovoUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormCadastrarUsuario>("CadastroUsuarios");
@@ -182,8 +225,6 @@ namespace Dll_Forms_Fat
 		private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormCadastrarFuncionario>("CadastrarFuncionario");
-
-
 		}
 
 		private void despesasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -219,6 +260,11 @@ namespace Dll_Forms_Fat
 			//form.Refresh();
 			form.Focus();
 			form.Show();
+		}
+
+		private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

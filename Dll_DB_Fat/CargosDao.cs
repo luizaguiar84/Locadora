@@ -55,7 +55,7 @@ namespace DbFat
 		{
 			return GetAll()
 					.Where(c => c.Id == id)
-					.SingleOrDefault();
+					.Single();
 		}
 	}
 }

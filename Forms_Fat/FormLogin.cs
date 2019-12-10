@@ -18,7 +18,7 @@ namespace Dll_Forms_Fat
 			var usuario = new Usuarios();
 			usuario.Login = txtUsuario.Text;
 			usuario.Password = TxtSenha.Text;
-			if (txtUsuario.Text == "" && TxtSenha.Text == "")
+			if (txtUsuario.Text == "1" && TxtSenha.Text == "1")
 			{
 				AbrePrograma();
 			}
@@ -32,7 +32,7 @@ namespace Dll_Forms_Fat
 			}
 			else if (new UsuariosDao().ConfereUsuario(usuario))
 			{
-				AbrePrograma();
+				AbrePrograma(usuario);
 			}
 			else
 			{
@@ -40,6 +40,12 @@ namespace Dll_Forms_Fat
 			}
 		}
 
+		private void AbrePrograma(Usuarios usuario)
+		{
+			FormPrincipal form = new FormPrincipal(usuario);
+			form.Show();
+			this.Hide();
+		}
 		private void AbrePrograma()
 		{
 			FormPrincipal form = new FormPrincipal();

@@ -34,19 +34,19 @@
 			this.txtNome = new System.Windows.Forms.TextBox();
 			this.lblSenha = new System.Windows.Forms.Label();
 			this.lblConfirmaSenha = new System.Windows.Forms.Label();
-			this.TxtEmail = new System.Windows.Forms.TextBox();
+			this.txtRegistroFunc = new System.Windows.Forms.TextBox();
 			this.lblCadastrarNovoUsuario = new System.Windows.Forms.Label();
 			this.lblNome = new System.Windows.Forms.Label();
 			this.lblCargo = new System.Windows.Forms.Label();
 			this.lblNivelAcesso = new System.Windows.Forms.Label();
 			this.lblEmail = new System.Windows.Forms.Label();
-			this.ComboNivelAcesso = new System.Windows.Forms.ComboBox();
 			this.txtUsuario = new System.Windows.Forms.TextBox();
 			this.txtSenha = new System.Windows.Forms.TextBox();
 			this.txtConfirmaSenha = new System.Windows.Forms.TextBox();
-			this.comboCargo = new System.Windows.Forms.ComboBox();
 			this.groupCadastro = new System.Windows.Forms.GroupBox();
 			this.button2 = new System.Windows.Forms.Button();
+			this.txtCargo = new System.Windows.Forms.TextBox();
+			this.txtNivelAcesso = new System.Windows.Forms.TextBox();
 			this.groupCadastro.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -95,12 +95,12 @@
 			this.lblConfirmaSenha.TabIndex = 4;
 			this.lblConfirmaSenha.Text = "Confirmar Senha";
 			// 
-			// TxtEmail
+			// txtRegistroFunc
 			// 
-			this.TxtEmail.Location = new System.Drawing.Point(14, 64);
-			this.TxtEmail.Name = "TxtEmail";
-			this.TxtEmail.Size = new System.Drawing.Size(120, 20);
-			this.TxtEmail.TabIndex = 2;
+			this.txtRegistroFunc.Location = new System.Drawing.Point(14, 64);
+			this.txtRegistroFunc.Name = "txtRegistroFunc";
+			this.txtRegistroFunc.Size = new System.Drawing.Size(120, 20);
+			this.txtRegistroFunc.TabIndex = 2;
 			// 
 			// lblCadastrarNovoUsuario
 			// 
@@ -135,7 +135,7 @@
 			// lblNivelAcesso
 			// 
 			this.lblNivelAcesso.AutoSize = true;
-			this.lblNivelAcesso.Location = new System.Drawing.Point(156, 126);
+			this.lblNivelAcesso.Location = new System.Drawing.Point(195, 126);
 			this.lblNivelAcesso.Name = "lblNivelAcesso";
 			this.lblNivelAcesso.Size = new System.Drawing.Size(85, 13);
 			this.lblNivelAcesso.TabIndex = 10;
@@ -149,19 +149,6 @@
 			this.lblEmail.Size = new System.Drawing.Size(119, 13);
 			this.lblEmail.TabIndex = 11;
 			this.lblEmail.Text = "Nº Registro Funcionário";
-			// 
-			// ComboNivelAcesso
-			// 
-			this.ComboNivelAcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.ComboNivelAcesso.FormattingEnabled = true;
-			this.ComboNivelAcesso.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-			this.ComboNivelAcesso.Location = new System.Drawing.Point(159, 142);
-			this.ComboNivelAcesso.Name = "ComboNivelAcesso";
-			this.ComboNivelAcesso.Size = new System.Drawing.Size(121, 21);
-			this.ComboNivelAcesso.TabIndex = 4;
 			// 
 			// txtUsuario
 			// 
@@ -186,16 +173,10 @@
 			this.txtConfirmaSenha.Size = new System.Drawing.Size(266, 20);
 			this.txtConfirmaSenha.TabIndex = 7;
 			// 
-			// comboCargo
-			// 
-			this.comboCargo.FormattingEnabled = true;
-			this.comboCargo.Location = new System.Drawing.Point(14, 142);
-			this.comboCargo.Name = "comboCargo";
-			this.comboCargo.Size = new System.Drawing.Size(121, 21);
-			this.comboCargo.TabIndex = 12;
-			// 
 			// groupCadastro
 			// 
+			this.groupCadastro.Controls.Add(this.txtNivelAcesso);
+			this.groupCadastro.Controls.Add(this.txtCargo);
 			this.groupCadastro.Controls.Add(this.button2);
 			this.groupCadastro.Controls.Add(this.btnSalvar);
 			this.groupCadastro.Controls.Add(this.txtConfirmaSenha);
@@ -207,12 +188,10 @@
 			this.groupCadastro.Controls.Add(this.txtUsuario);
 			this.groupCadastro.Controls.Add(this.lblCargo);
 			this.groupCadastro.Controls.Add(this.lblNomeUsuario);
-			this.groupCadastro.Controls.Add(this.ComboNivelAcesso);
 			this.groupCadastro.Controls.Add(this.lblCadastrarNovoUsuario);
 			this.groupCadastro.Controls.Add(this.txtNome);
-			this.groupCadastro.Controls.Add(this.TxtEmail);
+			this.groupCadastro.Controls.Add(this.txtRegistroFunc);
 			this.groupCadastro.Controls.Add(this.lblNivelAcesso);
-			this.groupCadastro.Controls.Add(this.comboCargo);
 			this.groupCadastro.Location = new System.Drawing.Point(12, 12);
 			this.groupCadastro.Name = "groupCadastro";
 			this.groupCadastro.Size = new System.Drawing.Size(310, 344);
@@ -230,6 +209,20 @@
 			this.button2.Text = "Consultar";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2_Click);
+			// 
+			// txtCargo
+			// 
+			this.txtCargo.Location = new System.Drawing.Point(15, 143);
+			this.txtCargo.Name = "txtCargo";
+			this.txtCargo.Size = new System.Drawing.Size(194, 20);
+			this.txtCargo.TabIndex = 274;
+			// 
+			// txtNivelAcesso
+			// 
+			this.txtNivelAcesso.Location = new System.Drawing.Point(228, 142);
+			this.txtNivelAcesso.Name = "txtNivelAcesso";
+			this.txtNivelAcesso.Size = new System.Drawing.Size(53, 20);
+			this.txtNivelAcesso.TabIndex = 275;
 			// 
 			// FormCadastrarUsuario
 			// 
@@ -259,18 +252,18 @@
 		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.Label lblSenha;
 		private System.Windows.Forms.Label lblConfirmaSenha;
-		private System.Windows.Forms.TextBox TxtEmail;
+		private System.Windows.Forms.TextBox txtRegistroFunc;
 		private System.Windows.Forms.Label lblCadastrarNovoUsuario;
 		private System.Windows.Forms.Label lblNome;
 		private System.Windows.Forms.Label lblCargo;
 		private System.Windows.Forms.Label lblNivelAcesso;
 		private System.Windows.Forms.Label lblEmail;
-		private System.Windows.Forms.ComboBox ComboNivelAcesso;
 		private System.Windows.Forms.TextBox txtUsuario;
 		private System.Windows.Forms.TextBox txtSenha;
 		private System.Windows.Forms.TextBox txtConfirmaSenha;
 		private System.Windows.Forms.GroupBox groupCadastro;
-		private System.Windows.Forms.ComboBox comboCargo;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.TextBox txtNivelAcesso;
+		private System.Windows.Forms.TextBox txtCargo;
 	}
 }

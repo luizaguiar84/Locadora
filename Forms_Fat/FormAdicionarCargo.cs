@@ -34,7 +34,7 @@ namespace Dll_Forms_Fat
 			if (this.cargo != null)
 			{
 				cargo.Cargo = txtCargo.Text;
-				cargo.NivelAcesso = comboNivel.SelectedText;
+				cargo.NivelAcesso = Convert.ToInt32(comboNivel.SelectedText);
 
 				if (new CargosDao().DbUpdate(cargo))
 				{
@@ -51,7 +51,7 @@ namespace Dll_Forms_Fat
 				{
 					var cargo = new Cargos();
 					cargo.Cargo = txtCargo.Text;
-					cargo.NivelAcesso = comboNivel.SelectedText;
+					cargo.NivelAcesso = Convert.ToInt32(comboNivel.SelectedText);
 
 					if (new CargosDao().DbAdd(cargo))
 					{
