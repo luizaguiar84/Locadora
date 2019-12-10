@@ -38,7 +38,7 @@ namespace Dll_Forms_Fat
 
 		private void FormCadastrarCliente_Load(object sender, EventArgs e)
 		{
-			//RadioPJ();
+			LimpaTela();
 		}
 
 		private void PreencherId()

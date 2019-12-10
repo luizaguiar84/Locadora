@@ -18,13 +18,12 @@ namespace DbFat
 		{
 			bool ret = false;
 			var listaPneus = GetAll()
-						.Where(p => p.Id == veiculo.Id)
+						.Where(p => p.VeiculoId == veiculo.Id)
 						.ToList();
 			if (listaPneus.Count == 0) ret = true;
-			var kmRodada = controle.KmRetorno - controle.KmSaida;
 			foreach (var pneu in listaPneus)
 			{
-				pneu.KmAtual += kmRodada;
+				pneu.KmAtual = controle.KmRetorno - controle.KmSaida;
 
 				if (DbUpdate(pneu))
 				{

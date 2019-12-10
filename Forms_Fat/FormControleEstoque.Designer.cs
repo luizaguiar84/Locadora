@@ -462,6 +462,7 @@
 			this.Name = "FormControleEstoque";
 			this.Text = "Controle de estoque";
 			this.Load += new System.EventHandler(this.FormControleEstoque_Load);
+			this.Enter += new System.EventHandler(this.FormControleEstoque_Load);
 			this.TabCotroleEstoque.ResumeLayout(false);
 			this.tabConsultaEstoque.ResumeLayout(false);
 			this.tabConsultaEstoque.PerformLayout();

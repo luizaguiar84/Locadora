@@ -1046,6 +1046,7 @@
 			this.ShowIcon = false;
 			this.Text = "Despesas do Veiculo";
 			this.Load += new System.EventHandler(this.FormDespesasCarro_Load);
+			this.Enter += new System.EventHandler(this.FormDespesasCarro_Load);
 			this.TabCadastroVeiculos.ResumeLayout(false);
 			this.tabAbastecimentos.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);

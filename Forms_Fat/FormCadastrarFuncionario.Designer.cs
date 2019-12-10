@@ -667,6 +667,7 @@
 			this.Name = "FormCadastrarFuncionario";
 			this.Text = "Cadastro de Funcionários";
 			this.Load += new System.EventHandler(this.FormCadastrarFuncionario_Load);
+			this.Enter += new System.EventHandler(this.FormCadastrarFuncionario_Load);
 			this.groupEndereco.ResumeLayout(false);
 			this.groupEndereco.PerformLayout();
 			this.groupCNH.ResumeLayout(false);

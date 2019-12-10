@@ -435,6 +435,7 @@
 			this.Name = "FormCadastrarCliente";
 			this.Text = "Cadastro de Clientes";
 			this.Load += new System.EventHandler(this.FormCadastrarCliente_Load);
+			this.Enter += new System.EventHandler(this.FormCadastrarCliente_Load);
 			this.groupEndereco.ResumeLayout(false);
 			this.groupEndereco.PerformLayout();
 			this.ResumeLayout(false);

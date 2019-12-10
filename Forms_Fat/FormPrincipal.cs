@@ -57,13 +57,7 @@ namespace Dll_Forms_Fat
 
 		private void editarExcluirVeículosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			AbrirNovoForm<FormEditarVeiculo>("EditarVeiculo");
-			//var editarVeiculo = new FormEditarVeiculo
-			//{
-			//	ControlBox = false,
-			//	MdiParent = this
-			//};
-			//editarVeiculo.Show();
+			
 		}
 
 		private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -221,6 +215,9 @@ namespace Dll_Forms_Fat
 				WindowState = FormWindowState.Maximized,
 				Tag = TAG
 			};
+			form.Update();
+			//form.Refresh();
+			form.Focus();
 			form.Show();
 		}
 	}

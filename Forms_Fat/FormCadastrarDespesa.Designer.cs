@@ -252,6 +252,7 @@
 			this.Name = "FormCadastrarDespesa";
 			this.Text = "Despesas";
 			this.Load += new System.EventHandler(this.FormCadastrarDespesa_Load);
+			this.Enter += new System.EventHandler(this.FormCadastrarDespesa_Load);
 			this.groupBox10.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupCadastrarDespesas.ResumeLayout(false);

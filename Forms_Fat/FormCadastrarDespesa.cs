@@ -28,6 +28,7 @@ namespace Dll_Forms_Fat
 			CarregarTabela();
 			CarregaTiposDespesa();
 			PreencheComboTipo();
+			LimpaTextBoxes();
 		}
 
 		private void CarregaTiposDespesa()

@@ -16,6 +16,8 @@ namespace Dll_Forms_Fat
 
 		private void FormCadastrarUsuario_Load(object sender, EventArgs e)
 		{
+			this.Controls.LimparTextBoxes();
+			
 			//centralizando
 			groupCadastro.Left = (Width - groupCadastro.Width) / 2;
 			groupCadastro.Top = ((Height - groupCadastro.Height) - 50) / 2;

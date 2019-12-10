@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -16,6 +17,8 @@ namespace Dll_Forms_Fat
 
 		private void FormBuscaCarro_Load(object sender, EventArgs e)
 		{
+			this.Controls.LimparTextBoxes();
+			this.dataGridView1.Visible = false;
 		}
 
 		private void BtnPesquisar_Click(object sender, EventArgs e)

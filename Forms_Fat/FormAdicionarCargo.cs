@@ -41,21 +41,24 @@ namespace Dll_Forms_Fat
 					ConfirmaSaida();
 				}
 			}
-			if (new CargosDao().CheckCargo(txtCargo.Text))
-			{
-				MessageBox.Show("Cargo já cadastrado no sistema");
-			}
 			else
 			{
-				var cargo = new Cargos();
-				cargo.Cargo = txtCargo.Text;
-				cargo.NivelAcesso = comboNivel.SelectedText;
-
-				if (new CargosDao().DbAdd(cargo))
+				if (new CargosDao().CheckCargo(txtCargo.Text))
 				{
-					ConfirmaSaida();
+					MessageBox.Show("Cargo já cadastrado no sistema");
 				}
-			}
+				else
+				{
+					var cargo = new Cargos();
+					cargo.Cargo = txtCargo.Text;
+					cargo.NivelAcesso = comboNivel.SelectedText;
+
+					if (new CargosDao().DbAdd(cargo))
+					{
+						ConfirmaSaida();
+					}
+				}
+			}	
 		}
 
 		private void ConfirmaSaida()
@@ -72,6 +75,11 @@ namespace Dll_Forms_Fat
 
 		private void FormAdicionarCargo_Load(object sender, EventArgs e)
 		{
+		}
+
+		private void FormAdicionarCargo_Leave(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

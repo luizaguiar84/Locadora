@@ -30,6 +30,7 @@ namespace BsFat
 			TituloEleitor = tituloEleitor;
 			Observacoes = observacoes;
 			Cargo = cargo;
+			Cnh = new Cnhs();
 		}
 
 		#endregion
@@ -149,6 +150,8 @@ namespace BsFat
 
 		public Enderecos Endereco { get; set; }
 		public int EnderecoId { get; set; }
+		public bool Disponivel { get; set; }
+
 
 		//#region Anotações
 		//[DataType(DataType.Date)]

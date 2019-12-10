@@ -580,6 +580,7 @@
 			this.Name = "FormNovaLocacao";
 			this.Text = "Nova Locação";
 			this.Load += new System.EventHandler(this.FormNovaLocacao_Load);
+			this.Enter += new System.EventHandler(this.FormNovaLocacao_Load);
 			this.groupSeguro.ResumeLayout(false);
 			this.groupSeguro.PerformLayout();
 			this.groupBox2.ResumeLayout(false);

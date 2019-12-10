@@ -156,7 +156,7 @@ namespace Dll_Forms_Fat
 
 			var veiculo = veiculoBuilder.Build();
 			veiculo.DataAquisicao = DateTime.Now;
-			//ValidarVeiculo(veiculo);
+			veiculo.Disponivel = true;
 
 			if (new VeiculosDao().DbAdd(veiculo))
 			{
@@ -194,6 +194,7 @@ namespace Dll_Forms_Fat
 			CarregarCores();
 			comboStatus.SelectedIndex = 0;
 			comboCor.SelectedIndex = 0;
+			LimpaTela();
 		}
 
 		private void CarregarCores()

@@ -2,6 +2,7 @@
 using DbFat;
 using System;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -11,8 +12,11 @@ namespace Dll_Forms_Fat
 
 		public FormCadastrarMotorista()
 		{
-			//CarregaMotoristas();
 			InitializeComponent();
+			txtNomeMotorista.Visible = false;
+			funcionario = new Funcionarios();
+			CarregaMotoristas();
+			funcionario = (Funcionarios)comboMotoristas.SelectedItem;
 		}
 
 		public FormCadastrarMotorista(Funcionarios funcionario)
@@ -35,14 +39,21 @@ namespace Dll_Forms_Fat
 		{
 			if (validaMotorista())
 			{
+			
 				var cnh = new CnhsBuilder()
 			.GetNumero(txtCnh.Text)
-			.GetCategoria(comboCategoria.SelectedText)
+			.GetCategoria(comboCategoria.SelectedItem.ToString())
 			.GetEmissao(dateEmitida.Value.Date)
 			.GetValidade(dateValidade.Value.Date)
 			.Build();
 
-				funcionario.Cnh = cnh;
+				if (funcionario.Cnh == null)
+				{
+					funcionario = GetMotorista();
+					cnh.Id = funcionario.Cnh.Id;
+					funcionario.Cnh = cnh;
+				}
+				funcionario.Disponivel = true;
 
 				if (new FuncionariosDao().DbUpdate(funcionario))
 				{
@@ -54,6 +65,11 @@ namespace Dll_Forms_Fat
 					MessageBox.Show("Erro na adição do Motorista, tente novamente.");
 				}
 			}	   
+		}
+
+		private Funcionarios GetMotorista()
+		{
+			return new FuncionariosDao().GetById(((Funcionarios)comboMotoristas.SelectedItem).Id);
 		}
 
 		private bool validaMotorista()
@@ -79,26 +95,26 @@ namespace Dll_Forms_Fat
 		private void FormCadastrarMotorista_Load(object sender, EventArgs e)
 		{
 			comboCategoria.SelectedIndex = 0;
+			this.Controls.LimparTextBoxes();
 		}
 
-		//private void CarregaMotoristas()
-		//{
+		private void CarregaMotoristas()
+		{
 
-		//	var motoristas = new MotoristasDao().GetAll();
+			var motoristas = new FuncionariosDao().GetNaoMotoristas();
+			comboMotoristas.Visible = true;
+			comboMotoristas.DataSource = motoristas;
+			comboMotoristas.DisplayMember = "Nome";
+			if (comboMotoristas.Items.Count > 0)
+			{
+				comboMotoristas.SelectedIndex = 0;
+			}
 
-		//	comboMotoristas.DataSource = motoristas;
-		//	comboMotoristas.DisplayMember = "Nome";
+		}
 
-		//}
-
-		//private void ComboMotoristas_SelectedIndexChanged(object sender, EventArgs e)
-		//{
-		//	Motoristas motorista = (Motoristas)comboMotoristas.SelectedItem;
-		//	txtCnh.Text = motorista.Cnh.Numero;
-		//	txtCategoria.Text = motorista.Cnh.Categoria;
-		//	//maskedEmitida.Text = motorista.Cnh.Emissao.Value.ToString();
-		//	//maskedValidade.Text = motorista.Cnh.Validade.Value.ToString();
-
-		//}
+		private void ComboMotoristas_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			funcionario = (Funcionarios)comboMotoristas.SelectedItem;
+		}
 	}
 }

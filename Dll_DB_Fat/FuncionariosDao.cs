@@ -52,8 +52,22 @@ namespace DbFat
 		public List<Funcionarios> GetMotoristas()
 		{
 			return GetAll()
-				.Where(c => c.CnhId != null)
+				.Where(c => c.CnhId != null && c.Disponivel)
 				.ToList();
+		}
+		public List<Funcionarios> GetNaoMotoristas()
+		{
+			List<Funcionarios> listaFunc = new List<Funcionarios>();
+			
+			var lista = GetAll();
+			foreach (var motorista in lista)
+			{
+				if (String.IsNullOrWhiteSpace(GetById(motorista.Id).Cnh.Numero))
+				{
+					listaFunc.Add(motorista);
+				}
+			}
+			return listaFunc;
 		}
 
 		public Funcionarios GetFuncionario(string buscaId)

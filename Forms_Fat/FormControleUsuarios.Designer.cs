@@ -271,6 +271,7 @@
 			this.Name = "FormControleUsuarios";
 			this.Text = "Usuários";
 			this.Load += new System.EventHandler(this.FormControleUsuarios_Load);
+			this.Enter += new System.EventHandler(this.FormControleUsuarios_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);

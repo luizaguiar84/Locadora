@@ -115,6 +115,7 @@ namespace Dll_Forms_Fat
 			// timeSaida
 			// 
 			this.timeSaida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+			this.timeSaida.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.timeSaida.Location = new System.Drawing.Point(123, 45);
 			this.timeSaida.MinDate = new System.DateTime(2019, 7, 18, 0, 0, 0, 0);
 			this.timeSaida.Name = "timeSaida";
@@ -462,7 +463,9 @@ namespace Dll_Forms_Fat
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormControlePatio";
 			this.Text = "Controle de pátio";
+			this.Activated += new System.EventHandler(this.FormControlePatio_Activated);
 			this.Load += new System.EventHandler(this.FormControlePatio_Load);
+			this.Enter += new System.EventHandler(this.FormControlePatio_Enter);
 			this.groupSaida.ResumeLayout(false);
 			this.groupSaida.PerformLayout();
 			this.groupRetorno.ResumeLayout(false);

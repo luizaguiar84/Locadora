@@ -166,6 +166,9 @@ namespace Dll_Forms_Fat
 			//lblValorSegRoubo.Text = "(" + Program.Valores.ValorSeguro.ToString("C") + "/dia)";
 			//lblValorSegTerceiros.Text = "(" + Program.Valores.ValorSeguroTerceiros.ToString("C") + "/dia)";
 			PreencherComboBoxes();
+			this.Controls.LimparTextBoxes();
+			this.groupSeguro.Controls.LimparTextBoxes();
+			this.groupBox2.Controls.LimparTextBoxes();
 		}
 
 		private void PreencherComboBoxes()

@@ -2,6 +2,7 @@
 using DbFat;
 using System;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -49,7 +50,7 @@ namespace Dll_Forms_Fat
 
 		private void FormDevolucao_Load(object sender, EventArgs e)
 		{
-
+			this.Controls.LimparTextBoxes();
 		}
 
 		private void txtKmDevolucao_KeyPress(object sender, KeyPressEventArgs e)

@@ -561,6 +561,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
 			this.Text = "Cadastro de Veículos";
 			this.Load += new System.EventHandler(this.FormCadastrarNovoVeiculo_Load);
+			this.Enter += new System.EventHandler(this.FormCadastrarNovoVeiculo_Load);
 			this.TabCadastroVeiculos.ResumeLayout(false);
 			this.tabInformacoes.ResumeLayout(false);
 			this.tabInformacoes.PerformLayout();

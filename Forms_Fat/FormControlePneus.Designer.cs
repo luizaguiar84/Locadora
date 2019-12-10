@@ -177,6 +177,7 @@ namespace Dll_Forms_Fat
 			this.Name = "FormControlePneus";
 			this.Text = "Controle de Pneus";
 			this.Load += new System.EventHandler(this.FormControlePneus_Load);
+			this.Enter += new System.EventHandler(this.FormControlePneus_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridPneus)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

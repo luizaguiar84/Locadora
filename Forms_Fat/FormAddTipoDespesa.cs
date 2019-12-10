@@ -2,6 +2,7 @@
 using DbFat;
 using System;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -34,6 +35,11 @@ namespace Dll_Forms_Fat
 		private void FormAddTipoDespesa_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		private void FormAddTipoDespesa_Enter(object sender, EventArgs e)
+		{
+			this.Controls.LimparTextBoxes();
 		}
 	}
 }

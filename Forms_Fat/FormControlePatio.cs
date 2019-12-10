@@ -25,7 +25,11 @@ namespace Dll_Forms_Fat
 
 		private void Button2_Click(object sender, EventArgs e)
 		{
-			FormCadastrarMotorista formCadastrarMotorista = new FormCadastrarMotorista();
+			FormCadastrarMotorista formCadastrarMotorista = new FormCadastrarMotorista
+			{
+				ControlBox = false,
+				ShowIcon = false
+			};
 			formCadastrarMotorista.MdiParent = this.MdiParent;
 			formCadastrarMotorista.Show();
 		}
@@ -39,10 +43,7 @@ namespace Dll_Forms_Fat
 
 		private void FormControlePatio_Load(object sender, EventArgs e)
 		{
-			GetCarros();
-			GetMotoristas();
-			AtualizaTabela();
-			AtualizaPlacasFora();
+			ResetTela();
 		}
 
 		private void GetMotoristas()
@@ -98,7 +99,7 @@ namespace Dll_Forms_Fat
 
 				controle.Placa = veiculo.Placa;
 
-				controle.DataSaida = dateSaida.Value;
+				controle.DataSaida = dateSaida.Value.Date;
 				controle.HoraSaida = timeSaida.Value.TimeOfDay;
 				controle.KmSaida = Convert.ToInt32(txtKmSaida.Text);
 				controle.NivelCombustivelSaida = comboCombustivelSaida.Text;
@@ -109,16 +110,28 @@ namespace Dll_Forms_Fat
 				if (new ControlePatioDao().DbAdd(controle))
 				{
 					MessageBox.Show("Saida Registrada com Sucesso!");
-					GetCarros();
+					ResetTela();
 				}
 				else
 				{
 					MessageBox.Show("Veiculo já se encontra fora do pátio, favor selecionar outro.");
 				}
-				AtualizaTabela();
-				AtualizaPlacasFora();
-				this.groupSaida.Controls.LimparTextBoxes();
+				
 			}
+		}
+
+		private void ResetTela()
+		{
+			GetCarros();
+			GetMotoristas();
+			AtualizaTabela();
+			AtualizaPlacasFora();
+			this.groupSaida.Controls.LimparTextBoxes();
+			this.groupRetorno.Controls.LimparTextBoxes();
+			dateRetorno.Value = DateTime.Now;
+			dateSaida.Value = DateTime.Now;
+			timeSaida.Value = DateTime.Now;
+			timeRetorno.Value = DateTime.Now;
 		}
 
 		private bool validaSaida()
@@ -180,12 +193,7 @@ namespace Dll_Forms_Fat
 				{
 					MessageBox.Show("Retorno do carro registrado com êxito");
 
-					GetCarros();
-					AtualizaTabela();
-					AtualizaPlacasFora();
-
-					this.groupRetorno.Controls.LimparTextBoxes();
-					this.groupSaida.Controls.LimparTextBoxes();
+					ResetTela();
 				}
 			}
 		
@@ -201,6 +209,17 @@ namespace Dll_Forms_Fat
 			else if (String.IsNullOrWhiteSpace(txtkmRetorno.Text))
 			{
 				MessageBox.Show("Favor informar a Quilometragem do carro no retorno!");
+			}
+			else if (!String.IsNullOrWhiteSpace(txtkmRetorno.Text))
+			{
+				if (Convert.ToInt32(txtkmRetorno.Text) < Convert.ToInt32(txtKmSaida.Text))
+				{
+					MessageBox.Show("Favor informar a quilometragem de retorno correta!");
+				}
+				else
+				{
+					ret = true;
+				}
 			}
 			else
 			{
@@ -278,5 +297,16 @@ namespace Dll_Forms_Fat
 		{
 
 		}
+
+		private void FormControlePatio_Activated(object sender, EventArgs e)
+		{
+			this.Refresh();
+		}
+
+		private void FormControlePatio_Enter(object sender, EventArgs e)
+		{
+			this.Refresh();
+		}
+
 	}
 }

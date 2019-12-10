@@ -244,6 +244,7 @@
 			this.Name = "FormCadastrarUsuario";
 			this.Text = "Cadastrar Usuários";
 			this.Load += new System.EventHandler(this.FormCadastrarUsuario_Load);
+			this.Enter += new System.EventHandler(this.FormCadastrarUsuario_Load);
 			this.Resize += new System.EventHandler(this.FormCadastrarUsuario_Resize);
 			this.groupCadastro.ResumeLayout(false);
 			this.groupCadastro.PerformLayout();

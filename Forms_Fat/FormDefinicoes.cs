@@ -35,8 +35,33 @@ namespace Dll_Forms_Fat
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			var adicionarCargo = new FormAdicionarCargo((Cargos)comboCargos.SelectedItem);
+			var adicionarCargo = new FormAdicionarCargo(GetCargoCombo());
 			adicionarCargo.Show();
 		}
+
+		private Cargos GetCargoCombo()
+		{
+			return ((Cargos)comboCargos.SelectedItem);
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show($"Deseja deletar o cargo '{GetCargoCombo().Cargo}' ?", "Pergunta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				if (new CargosDao().DeleteRegistro(GetCargoCombo()))
+				{
+					MessageBox.Show("Cargo Deletado com sucesso!");
+					PreencheCargos();
+				}
+				else
+				{
+					MessageBox.Show("Erro, tente novamente.");
+				}
+			}
+		}
+
+
+
+
 	}
 }

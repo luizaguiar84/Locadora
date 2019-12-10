@@ -33,6 +33,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.btnExcluir = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// comboCargos
@@ -73,11 +74,22 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// btnExcluir
+			// 
+			this.btnExcluir.Location = new System.Drawing.Point(347, 31);
+			this.btnExcluir.Name = "btnExcluir";
+			this.btnExcluir.Size = new System.Drawing.Size(90, 23);
+			this.btnExcluir.TabIndex = 10;
+			this.btnExcluir.Text = "Excluir";
+			this.btnExcluir.UseVisualStyleBackColor = true;
+			this.btnExcluir.Click += new System.EventHandler(this.button3_Click);
+			// 
 			// FormDefinicoes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(368, 81);
+			this.ClientSize = new System.Drawing.Size(468, 174);
+			this.Controls.Add(this.btnExcluir);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label4);
@@ -86,6 +98,7 @@
 			this.Name = "FormDefinicoes";
 			this.Text = "Adicionar Cargo";
 			this.Load += new System.EventHandler(this.FormTabelaDePrecos_Load);
+			this.Enter += new System.EventHandler(this.FormTabelaDePrecos_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -96,5 +109,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnExcluir;
 	}
 }

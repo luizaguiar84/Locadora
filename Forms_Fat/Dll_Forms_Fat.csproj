@@ -172,12 +172,6 @@
     <Compile Include="FormDevolucao.Designer.cs">
       <DependentUpon>FormDevolucao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEditarVeiculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEditarVeiculo.Designer.cs">
-      <DependentUpon>FormEditarVeiculo.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,9 +284,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDevolucao.resx">
       <DependentUpon>FormDevolucao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEditarVeiculo.resx">
-      <DependentUpon>FormEditarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

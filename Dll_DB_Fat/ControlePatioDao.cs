@@ -31,6 +31,9 @@ namespace DbFat
 			{
 				carro.Disponivel = false;
 				new VeiculosDao().DbUpdate(carro);
+				var funcionario = new FuncionariosDao().GetById(registro.ClienteId);
+				funcionario.Disponivel = false;
+				new FuncionariosDao().DbUpdate(funcionario);
 				return new DbKernel.Db_Kernel().DbAdd<ControlePatio>(registro);
 			}
 			return false;
@@ -59,6 +62,8 @@ namespace DbFat
 		public bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
 		{
 			bool ret = false;
+			var func = new FuncionariosDao().GetById(controle.ClienteId);
+			func.Disponivel = true;
 
 			if (new PneusDao().DbUpdateKm(controle, veiculo))
 			{
@@ -66,7 +71,10 @@ namespace DbFat
 				{
 					if (DbUpdate(controle))
 					{
-						ret = true;
+						if (new FuncionariosDao().DbUpdate(func))
+						{
+							ret = true;
+						}
 					}
 				}
 			}

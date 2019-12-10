@@ -40,6 +40,7 @@
 			this.dateValidade = new System.Windows.Forms.DateTimePicker();
 			this.txtNomeMotorista = new System.Windows.Forms.TextBox();
 			this.comboCategoria = new System.Windows.Forms.ComboBox();
+			this.comboMotoristas = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -146,12 +147,23 @@
 			this.comboCategoria.Size = new System.Drawing.Size(38, 21);
 			this.comboCategoria.TabIndex = 250;
 			// 
+			// comboMotoristas
+			// 
+			this.comboMotoristas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboMotoristas.FormattingEnabled = true;
+			this.comboMotoristas.Location = new System.Drawing.Point(15, 31);
+			this.comboMotoristas.Name = "comboMotoristas";
+			this.comboMotoristas.Size = new System.Drawing.Size(264, 21);
+			this.comboMotoristas.TabIndex = 251;
+			this.comboMotoristas.Visible = false;
+			// 
 			// FormCadastrarMotorista
 			// 
 			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(329, 213);
+			this.Controls.Add(this.comboMotoristas);
 			this.Controls.Add(this.comboCategoria);
 			this.Controls.Add(this.txtNomeMotorista);
 			this.Controls.Add(this.dateValidade);
@@ -167,6 +179,7 @@
 			this.Name = "FormCadastrarMotorista";
 			this.Text = "Motoristas";
 			this.Load += new System.EventHandler(this.FormCadastrarMotorista_Load);
+			this.Enter += new System.EventHandler(this.FormCadastrarMotorista_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -184,5 +197,6 @@
 		private System.Windows.Forms.DateTimePicker dateValidade;
 		private System.Windows.Forms.TextBox txtNomeMotorista;
 		private System.Windows.Forms.ComboBox comboCategoria;
+		private System.Windows.Forms.ComboBox comboMotoristas;
 	}
 }

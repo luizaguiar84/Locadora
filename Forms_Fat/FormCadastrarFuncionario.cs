@@ -36,6 +36,7 @@ namespace Dll_Forms_Fat
 		}
 		private void FormCadastrarFuncionario_Load(object sender, EventArgs e)
 		{
+			LimpaTela();		
 			comboCargo.DataSource = new CargosDao().GetAll();		
 			comboCargo.DisplayMember = nameof(Cargos.Cargo);
 		}
@@ -266,7 +267,17 @@ namespace Dll_Forms_Fat
 			{
 				if (comboCargo.Items.Count < 1)
 				{
-					MessageBox.Show("Nenhum Cargo Cadastrado, Favor Cadastrar na área correspondente.");
+					if (MessageBox.Show("Nenhum Cargo Cadastrado, Deseja cadastrar um agora?", "Pergunta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+					{
+						var cargos = new FormDefinicoes
+						{
+							MdiParent = this.MdiParent,
+							ControlBox = false,
+							WindowState = FormWindowState.Maximized,
+							ShowIcon = false
+						};
+						cargos.Show();
+					}
 				}
 				MessageBox.Show("Favor preencher o Cargo do funcionário.");
 			}

@@ -70,6 +70,7 @@
 			this.Name = "FormAddTipoDespesa";
 			this.Text = "Adicionar novo tipo de despesa";
 			this.Load += new System.EventHandler(this.FormAddTipoDespesa_Load);
+			this.Enter += new System.EventHandler(this.FormAddTipoDespesa_Enter);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

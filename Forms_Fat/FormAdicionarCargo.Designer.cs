@@ -97,6 +97,8 @@
 			this.Name = "FormAdicionarCargo";
 			this.Text = "Adicionar Cargo";
 			this.Load += new System.EventHandler(this.FormAdicionarCargo_Load);
+			this.Enter += new System.EventHandler(this.FormAdicionarCargo_Load);
+			this.Leave += new System.EventHandler(this.FormAdicionarCargo_Leave);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

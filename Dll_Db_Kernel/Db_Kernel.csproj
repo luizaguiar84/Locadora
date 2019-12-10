@@ -197,6 +197,10 @@
     <Compile Include="Migrations\20191209035234_atualizacaoTabelaAbastecimento.designer.cs">
       <DependentUpon>20191209035234_atualizacaoTabelaAbastecimento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191210054022_MotoristaDisponivel.cs" />
+    <Compile Include="Migrations\20191210054022_MotoristaDisponivel.designer.cs">
+      <DependentUpon>20191210054022_MotoristaDisponivel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -20,7 +20,7 @@ namespace Dll_Forms_Fat
 			PreenchePlacas();
 			AtualizarTabelas();
 			comboCombustivelAbastecimento.SelectedIndex = 0;
-			
+			LimparTela();
 		}
 
 		private void AtualizarTabelas()
@@ -446,5 +446,7 @@ namespace Dll_Forms_Fat
 		{
 			this.IsNumeros(e);
 		}
+
+		
 	}
 }

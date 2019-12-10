@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -17,6 +18,12 @@ namespace Dll_Forms_Fat
 		private void FormControlePneus_Load(object sender, EventArgs e)
 		{
 			PreenchePlacas();
+			LimpaTela();
+		}
+
+		private void LimpaTela()
+		{
+			this.Controls.LimparTextBoxes();
 			comboEstado.SelectedIndex = 0;
 		}
 
@@ -43,17 +50,15 @@ namespace Dll_Forms_Fat
 
 				if (new PneusDao().DbAdd(pneu))
 				{
-					MessageBox.Show($"Pneu vinculado ao veiculo com sucesso");
+					MessageBox.Show($"Pneu vinculado ao veiculo {veiculo.Placa} com sucesso");
+					LimpaTela();
+					PreencheTabela(veiculo);
 				}
 				else
 				{
 					MessageBox.Show("Erro na adição do Pneu");
 				}
-
-				PreencheTabela(veiculo);
-			}		
-   
-   
+			}		   
 		}
 
 		private bool validacao()
