@@ -63,6 +63,7 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cadastrarNovoCarroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.editarUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -88,6 +89,7 @@
             this.controleDePátioToolStripMenuItem,
             this.toolStripSeparator2,
             this.cadastrarNovoUsuárioToolStripMenuItem1,
+            this.editarUsuáriosToolStripMenuItem,
             this.controleDePreçosToolStripMenuItem,
             this.toolStripSeparator4,
             this.efetuarLogoffToolStripMenuItem,
@@ -332,6 +334,13 @@
 			this.cadastrarNovoCarroToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
 			this.cadastrarNovoCarroToolStripMenuItem.Text = "Cadastrar novo veículo...";
 			// 
+			// editarUsuáriosToolStripMenuItem
+			// 
+			this.editarUsuáriosToolStripMenuItem.Name = "editarUsuáriosToolStripMenuItem";
+			this.editarUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+			this.editarUsuáriosToolStripMenuItem.Text = "Editar Usuários...";
+			this.editarUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.editarUsuáriosToolStripMenuItem_Click);
+			// 
 			// FormPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,6 +399,7 @@
 		private System.Windows.Forms.ToolStripMenuItem despesasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripMenuItem despesasDeCarrosToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem editarUsuáriosToolStripMenuItem;
 	}
 }
 

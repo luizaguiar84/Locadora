@@ -44,9 +44,9 @@
 			this.txtSenha = new System.Windows.Forms.TextBox();
 			this.txtConfirmaSenha = new System.Windows.Forms.TextBox();
 			this.groupCadastro = new System.Windows.Forms.GroupBox();
+			this.comboNivel = new System.Windows.Forms.ComboBox();
 			this.txtCargo = new System.Windows.Forms.TextBox();
 			this.button2 = new System.Windows.Forms.Button();
-			this.comboNivel = new System.Windows.Forms.ComboBox();
 			this.groupCadastro.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -74,6 +74,7 @@
 			// 
 			this.txtNome.Location = new System.Drawing.Point(14, 103);
 			this.txtNome.Name = "txtNome";
+			this.txtNome.ReadOnly = true;
 			this.txtNome.Size = new System.Drawing.Size(266, 20);
 			this.txtNome.TabIndex = 1;
 			// 
@@ -99,6 +100,7 @@
 			// 
 			this.txtRegistroFunc.Location = new System.Drawing.Point(14, 64);
 			this.txtRegistroFunc.Name = "txtRegistroFunc";
+			this.txtRegistroFunc.ReadOnly = true;
 			this.txtRegistroFunc.Size = new System.Drawing.Size(120, 20);
 			this.txtRegistroFunc.TabIndex = 2;
 			// 
@@ -198,10 +200,24 @@
 			this.groupCadastro.TabIndex = 13;
 			this.groupCadastro.TabStop = false;
 			// 
+			// comboNivel
+			// 
+			this.comboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboNivel.FormattingEnabled = true;
+			this.comboNivel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+			this.comboNivel.Location = new System.Drawing.Point(226, 141);
+			this.comboNivel.Name = "comboNivel";
+			this.comboNivel.Size = new System.Drawing.Size(54, 21);
+			this.comboNivel.TabIndex = 275;
+			// 
 			// txtCargo
 			// 
 			this.txtCargo.Location = new System.Drawing.Point(15, 143);
 			this.txtCargo.Name = "txtCargo";
+			this.txtCargo.ReadOnly = true;
 			this.txtCargo.Size = new System.Drawing.Size(194, 20);
 			this.txtCargo.TabIndex = 274;
 			// 
@@ -216,19 +232,6 @@
 			this.button2.Text = "Consultar";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2_Click);
-			// 
-			// comboNivel
-			// 
-			this.comboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboNivel.FormattingEnabled = true;
-			this.comboNivel.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-			this.comboNivel.Location = new System.Drawing.Point(226, 141);
-			this.comboNivel.Name = "comboNivel";
-			this.comboNivel.Size = new System.Drawing.Size(54, 21);
-			this.comboNivel.TabIndex = 275;
 			// 
 			// FormCadastrarUsuario
 			// 

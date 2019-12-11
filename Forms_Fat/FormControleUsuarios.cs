@@ -8,6 +8,9 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormControleUsuarios : Form
 	{
+		private Usuarios usuario;
+		private Funcionarios funcionario;
+
 		public List<Usuarios> Usuarios { get; private set; }
 
 		public FormControleUsuarios()
@@ -23,35 +26,61 @@ namespace Dll_Forms_Fat
 
 		private void btnSalvar_Click(object sender, EventArgs e)
 		{
-			var u = new Usuarios();
+			var u = GetUsuario();
 
-			Usuarios = new UsuariosDao().GetAll();
-
-			u.IsAtivo = checkStatus.Checked;
 			u.Nivel = Convert.ToInt32(ComboNivelAcesso.Text);
 			u.Login = txtNome.Text;
 			u.Password = txtSenha.Text;
+			u.ConfirmaSenha = txtConfirmaSenha.Text;
 
 			if (u.ConfereUsuario(Usuarios) && u.ConfirmarSenha(txtSenha.Text, txtConfirmaSenha.Text))
 			{
-				var dao = new UsuariosDao();
-				dao.DbAdd(u);
+				if (new UsuariosDao().DbUpdate(u))
+				{
+					MessageBox.Show("Usuário atualizado com Êxito.");
+				}
+				else
+				{
+					MessageBox.Show("Erro na gravação, tente novamente.");
+				}
 			}
-		}
-
-		private void btnCadastrarCNH_Click(object sender, EventArgs e)
-		{
-			var cadastrarMotorista = new FormCadastrarMotorista
+			else
 			{
-				ControlBox = true
-			};
-			cadastrarMotorista.Show();
-
+				MessageBox.Show("Usuário Inválido!");
+			}
 		}
 
 		private void FormControleUsuarios_Load(object sender, EventArgs e)
 		{
+			CarregaUsuarios();
+		}
 
+		private void CarregaUsuarios()
+		{
+			var usuarios = new UsuariosDao().GetAll();
+			comboUsuarios.DataSource = usuarios;
+			comboUsuarios.DisplayMember = "Login";
+			comboUsuarios.SelectedIndex = 0;
+			
+		}
+
+		private void comboUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			usuario = GetUsuario();
+			funcionario = new FuncionariosDao().GetById(usuario.FuncionariosId);
+
+			txtRegFuncionario.Text = funcionario.Id.ToString();
+			txtNome.Text = funcionario.Nome;
+			txtCargo.Text = new CargosDao().GetById(funcionario.CargoId).Cargo;
+			ComboNivelAcesso.SelectedText = usuario.Nivel.ToString();
+			txtUsuario.Text = usuario.Login;
+			txtSenha.Text = usuario.Password;
+			txtConfirmaSenha.Text = usuario.ConfirmaSenha;
+		}
+
+		private Usuarios GetUsuario()
+		{
+			return (Usuarios)comboUsuarios.SelectedItem;
 		}
 	}
 }

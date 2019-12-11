@@ -30,7 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormControleUsuarios));
 			this.lblUsuario = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.comboUsuarios = new System.Windows.Forms.ComboBox();
 			this.lblNome = new System.Windows.Forms.Label();
 			this.txtConfirmaSenha = new System.Windows.Forms.TextBox();
 			this.txtSenha = new System.Windows.Forms.TextBox();
@@ -43,13 +43,10 @@
 			this.txtNome = new System.Windows.Forms.TextBox();
 			this.lblNivelAcesso = new System.Windows.Forms.Label();
 			this.btnSalvar = new System.Windows.Forms.Button();
-			this.comboCargo = new System.Windows.Forms.ComboBox();
-			this.btnAdicionarUsuario = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.checkStatus = new System.Windows.Forms.CheckBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.lblEmail = new System.Windows.Forms.Label();
 			this.txtRegFuncionario = new System.Windows.Forms.TextBox();
+			this.txtCargo = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -62,14 +59,15 @@
 			this.lblUsuario.TabIndex = 0;
 			this.lblUsuario.Text = "Usuário:";
 			// 
-			// comboBox1
+			// comboUsuarios
 			// 
-			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(18, 26);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(237, 21);
-			this.comboBox1.TabIndex = 1;
+			this.comboUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboUsuarios.FormattingEnabled = true;
+			this.comboUsuarios.Location = new System.Drawing.Point(18, 26);
+			this.comboUsuarios.Name = "comboUsuarios";
+			this.comboUsuarios.Size = new System.Drawing.Size(266, 21);
+			this.comboUsuarios.TabIndex = 1;
+			this.comboUsuarios.SelectedIndexChanged += new System.EventHandler(this.comboUsuarios_SelectedIndexChanged);
 			// 
 			// lblNome
 			// 
@@ -114,14 +112,15 @@
 			// 
 			// ComboNivelAcesso
 			// 
+			this.ComboNivelAcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ComboNivelAcesso.FormattingEnabled = true;
 			this.ComboNivelAcesso.Items.AddRange(new object[] {
-            "Usuário",
-            "Supervisor",
-            "Administrador"});
-			this.ComboNivelAcesso.Location = new System.Drawing.Point(163, 157);
+            "1",
+            "2",
+            "3"});
+			this.ComboNivelAcesso.Location = new System.Drawing.Point(223, 157);
 			this.ComboNivelAcesso.Name = "ComboNivelAcesso";
-			this.ComboNivelAcesso.Size = new System.Drawing.Size(121, 21);
+			this.ComboNivelAcesso.Size = new System.Drawing.Size(61, 21);
 			this.ComboNivelAcesso.TabIndex = 4;
 			// 
 			// lblNomeUsuario
@@ -155,13 +154,14 @@
 			// 
 			this.txtNome.Location = new System.Drawing.Point(18, 118);
 			this.txtNome.Name = "txtNome";
+			this.txtNome.ReadOnly = true;
 			this.txtNome.Size = new System.Drawing.Size(266, 20);
 			this.txtNome.TabIndex = 1;
 			// 
 			// lblNivelAcesso
 			// 
 			this.lblNivelAcesso.AutoSize = true;
-			this.lblNivelAcesso.Location = new System.Drawing.Point(161, 141);
+			this.lblNivelAcesso.Location = new System.Drawing.Point(214, 141);
 			this.lblNivelAcesso.Name = "lblNivelAcesso";
 			this.lblNivelAcesso.Size = new System.Drawing.Size(85, 13);
 			this.lblNivelAcesso.TabIndex = 10;
@@ -178,34 +178,12 @@
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
 			// 
-			// comboCargo
-			// 
-			this.comboCargo.FormattingEnabled = true;
-			this.comboCargo.Location = new System.Drawing.Point(18, 157);
-			this.comboCargo.Name = "comboCargo";
-			this.comboCargo.Size = new System.Drawing.Size(121, 21);
-			this.comboCargo.TabIndex = 12;
-			// 
-			// btnAdicionarUsuario
-			// 
-			this.btnAdicionarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnAdicionarUsuario.Location = new System.Drawing.Point(261, 25);
-			this.btnAdicionarUsuario.Name = "btnAdicionarUsuario";
-			this.btnAdicionarUsuario.Size = new System.Drawing.Size(23, 21);
-			this.btnAdicionarUsuario.TabIndex = 13;
-			this.btnAdicionarUsuario.Text = "+";
-			this.btnAdicionarUsuario.UseVisualStyleBackColor = true;
-			this.btnAdicionarUsuario.Click += new System.EventHandler(this.btnAdicionarUsuario_Click);
-			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.checkStatus);
-			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this.txtCargo);
 			this.groupBox1.Controls.Add(this.lblEmail);
 			this.groupBox1.Controls.Add(this.txtRegFuncionario);
 			this.groupBox1.Controls.Add(this.txtConfirmaSenha);
-			this.groupBox1.Controls.Add(this.btnAdicionarUsuario);
-			this.groupBox1.Controls.Add(this.comboCargo);
 			this.groupBox1.Controls.Add(this.btnSalvar);
 			this.groupBox1.Controls.Add(this.lblNivelAcesso);
 			this.groupBox1.Controls.Add(this.lblNome);
@@ -213,7 +191,7 @@
 			this.groupBox1.Controls.Add(this.lblConfirmaSenha);
 			this.groupBox1.Controls.Add(this.lblUsuario);
 			this.groupBox1.Controls.Add(this.txtSenha);
-			this.groupBox1.Controls.Add(this.comboBox1);
+			this.groupBox1.Controls.Add(this.comboUsuarios);
 			this.groupBox1.Controls.Add(this.ComboNivelAcesso);
 			this.groupBox1.Controls.Add(this.lblSenha);
 			this.groupBox1.Controls.Add(this.lblNomeUsuario);
@@ -224,25 +202,6 @@
 			this.groupBox1.Size = new System.Drawing.Size(305, 360);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
-			// 
-			// checkStatus
-			// 
-			this.checkStatus.AutoSize = true;
-			this.checkStatus.Location = new System.Drawing.Point(158, 83);
-			this.checkStatus.Name = "checkStatus";
-			this.checkStatus.Size = new System.Drawing.Size(50, 17);
-			this.checkStatus.TabIndex = 17;
-			this.checkStatus.Text = "Ativo";
-			this.checkStatus.UseVisualStyleBackColor = true;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(155, 65);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(40, 13);
-			this.label1.TabIndex = 16;
-			this.label1.Text = "Status:";
 			// 
 			// lblEmail
 			// 
@@ -257,8 +216,17 @@
 			// 
 			this.txtRegFuncionario.Location = new System.Drawing.Point(18, 81);
 			this.txtRegFuncionario.Name = "txtRegFuncionario";
+			this.txtRegFuncionario.ReadOnly = true;
 			this.txtRegFuncionario.Size = new System.Drawing.Size(120, 20);
 			this.txtRegFuncionario.TabIndex = 14;
+			// 
+			// txtCargo
+			// 
+			this.txtCargo.Location = new System.Drawing.Point(18, 157);
+			this.txtCargo.Name = "txtCargo";
+			this.txtCargo.ReadOnly = true;
+			this.txtCargo.Size = new System.Drawing.Size(190, 20);
+			this.txtCargo.TabIndex = 18;
 			// 
 			// FormControleUsuarios
 			// 
@@ -281,7 +249,7 @@
 		#endregion
 
 		private System.Windows.Forms.Label lblUsuario;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox comboUsuarios;
 		private System.Windows.Forms.Label lblNome;
 		private System.Windows.Forms.TextBox txtConfirmaSenha;
 		private System.Windows.Forms.TextBox txtSenha;
@@ -294,12 +262,9 @@
 		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.Label lblNivelAcesso;
 		private System.Windows.Forms.Button btnSalvar;
-		private System.Windows.Forms.ComboBox comboCargo;
-		private System.Windows.Forms.Button btnAdicionarUsuario;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label lblEmail;
 		private System.Windows.Forms.TextBox txtRegFuncionario;
-		private System.Windows.Forms.CheckBox checkStatus;
+		private System.Windows.Forms.TextBox txtCargo;
 	}
 }

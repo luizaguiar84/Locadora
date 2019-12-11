@@ -30,6 +30,7 @@ namespace Dll_Forms_Fat
 			funcionáriosToolStripMenuItem.Visible = false; // Cadastrar Funcionário
 			cadastrarClienteToolStripMenuItem.Visible = false; // Cadastrar Cliente
 			controleDePreçosToolStripMenuItem.Visible = false; // Adicionar ou Editar Cargos
+			editarUsuáriosToolStripMenuItem.Visible = false; // Editar Usuários
 
 			clientesToolStripMenuItem1.Visible = false; // Busca Cliente
 			veiculosToolStripMenuItem.Visible = false; // Busca Veiculos
@@ -55,6 +56,7 @@ namespace Dll_Forms_Fat
 				funcionáriosToolStripMenuItem.Visible = true; // Cadastrar Funcionário
 				cadastrarClienteToolStripMenuItem.Visible = true; // Cadastrar Cliente
 				controleDePreçosToolStripMenuItem.Visible = true; // Adicionar ou Editar Cargos
+				editarUsuáriosToolStripMenuItem.Visible = true; // Editar Usuários
 
 				cadastrarNovoVeículoToolStripMenuItem.Visible = true; // Cadastrar Novo Veiculo
 				clientesToolStripMenuItem1.Visible = true; // Busca Cliente
@@ -81,6 +83,8 @@ namespace Dll_Forms_Fat
 
 				clientesToolStripMenuItem1.Visible = true; // Busca Cliente
 				veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
+				editarUsuáriosToolStripMenuItem.Visible = true; // Editar Usuários
+
 				monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
 				consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
 				controleDePátioToolStripMenuItem.Visible = true; // controle de patio
@@ -312,6 +316,11 @@ namespace Dll_Forms_Fat
 		private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void editarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AbrirNovoForm<FormControleUsuarios>("EditarUsuarios");
 		}
 	}
 }
