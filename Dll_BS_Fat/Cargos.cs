@@ -9,6 +9,5 @@ namespace BsFat
 		public int Id { get; set; }
 		public string Cargo { get; set; }
 
-		public int NivelAcesso { get; set; }
 	}
 }

@@ -49,7 +49,6 @@
 			this.dataGridView1.Size = new System.Drawing.Size(722, 343);
 			this.dataGridView1.TabIndex = 13;
 			this.dataGridView1.Visible = false;
-			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
 			// 
 			// tableLayoutPanel1

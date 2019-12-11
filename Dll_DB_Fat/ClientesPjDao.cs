@@ -59,7 +59,7 @@ namespace DbFat
 				.SingleOrDefault();
 
 			cliente.Endereco = new EnderecosDao().GetById(cliente.EnderecoId);
-			cliente.Locacao = new ClienteLocacaoDao().GetLocacoes(cliente.Id);
+			//cliente.Locacao = new ClienteLocacaoDao().GetLocacoes(cliente.Id);
 
 			return cliente;
 		}

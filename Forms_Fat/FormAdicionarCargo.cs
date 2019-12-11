@@ -26,7 +26,6 @@ namespace Dll_Forms_Fat
 			InitializeComponent();
 			this.cargo = cargo;
 			txtCargo.Text = cargo.Cargo;
-			comboNivel.SelectedItem = cargo.NivelAcesso;
 		}
 
 		private void btnSalvar_Click(object sender, EventArgs e)
@@ -34,7 +33,6 @@ namespace Dll_Forms_Fat
 			if (this.cargo != null)
 			{
 				cargo.Cargo = txtCargo.Text;
-				cargo.NivelAcesso = Convert.ToInt32(comboNivel.SelectedText);
 
 				if (new CargosDao().DbUpdate(cargo))
 				{
@@ -51,7 +49,6 @@ namespace Dll_Forms_Fat
 				{
 					var cargo = new Cargos();
 					cargo.Cargo = txtCargo.Text;
-					cargo.NivelAcesso = Convert.ToInt32(comboNivel.SelectedText);
 
 					if (new CargosDao().DbAdd(cargo))
 					{

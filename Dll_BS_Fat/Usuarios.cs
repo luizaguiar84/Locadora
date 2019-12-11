@@ -5,11 +5,10 @@ namespace BsFat
 
 	public class Usuarios : BaseModel
 	{
-		//	public Usuarios()
-		//	{
-		//		this.cliente = new HashSet<Cliente>();
-		//		this.funcionarios = new HashSet<Funcionarios>();
-		//	}
+		public Usuarios()
+		{
+			this.Funcionario = new Funcionarios();
+		}
 
 		#region Anotações
 		[Key]

@@ -171,7 +171,18 @@ namespace Dll_Forms_Fat
 
 		private void ConfirmaSaida()
 		{
-			if (MessageBox.Show("Gostaria de Adicionar outro veiculo?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show("Gostaria de Adicionar os pneus referentes ao veiculo?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				var cadastroPneu = new FormControlePneus
+				{
+					MdiParent = this.MdiParent,
+					WindowState = FormWindowState.Maximized,
+					ControlBox = false
+				};
+				cadastroPneu.Show();
+				this.Close();
+			}
+			else if (MessageBox.Show("Gostaria de Adicionar outro veiculo?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				LimpaTela();
 			}

@@ -75,28 +75,31 @@ namespace Dll_Forms_Fat
 			int funcionarioId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
 			var funcionario = new FuncionariosDao().GetById(funcionarioId);
+			
 			if (this.usuario != null)
 			{
 				usuario.Funcionario = funcionario;
-				var cadastro = new FormCadastrarUsuario(usuario);
-				cadastro.MdiParent = this.MdiParent;
-				cadastro.ControlBox = false;
-				cadastro.WindowState = FormWindowState.Maximized;
+
+				var cadastro = new FormCadastrarUsuario(usuario)
+				{
+					MdiParent = this.MdiParent,
+					ControlBox = false,
+					WindowState = FormWindowState.Maximized
+				};
 				cadastro.Show();
 				this.Close();
 			}
-			var form = new FormCadastrarFuncionario(funcionario)
+			else
 			{
-				MdiParent = this.ParentForm
-			};
+			var form = new FormCadastrarFuncionario(funcionario)
+				{
+					MdiParent = this.ParentForm
+				};
 
-			this.Close();
-			form.Show();
-		}
-
-		private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
+				this.Close();
+				form.Show();
+			}
+			
 		}
 	}
 }

@@ -4,14 +4,16 @@ using DbKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbKernel.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20191211013320_tabelaCliente")]
+    partial class tabelaCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,6 +52,8 @@ namespace DbKernel.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Cargo");
+
+                    b.Property<int>("NivelAcesso");
 
                     b.HasKey("Id");
 
@@ -314,6 +318,8 @@ namespace DbKernel.Migrations
                         .HasMaxLength(20);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CargoId");
 
                     b.HasIndex("CnhId");
 
@@ -685,6 +691,11 @@ namespace DbKernel.Migrations
 
             modelBuilder.Entity("BsFat.Funcionarios", b =>
                 {
+                    b.HasOne("BsFat.Cargos", "Cargo")
+                        .WithMany()
+                        .HasForeignKey("CargoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("BsFat.Cnhs", "Cnh")
                         .WithMany()
                         .HasForeignKey("CnhId");

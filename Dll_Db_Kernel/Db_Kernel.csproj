@@ -201,6 +201,18 @@
     <Compile Include="Migrations\20191210054022_MotoristaDisponivel.designer.cs">
       <DependentUpon>20191210054022_MotoristaDisponivel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191210234954_atualizacaoCargos.cs" />
+    <Compile Include="Migrations\20191210234954_atualizacaoCargos.designer.cs">
+      <DependentUpon>20191210234954_atualizacaoCargos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191211013320_tabelaCliente.cs" />
+    <Compile Include="Migrations\20191211013320_tabelaCliente.designer.cs">
+      <DependentUpon>20191211013320_tabelaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191211032919_tabelaCargos.cs" />
+    <Compile Include="Migrations\20191211032919_tabelaCargos.designer.cs">
+      <DependentUpon>20191211032919_tabelaCargos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

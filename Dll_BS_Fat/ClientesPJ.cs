@@ -11,8 +11,8 @@ namespace BsFat
 		public ClientesPJ()
 		{
 			this.Endereco = new Enderecos();
-			this.ListaVeiculos = new List<Veiculos>();
-			this.Locacao = new List<ClienteLocacao>();
+			//this.ListaVeiculos = new List<Veiculos>();
+			//this.Locacao = new List<ClienteLocacao>();
 		}
 
 		public ClientesPJ(bool isAtivo, string razaoSocial, string contato, string email, string cnpj, string ie, Enderecos endereco, string telComercial, string telCelular)
@@ -26,9 +26,9 @@ namespace BsFat
 			Endereco = endereco;
 			TelComercial = telComercial;
 			TelCelular = telCelular;
-			this.ListaVeiculos = new List<Veiculos>();
-			this.Locacao = new List<ClienteLocacao>();
-			this.ListaDeFuncionarios = new List<Funcionarios>();
+			//this.ListaVeiculos = new List<Veiculos>();
+			//this.Locacao = new List<ClienteLocacao>();
+			//this.ListaDeFuncionarios = new List<Funcionarios>();
 
 		}
 		public ClientesPJ(string razaoSocial, string contato, string email, string cnpj, string ie)
@@ -39,9 +39,9 @@ namespace BsFat
 			Cnpj = cnpj;
 			Ie = ie;
 			this.Endereco = new Enderecos();
-			this.ListaVeiculos = new List<Veiculos>();
-			this.Locacao = new List<ClienteLocacao>();
-			this.ListaDeFuncionarios = new List<Funcionarios>();
+			//this.ListaVeiculos = new List<Veiculos>();
+			//this.Locacao = new List<ClienteLocacao>();
+			//this.ListaDeFuncionarios = new List<Funcionarios>();
 		}
 		#endregion
 
@@ -111,9 +111,9 @@ namespace BsFat
 
 		public string TelCelular { get; set; }
 
-		public ICollection<ClienteLocacao> Locacao { get; set; }
-		public ICollection<Veiculos> ListaVeiculos { get; set; }
-		public ICollection<Funcionarios> ListaDeFuncionarios { get; set; }
+		//public ICollection<ClienteLocacao> Locacao { get; set; }
+		//public ICollection<Veiculos> ListaVeiculos { get; set; }
+		//public ICollection<Funcionarios> ListaDeFuncionarios { get; set; }
 		#endregion
 	}
 }

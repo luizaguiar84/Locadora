@@ -4,14 +4,16 @@ using DbKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbKernel.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20191210234954_atualizacaoCargos")]
+    partial class atualizacaoCargos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,6 +53,8 @@ namespace DbKernel.Migrations
 
                     b.Property<string>("Cargo");
 
+                    b.Property<int>("NivelAcesso");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cargos");
@@ -62,7 +66,11 @@ namespace DbKernel.Migrations
 
                     b.Property<int>("FuncionarioId");
 
+                    b.Property<int?>("ClientesPJId");
+
                     b.HasKey("LocacaoId", "FuncionarioId");
+
+                    b.HasIndex("ClientesPJId");
 
                     b.HasIndex("FuncionarioId");
 
@@ -267,6 +275,8 @@ namespace DbKernel.Migrations
 
                     b.Property<int>("CargoId");
 
+                    b.Property<int?>("ClientesPJId");
+
                     b.Property<int?>("CnhId");
 
                     b.Property<string>("Cpf")
@@ -314,6 +324,10 @@ namespace DbKernel.Migrations
                         .HasMaxLength(20);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CargoId");
+
+                    b.HasIndex("ClientesPJId");
 
                     b.HasIndex("CnhId");
 
@@ -598,6 +612,8 @@ namespace DbKernel.Migrations
                     b.Property<string>("Chassi")
                         .IsRequired();
 
+                    b.Property<int?>("ClientesPJId");
+
                     b.Property<string>("Combustivel")
                         .IsRequired();
 
@@ -643,6 +659,8 @@ namespace DbKernel.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientesPJId");
+
                     b.ToTable("Veiculos");
                 });
 
@@ -656,6 +674,10 @@ namespace DbKernel.Migrations
 
             modelBuilder.Entity("BsFat.ClienteLocacao", b =>
                 {
+                    b.HasOne("BsFat.ClientesPJ")
+                        .WithMany("Locacao")
+                        .HasForeignKey("ClientesPJId");
+
                     b.HasOne("BsFat.Funcionarios", "Funcionario")
                         .WithMany()
                         .HasForeignKey("FuncionarioId")
@@ -685,6 +707,15 @@ namespace DbKernel.Migrations
 
             modelBuilder.Entity("BsFat.Funcionarios", b =>
                 {
+                    b.HasOne("BsFat.Cargos", "Cargo")
+                        .WithMany()
+                        .HasForeignKey("CargoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BsFat.ClientesPJ")
+                        .WithMany("ListaDeFuncionarios")
+                        .HasForeignKey("ClientesPJId");
+
                     b.HasOne("BsFat.Cnhs", "Cnh")
                         .WithMany()
                         .HasForeignKey("CnhId");
@@ -753,6 +784,13 @@ namespace DbKernel.Migrations
                         .WithMany()
                         .HasForeignKey("FuncionariosId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("BsFat.Veiculos", b =>
+                {
+                    b.HasOne("BsFat.ClientesPJ")
+                        .WithMany("ListaVeiculos")
+                        .HasForeignKey("ClientesPJId");
                 });
 #pragma warning restore 612, 618
         }

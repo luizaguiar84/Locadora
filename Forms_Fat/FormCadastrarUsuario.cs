@@ -9,7 +9,6 @@ namespace Dll_Forms_Fat
 	public partial class FormCadastrarUsuario : Form
 	{
 		private Usuarios usuario;
-		private Funcionarios func;
 
 		public FormCadastrarUsuario()
 		{
@@ -20,7 +19,6 @@ namespace Dll_Forms_Fat
 		{
 			InitializeComponent();
 			this.usuario = usuario;
-			func = new FuncionariosDao().GetById(usuario.FuncionariosId);
 			PreencheDados();
 		}
 
@@ -29,35 +27,35 @@ namespace Dll_Forms_Fat
 			txtRegistroFunc.ReadOnly = true;
 			txtNome.ReadOnly = true;
 			txtCargo.ReadOnly = true;
-			txtNivelAcesso.ReadOnly = true;
+			//txtNivelAcesso.ReadOnly = true;
 
 			txtRegistroFunc.Text = usuario.FuncionariosId.ToString();
-			txtNome.Text = func.Nome;
-			txtCargo.Text = func.Cargo.Cargo;
-			txtNivelAcesso.Text = func.Cargo.NivelAcesso.ToString();
+			txtNome.Text = usuario.Funcionario.Nome;
+			txtCargo.Text = new CargosDao().GetById(usuario.Funcionario.CargoId).Cargo;
+			//txtNivelAcesso.Text = usuario.Funcionario.Cargo.NivelAcesso.ToString();
 		}
 
 		private void FormCadastrarUsuario_Load(object sender, EventArgs e)
 		{
-		
-			//centralizando
+			Centralizar();
+		}
+
+		private void Centralizar()
+		{
 			groupCadastro.Left = (Width - groupCadastro.Width) / 2;
 			groupCadastro.Top = ((Height - groupCadastro.Height) - 50) / 2;
-
 		}
 
 		private void Btn_Salvar_Click(object sender, EventArgs e)
 		{
 			if (validaUsuario())
 			{
-				var usuario = new Usuarios
-				{
-					Login = txtUsuario.Text,
-					Password = txtSenha.Text,
-					ConfirmaSenha = txtConfirmaSenha.Text,
-					IsAtivo = true,
-					Nivel = Convert.ToInt32(txtNivelAcesso.Text)
-				};
+				usuario.Login = txtUsuario.Text;
+				usuario.Password = txtSenha.Text;
+				usuario.ConfirmaSenha = txtConfirmaSenha.Text;
+				usuario.IsAtivo = true;
+				usuario.Nivel = Convert.ToInt32(txtNivelAcesso.Text);
+				
 				if (new UsuariosDao().DbAdd(usuario))
 				{
 					MessageBox.Show("Usuário Cadastrado com Sucesso!");

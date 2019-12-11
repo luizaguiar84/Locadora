@@ -12,7 +12,7 @@ namespace BsFat
 			this.Endereco = new Enderecos();
 		}
 
-		public Funcionarios(bool isAtivo, string nome, string email, Enderecos endereco, string rg, string cpf, DateTime nascimento, string telResidencial, string telCelular, decimal salario, DateTime admissao, string ctps, string pis, string tituloEleitor, string observacoes, Cargos cargo)
+		public Funcionarios(bool isAtivo, string nome, string email, Enderecos endereco, string rg, string cpf, DateTime nascimento, string telResidencial, string telCelular, decimal salario, DateTime admissao, string ctps, string pis, string tituloEleitor, string observacoes, int cargoId)
 		{
 			IsAtivo = isAtivo;
 			Nome = nome;
@@ -29,7 +29,7 @@ namespace BsFat
 			Pis = pis;
 			TituloEleitor = tituloEleitor;
 			Observacoes = observacoes;
-			Cargo = cargo;
+			CargoId = cargoId;
 			Cnh = new Cnhs();
 		}
 
@@ -139,7 +139,7 @@ namespace BsFat
 		public Cnhs Cnh { get; set; }
 		public int? CnhId { get; set; }
 
-		public Cargos Cargo { get; set; }
+		//public Cargos Cargo { get; set; }
 		public int CargoId { get; set; }
 
 		#region Anotações
