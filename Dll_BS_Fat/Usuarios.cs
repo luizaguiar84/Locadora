@@ -1,5 +1,6 @@
 namespace BsFat
 {
+	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 
@@ -31,6 +32,8 @@ namespace BsFat
 		[StringLength(50, MinimumLength = 5, ErrorMessage = "Login deve ter entre 5 e 50 caracteres!")]
 		#endregion
 		public string Login { get; set; }
+
+		
 
 		#region Anotações
 		[Required(ErrorMessage = "Favor digitar a senha")]
@@ -71,6 +74,8 @@ namespace BsFat
 			}
 			return false;
 		}
+		
+
 		//public virtual ICollection<Cliente> cliente { get; set; }
 		//public virtual ICollection<Funcionarios> funcionarios { get; set; }
 	}

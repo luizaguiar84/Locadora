@@ -32,7 +32,6 @@
 			this.BtnLogin = new System.Windows.Forms.Button();
 			this.txtUsuario = new System.Windows.Forms.TextBox();
 			this.TxtSenha = new System.Windows.Forms.TextBox();
-			this.LinkEsqueciSenha = new System.Windows.Forms.LinkLabel();
 			this.lblUsuario = new System.Windows.Forms.Label();
 			this.lblSenha = new System.Windows.Forms.Label();
 			this.btnSair = new System.Windows.Forms.Button();
@@ -69,16 +68,6 @@
 			this.TxtSenha.Size = new System.Drawing.Size(176, 20);
 			this.TxtSenha.TabIndex = 2;
 			this.TxtSenha.UseSystemPasswordChar = true;
-			// 
-			// LinkEsqueciSenha
-			// 
-			this.LinkEsqueciSenha.AutoSize = true;
-			this.LinkEsqueciSenha.Location = new System.Drawing.Point(103, 225);
-			this.LinkEsqueciSenha.Name = "LinkEsqueciSenha";
-			this.LinkEsqueciSenha.Size = new System.Drawing.Size(117, 13);
-			this.LinkEsqueciSenha.TabIndex = 5;
-			this.LinkEsqueciSenha.TabStop = true;
-			this.LinkEsqueciSenha.Text = "Esqueci minha senha...";
 			// 
 			// lblUsuario
 			// 
@@ -168,7 +157,6 @@
 			this.Controls.Add(this.LayoutBotoes);
 			this.Controls.Add(this.LayoutLogin);
 			this.Controls.Add(this.ImgLogoFat);
-			this.Controls.Add(this.LinkEsqueciSenha);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "FormLogin";
@@ -181,7 +169,6 @@
 			this.LayoutLogin.PerformLayout();
 			this.LayoutBotoes.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -189,7 +176,6 @@
 		private System.Windows.Forms.Button BtnLogin;
 		private System.Windows.Forms.TextBox txtUsuario;
 		private System.Windows.Forms.TextBox TxtSenha;
-		private System.Windows.Forms.LinkLabel LinkEsqueciSenha;
 		private System.Windows.Forms.Label lblUsuario;
 		private System.Windows.Forms.Label lblSenha;
 		private System.Windows.Forms.Button btnSair;

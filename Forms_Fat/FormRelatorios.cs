@@ -32,7 +32,6 @@ namespace Dll_Forms_Fat
 		private void LimparTela()
 		{
 			this.Controls.LimparTextBoxes();
-			this.groupPesquisa.Controls.LimparTextBoxes();
 			this.groupPesquisaPeriodo.Controls.LimparTextBoxes();
 			this.groupPesquisaPeriodo.Controls.LimparTextBoxes();
 			this.groupPlacas.Controls.LimparTextBoxes();
@@ -67,11 +66,22 @@ namespace Dll_Forms_Fat
 			#region Lista de Motoristas
 			else if (radioListagemMotoristas.Checked) // Lista de Motoristas
 			{
-				var lista = new FuncionariosDao().GetMotoristas();
+				var lista = new FuncionariosDao().GetAllMotoristas();
 				resultado = lista;
 				nomeTela = "Lista de Motoristas";
-				lbl2 = $"Existem {lista.Count()} funcionários cadastrados no sistema.";
+				lbl2 = $"Existem {lista.Count()} Motoristas cadastrados no sistema.";
 
+				AbreRelatorio(resultado, nomeTela, lbl2);
+			}
+			#endregion
+
+			#region Lista de funcionários
+			else if (radioListaFuncionarios.Checked)
+			{
+				var lista = new FuncionariosDao().GetAll();
+				resultado = lista;
+				nomeTela = "Funcionários";
+				lbl2 = $"Existem {lista.Count()} funcionários cadastrados no sistema.";
 				AbreRelatorio(resultado, nomeTela, lbl2);
 			} 
 			#endregion
@@ -142,7 +152,7 @@ namespace Dll_Forms_Fat
 
 					AbreRelatorio(resultado, nomeTela, lbl2);
 				}
-			} 
+			}
 			#endregion
 
 			else if (radioMultaPorMotorista.Checked) // multa por motorista
@@ -197,7 +207,7 @@ namespace Dll_Forms_Fat
 			}
 			#endregion
 
-			#region Manutenção por veiculo
+			#region Manutenção Geral
 			else if (radioManutencoesGeral.Checked) // Manutencao por veiculo
 			{
 				if (!ConfereData())
@@ -219,31 +229,28 @@ namespace Dll_Forms_Fat
 			}
 			#endregion
 
+			#region Listagem de Estoque
 			else if (radioListagemEstoque.Checked)
-			{
-
-			}
-
-			#region Manutenção Geral
-			else if (radioManutencoesGeral.Checked) // Manutencoes Geral
 			{
 				if (!ConfereData())
 				{
 				}
 				else
 				{
-					var valor = new ManutencoesDao().GetAll()
-						.Where(m => m.Data >= dateInicio.Value && m.Data <= dateFim.Value)
+					var lista = new EstoqueDao().GetAll()
+						.Where(es => es.DataAdicao >= dateInicio.Value && es.DataAdicao <= dateFim.Value)
 						.ToList();
 
-					resultado = valor;
-					nomeTela = "Manutenções Geral";
-					lbl2 = $"O valor gasto com manutenção no periodo de {dateInicio.Value.ToShortDateString()} a {dateFim.Value.ToShortDateString()} foi de {valor.Sum(m => m.Valor).ToString("C")}";
-
+					resultado = lista;
+					nomeTela = $"Estoque = {dateInicio.Value.ToShortDateString()} a {dateFim.Value.ToShortDateString()}";
+					lbl2 = $"Total em estoque no periodo selecionado é de {lista.Sum(v => v.ValorUnitario * v.Quantidade).ToString("C")}";
 					AbreRelatorio(resultado, nomeTela, lbl2);
 				}
-			} 
+			}
+
 			#endregion
+
+			
 		}
 
 
@@ -314,6 +321,11 @@ namespace Dll_Forms_Fat
 				WindowState = FormWindowState.Maximized
 			};
 			relatorio.Show();
+		}
+
+		private void groupPesquisa_Enter(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

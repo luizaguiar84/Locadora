@@ -42,6 +42,19 @@ namespace DbFat
 			}		
    		return false;
 		}
+		public bool ConfirmaUsuario(Usuarios usuario)
+		{
+			var lista = GetAll();
+			foreach (var user in lista)
+			{
+				if (user.Login == usuario.Login)
+				{
+					// usuario ja existe no banco
+					return false;
+				}
+			}
+			return true;
+		}
 		public Usuarios GetByLogin(string login, string password)
 		{
 			var usuario = GetAll()

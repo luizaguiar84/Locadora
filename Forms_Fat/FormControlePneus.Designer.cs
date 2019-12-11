@@ -38,8 +38,6 @@ namespace Dll_Forms_Fat
 			this.lblMarca = new System.Windows.Forms.Label();
 			this.txtModelo = new System.Windows.Forms.TextBox();
 			this.lblModelo = new System.Windows.Forms.Label();
-			this.comboEstado = new System.Windows.Forms.ComboBox();
-			this.lblEstado = new System.Windows.Forms.Label();
 			this.dataGridPneus = new System.Windows.Forms.DataGridView();
 			this.btnAddPneu = new System.Windows.Forms.Button();
 			this.datePneu = new System.Windows.Forms.DateTimePicker();
@@ -106,40 +104,17 @@ namespace Dll_Forms_Fat
 			this.lblModelo.TabIndex = 8;
 			this.lblModelo.Text = "Modelo";
 			// 
-			// comboEstado
-			// 
-			this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboEstado.FormattingEnabled = true;
-			this.comboEstado.Items.AddRange(new object[] {
-            "NOVO",
-            "SEMI NOVO",
-            "1/2 VIDA",
-            "DESCARTE"});
-			this.comboEstado.Location = new System.Drawing.Point(20, 104);
-			this.comboEstado.Name = "comboEstado";
-			this.comboEstado.Size = new System.Drawing.Size(177, 21);
-			this.comboEstado.TabIndex = 5;
-			// 
-			// lblEstado
-			// 
-			this.lblEstado.AutoSize = true;
-			this.lblEstado.Location = new System.Drawing.Point(17, 88);
-			this.lblEstado.Name = "lblEstado";
-			this.lblEstado.Size = new System.Drawing.Size(40, 13);
-			this.lblEstado.TabIndex = 11;
-			this.lblEstado.Text = "Estado";
-			// 
 			// dataGridPneus
 			// 
 			this.dataGridPneus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridPneus.Location = new System.Drawing.Point(20, 155);
+			this.dataGridPneus.Location = new System.Drawing.Point(20, 108);
 			this.dataGridPneus.Name = "dataGridPneus";
-			this.dataGridPneus.Size = new System.Drawing.Size(550, 150);
+			this.dataGridPneus.Size = new System.Drawing.Size(550, 197);
 			this.dataGridPneus.TabIndex = 12;
 			// 
 			// btnAddPneu
 			// 
-			this.btnAddPneu.Location = new System.Drawing.Point(216, 101);
+			this.btnAddPneu.Location = new System.Drawing.Point(414, 65);
 			this.btnAddPneu.Name = "btnAddPneu";
 			this.btnAddPneu.Size = new System.Drawing.Size(75, 23);
 			this.btnAddPneu.TabIndex = 6;
@@ -165,8 +140,6 @@ namespace Dll_Forms_Fat
 			this.Controls.Add(this.datePneu);
 			this.Controls.Add(this.btnAddPneu);
 			this.Controls.Add(this.dataGridPneus);
-			this.Controls.Add(this.lblEstado);
-			this.Controls.Add(this.comboEstado);
 			this.Controls.Add(this.txtModelo);
 			this.Controls.Add(this.lblModelo);
 			this.Controls.Add(this.txtMarca);
@@ -194,8 +167,6 @@ namespace Dll_Forms_Fat
 		private System.Windows.Forms.Label lblMarca;
 		private System.Windows.Forms.TextBox txtModelo;
 		private System.Windows.Forms.Label lblModelo;
-		private System.Windows.Forms.ComboBox comboEstado;
-		private System.Windows.Forms.Label lblEstado;
 		private System.Windows.Forms.DataGridView dataGridPneus;
 		private System.Windows.Forms.Button btnAddPneu;
 		private System.Windows.Forms.DateTimePicker datePneu;

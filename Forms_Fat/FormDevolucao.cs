@@ -140,7 +140,7 @@ namespace Dll_Forms_Fat
 				Locacao.IsAtiva = false;
 
 				new VeiculosDao().RegistrarKmDb(Veiculo, Convert.ToInt32(txtKmDevolucao.Text));
-				new PneusDao().DbUpdateKm(Locacao, Veiculo);
+				new PneusDao().DbUpdateKm1(Locacao, Veiculo);
 				new LocacoesDao().DbUpdate(Locacao);
 
 				MessageBox.Show("Locação Finalizada com sucesso!");

@@ -77,7 +77,7 @@ namespace Dll_Forms_Fat
 			funcionario.Ctps = txtCTPS.Text;
 			funcionario.Pis = txtPIS.Text;
 			funcionario.TituloEleitor = txtTitEleitor.Text;
-			funcionario.Nascimento = dateNascimento.Value;
+			funcionario.Nascimento = dateNascimento.Value.Date;
 			funcionario.Endereco = endereco;
 
 			int id = Convert.ToInt32(txtId.Text);
@@ -131,11 +131,12 @@ namespace Dll_Forms_Fat
 				.GetTelResidencial(txtTelRes.Text)
 				.GetTelCelular(txtTelCel.Text)
 				.GetSalario(Convert.ToDecimal(txtSalario.Text))
-				.GetAdmissao(dateAdmissao.Value)
+				.GetAdmissao(dateAdmissao.Value.Date)
 				.GetCtps(txtCTPS.Text)
 				.GetPis(txtPIS.Text)
 				.GetTituloEleitor(txtTitEleitor.Text)
-				.GetNascimento(dateNascimento.Value)
+				.GetNascimento(dateNascimento.Value.Date)
+				.GetIsAtivo(true)
 				//.GetDemissao(dateDemissao.Value)
 				.GetEndereco(endereco);
 

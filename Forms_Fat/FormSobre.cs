@@ -12,7 +12,7 @@ namespace Dll_Forms_Fat
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Palmeiras próximo campeão mundial!");
+			MessageBox.Show("Palmeiras não tem mundial!");
 		}
 
 		private void FormSobre_Load(object sender, EventArgs e)

@@ -135,7 +135,6 @@ namespace Dll_Forms_Fat
 				.GetModelo(comboModelo.Text)
 				.GetAnoModelo(comboAno.Text)
 				.GetPortas(Convert.ToInt32(numericPortas.Value))
-				//.GetCor((@string)Enum.Parse(typeof(@string), comboCor.Text))
 				.GetCor(comboCor.Text)
 				.GetPlaca(maskedTxtPlaca.Text.ToUpper())
 				.GetRenavam(txtRenavam.Text)
@@ -155,7 +154,7 @@ namespace Dll_Forms_Fat
 				.GetIsAtivo(ativo);
 
 			var veiculo = veiculoBuilder.Build();
-			veiculo.DataAquisicao = DateTime.Now;
+			veiculo.DataAquisicao = DateTime.Now.Date;
 			veiculo.Disponivel = true;
 
 			if (new VeiculosDao().DbAdd(veiculo))

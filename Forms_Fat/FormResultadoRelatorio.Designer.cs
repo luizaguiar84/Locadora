@@ -85,7 +85,7 @@
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "FormResultadoRelatorio";
 			this.ShowIcon = false;
-			this.Text = "+";
+			this.Text = "Relatório";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FormResultadoRelatorio_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

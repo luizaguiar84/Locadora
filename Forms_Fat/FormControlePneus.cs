@@ -24,7 +24,6 @@ namespace Dll_Forms_Fat
 		private void LimpaTela()
 		{
 			this.Controls.LimparTextBoxes();
-			comboEstado.SelectedIndex = 0;
 		}
 
 		private void PreenchePlacas()
@@ -43,7 +42,7 @@ namespace Dll_Forms_Fat
 
 				var pneu = new Pneus
 				{
-					DataAdicao = datePneu.Value,
+					DataAdicao = datePneu.Value.Date,
 					Marca = txtMarca.Text,
 					Modelo = txtModelo.Text,
 					VeiculoId = veiculo.Id,

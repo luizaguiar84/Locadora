@@ -3,6 +3,7 @@ using DbFat;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace Dll_Forms_Fat
 {
@@ -11,7 +12,6 @@ namespace Dll_Forms_Fat
 		private Usuarios usuario;
 		private Funcionarios funcionario;
 
-		public List<Usuarios> Usuarios { get; private set; }
 
 		public FormControleUsuarios()
 		{
@@ -26,28 +26,37 @@ namespace Dll_Forms_Fat
 
 		private void btnSalvar_Click(object sender, EventArgs e)
 		{
-			var u = GetUsuario();
-
-			u.Nivel = Convert.ToInt32(ComboNivelAcesso.Text);
-			u.Login = txtNome.Text;
-			u.Password = txtSenha.Text;
-			u.ConfirmaSenha = txtConfirmaSenha.Text;
-
-			if (u.ConfereUsuario(Usuarios) && u.ConfirmarSenha(txtSenha.Text, txtConfirmaSenha.Text))
+			if (ValidaUsuario())
 			{
-				if (new UsuariosDao().DbUpdate(u))
+				var u = GetUsuario();
+
+				u.Nivel = Convert.ToInt32(ComboNivelAcesso.Text);
+				u.Login = txtUsuario.Text;
+				u.Password = txtSenha.Text;
+				u.ConfirmaSenha = txtConfirmaSenha.Text;
+
+				if (!new UsuariosDao().ConfirmaUsuario(u))
 				{
-					MessageBox.Show("Usuário atualizado com Êxito.");
+					MessageBox.Show("Desculpe, nome de usuário em uso");
+				}
+				else if (!(u.ConfirmarSenha(txtSenha.Text, txtConfirmaSenha.Text)))
+				{
+					MessageBox.Show("Senhas não coincidem!");
 				}
 				else
 				{
-					MessageBox.Show("Erro na gravação, tente novamente.");
+					if (new UsuariosDao().DbUpdate(u))
+					{
+						MessageBox.Show("Usuário atualizado com Êxito.");
+						ResetTela();
+					}
+					else
+					{
+						MessageBox.Show("Erro na gravação, tente novamente.");
+					}
 				}
 			}
-			else
-			{
-				MessageBox.Show("Usuário Inválido!");
-			}
+			
 		}
 
 		private void FormControleUsuarios_Load(object sender, EventArgs e)
@@ -64,8 +73,15 @@ namespace Dll_Forms_Fat
 			{
 				comboUsuarios.SelectedIndex = 0;
 			}
-			
-			
+		}
+		private bool ValidaUsuario()
+		{
+			 if (String.IsNullOrWhiteSpace(ComboNivelAcesso.Text))
+			{
+				MessageBox.Show("Favor preencher o nivel do usuário.");
+				return false;
+			}
+			return true;
 		}
 
 		private void comboUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,6 +101,11 @@ namespace Dll_Forms_Fat
 		private Usuarios GetUsuario()
 		{
 			return (Usuarios)comboUsuarios.SelectedItem;
+		}
+		private void ResetTela()
+		{
+			this.Controls.LimparTextBoxes();
+			CarregaUsuarios();
 		}
 	}
 }

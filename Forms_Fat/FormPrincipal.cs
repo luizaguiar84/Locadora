@@ -36,7 +36,6 @@ namespace Dll_Forms_Fat
 			veiculosToolStripMenuItem.Visible = false; // Busca Veiculos
 			consultarEditarUsuáriosToolStripMenuItem.Visible = false; // consultar / editar usuarios
 			consultarEditarMotoristasToolStripMenuItem.Visible = false; // consultar e editar motoristas
-			monitorarVeículosAtivosToolStripMenuItem.Visible = false; // Monitorar Veiculos
 
 			consultarComprovantesToolStripMenuItem.Visible = false; // Consultar Comprovantes
 			relatóriosToolStripMenuItem2.Visible = false; //Relatorios
@@ -62,7 +61,6 @@ namespace Dll_Forms_Fat
 				clientesToolStripMenuItem1.Visible = true; // Busca Cliente
 				veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
 				cadastrarClienteToolStripMenuItem.Visible = true; // Cadastrar Cliente
-				monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
 				consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
 				relatóriosToolStripMenuItem2.Visible = true; //Relatorios
 				cadastrarNovoUsuárioToolStripMenuItem1.Visible = true; // cadastrar novo usuario
@@ -85,7 +83,6 @@ namespace Dll_Forms_Fat
 				veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
 				editarUsuáriosToolStripMenuItem.Visible = true; // Editar Usuários
 
-				monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
 				consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
 				controleDePátioToolStripMenuItem.Visible = true; // controle de patio
 				controleDePneusToolStripMenuItem.Visible = true; // controle de pneus

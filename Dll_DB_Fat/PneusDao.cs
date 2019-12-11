@@ -9,34 +9,35 @@ namespace DbFat
 	public class PneusDao : IDbBanco<Pneus>
 	{
 
-		public bool DbUpdate(Pneus Add)
+		public bool DbUpdate(Pneus pneu)
 		{
-			return new DbKernel.Db_Kernel().DbUpdate<Pneus>(Add);
+			return new DbKernel.Db_Kernel().DbUpdate<Pneus>(pneu);
 		}
 
-		public bool DbUpdateKm(ControlePatio controle, Veiculos veiculo)
+		public bool DbUpdateKm(int kmRodado, int veiculoId)
 		{
 			bool ret = false;
+
 			var listaPneus = GetAll()
-						.Where(p => p.VeiculoId == veiculo.Id)
+						.Where(p => p.VeiculoId == veiculoId)
 						.ToList();
 			if (listaPneus.Count == 0) 
 			{ 
-				ret = true;
+				return true;
 			}
 			else
 			{
 				foreach (var pneu in listaPneus)
 				{
-					pneu.KmAtual = controle.KmRetorno - controle.KmSaida;
-
-					if (DbUpdate(pneu))
+					pneu.KmAtual += kmRodado;
+					
+					if (new DbKernel.Db_Kernel().DbUpdate<Pneus>(pneu))
 					{
 						ret = true;
 					}
 					else
 					{
-						return ret;
+						ret = false;
 					}
 				}
 			}
@@ -44,16 +45,17 @@ namespace DbFat
 			return ret;
 		}
 
-		public bool DbUpdateKm(Locacoes locacao, Veiculos veiculo)
+		public bool DbUpdateKm1(Locacoes locacao, Veiculos veiculo)
 		{
-			var pneus = GetAll()
-					.Where(p => p.Id == veiculo.Id);
+			List<Pneus> pneus = GetAll()
+					.Where(p => p.Id == veiculo.Id)
+					.ToList();
 
-			var listaPneus = pneus.ToList();
 			var kmRodada = locacao.KmDevolucao - locacao.KmInicial;
-			foreach (var pneu in listaPneus)
+			foreach (var pneu in pneus)
 			{
-				pneu.KmAtual += kmRodada;
+				pneu.KmAtual = pneu.KmAtual + kmRodada;
+
 				return DbUpdate(pneu);
 			}
 			return false;

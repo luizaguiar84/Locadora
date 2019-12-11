@@ -99,7 +99,7 @@ namespace Dll_Forms_Fat
 			TipoDespesa tipo = (TipoDespesa)comboTipo.SelectedItem;
 
 			var despesaBuilder = new DespesasBuilder()
-				.GetData(dataDespesa.Value)
+				.GetData(dataDespesa.Value.Date)
 				.GetTipoDespesaId(tipo.Id)
 				.GetValor(Convert.ToDecimal(txtValor.Text))
 				.GetDescricao(txtDescricao.Text)

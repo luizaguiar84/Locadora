@@ -91,9 +91,15 @@ namespace DbFat
 			}
 
 		}
-	
 
-	public Funcionarios GetById(int id)
+		public List<Funcionarios> GetAllMotoristas()
+		{
+			return GetAll()
+							.Where(c => c.CnhId != null)
+							.ToList();
+		}
+
+		public Funcionarios GetById(int id)
 		{
 			var funcionario = new FuncionariosDao().GetAll()
 				.Where(f => f.Id == id)

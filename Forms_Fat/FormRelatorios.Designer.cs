@@ -38,27 +38,20 @@
 			this.radioListaManutencaoPorVeiculo = new System.Windows.Forms.RadioButton();
 			this.radioMultasPorVeiculo = new System.Windows.Forms.RadioButton();
 			this.groupRelatorios = new System.Windows.Forms.GroupBox();
-			this.radioButton28 = new System.Windows.Forms.RadioButton();
 			this.radioListagemEstoque = new System.Windows.Forms.RadioButton();
-			this.radioButton22 = new System.Windows.Forms.RadioButton();
-			this.radioButton20 = new System.Windows.Forms.RadioButton();
-			this.radioButton21 = new System.Windows.Forms.RadioButton();
-			this.radioButton19 = new System.Windows.Forms.RadioButton();
 			this.radioSinistroVeiculo = new System.Windows.Forms.RadioButton();
 			this.groupPlacas = new System.Windows.Forms.GroupBox();
 			this.comboPlacas = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.groupPesquisa = new System.Windows.Forms.GroupBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.groupPesquisaPeriodo = new System.Windows.Forms.GroupBox();
 			this.dateFim = new System.Windows.Forms.DateTimePicker();
 			this.dateInicio = new System.Windows.Forms.DateTimePicker();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.brnConsultar = new System.Windows.Forms.Button();
+			this.radioListaFuncionarios = new System.Windows.Forms.RadioButton();
 			this.groupRelatorios.SuspendLayout();
 			this.groupPlacas.SuspendLayout();
-			this.groupPesquisa.SuspendLayout();
 			this.groupPesquisaPeriodo.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -76,7 +69,7 @@
 			// radioListagemClientes
 			// 
 			this.radioListagemClientes.AutoSize = true;
-			this.radioListagemClientes.Location = new System.Drawing.Point(7, 57);
+			this.radioListagemClientes.Location = new System.Drawing.Point(7, 80);
 			this.radioListagemClientes.Name = "radioListagemClientes";
 			this.radioListagemClientes.Size = new System.Drawing.Size(121, 17);
 			this.radioListagemClientes.TabIndex = 2;
@@ -88,7 +81,7 @@
 			// radioManutencoesGeral
 			// 
 			this.radioManutencoesGeral.AutoSize = true;
-			this.radioManutencoesGeral.Location = new System.Drawing.Point(7, 194);
+			this.radioManutencoesGeral.Location = new System.Drawing.Point(7, 217);
 			this.radioManutencoesGeral.Name = "radioManutencoesGeral";
 			this.radioManutencoesGeral.Size = new System.Drawing.Size(175, 17);
 			this.radioManutencoesGeral.TabIndex = 9;
@@ -99,7 +92,7 @@
 			// radioAbastecimentoGeral
 			// 
 			this.radioAbastecimentoGeral.AutoSize = true;
-			this.radioAbastecimentoGeral.Location = new System.Drawing.Point(7, 152);
+			this.radioAbastecimentoGeral.Location = new System.Drawing.Point(7, 175);
 			this.radioAbastecimentoGeral.Name = "radioAbastecimentoGeral";
 			this.radioAbastecimentoGeral.Size = new System.Drawing.Size(180, 17);
 			this.radioAbastecimentoGeral.TabIndex = 7;
@@ -110,7 +103,7 @@
 			// radioMultaPorMotorista
 			// 
 			this.radioMultaPorMotorista.AutoSize = true;
-			this.radioMultaPorMotorista.Location = new System.Drawing.Point(7, 129);
+			this.radioMultaPorMotorista.Location = new System.Drawing.Point(7, 152);
 			this.radioMultaPorMotorista.Name = "radioMultaPorMotorista";
 			this.radioMultaPorMotorista.Size = new System.Drawing.Size(178, 17);
 			this.radioMultaPorMotorista.TabIndex = 6;
@@ -132,7 +125,7 @@
 			// radioListaManutencaoPorVeiculo
 			// 
 			this.radioListaManutencaoPorVeiculo.AutoSize = true;
-			this.radioListaManutencaoPorVeiculo.Location = new System.Drawing.Point(7, 174);
+			this.radioListaManutencaoPorVeiculo.Location = new System.Drawing.Point(7, 197);
 			this.radioListaManutencaoPorVeiculo.Name = "radioListaManutencaoPorVeiculo";
 			this.radioListaManutencaoPorVeiculo.Size = new System.Drawing.Size(206, 17);
 			this.radioListaManutencaoPorVeiculo.TabIndex = 8;
@@ -143,7 +136,7 @@
 			// radioMultasPorVeiculo
 			// 
 			this.radioMultasPorVeiculo.AutoSize = true;
-			this.radioMultasPorVeiculo.Location = new System.Drawing.Point(7, 80);
+			this.radioMultasPorVeiculo.Location = new System.Drawing.Point(7, 103);
 			this.radioMultasPorVeiculo.Name = "radioMultasPorVeiculo";
 			this.radioMultasPorVeiculo.Size = new System.Drawing.Size(172, 17);
 			this.radioMultasPorVeiculo.TabIndex = 3;
@@ -153,13 +146,9 @@
 			// 
 			// groupRelatorios
 			// 
-			this.groupRelatorios.Controls.Add(this.radioButton28);
+			this.groupRelatorios.Controls.Add(this.radioListaFuncionarios);
 			this.groupRelatorios.Controls.Add(this.radioListagemEstoque);
-			this.groupRelatorios.Controls.Add(this.radioButton22);
-			this.groupRelatorios.Controls.Add(this.radioButton20);
 			this.groupRelatorios.Controls.Add(this.radioListagemVeiculos);
-			this.groupRelatorios.Controls.Add(this.radioButton21);
-			this.groupRelatorios.Controls.Add(this.radioButton19);
 			this.groupRelatorios.Controls.Add(this.radioListaManutencaoPorVeiculo);
 			this.groupRelatorios.Controls.Add(this.radioSinistroVeiculo);
 			this.groupRelatorios.Controls.Add(this.radioManutencoesGeral);
@@ -170,26 +159,15 @@
 			this.groupRelatorios.Controls.Add(this.radioAbastecimentoGeral);
 			this.groupRelatorios.Location = new System.Drawing.Point(12, 12);
 			this.groupRelatorios.Name = "groupRelatorios";
-			this.groupRelatorios.Size = new System.Drawing.Size(232, 405);
+			this.groupRelatorios.Size = new System.Drawing.Size(232, 279);
 			this.groupRelatorios.TabIndex = 15;
 			this.groupRelatorios.TabStop = false;
-			this.groupRelatorios.Text = "Controle de Frota";
-			// 
-			// radioButton28
-			// 
-			this.radioButton28.AutoSize = true;
-			this.radioButton28.Location = new System.Drawing.Point(7, 373);
-			this.radioButton28.Name = "radioButton28";
-			this.radioButton28.Size = new System.Drawing.Size(127, 17);
-			this.radioButton28.TabIndex = 17;
-			this.radioButton28.TabStop = true;
-			this.radioButton28.Text = "Resumo de despesas";
-			this.radioButton28.UseVisualStyleBackColor = true;
+			this.groupRelatorios.Text = "Relatórios";
 			// 
 			// radioListagemEstoque
 			// 
 			this.radioListagemEstoque.AutoSize = true;
-			this.radioListagemEstoque.Location = new System.Drawing.Point(7, 258);
+			this.radioListagemEstoque.Location = new System.Drawing.Point(7, 240);
 			this.radioListagemEstoque.Name = "radioListagemEstoque";
 			this.radioListagemEstoque.Size = new System.Drawing.Size(123, 17);
 			this.radioListagemEstoque.TabIndex = 12;
@@ -197,54 +175,10 @@
 			this.radioListagemEstoque.Text = "Listagem de estoque";
 			this.radioListagemEstoque.UseVisualStyleBackColor = true;
 			// 
-			// radioButton22
-			// 
-			this.radioButton22.AutoSize = true;
-			this.radioButton22.Location = new System.Drawing.Point(7, 350);
-			this.radioButton22.Name = "radioButton22";
-			this.radioButton22.Size = new System.Drawing.Size(183, 17);
-			this.radioButton22.TabIndex = 16;
-			this.radioButton22.TabStop = true;
-			this.radioButton22.Text = "Resumo de locações por período";
-			this.radioButton22.UseVisualStyleBackColor = true;
-			// 
-			// radioButton20
-			// 
-			this.radioButton20.AutoSize = true;
-			this.radioButton20.Location = new System.Drawing.Point(7, 304);
-			this.radioButton20.Name = "radioButton20";
-			this.radioButton20.Size = new System.Drawing.Size(171, 17);
-			this.radioButton20.TabIndex = 14;
-			this.radioButton20.TabStop = true;
-			this.radioButton20.Text = "Resumo de gastos por período";
-			this.radioButton20.UseVisualStyleBackColor = true;
-			// 
-			// radioButton21
-			// 
-			this.radioButton21.AutoSize = true;
-			this.radioButton21.Location = new System.Drawing.Point(7, 327);
-			this.radioButton21.Name = "radioButton21";
-			this.radioButton21.Size = new System.Drawing.Size(170, 17);
-			this.radioButton21.TabIndex = 15;
-			this.radioButton21.TabStop = true;
-			this.radioButton21.Text = "Resumo de locações por carro";
-			this.radioButton21.UseVisualStyleBackColor = true;
-			// 
-			// radioButton19
-			// 
-			this.radioButton19.AutoSize = true;
-			this.radioButton19.Location = new System.Drawing.Point(7, 281);
-			this.radioButton19.Name = "radioButton19";
-			this.radioButton19.Size = new System.Drawing.Size(158, 17);
-			this.radioButton19.TabIndex = 13;
-			this.radioButton19.TabStop = true;
-			this.radioButton19.Text = "Resumo de gastos por carro";
-			this.radioButton19.UseVisualStyleBackColor = true;
-			// 
 			// radioSinistroVeiculo
 			// 
 			this.radioSinistroVeiculo.AutoSize = true;
-			this.radioSinistroVeiculo.Location = new System.Drawing.Point(7, 106);
+			this.radioSinistroVeiculo.Location = new System.Drawing.Point(7, 129);
 			this.radioSinistroVeiculo.Name = "radioSinistroVeiculo";
 			this.radioSinistroVeiculo.Size = new System.Drawing.Size(179, 17);
 			this.radioSinistroVeiculo.TabIndex = 4;
@@ -280,23 +214,6 @@
 			this.label1.Size = new System.Drawing.Size(37, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Placa:";
-			// 
-			// groupPesquisa
-			// 
-			this.groupPesquisa.Controls.Add(this.textBox1);
-			this.groupPesquisa.Location = new System.Drawing.Point(267, 98);
-			this.groupPesquisa.Name = "groupPesquisa";
-			this.groupPesquisa.Size = new System.Drawing.Size(245, 52);
-			this.groupPesquisa.TabIndex = 1;
-			this.groupPesquisa.TabStop = false;
-			this.groupPesquisa.Text = "Pesquisa por:";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(7, 20);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(229, 20);
-			this.textBox1.TabIndex = 0;
 			// 
 			// groupPesquisaPeriodo
 			// 
@@ -345,13 +262,24 @@
 			// 
 			// brnConsultar
 			// 
-			this.brnConsultar.Location = new System.Drawing.Point(307, 328);
+			this.brnConsultar.Location = new System.Drawing.Point(162, 309);
 			this.brnConsultar.Name = "brnConsultar";
-			this.brnConsultar.Size = new System.Drawing.Size(155, 23);
+			this.brnConsultar.Size = new System.Drawing.Size(188, 37);
 			this.brnConsultar.TabIndex = 22;
 			this.brnConsultar.Text = "Consultar";
 			this.brnConsultar.UseVisualStyleBackColor = true;
 			this.brnConsultar.Click += new System.EventHandler(this.brnConsultar_Click);
+			// 
+			// radioListaFuncionarios
+			// 
+			this.radioListaFuncionarios.AutoSize = true;
+			this.radioListaFuncionarios.Location = new System.Drawing.Point(7, 57);
+			this.radioListaFuncionarios.Name = "radioListaFuncionarios";
+			this.radioListaFuncionarios.Size = new System.Drawing.Size(127, 17);
+			this.radioListaFuncionarios.TabIndex = 13;
+			this.radioListaFuncionarios.TabStop = true;
+			this.radioListaFuncionarios.Text = "ListagemFuncionários";
+			this.radioListaFuncionarios.UseVisualStyleBackColor = true;
 			// 
 			// FormRelatorios
 			// 
@@ -360,7 +288,6 @@
 			this.ClientSize = new System.Drawing.Size(543, 430);
 			this.Controls.Add(this.brnConsultar);
 			this.Controls.Add(this.groupPesquisaPeriodo);
-			this.Controls.Add(this.groupPesquisa);
 			this.Controls.Add(this.groupPlacas);
 			this.Controls.Add(this.groupRelatorios);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -371,8 +298,6 @@
 			this.groupRelatorios.PerformLayout();
 			this.groupPlacas.ResumeLayout(false);
 			this.groupPlacas.PerformLayout();
-			this.groupPesquisa.ResumeLayout(false);
-			this.groupPesquisa.PerformLayout();
 			this.groupPesquisaPeriodo.ResumeLayout(false);
 			this.groupPesquisaPeriodo.PerformLayout();
 			this.ResumeLayout(false);
@@ -390,23 +315,17 @@
 		private System.Windows.Forms.RadioButton radioListaManutencaoPorVeiculo;
 		private System.Windows.Forms.RadioButton radioMultasPorVeiculo;
 		private System.Windows.Forms.GroupBox groupRelatorios;
-		private System.Windows.Forms.RadioButton radioButton19;
-		private System.Windows.Forms.RadioButton radioButton20;
-		private System.Windows.Forms.RadioButton radioButton22;
-		private System.Windows.Forms.RadioButton radioButton21;
 		private System.Windows.Forms.GroupBox groupPlacas;
 		private System.Windows.Forms.ComboBox comboPlacas;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.GroupBox groupPesquisa;
-		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.GroupBox groupPesquisaPeriodo;
 		private System.Windows.Forms.DateTimePicker dateFim;
 		private System.Windows.Forms.DateTimePicker dateInicio;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.RadioButton radioSinistroVeiculo;
-		private System.Windows.Forms.RadioButton radioButton28;
 		private System.Windows.Forms.RadioButton radioListagemEstoque;
 		private System.Windows.Forms.Button brnConsultar;
+		private System.Windows.Forms.RadioButton radioListaFuncionarios;
 	}
 }

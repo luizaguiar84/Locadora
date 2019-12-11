@@ -34,6 +34,7 @@
 			this.controleDePátioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.cadastrarNovoUsuárioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.editarUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.controleDePreçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.efetuarLogoffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,6 @@
 			this.monitorarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.estoqueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.controleDePneusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.monitorarVeículosAtivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.registrarAlertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +63,6 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cadastrarNovoCarroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.editarUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -116,6 +115,13 @@
 			this.cadastrarNovoUsuárioToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
 			this.cadastrarNovoUsuárioToolStripMenuItem1.Text = "Cadastrar Novo Usuário...";
 			this.cadastrarNovoUsuárioToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarNovoUsuárioToolStripMenuItem1_Click);
+			// 
+			// editarUsuáriosToolStripMenuItem
+			// 
+			this.editarUsuáriosToolStripMenuItem.Name = "editarUsuáriosToolStripMenuItem";
+			this.editarUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+			this.editarUsuáriosToolStripMenuItem.Text = "Editar Usuários...";
+			this.editarUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.editarUsuáriosToolStripMenuItem_Click);
 			// 
 			// controleDePreçosToolStripMenuItem
 			// 
@@ -194,8 +200,7 @@
 			// 
 			this.monitorarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.estoqueToolStripMenuItem1,
-            this.controleDePneusToolStripMenuItem,
-            this.monitorarVeículosAtivosToolStripMenuItem});
+            this.controleDePneusToolStripMenuItem});
 			this.monitorarToolStripMenuItem.Name = "monitorarToolStripMenuItem";
 			this.monitorarToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
 			this.monitorarToolStripMenuItem.Text = "Monitorar";
@@ -203,23 +208,16 @@
 			// estoqueToolStripMenuItem1
 			// 
 			this.estoqueToolStripMenuItem1.Name = "estoqueToolStripMenuItem1";
-			this.estoqueToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+			this.estoqueToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
 			this.estoqueToolStripMenuItem1.Text = "Estoque...";
 			this.estoqueToolStripMenuItem1.Click += new System.EventHandler(this.estoqueToolStripMenuItem1_Click);
 			// 
 			// controleDePneusToolStripMenuItem
 			// 
 			this.controleDePneusToolStripMenuItem.Name = "controleDePneusToolStripMenuItem";
-			this.controleDePneusToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.controleDePneusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.controleDePneusToolStripMenuItem.Text = "Controle de Pneus";
 			this.controleDePneusToolStripMenuItem.Click += new System.EventHandler(this.controleDePneusToolStripMenuItem_Click);
-			// 
-			// monitorarVeículosAtivosToolStripMenuItem
-			// 
-			this.monitorarVeículosAtivosToolStripMenuItem.Name = "monitorarVeículosAtivosToolStripMenuItem";
-			this.monitorarVeículosAtivosToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-			this.monitorarVeículosAtivosToolStripMenuItem.Text = "Rastrear Motoristas";
-			this.monitorarVeículosAtivosToolStripMenuItem.Click += new System.EventHandler(this.monitorarVeículosAtivosToolStripMenuItem_Click);
 			// 
 			// manutençãoToolStripMenuItem
 			// 
@@ -333,13 +331,6 @@
 			this.cadastrarNovoCarroToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
 			this.cadastrarNovoCarroToolStripMenuItem.Text = "Cadastrar novo veículo...";
 			// 
-			// editarUsuáriosToolStripMenuItem
-			// 
-			this.editarUsuáriosToolStripMenuItem.Name = "editarUsuáriosToolStripMenuItem";
-			this.editarUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-			this.editarUsuáriosToolStripMenuItem.Text = "Editar Usuários...";
-			this.editarUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.editarUsuáriosToolStripMenuItem_Click);
-			// 
 			// FormPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,7 +372,6 @@
 		private System.Windows.Forms.ToolStripMenuItem consultarEditarEstoqueDePeçasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem monitorarToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem monitorarVeículosAtivosToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem consultarReservasAtivasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem consultarComprovantesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem2;

@@ -19,17 +19,9 @@ namespace Dll_Forms_Fat
 			usuario.Login = txtUsuario.Text;
 			usuario.Password = TxtSenha.Text;
 
-			if (txtUsuario.Text == "1" && TxtSenha.Text == "1")
+			if (txtUsuario.Text == "admin" && TxtSenha.Text == "admin")
 			{
 				AbrePrograma();
-			}
-			else if (new UsuariosDao().GetAll().Count == 0)
-			{
-				if (MessageBox.Show("Não existe nenhum usuário cadastrado, criar um?","Importante!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-				{
-					var criar = new FormCadastrarUsuario();
-					criar.Show();
-				}
 			}
 			else if (new UsuariosDao().ConfereUsuario(usuario))
 			{
@@ -62,7 +54,6 @@ namespace Dll_Forms_Fat
 			ImgLogoFat.Left = (Width - ImgLogoFat.Width) / 2;
 			LayoutLogin.Left = (Width - LayoutLogin.Width) / 2;
 			LayoutBotoes.Left = (Width - LayoutBotoes.Width) / 2;
-			LinkEsqueciSenha.Left = (Width - LinkEsqueciSenha.Width) / 2;
 
 		}
 

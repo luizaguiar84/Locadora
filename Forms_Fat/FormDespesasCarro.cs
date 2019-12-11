@@ -77,9 +77,9 @@ namespace Dll_Forms_Fat
 				var veiculo = BuscaVeiculo();
 				var multasBuilder = new MultasBuilder()
 					.getVeiculoId(veiculo.Id)
-					.GetDataMulta(dateMulta.Value)
+					.GetDataMulta(dateMulta.Value.Date)
 					.GetDescricao(txtDescricaoMulta.Text)
-					.GetVencimento(dateMultaVencimento.Value)
+					.GetVencimento(dateMultaVencimento.Value.Date)
 					.GetValor(Convert.ToDecimal(txtValorMulta.Text))
 					.GetPontos(Convert.ToInt32(txtPontosMulta.Text));
 
@@ -152,7 +152,7 @@ namespace Dll_Forms_Fat
 
 				var abastecimentoBuilder = new AbastecimentosBuilder()
 					.GetVeiculoId(veiculo.Id)
-					.GetData(dateAbastecimento.Value)
+					.GetData(dateAbastecimento.Value.Date)
 					.GetCombustivel(comboCombustivelAbastecimento.Text)
 					.GetLitros(Convert.ToDecimal(txtQtdLitrosAbastecimento.Text))
 					.GetValorUnitario(Convert.ToDecimal(txtValorUnitAbastecimento.Text));
@@ -208,7 +208,7 @@ namespace Dll_Forms_Fat
 			{
 				var veiculo = BuscaVeiculo();
 				var manutencoesBuilder = new ManutencoesBuilder()
-					.GetData(dateManutencao.Value)
+					.GetData(dateManutencao.Value.Date)
 					.GetKm(Convert.ToInt32(txtKmManutencao.Text))
 					.GetDescricao(txtDescricaoManutencao.Text)
 					.GetValor(Convert.ToDecimal(txtValorManutencao.Text))
@@ -267,7 +267,7 @@ namespace Dll_Forms_Fat
 				var veiculo = BuscaVeiculo();
 				var obrigacoesBuilder = new ObrigacoesBuilder()
 					.GetVeiculoId(veiculo.Id)
-					.GetData(dateObrigacoes.Value)
+					.GetData(dateObrigacoes.Value.Date)
 					.GetTipo(txtTipoObrigacao.Text)
 					.GetValor(Convert.ToDecimal(txtValorObrigacoes.Text))
 					.GetDescricao(txtDescricaoObrigacoes.Text);
@@ -324,7 +324,7 @@ namespace Dll_Forms_Fat
 				var veiculo = BuscaVeiculo();
 
 				var sinistrosBuilder = new SinistrosBuilder()
-					.GetData(dateSinistros.Value)
+					.GetData(dateSinistros.Value.Date)
 					.GetKm(Convert.ToInt32(txtKmSinistro.Text))
 					.GetDescricao(txtDescricaoSinistros.Text)
 					.GetValor(Convert.ToDecimal(txtValorSinistro.Text))
