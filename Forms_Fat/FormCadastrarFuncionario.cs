@@ -36,7 +36,7 @@ namespace Dll_Forms_Fat
 		}
 		private void FormCadastrarFuncionario_Load(object sender, EventArgs e)
 		{
-			LimpaTela();		
+			//LimpaTela();		
 			comboCargo.DataSource = new CargosDao().GetAll();		
 			comboCargo.DisplayMember = nameof(Cargos.Cargo);
 		}
@@ -47,7 +47,7 @@ namespace Dll_Forms_Fat
 		}
 		private void MaskedCpf_Leave(object sender, EventArgs e)
 		{
-			if (!Utilidades.Utilidades.ValidarCpf(maskedCpf.Text))
+			if (!Utilidades.Utilidades.IsCpf(maskedCpf.Text))
 			{
 				MessageBox.Show("CPF inválido, digite novamente");
 				maskedCpf.Text = "";
@@ -247,6 +247,13 @@ namespace Dll_Forms_Fat
 			{
 				MessageBox.Show("Favor preencher o CPF do funcionário.");
 			}
+			else if (!String.IsNullOrWhiteSpace(maskedCpf.Text))
+			{
+				if (!Utilidades.Utilidades.IsCpf(maskedCpf.Text))
+				{
+					MessageBox.Show("CPF inválido, favor conferir o número digitado.");
+				}
+			}
 			else if (String.IsNullOrWhiteSpace(txtRG.Text))
 			{
 				MessageBox.Show("Favor preencher o RG do funcionário.");
@@ -364,6 +371,11 @@ namespace Dll_Forms_Fat
 		private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			txtNumero.IsNumeros(e);
+		}
+
+		private void maskedCpf_Leave_1(object sender, EventArgs e)
+		{
+				
 		}
 	}
 }

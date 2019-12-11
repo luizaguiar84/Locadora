@@ -40,12 +40,12 @@
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(2, 37);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(795, 363);
+			this.dataGridView1.Size = new System.Drawing.Size(795, 425);
 			this.dataGridView1.TabIndex = 0;
 			// 
 			// btnVoltar
 			// 
-			this.btnVoltar.Location = new System.Drawing.Point(698, 415);
+			this.btnVoltar.Location = new System.Drawing.Point(713, 514);
 			this.btnVoltar.Name = "btnVoltar";
 			this.btnVoltar.Size = new System.Drawing.Size(75, 23);
 			this.btnVoltar.TabIndex = 1;
@@ -56,18 +56,20 @@
 			// lblTituloPag
 			// 
 			this.lblTituloPag.AutoSize = true;
-			this.lblTituloPag.Location = new System.Drawing.Point(334, 21);
+			this.lblTituloPag.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTituloPag.Location = new System.Drawing.Point(336, 9);
 			this.lblTituloPag.Name = "lblTituloPag";
-			this.lblTituloPag.Size = new System.Drawing.Size(35, 13);
+			this.lblTituloPag.Size = new System.Drawing.Size(70, 25);
 			this.lblTituloPag.TabIndex = 2;
 			this.lblTituloPag.Text = "label1";
 			// 
 			// lblInferior
 			// 
 			this.lblInferior.AutoSize = true;
-			this.lblInferior.Location = new System.Drawing.Point(113, 415);
+			this.lblInferior.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblInferior.Location = new System.Drawing.Point(-2, 482);
 			this.lblInferior.Name = "lblInferior";
-			this.lblInferior.Size = new System.Drawing.Size(13, 13);
+			this.lblInferior.Size = new System.Drawing.Size(19, 20);
 			this.lblInferior.TabIndex = 3;
 			this.lblInferior.Text = "..";
 			// 
@@ -75,7 +77,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(800, 571);
 			this.ControlBox = false;
 			this.Controls.Add(this.lblInferior);
 			this.Controls.Add(this.lblTituloPag);

@@ -37,7 +37,7 @@ namespace Dll_Forms_Fat
 			consultarEditarUsuáriosToolStripMenuItem.Visible = false; // consultar / editar usuarios
 			consultarEditarMotoristasToolStripMenuItem.Visible = false; // consultar e editar motoristas
 			monitorarVeículosAtivosToolStripMenuItem.Visible = false; // Monitorar Veiculos
-			
+
 			consultarComprovantesToolStripMenuItem.Visible = false; // Consultar Comprovantes
 			relatóriosToolStripMenuItem2.Visible = false; //Relatorios
 			controleDePátioToolStripMenuItem.Visible = false; // controle de patio
@@ -107,7 +107,7 @@ namespace Dll_Forms_Fat
 				despesasToolStripMenuItem.Visible = true; // registrar despesas
 				despesasDeCarrosToolStripMenuItem.Visible = true; // despesas de carros
 			}
-			
+
 		}
 		private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -200,11 +200,6 @@ namespace Dll_Forms_Fat
 			AbrirNovoForm<FormRelatorios>("Relatorios");
 		}
 
-		private void NovaLocaçaoToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			AbrirNovoForm<FormNovaLocacao>("NovaLocacao");
-		}
-		
 		private void cadastrarNovoUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormCadastrarUsuario>("CadastroUsuarios");
@@ -224,11 +219,6 @@ namespace Dll_Forms_Fat
 		private void estoqueToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			AbrirNovoForm<FormControleEstoque>("ControleEstoque");
-		}
-
-		private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			AbrirNovoForm<FormDevolucao>("Devolucao");
 		}
 
 		private void controleDePreçosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -288,7 +278,12 @@ namespace Dll_Forms_Fat
 			AbrirNovoForm<FormDespesasCarro>("DespesasCarro");
 		}
 
-		void AbrirNovoForm<T>(string TAG) where T : Form, new()
+
+		private void editarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AbrirNovoForm<FormControleUsuarios>("EditarUsuarios");
+		}
+		private void AbrirNovoForm<T>(string TAG) where T : Form, new()
 		{
 			foreach (Form f in MdiChildren)
 			{
@@ -313,15 +308,5 @@ namespace Dll_Forms_Fat
 			form.Show();
 		}
 
-		private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void editarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			AbrirNovoForm<FormControleUsuarios>("EditarUsuarios");
-		}
 	}
 }
-

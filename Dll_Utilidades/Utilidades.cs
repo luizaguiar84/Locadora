@@ -106,7 +106,7 @@
 		/// </summary>
 		/// <param name="cpf">insira o <paramref name="cpf"/></param>
 		/// <returns></returns>
-		public static bool ValidarCpf(string cpf)
+		public static bool IsCpf(string cpf)
 		{
 			if (new CPFValidator().IsValid(cpf))
 			{

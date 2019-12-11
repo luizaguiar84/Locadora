@@ -87,6 +87,7 @@
 			// txtPesquisar
 			// 
 			this.txtPesquisar.Location = new System.Drawing.Point(261, 23);
+			this.txtPesquisar.MaxLength = 50;
 			this.txtPesquisar.Name = "txtPesquisar";
 			this.txtPesquisar.Size = new System.Drawing.Size(180, 20);
 			this.txtPesquisar.TabIndex = 10;

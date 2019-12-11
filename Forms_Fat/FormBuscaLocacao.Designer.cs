@@ -90,6 +90,7 @@
 			// txtPesquisa
 			// 
 			this.txtPesquisa.Location = new System.Drawing.Point(277, 48);
+			this.txtPesquisa.MaxLength = 50;
 			this.txtPesquisa.Name = "txtPesquisa";
 			this.txtPesquisa.Size = new System.Drawing.Size(180, 20);
 			this.txtPesquisa.TabIndex = 4;
@@ -136,7 +137,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBuscaLocacao";
-			this.Text = "FormBuscaLocacao";
+			this.Text = "Buscar Locação";
 			this.Load += new System.EventHandler(this.FormBuscaLocacao_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

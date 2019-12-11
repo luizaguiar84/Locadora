@@ -49,81 +49,150 @@ namespace Dll_Forms_Fat
 		private void brnConsultar_Click(object sender, EventArgs e)
 		{
 			ICollection resultado;
+			string nomeTela;
+			string lbl2 = "";
 
+			#region Lista de veiculos
 			if (radioListagemVeiculos.Checked) //Lista de Veiculos
 			{
-				resultado = new VeiculosDao().GetAll();
-				AbreRelatorio(resultado, "Lista de Veiculos");
-			}
+				var lista = new VeiculosDao().GetAll();
+				resultado = lista;
+				nomeTela = "Lista de Veiculos";
+				lbl2 = $"Existem {lista.Count()} Veiculos cadastrados no sistema";
+
+				AbreRelatorio(resultado, nomeTela, lbl2);
+			} 
+			#endregion
+
+			#region Lista de Motoristas
 			else if (radioListagemMotoristas.Checked) // Lista de Motoristas
 			{
-				resultado = new FuncionariosDao().GetMotoristas();
-				AbreRelatorio(resultado, "Lista de Motoristas");
-			}
+				var lista = new FuncionariosDao().GetMotoristas();
+				resultado = lista;
+				nomeTela = "Lista de Motoristas";
+				lbl2 = $"Existem {lista.Count()} funcionários cadastrados no sistema.";
+
+				AbreRelatorio(resultado, nomeTela, lbl2);
+			} 
+			#endregion
+
+			#region Lista de Clientes
 			else if (radioListagemClientes.Checked) // Lista de Clientes
 			{
-				resultado = new ClientesPjDao().GetAll();
-				AbreRelatorio(resultado, "Lista de Clientes");
-			}
+				var lista = new ClientesPjDao().GetAll();
+
+				resultado = lista;
+				nomeTela = "Lista de Clientes";
+				lbl2 = $"Existem {lista.Count()} clientes cadastrados no sistema";
+
+				AbreRelatorio(resultado, "Lista de Clientes", lbl2);
+			} 
+			#endregion
+
+			#region Multas por veiculo
 			else if (radioMultasPorVeiculo.Checked) // Multas por veiculo
 			{
 				if (conferePlacaSelecionada())
 				{
 					MensagemPlaca();
 				}
+
 				else
 				{
 					var veiculo = GetVeiculo();
 					var lista = new MultasDao().GetAll()
 								.Where(m => m.VeiculoId == veiculo.Id)
 								.ToList();
+
 					resultado = lista;
-					AbreRelatorio(resultado, $"Multas do veiculo {veiculo.Placa}",
-						$"O total de multas do veiculo {veiculo.Placa} é de {lista.Sum(v=> v.Valor).ToString("C")}");
+					nomeTela = $"Multas do veiculo {veiculo.Placa}";
+					lbl2 = $"O total de multas do veiculo {veiculo.Placa} é de {lista.Sum(v => v.Valor).ToString("C")}";
+
+					AbreRelatorio(resultado, nomeTela, lbl2);
 				}
-			}
+			} 
+			#endregion
+
+			#region Sinistro por veiculo
 			else if (radioSinistroVeiculo.Checked) // Sinistro por veículo
 			{
 				if (conferePlacaSelecionada())
 				{
 					MensagemPlaca();
 				}
+				else if (!ChecaDataValida())
+				{
+				}
 				else
 				{
 					var veiculo = GetVeiculo();
 					var lista = new SinistrosDao().GetAll()
 						.Where(s => s.VeiculoId == veiculo.Id)
+						.Where(a => a.Data >= dateInicio.Value && a.Data <= dateFim.Value)
 						.ToList();
+
 					resultado = lista;
-					AbreRelatorio(resultado, $"Sinistros do veículo {veiculo.Placa}", $"O valor gasto com sinistros do veiculo {veiculo.Placa} foi de {lista.Sum(v => v.Valor).ToString("C")}");
+					nomeTela = $"Sinistros do veículo {veiculo.Placa}";
+					lbl2 = $"O valor gasto com sinistros do veiculo {veiculo.Placa} foi de {lista.Sum(v => v.Valor).ToString("C")}";
+
+					AbreRelatorio(resultado, nomeTela, lbl2);
 				}
-			}
-			else if (radioMultaPorMotorista.Checked)
+			} 
+			#endregion
+
+			else if (radioMultaPorMotorista.Checked) // multa por motorista
 			{
 
 			}
-			else if (radioAbastecimentoGeral.Checked)
+			#region Abastecimento Geral
+			else if (radioAbastecimentoGeral.Checked) // abastecimento geral
 			{
-				resultado = new AbastecimentosDao().GetAll();
-				AbreRelatorio(resultado, "Lista de Abastecimentos Geral");
+				if (!ChecaDataValida())
+				{
+				}
+				else
+				{
+					var lista = new AbastecimentosDao().GetAll()
+						.Where(a => a.Data >= dateInicio.Value && a.Data <= dateFim.Value)
+						.ToList();
+
+					resultado = lista;
+					nomeTela = "Lista de Abastecimentos Geral";
+
+					AbreRelatorio(resultado, nomeTela);
+				} 
 			}
-			else if (radioListaManutencaoPorVeiculo.Checked)
+
+			#endregion
+
+			#region Manutenção por Veiculo
+			else if (radioListaManutencaoPorVeiculo.Checked) // manutencao por veiculo
 			{
 				if (conferePlacaSelecionada())
 				{
 					MensagemPlaca();
+				}
+				else if (!ChecaDataValida())
+				{
 				}
 				else
 				{
 					var veiculo = GetVeiculo();
 					var lista = new ManutencoesDao().GetAll()
 						.Where(m => m.VeiculoId == veiculo.Id)
+						.Where(m => m.Data >= dateInicio.Value && m.Data <= dateFim.Value)
 						.ToList();
+
 					resultado = lista;
-					AbreRelatorio(resultado, $"Manutenções do veiculo {veiculo.Placa}", 
-						$"O valor total gasto com manutenções do veiculo {veiculo.Placa} foi de {lista.Sum(v => v.Valor).ToString("C")}" );
+					nomeTela = $"Manutenções do veiculo {veiculo.Placa}";
+					lbl2 = $"O valor total gasto com manutenções do veiculo {veiculo.Placa} foi de {lista.Sum(v => v.Valor).ToString("C")}";
+
+					AbreRelatorio(resultado, nomeTela, lbl2);
 				}
 			}
+			#endregion
+
+			#region Manutenção Geral
 			else if (radioManutencoesGeral.Checked) // Manutencoes Geral
 			{
 				if (!ChecaDataValida())
@@ -131,16 +200,23 @@ namespace Dll_Forms_Fat
 				}
 				else
 				{
-					var valor = new ManutencoesDao().GetAll();
+					var valor = new ManutencoesDao().GetAll()
+						.Where(m => m.Data >= dateInicio.Value && m.Data <= dateFim.Value)
+						.ToList();
+
 					resultado = valor;
-					string lbl2 = $"O valor gasto com manutenção no periodo de {dateInicio.Value.ToShortDateString()} a {dateFim.Value.ToShortDateString()} foi de {valor.Sum(m => m.Valor).ToString("C")}";
-					AbreRelatorio(resultado, "Manutenções Geral", lbl2);
+					nomeTela = "Manutenções Geral";
+					lbl2 = $"O valor gasto com manutenção no periodo de {dateInicio.Value.ToShortDateString()} a {dateFim.Value.ToShortDateString()} foi de {valor.Sum(m => m.Valor).ToString("C")}";
+
+					AbreRelatorio(resultado, nomeTela, lbl2);
 				}
-			}
+			} 
+			#endregion
 		}
 
-		
 
+
+		#region Validacoes
 		private bool ChecaDataValida()
 		{
 			if (dateInicio.Value == dateFim.Value)
@@ -179,11 +255,13 @@ namespace Dll_Forms_Fat
 		{
 			MessageBox.Show("Favor escolher a placa do veiculo na lista ao lado.");
 		}
-
 		private Veiculos GetVeiculo()
 		{
 			return (Veiculos)comboPlacas.SelectedItem;
 		}
+
+		#endregion
+
 
 		private void AbreRelatorio(ICollection resultado, string label)
 		{

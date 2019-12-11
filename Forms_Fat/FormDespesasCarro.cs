@@ -447,6 +447,69 @@ namespace Dll_Forms_Fat
 			this.IsNumeros(e);
 		}
 
-		
+		private void btnConsultaAbastecimento_Click(object sender, EventArgs e)
+		{
+			if (!ChecaDatas(dataInicioAbastecimento, dateFinalAbastecimento))
+			{
+			}
+			else
+			{
+				var lista = new AbastecimentosDao().GetAll()
+					.Where(a => a.Data >= dataInicioAbastecimento.Value && a.Data <= dateFinalAbastecimento.Value)
+					.ToList();
+				dataAbastecimento.DataSource = lista;
+			}
+		}
+
+		private bool ChecaDatas(DateTimePicker inicio, DateTimePicker fim)
+		{
+			if (inicio.Value == fim.Value)
+			{
+				MessageBox.Show("Favor selecionar as datas ao lado.");
+				return false;
+			}
+			else if (fim.Value < inicio.Value)
+			{
+				MessageBox.Show("Favor selecionar as datas corretamente.");
+				return false;
+			}
+			else if (fim.Value > DateTime.Now)
+			{
+				MessageBox.Show("Não selecionar data final futura.");
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+
+		private void btnConsultaManutencao_Click(object sender, EventArgs e)
+		{
+			if (!ChecaDatas(dateInicioManut, dateFinalManutencao))
+			{
+			}
+			else
+			{
+				var lista = new ManutencoesDao().GetAll()
+					.Where(m => m.Data >= dateInicioManut.Value && m.Data <= dateFinalManutencao.Value)
+					.ToList();
+				dataGridManutencao.DataSource = lista;
+			}
+		}
+
+		private void btnConsultaSinistro_Click(object sender, EventArgs e)
+		{
+			if (!ChecaDatas(dateInicioSinistro, dateFinalSinistro))
+			{
+			}
+			else
+			{
+				var lista = new SinistrosDao().GetAll()
+					.Where(s => s.Data >= dateInicioSinistro.Value && s.Data <= dateFinalSinistro.Value)
+					.ToList();
+				dataGridSinistros.DataSource = lista;
+			}
+		}
 	}
 }

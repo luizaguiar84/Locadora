@@ -101,6 +101,7 @@
 			// txtPesquisa
 			// 
 			this.txtPesquisa.Location = new System.Drawing.Point(226, 48);
+			this.txtPesquisa.MaxLength = 50;
 			this.txtPesquisa.Name = "txtPesquisa";
 			this.txtPesquisa.Size = new System.Drawing.Size(180, 20);
 			this.txtPesquisa.TabIndex = 4;
@@ -135,7 +136,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBuscaFuncionario";
-			this.Text = "FormBuscaFuncionario";
+			this.Text = "Buscar Funcionário";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FormBuscaFuncionario_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

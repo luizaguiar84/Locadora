@@ -93,7 +93,7 @@
 			this.radioManutencoesGeral.Location = new System.Drawing.Point(7, 194);
 			this.radioManutencoesGeral.Name = "radioManutencoesGeral";
 			this.radioManutencoesGeral.Size = new System.Drawing.Size(175, 17);
-			this.radioManutencoesGeral.TabIndex = 3;
+			this.radioManutencoesGeral.TabIndex = 9;
 			this.radioManutencoesGeral.TabStop = true;
 			this.radioManutencoesGeral.Text = "Listagem de manutenções geral";
 			this.radioManutencoesGeral.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
 			this.radioAbastecimentoGeral.Location = new System.Drawing.Point(7, 152);
 			this.radioAbastecimentoGeral.Name = "radioAbastecimentoGeral";
 			this.radioAbastecimentoGeral.Size = new System.Drawing.Size(180, 17);
-			this.radioAbastecimentoGeral.TabIndex = 4;
+			this.radioAbastecimentoGeral.TabIndex = 7;
 			this.radioAbastecimentoGeral.TabStop = true;
 			this.radioAbastecimentoGeral.Text = "Listagem de abastecimento geral";
 			this.radioAbastecimentoGeral.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
 			this.radioListagemMotoristas.Location = new System.Drawing.Point(7, 37);
 			this.radioListagemMotoristas.Name = "radioListagemMotoristas";
 			this.radioListagemMotoristas.Size = new System.Drawing.Size(132, 17);
-			this.radioListagemMotoristas.TabIndex = 8;
+			this.radioListagemMotoristas.TabIndex = 1;
 			this.radioListagemMotoristas.TabStop = true;
 			this.radioListagemMotoristas.Text = "Listagem de motoristas";
 			this.radioListagemMotoristas.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
 			this.radioListaManutencaoPorVeiculo.Location = new System.Drawing.Point(7, 174);
 			this.radioListaManutencaoPorVeiculo.Name = "radioListaManutencaoPorVeiculo";
 			this.radioListaManutencaoPorVeiculo.Size = new System.Drawing.Size(206, 17);
-			this.radioListaManutencaoPorVeiculo.TabIndex = 10;
+			this.radioListaManutencaoPorVeiculo.TabIndex = 8;
 			this.radioListaManutencaoPorVeiculo.TabStop = true;
 			this.radioListaManutencaoPorVeiculo.Text = "Listagem de manutenções por veículo";
 			this.radioListaManutencaoPorVeiculo.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
 			this.radioMultasPorVeiculo.Location = new System.Drawing.Point(7, 80);
 			this.radioMultasPorVeiculo.Name = "radioMultasPorVeiculo";
 			this.radioMultasPorVeiculo.Size = new System.Drawing.Size(172, 17);
-			this.radioMultasPorVeiculo.TabIndex = 13;
+			this.radioMultasPorVeiculo.TabIndex = 3;
 			this.radioMultasPorVeiculo.TabStop = true;
 			this.radioMultasPorVeiculo.Text = "Listagem de multas por veículo";
 			this.radioMultasPorVeiculo.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
 			this.radioButton28.Location = new System.Drawing.Point(7, 373);
 			this.radioButton28.Name = "radioButton28";
 			this.radioButton28.Size = new System.Drawing.Size(127, 17);
-			this.radioButton28.TabIndex = 9;
+			this.radioButton28.TabIndex = 17;
 			this.radioButton28.TabStop = true;
 			this.radioButton28.Text = "Resumo de despesas";
 			this.radioButton28.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@
 			this.radioButton16.Location = new System.Drawing.Point(7, 258);
 			this.radioButton16.Name = "radioButton16";
 			this.radioButton16.Size = new System.Drawing.Size(123, 17);
-			this.radioButton16.TabIndex = 1;
+			this.radioButton16.TabIndex = 12;
 			this.radioButton16.TabStop = true;
 			this.radioButton16.Text = "Listagem de estoque";
 			this.radioButton16.UseVisualStyleBackColor = true;
@@ -207,7 +207,7 @@
 			this.radioButton22.Location = new System.Drawing.Point(7, 350);
 			this.radioButton22.Name = "radioButton22";
 			this.radioButton22.Size = new System.Drawing.Size(183, 17);
-			this.radioButton22.TabIndex = 7;
+			this.radioButton22.TabIndex = 16;
 			this.radioButton22.TabStop = true;
 			this.radioButton22.Text = "Resumo de locações por período";
 			this.radioButton22.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@
 			this.radioButton24.Location = new System.Drawing.Point(7, 235);
 			this.radioButton24.Name = "radioButton24";
 			this.radioButton24.Size = new System.Drawing.Size(166, 17);
-			this.radioButton24.TabIndex = 16;
+			this.radioButton24.TabIndex = 11;
 			this.radioButton24.TabStop = true;
 			this.radioButton24.Text = "Km média rodada por locação";
 			this.radioButton24.UseVisualStyleBackColor = true;
@@ -229,7 +229,7 @@
 			this.radioButton20.Location = new System.Drawing.Point(7, 304);
 			this.radioButton20.Name = "radioButton20";
 			this.radioButton20.Size = new System.Drawing.Size(171, 17);
-			this.radioButton20.TabIndex = 5;
+			this.radioButton20.TabIndex = 14;
 			this.radioButton20.TabStop = true;
 			this.radioButton20.Text = "Resumo de gastos por período";
 			this.radioButton20.UseVisualStyleBackColor = true;
@@ -240,7 +240,7 @@
 			this.radioButton21.Location = new System.Drawing.Point(7, 327);
 			this.radioButton21.Name = "radioButton21";
 			this.radioButton21.Size = new System.Drawing.Size(170, 17);
-			this.radioButton21.TabIndex = 6;
+			this.radioButton21.TabIndex = 15;
 			this.radioButton21.TabStop = true;
 			this.radioButton21.Text = "Resumo de locações por carro";
 			this.radioButton21.UseVisualStyleBackColor = true;
@@ -251,7 +251,7 @@
 			this.radioButton23.Location = new System.Drawing.Point(7, 216);
 			this.radioButton23.Name = "radioButton23";
 			this.radioButton23.Size = new System.Drawing.Size(135, 17);
-			this.radioButton23.TabIndex = 15;
+			this.radioButton23.TabIndex = 10;
 			this.radioButton23.TabStop = true;
 			this.radioButton23.Text = "Idade média dos carros";
 			this.radioButton23.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
 			this.radioButton19.Location = new System.Drawing.Point(7, 281);
 			this.radioButton19.Name = "radioButton19";
 			this.radioButton19.Size = new System.Drawing.Size(158, 17);
-			this.radioButton19.TabIndex = 4;
+			this.radioButton19.TabIndex = 13;
 			this.radioButton19.TabStop = true;
 			this.radioButton19.Text = "Resumo de gastos por carro";
 			this.radioButton19.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
 			this.radioSinistroVeiculo.Location = new System.Drawing.Point(7, 106);
 			this.radioSinistroVeiculo.Name = "radioSinistroVeiculo";
 			this.radioSinistroVeiculo.Size = new System.Drawing.Size(179, 17);
-			this.radioSinistroVeiculo.TabIndex = 20;
+			this.radioSinistroVeiculo.TabIndex = 4;
 			this.radioSinistroVeiculo.TabStop = true;
 			this.radioSinistroVeiculo.Text = "Listagem de sinistros por veículo";
 			this.radioSinistroVeiculo.UseVisualStyleBackColor = true;

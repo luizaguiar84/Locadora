@@ -46,6 +46,7 @@
 			// txtCargo
 			// 
 			this.txtCargo.Location = new System.Drawing.Point(55, 12);
+			this.txtCargo.MaxLength = 50;
 			this.txtCargo.Name = "txtCargo";
 			this.txtCargo.Size = new System.Drawing.Size(261, 20);
 			this.txtCargo.TabIndex = 1;

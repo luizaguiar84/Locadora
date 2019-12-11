@@ -78,6 +78,7 @@
 			// txtPesquisa
 			// 
 			this.txtPesquisa.Location = new System.Drawing.Point(174, 56);
+			this.txtPesquisa.MaxLength = 50;
 			this.txtPesquisa.Name = "txtPesquisa";
 			this.txtPesquisa.Size = new System.Drawing.Size(312, 20);
 			this.txtPesquisa.TabIndex = 14;

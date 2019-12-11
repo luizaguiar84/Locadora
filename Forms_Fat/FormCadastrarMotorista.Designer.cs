@@ -64,9 +64,10 @@
 			// txtCnh
 			// 
 			this.txtCnh.Location = new System.Drawing.Point(15, 70);
+			this.txtCnh.MaxLength = 20;
 			this.txtCnh.Name = "txtCnh";
 			this.txtCnh.Size = new System.Drawing.Size(219, 20);
-			this.txtCnh.TabIndex = 5;
+			this.txtCnh.TabIndex = 1;
 			// 
 			// label3
 			// 
@@ -82,7 +83,7 @@
 			this.btnSalvar.Location = new System.Drawing.Point(127, 166);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(75, 35);
-			this.btnSalvar.TabIndex = 10;
+			this.btnSalvar.TabIndex = 5;
 			this.btnSalvar.Text = "Salvar";
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.Button3_Click);
@@ -111,7 +112,7 @@
 			this.dateEmitida.Location = new System.Drawing.Point(15, 115);
 			this.dateEmitida.Name = "dateEmitida";
 			this.dateEmitida.Size = new System.Drawing.Size(85, 20);
-			this.dateEmitida.TabIndex = 247;
+			this.dateEmitida.TabIndex = 3;
 			// 
 			// dateValidade
 			// 
@@ -119,12 +120,13 @@
 			this.dateValidade.Location = new System.Drawing.Point(117, 114);
 			this.dateValidade.Name = "dateValidade";
 			this.dateValidade.Size = new System.Drawing.Size(85, 20);
-			this.dateValidade.TabIndex = 248;
+			this.dateValidade.TabIndex = 4;
 			// 
 			// txtNomeMotorista
 			// 
 			this.txtNomeMotorista.Location = new System.Drawing.Point(12, 31);
 			this.txtNomeMotorista.Name = "txtNomeMotorista";
+			this.txtNomeMotorista.ReadOnly = true;
 			this.txtNomeMotorista.Size = new System.Drawing.Size(267, 20);
 			this.txtNomeMotorista.TabIndex = 249;
 			// 
@@ -145,7 +147,7 @@
 			this.comboCategoria.Location = new System.Drawing.Point(241, 68);
 			this.comboCategoria.Name = "comboCategoria";
 			this.comboCategoria.Size = new System.Drawing.Size(38, 21);
-			this.comboCategoria.TabIndex = 250;
+			this.comboCategoria.TabIndex = 2;
 			// 
 			// comboMotoristas
 			// 
@@ -155,6 +157,7 @@
 			this.comboMotoristas.Name = "comboMotoristas";
 			this.comboMotoristas.Size = new System.Drawing.Size(264, 21);
 			this.comboMotoristas.TabIndex = 251;
+			this.comboMotoristas.TabStop = false;
 			this.comboMotoristas.Visible = false;
 			// 
 			// FormCadastrarMotorista

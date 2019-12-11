@@ -44,9 +44,9 @@
 			this.lblNivelAcesso = new System.Windows.Forms.Label();
 			this.btnSalvar = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.txtCargo = new System.Windows.Forms.TextBox();
 			this.lblEmail = new System.Windows.Forms.Label();
 			this.txtRegFuncionario = new System.Windows.Forms.TextBox();
-			this.txtCargo = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -84,7 +84,7 @@
 			this.txtConfirmaSenha.Name = "txtConfirmaSenha";
 			this.txtConfirmaSenha.PasswordChar = '*';
 			this.txtConfirmaSenha.Size = new System.Drawing.Size(266, 20);
-			this.txtConfirmaSenha.TabIndex = 7;
+			this.txtConfirmaSenha.TabIndex = 5;
 			// 
 			// txtSenha
 			// 
@@ -92,7 +92,7 @@
 			this.txtSenha.Name = "txtSenha";
 			this.txtSenha.PasswordChar = '*';
 			this.txtSenha.Size = new System.Drawing.Size(266, 20);
-			this.txtSenha.TabIndex = 6;
+			this.txtSenha.TabIndex = 4;
 			// 
 			// lblCargo
 			// 
@@ -108,7 +108,7 @@
 			this.txtUsuario.Location = new System.Drawing.Point(18, 197);
 			this.txtUsuario.Name = "txtUsuario";
 			this.txtUsuario.Size = new System.Drawing.Size(266, 20);
-			this.txtUsuario.TabIndex = 5;
+			this.txtUsuario.TabIndex = 3;
 			// 
 			// ComboNivelAcesso
 			// 
@@ -121,7 +121,7 @@
 			this.ComboNivelAcesso.Location = new System.Drawing.Point(223, 157);
 			this.ComboNivelAcesso.Name = "ComboNivelAcesso";
 			this.ComboNivelAcesso.Size = new System.Drawing.Size(61, 21);
-			this.ComboNivelAcesso.TabIndex = 4;
+			this.ComboNivelAcesso.TabIndex = 2;
 			// 
 			// lblNomeUsuario
 			// 
@@ -157,6 +157,7 @@
 			this.txtNome.ReadOnly = true;
 			this.txtNome.Size = new System.Drawing.Size(266, 20);
 			this.txtNome.TabIndex = 1;
+			this.txtNome.TabStop = false;
 			// 
 			// lblNivelAcesso
 			// 
@@ -173,7 +174,7 @@
 			this.btnSalvar.Location = new System.Drawing.Point(93, 301);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(105, 40);
-			this.btnSalvar.TabIndex = 8;
+			this.btnSalvar.TabIndex = 6;
 			this.btnSalvar.Text = "Salvar";
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -203,6 +204,15 @@
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			// 
+			// txtCargo
+			// 
+			this.txtCargo.Location = new System.Drawing.Point(18, 157);
+			this.txtCargo.Name = "txtCargo";
+			this.txtCargo.ReadOnly = true;
+			this.txtCargo.Size = new System.Drawing.Size(190, 20);
+			this.txtCargo.TabIndex = 18;
+			this.txtCargo.TabStop = false;
+			// 
 			// lblEmail
 			// 
 			this.lblEmail.AutoSize = true;
@@ -218,18 +228,12 @@
 			this.txtRegFuncionario.Name = "txtRegFuncionario";
 			this.txtRegFuncionario.ReadOnly = true;
 			this.txtRegFuncionario.Size = new System.Drawing.Size(120, 20);
-			this.txtRegFuncionario.TabIndex = 14;
-			// 
-			// txtCargo
-			// 
-			this.txtCargo.Location = new System.Drawing.Point(18, 157);
-			this.txtCargo.Name = "txtCargo";
-			this.txtCargo.ReadOnly = true;
-			this.txtCargo.Size = new System.Drawing.Size(190, 20);
-			this.txtCargo.TabIndex = 18;
+			this.txtRegFuncionario.TabIndex = 2;
+			this.txtRegFuncionario.TabStop = false;
 			// 
 			// FormControleUsuarios
 			// 
+			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(342, 381);

@@ -110,7 +110,7 @@
 			this.comboFiltro.Location = new System.Drawing.Point(84, 37);
 			this.comboFiltro.Name = "comboFiltro";
 			this.comboFiltro.Size = new System.Drawing.Size(137, 21);
-			this.comboFiltro.TabIndex = 4;
+			this.comboFiltro.TabIndex = 1;
 			// 
 			// label14
 			// 
@@ -126,7 +126,7 @@
 			this.btnBuscar.Location = new System.Drawing.Point(421, 34);
 			this.btnBuscar.Name = "btnBuscar";
 			this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-			this.btnBuscar.TabIndex = 2;
+			this.btnBuscar.TabIndex = 3;
 			this.btnBuscar.Text = "Buscar...";
 			this.btnBuscar.UseVisualStyleBackColor = true;
 			this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
@@ -134,9 +134,10 @@
 			// txtPesquisar
 			// 
 			this.txtPesquisar.Location = new System.Drawing.Point(236, 37);
+			this.txtPesquisar.MaxLength = 20;
 			this.txtPesquisar.Name = "txtPesquisar";
 			this.txtPesquisar.Size = new System.Drawing.Size(167, 20);
-			this.txtPesquisar.TabIndex = 1;
+			this.txtPesquisar.TabIndex = 2;
 			// 
 			// label13
 			// 
@@ -175,14 +176,15 @@
 			this.dateEntrada.Location = new System.Drawing.Point(86, 20);
 			this.dateEntrada.Name = "dateEntrada";
 			this.dateEntrada.Size = new System.Drawing.Size(229, 20);
-			this.dateEntrada.TabIndex = 70;
+			this.dateEntrada.TabIndex = 1;
 			// 
 			// txtIncluidoPor
 			// 
 			this.txtIncluidoPor.Location = new System.Drawing.Point(83, 101);
+			this.txtIncluidoPor.MaxLength = 50;
 			this.txtIncluidoPor.Name = "txtIncluidoPor";
 			this.txtIncluidoPor.Size = new System.Drawing.Size(465, 20);
-			this.txtIncluidoPor.TabIndex = 68;
+			this.txtIncluidoPor.TabIndex = 4;
 			// 
 			// label1
 			// 
@@ -205,9 +207,10 @@
 			// txtObservacoes
 			// 
 			this.txtObservacoes.Location = new System.Drawing.Point(83, 155);
+			this.txtObservacoes.MaxLength = 250;
 			this.txtObservacoes.Name = "txtObservacoes";
 			this.txtObservacoes.Size = new System.Drawing.Size(476, 68);
-			this.txtObservacoes.TabIndex = 63;
+			this.txtObservacoes.TabIndex = 5;
 			this.txtObservacoes.Text = "";
 			// 
 			// label3
@@ -222,10 +225,10 @@
 			// txtValorUnitEntrada
 			// 
 			this.txtValorUnitEntrada.Location = new System.Drawing.Point(471, 58);
-			this.txtValorUnitEntrada.MaxLength = 4;
+			this.txtValorUnitEntrada.MaxLength = 8;
 			this.txtValorUnitEntrada.Name = "txtValorUnitEntrada";
 			this.txtValorUnitEntrada.Size = new System.Drawing.Size(77, 20);
-			this.txtValorUnitEntrada.TabIndex = 61;
+			this.txtValorUnitEntrada.TabIndex = 3;
 			this.txtValorUnitEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorUnitEntrada_KeyPress);
 			// 
 			// label10
@@ -240,7 +243,7 @@
 			// txtQuantidadeEntrada
 			// 
 			this.txtQuantidadeEntrada.Location = new System.Drawing.Point(404, 58);
-			this.txtQuantidadeEntrada.MaxLength = 4;
+			this.txtQuantidadeEntrada.MaxLength = 8;
 			this.txtQuantidadeEntrada.Name = "txtQuantidadeEntrada";
 			this.txtQuantidadeEntrada.Size = new System.Drawing.Size(61, 20);
 			this.txtQuantidadeEntrada.TabIndex = 58;
@@ -268,9 +271,10 @@
 			// txtNomeEntrada
 			// 
 			this.txtNomeEntrada.Location = new System.Drawing.Point(83, 58);
+			this.txtNomeEntrada.MaxLength = 50;
 			this.txtNomeEntrada.Name = "txtNomeEntrada";
 			this.txtNomeEntrada.Size = new System.Drawing.Size(315, 20);
-			this.txtNomeEntrada.TabIndex = 56;
+			this.txtNomeEntrada.TabIndex = 2;
 			// 
 			// label12
 			// 
@@ -314,6 +318,7 @@
 			this.txtIdSaida.ReadOnly = true;
 			this.txtIdSaida.Size = new System.Drawing.Size(61, 20);
 			this.txtIdSaida.TabIndex = 73;
+			this.txtIdSaida.TabStop = false;
 			this.txtIdSaida.TextChanged += new System.EventHandler(this.txtIdSaida_TextChanged);
 			// 
 			// label15
@@ -330,14 +335,15 @@
 			this.dateSaida.Location = new System.Drawing.Point(84, 19);
 			this.dateSaida.Name = "dateSaida";
 			this.dateSaida.Size = new System.Drawing.Size(230, 20);
-			this.dateSaida.TabIndex = 71;
+			this.dateSaida.TabIndex = 1;
 			// 
 			// txtRetirado
 			// 
 			this.txtRetirado.Location = new System.Drawing.Point(84, 101);
+			this.txtRetirado.MaxLength = 50;
 			this.txtRetirado.Name = "txtRetirado";
 			this.txtRetirado.Size = new System.Drawing.Size(465, 20);
-			this.txtRetirado.TabIndex = 54;
+			this.txtRetirado.TabIndex = 3;
 			// 
 			// label9
 			// 
@@ -362,7 +368,7 @@
 			this.txtObservacoesSaida.Location = new System.Drawing.Point(84, 155);
 			this.txtObservacoesSaida.Name = "txtObservacoesSaida";
 			this.txtObservacoesSaida.Size = new System.Drawing.Size(476, 68);
-			this.txtObservacoesSaida.TabIndex = 49;
+			this.txtObservacoesSaida.TabIndex = 4;
 			this.txtObservacoesSaida.Text = "";
 			// 
 			// label5
@@ -382,6 +388,7 @@
 			this.txtValorUnitSaida.ReadOnly = true;
 			this.txtValorUnitSaida.Size = new System.Drawing.Size(77, 20);
 			this.txtValorUnitSaida.TabIndex = 47;
+			this.txtValorUnitSaida.TabStop = false;
 			// 
 			// label6
 			// 
@@ -395,10 +402,10 @@
 			// txtQuantidadeSaida
 			// 
 			this.txtQuantidadeSaida.Location = new System.Drawing.Point(405, 58);
-			this.txtQuantidadeSaida.MaxLength = 4;
+			this.txtQuantidadeSaida.MaxLength = 8;
 			this.txtQuantidadeSaida.Name = "txtQuantidadeSaida";
 			this.txtQuantidadeSaida.Size = new System.Drawing.Size(61, 20);
-			this.txtQuantidadeSaida.TabIndex = 44;
+			this.txtQuantidadeSaida.TabIndex = 2;
 			this.txtQuantidadeSaida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidadeSaida_KeyPress);
 			// 
 			// btnSalvarSaida
@@ -406,7 +413,7 @@
 			this.btnSalvarSaida.Location = new System.Drawing.Point(260, 225);
 			this.btnSalvarSaida.Name = "btnSalvarSaida";
 			this.btnSalvarSaida.Size = new System.Drawing.Size(105, 40);
-			this.btnSalvarSaida.TabIndex = 45;
+			this.btnSalvarSaida.TabIndex = 5;
 			this.btnSalvarSaida.Text = "Salvar";
 			this.btnSalvarSaida.UseVisualStyleBackColor = true;
 			this.btnSalvarSaida.Click += new System.EventHandler(this.btnSalvarSaida_Click);
@@ -427,6 +434,7 @@
 			this.txtNomeSaida.ReadOnly = true;
 			this.txtNomeSaida.Size = new System.Drawing.Size(315, 20);
 			this.txtNomeSaida.TabIndex = 42;
+			this.txtNomeSaida.TabStop = false;
 			// 
 			// label8
 			// 
@@ -452,6 +460,7 @@
 			// 
 			// FormControleEstoque
 			// 
+			this.AcceptButton = this.btnBuscar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(748, 515);

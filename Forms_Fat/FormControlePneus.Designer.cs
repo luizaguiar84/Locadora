@@ -79,7 +79,7 @@ namespace Dll_Forms_Fat
 			this.txtMarca.Location = new System.Drawing.Point(20, 65);
 			this.txtMarca.Name = "txtMarca";
 			this.txtMarca.Size = new System.Drawing.Size(177, 20);
-			this.txtMarca.TabIndex = 7;
+			this.txtMarca.TabIndex = 3;
 			// 
 			// lblMarca
 			// 
@@ -95,7 +95,7 @@ namespace Dll_Forms_Fat
 			this.txtModelo.Location = new System.Drawing.Point(216, 65);
 			this.txtModelo.Name = "txtModelo";
 			this.txtModelo.Size = new System.Drawing.Size(173, 20);
-			this.txtModelo.TabIndex = 9;
+			this.txtModelo.TabIndex = 4;
 			// 
 			// lblModelo
 			// 
@@ -118,7 +118,7 @@ namespace Dll_Forms_Fat
 			this.comboEstado.Location = new System.Drawing.Point(20, 104);
 			this.comboEstado.Name = "comboEstado";
 			this.comboEstado.Size = new System.Drawing.Size(177, 21);
-			this.comboEstado.TabIndex = 10;
+			this.comboEstado.TabIndex = 5;
 			// 
 			// lblEstado
 			// 
@@ -142,7 +142,7 @@ namespace Dll_Forms_Fat
 			this.btnAddPneu.Location = new System.Drawing.Point(216, 101);
 			this.btnAddPneu.Name = "btnAddPneu";
 			this.btnAddPneu.Size = new System.Drawing.Size(75, 23);
-			this.btnAddPneu.TabIndex = 13;
+			this.btnAddPneu.TabIndex = 6;
 			this.btnAddPneu.Text = "Adicionar";
 			this.btnAddPneu.UseVisualStyleBackColor = true;
 			this.btnAddPneu.Click += new System.EventHandler(this.BtnAddPneu_Click);
@@ -153,10 +153,11 @@ namespace Dll_Forms_Fat
 			this.datePneu.Location = new System.Drawing.Point(216, 26);
 			this.datePneu.Name = "datePneu";
 			this.datePneu.Size = new System.Drawing.Size(96, 20);
-			this.datePneu.TabIndex = 14;
+			this.datePneu.TabIndex = 2;
 			// 
 			// FormControlePneus
 			// 
+			this.AcceptButton = this.btnAddPneu;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(611, 363);

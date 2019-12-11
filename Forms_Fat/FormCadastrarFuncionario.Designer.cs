@@ -128,6 +128,7 @@
 			// richTextBox1
 			// 
 			this.richTextBox1.Location = new System.Drawing.Point(23, 379);
+			this.richTextBox1.MaxLength = 250;
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.Size = new System.Drawing.Size(516, 61);
 			this.richTextBox1.TabIndex = 354;
@@ -154,6 +155,7 @@
 			// txtTitEleitor
 			// 
 			this.txtTitEleitor.Location = new System.Drawing.Point(522, 132);
+			this.txtTitEleitor.MaxLength = 20;
 			this.txtTitEleitor.Name = "txtTitEleitor";
 			this.txtTitEleitor.Size = new System.Drawing.Size(115, 20);
 			this.txtTitEleitor.TabIndex = 12;
@@ -170,6 +172,7 @@
 			// txtPIS
 			// 
 			this.txtPIS.Location = new System.Drawing.Point(385, 133);
+			this.txtPIS.MaxLength = 20;
 			this.txtPIS.Name = "txtPIS";
 			this.txtPIS.Size = new System.Drawing.Size(125, 20);
 			this.txtPIS.TabIndex = 11;
@@ -186,6 +189,7 @@
 			// txtCTPS
 			// 
 			this.txtCTPS.Location = new System.Drawing.Point(240, 133);
+			this.txtCTPS.MaxLength = 20;
 			this.txtCTPS.Name = "txtCTPS";
 			this.txtCTPS.Size = new System.Drawing.Size(139, 20);
 			this.txtCTPS.TabIndex = 10;
@@ -325,6 +329,7 @@
 			// txtComplemento
 			// 
 			this.txtComplemento.Location = new System.Drawing.Point(521, 39);
+			this.txtComplemento.MaxLength = 50;
 			this.txtComplemento.Name = "txtComplemento";
 			this.txtComplemento.Size = new System.Drawing.Size(202, 20);
 			this.txtComplemento.TabIndex = 311;
@@ -414,6 +419,7 @@
 			this.maskedCpf.Size = new System.Drawing.Size(87, 20);
 			this.maskedCpf.TabIndex = 2;
 			this.maskedCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+			this.maskedCpf.Leave += new System.EventHandler(this.maskedCpf_Leave_1);
 			// 
 			// lblCpf
 			// 
@@ -464,6 +470,7 @@
 			// txtEmail
 			// 
 			this.txtEmail.Location = new System.Drawing.Point(19, 91);
+			this.txtEmail.MaxLength = 50;
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(402, 20);
 			this.txtEmail.TabIndex = 4;
@@ -471,6 +478,7 @@
 			// txtNome
 			// 
 			this.txtNome.Location = new System.Drawing.Point(96, 52);
+			this.txtNome.MaxLength = 50;
 			this.txtNome.Name = "txtNome";
 			this.txtNome.Size = new System.Drawing.Size(433, 20);
 			this.txtNome.TabIndex = 1;

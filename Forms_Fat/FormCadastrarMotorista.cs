@@ -53,6 +53,7 @@ namespace Dll_Forms_Fat
 					cnh.Id = funcionario.Cnh.Id;
 					funcionario.Cnh = cnh;
 				}
+
 				funcionario.Disponivel = true;
 
 				if (new FuncionariosDao().DbUpdate(funcionario))
@@ -95,7 +96,10 @@ namespace Dll_Forms_Fat
 		private void FormCadastrarMotorista_Load(object sender, EventArgs e)
 		{
 			comboCategoria.SelectedIndex = 0;
-			this.Controls.LimparTextBoxes();
+			if (funcionario == null)
+			{
+				this.Controls.LimparTextBoxes();
+			}
 		}
 
 		private void CarregaMotoristas()

@@ -49,6 +49,7 @@
     <Compile Include="BaseModel.cs" />
     <Compile Include="Cargos.cs" />
     <Compile Include="ClienteLocacao.cs" />
+    <Compile Include="ControleDeAcesso.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MotoristasBuilder.cs" />
     <Compile Include="ClientesPJBuilder.cs" />

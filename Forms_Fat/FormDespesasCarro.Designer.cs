@@ -31,11 +31,11 @@
 			this.TabCadastroVeiculos = new System.Windows.Forms.TabControl();
 			this.tabAbastecimentos = new System.Windows.Forms.TabPage();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.button2 = new System.Windows.Forms.Button();
+			this.btnConsultaAbastecimento = new System.Windows.Forms.Button();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dateFinalAbastecimento = new System.Windows.Forms.DateTimePicker();
+			this.dataInicioAbastecimento = new System.Windows.Forms.DateTimePicker();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.dataAbastecimento = new System.Windows.Forms.DataGridView();
 			this.groupAbastecimento = new System.Windows.Forms.GroupBox();
@@ -52,11 +52,11 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.tabManutencao = new System.Windows.Forms.TabPage();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.button4 = new System.Windows.Forms.Button();
+			this.btnConsultaManutencao = new System.Windows.Forms.Button();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
-			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+			this.dateFinalManutencao = new System.Windows.Forms.DateTimePicker();
+			this.dateInicioManut = new System.Windows.Forms.DateTimePicker();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
 			this.dataGridManutencao = new System.Windows.Forms.DataGridView();
 			this.groupManutencao = new System.Windows.Forms.GroupBox();
@@ -71,11 +71,11 @@
 			this.label16 = new System.Windows.Forms.Label();
 			this.tabSinistros = new System.Windows.Forms.TabPage();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.button5 = new System.Windows.Forms.Button();
+			this.btnConsultaSinistro = new System.Windows.Forms.Button();
 			this.label18 = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
-			this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+			this.dateFinalSinistro = new System.Windows.Forms.DateTimePicker();
+			this.dateInicioSinistro = new System.Windows.Forms.DateTimePicker();
 			this.groupBox8 = new System.Windows.Forms.GroupBox();
 			this.dataGridSinistros = new System.Windows.Forms.DataGridView();
 			this.groupSinistros = new System.Windows.Forms.GroupBox();
@@ -91,8 +91,6 @@
 			this.tabObrigacoes = new System.Windows.Forms.TabPage();
 			this.txtTipoObrigacao = new System.Windows.Forms.TextBox();
 			this.dateObrigacoes = new System.Windows.Forms.DateTimePicker();
-			this.lblValorTotalObrigacoes = new System.Windows.Forms.Label();
-			this.label28 = new System.Windows.Forms.Label();
 			this.groupBox10 = new System.Windows.Forms.GroupBox();
 			this.dataGridObrigacoes = new System.Windows.Forms.DataGridView();
 			this.label27 = new System.Windows.Forms.Label();
@@ -152,7 +150,7 @@
 			this.TabCadastroVeiculos.Name = "TabCadastroVeiculos";
 			this.TabCadastroVeiculos.SelectedIndex = 0;
 			this.TabCadastroVeiculos.Size = new System.Drawing.Size(760, 380);
-			this.TabCadastroVeiculos.TabIndex = 18;
+			this.TabCadastroVeiculos.TabIndex = 1;
 			// 
 			// tabAbastecimentos
 			// 
@@ -169,11 +167,11 @@
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.button2);
+			this.groupBox3.Controls.Add(this.btnConsultaAbastecimento);
 			this.groupBox3.Controls.Add(this.label11);
 			this.groupBox3.Controls.Add(this.label10);
-			this.groupBox3.Controls.Add(this.dateTimePicker2);
-			this.groupBox3.Controls.Add(this.dateTimePicker1);
+			this.groupBox3.Controls.Add(this.dateFinalAbastecimento);
+			this.groupBox3.Controls.Add(this.dataInicioAbastecimento);
 			this.groupBox3.Location = new System.Drawing.Point(7, 250);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(738, 79);
@@ -181,14 +179,15 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Consulta por Período:";
 			// 
-			// button2
+			// btnConsultaAbastecimento
 			// 
-			this.button2.Location = new System.Drawing.Point(541, 34);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(69, 20);
-			this.button2.TabIndex = 13;
-			this.button2.Text = "Consultar...";
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnConsultaAbastecimento.Location = new System.Drawing.Point(541, 34);
+			this.btnConsultaAbastecimento.Name = "btnConsultaAbastecimento";
+			this.btnConsultaAbastecimento.Size = new System.Drawing.Size(69, 20);
+			this.btnConsultaAbastecimento.TabIndex = 13;
+			this.btnConsultaAbastecimento.Text = "Consultar...";
+			this.btnConsultaAbastecimento.UseVisualStyleBackColor = true;
+			this.btnConsultaAbastecimento.Click += new System.EventHandler(this.btnConsultaAbastecimento_Click);
 			// 
 			// label11
 			// 
@@ -208,19 +207,19 @@
 			this.label10.TabIndex = 2;
 			this.label10.Text = "De:";
 			// 
-			// dateTimePicker2
+			// dateFinalAbastecimento
 			// 
-			this.dateTimePicker2.Location = new System.Drawing.Point(293, 34);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(229, 20);
-			this.dateTimePicker2.TabIndex = 1;
+			this.dateFinalAbastecimento.Location = new System.Drawing.Point(293, 34);
+			this.dateFinalAbastecimento.Name = "dateFinalAbastecimento";
+			this.dateFinalAbastecimento.Size = new System.Drawing.Size(229, 20);
+			this.dateFinalAbastecimento.TabIndex = 1;
 			// 
-			// dateTimePicker1
+			// dataInicioAbastecimento
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(41, 35);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(227, 20);
-			this.dateTimePicker1.TabIndex = 0;
+			this.dataInicioAbastecimento.Location = new System.Drawing.Point(41, 35);
+			this.dataInicioAbastecimento.Name = "dataInicioAbastecimento";
+			this.dataInicioAbastecimento.Size = new System.Drawing.Size(227, 20);
+			this.dataInicioAbastecimento.TabIndex = 0;
 			// 
 			// groupBox2
 			// 
@@ -269,14 +268,14 @@
 			this.dateAbastecimento.Location = new System.Drawing.Point(6, 40);
 			this.dateAbastecimento.Name = "dateAbastecimento";
 			this.dateAbastecimento.Size = new System.Drawing.Size(101, 20);
-			this.dateAbastecimento.TabIndex = 13;
+			this.dateAbastecimento.TabIndex = 1;
 			// 
 			// btnAddAbastecimento
 			// 
 			this.btnAddAbastecimento.Location = new System.Drawing.Point(618, 40);
 			this.btnAddAbastecimento.Name = "btnAddAbastecimento";
 			this.btnAddAbastecimento.Size = new System.Drawing.Size(23, 20);
-			this.btnAddAbastecimento.TabIndex = 12;
+			this.btnAddAbastecimento.TabIndex = 5;
 			this.btnAddAbastecimento.Text = "+";
 			this.btnAddAbastecimento.UseVisualStyleBackColor = true;
 			this.btnAddAbastecimento.Click += new System.EventHandler(this.BtnAddAbastecimento_Click);
@@ -288,6 +287,7 @@
 			this.txtTotalAbastecimento.ReadOnly = true;
 			this.txtTotalAbastecimento.Size = new System.Drawing.Size(100, 20);
 			this.txtTotalAbastecimento.TabIndex = 11;
+			this.txtTotalAbastecimento.TabStop = false;
 			// 
 			// lblTotal
 			// 
@@ -304,7 +304,7 @@
 			this.txtValorUnitAbastecimento.MaxLength = 6;
 			this.txtValorUnitAbastecimento.Name = "txtValorUnitAbastecimento";
 			this.txtValorUnitAbastecimento.Size = new System.Drawing.Size(100, 20);
-			this.txtValorUnitAbastecimento.TabIndex = 9;
+			this.txtValorUnitAbastecimento.TabIndex = 4;
 			this.txtValorUnitAbastecimento.TextChanged += new System.EventHandler(this.txtValorUnitAbastecimento_TextChanged);
 			this.txtValorUnitAbastecimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorUnitAbastecimento_KeyPress);
 			// 
@@ -342,7 +342,7 @@
 			this.comboCombustivelAbastecimento.Location = new System.Drawing.Point(148, 40);
 			this.comboCombustivelAbastecimento.Name = "comboCombustivelAbastecimento";
 			this.comboCombustivelAbastecimento.Size = new System.Drawing.Size(121, 21);
-			this.comboCombustivelAbastecimento.TabIndex = 4;
+			this.comboCombustivelAbastecimento.TabIndex = 2;
 			// 
 			// txtQtdLitrosAbastecimento
 			// 
@@ -350,7 +350,7 @@
 			this.txtQtdLitrosAbastecimento.MaxLength = 3;
 			this.txtQtdLitrosAbastecimento.Name = "txtQtdLitrosAbastecimento";
 			this.txtQtdLitrosAbastecimento.Size = new System.Drawing.Size(100, 20);
-			this.txtQtdLitrosAbastecimento.TabIndex = 7;
+			this.txtQtdLitrosAbastecimento.TabIndex = 3;
 			this.txtQtdLitrosAbastecimento.TextChanged += new System.EventHandler(this.txtQtdLitrosAbastecimento_TextChanged);
 			this.txtQtdLitrosAbastecimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdLitrosAbastecimento_KeyPress);
 			// 
@@ -387,11 +387,11 @@
 			// 
 			// groupBox5
 			// 
-			this.groupBox5.Controls.Add(this.button4);
+			this.groupBox5.Controls.Add(this.btnConsultaManutencao);
 			this.groupBox5.Controls.Add(this.label13);
 			this.groupBox5.Controls.Add(this.label17);
-			this.groupBox5.Controls.Add(this.dateTimePicker3);
-			this.groupBox5.Controls.Add(this.dateTimePicker4);
+			this.groupBox5.Controls.Add(this.dateFinalManutencao);
+			this.groupBox5.Controls.Add(this.dateInicioManut);
 			this.groupBox5.Location = new System.Drawing.Point(8, 262);
 			this.groupBox5.Name = "groupBox5";
 			this.groupBox5.Size = new System.Drawing.Size(738, 79);
@@ -399,14 +399,15 @@
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Consulta por Período:";
 			// 
-			// button4
+			// btnConsultaManutencao
 			// 
-			this.button4.Location = new System.Drawing.Point(541, 34);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(69, 20);
-			this.button4.TabIndex = 13;
-			this.button4.Text = "Consultar...";
-			this.button4.UseVisualStyleBackColor = true;
+			this.btnConsultaManutencao.Location = new System.Drawing.Point(541, 34);
+			this.btnConsultaManutencao.Name = "btnConsultaManutencao";
+			this.btnConsultaManutencao.Size = new System.Drawing.Size(69, 20);
+			this.btnConsultaManutencao.TabIndex = 13;
+			this.btnConsultaManutencao.Text = "Consultar...";
+			this.btnConsultaManutencao.UseVisualStyleBackColor = true;
+			this.btnConsultaManutencao.Click += new System.EventHandler(this.btnConsultaManutencao_Click);
 			// 
 			// label13
 			// 
@@ -426,19 +427,19 @@
 			this.label17.TabIndex = 2;
 			this.label17.Text = "De:";
 			// 
-			// dateTimePicker3
+			// dateFinalManutencao
 			// 
-			this.dateTimePicker3.Location = new System.Drawing.Point(293, 34);
-			this.dateTimePicker3.Name = "dateTimePicker3";
-			this.dateTimePicker3.Size = new System.Drawing.Size(229, 20);
-			this.dateTimePicker3.TabIndex = 1;
+			this.dateFinalManutencao.Location = new System.Drawing.Point(293, 34);
+			this.dateFinalManutencao.Name = "dateFinalManutencao";
+			this.dateFinalManutencao.Size = new System.Drawing.Size(229, 20);
+			this.dateFinalManutencao.TabIndex = 1;
 			// 
-			// dateTimePicker4
+			// dateInicioManut
 			// 
-			this.dateTimePicker4.Location = new System.Drawing.Point(41, 35);
-			this.dateTimePicker4.Name = "dateTimePicker4";
-			this.dateTimePicker4.Size = new System.Drawing.Size(227, 20);
-			this.dateTimePicker4.TabIndex = 0;
+			this.dateInicioManut.Location = new System.Drawing.Point(41, 35);
+			this.dateInicioManut.Name = "dateInicioManut";
+			this.dateInicioManut.Size = new System.Drawing.Size(227, 20);
+			this.dateInicioManut.TabIndex = 0;
 			// 
 			// groupBox6
 			// 
@@ -482,14 +483,15 @@
 			this.dateManutencao.Location = new System.Drawing.Point(1, 40);
 			this.dateManutencao.Name = "dateManutencao";
 			this.dateManutencao.Size = new System.Drawing.Size(101, 20);
-			this.dateManutencao.TabIndex = 14;
+			this.dateManutencao.TabIndex = 1;
 			// 
 			// txtDescricaoManutencao
 			// 
 			this.txtDescricaoManutencao.Location = new System.Drawing.Point(219, 40);
+			this.txtDescricaoManutencao.MaxLength = 250;
 			this.txtDescricaoManutencao.Name = "txtDescricaoManutencao";
 			this.txtDescricaoManutencao.Size = new System.Drawing.Size(361, 46);
-			this.txtDescricaoManutencao.TabIndex = 13;
+			this.txtDescricaoManutencao.TabIndex = 3;
 			this.txtDescricaoManutencao.Text = "";
 			// 
 			// btnAddManutencao
@@ -497,7 +499,7 @@
 			this.btnAddManutencao.Location = new System.Drawing.Point(709, 40);
 			this.btnAddManutencao.Name = "btnAddManutencao";
 			this.btnAddManutencao.Size = new System.Drawing.Size(23, 20);
-			this.btnAddManutencao.TabIndex = 12;
+			this.btnAddManutencao.TabIndex = 5;
 			this.btnAddManutencao.Text = "+";
 			this.btnAddManutencao.UseVisualStyleBackColor = true;
 			this.btnAddManutencao.Click += new System.EventHandler(this.BtnAddManutencao_Click);
@@ -517,7 +519,7 @@
 			this.txtKmManutencao.MaxLength = 7;
 			this.txtKmManutencao.Name = "txtKmManutencao";
 			this.txtKmManutencao.Size = new System.Drawing.Size(100, 20);
-			this.txtKmManutencao.TabIndex = 1;
+			this.txtKmManutencao.TabIndex = 2;
 			this.txtKmManutencao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmManutencao_KeyPress);
 			// 
 			// txtValorManutencao
@@ -526,7 +528,7 @@
 			this.txtValorManutencao.MaxLength = 6;
 			this.txtValorManutencao.Name = "txtValorManutencao";
 			this.txtValorManutencao.Size = new System.Drawing.Size(100, 20);
-			this.txtValorManutencao.TabIndex = 9;
+			this.txtValorManutencao.TabIndex = 4;
 			this.txtValorManutencao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorManutencao_KeyPress);
 			// 
 			// label14
@@ -570,11 +572,11 @@
 			// 
 			// groupBox7
 			// 
-			this.groupBox7.Controls.Add(this.button5);
+			this.groupBox7.Controls.Add(this.btnConsultaSinistro);
 			this.groupBox7.Controls.Add(this.label18);
 			this.groupBox7.Controls.Add(this.label19);
-			this.groupBox7.Controls.Add(this.dateTimePicker5);
-			this.groupBox7.Controls.Add(this.dateTimePicker6);
+			this.groupBox7.Controls.Add(this.dateFinalSinistro);
+			this.groupBox7.Controls.Add(this.dateInicioSinistro);
 			this.groupBox7.Location = new System.Drawing.Point(8, 266);
 			this.groupBox7.Name = "groupBox7";
 			this.groupBox7.Size = new System.Drawing.Size(738, 79);
@@ -582,14 +584,15 @@
 			this.groupBox7.TabStop = false;
 			this.groupBox7.Text = "Consulta por Período:";
 			// 
-			// button5
+			// btnConsultaSinistro
 			// 
-			this.button5.Location = new System.Drawing.Point(541, 34);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(69, 20);
-			this.button5.TabIndex = 13;
-			this.button5.Text = "Consultar...";
-			this.button5.UseVisualStyleBackColor = true;
+			this.btnConsultaSinistro.Location = new System.Drawing.Point(541, 34);
+			this.btnConsultaSinistro.Name = "btnConsultaSinistro";
+			this.btnConsultaSinistro.Size = new System.Drawing.Size(69, 20);
+			this.btnConsultaSinistro.TabIndex = 13;
+			this.btnConsultaSinistro.Text = "Consultar...";
+			this.btnConsultaSinistro.UseVisualStyleBackColor = true;
+			this.btnConsultaSinistro.Click += new System.EventHandler(this.btnConsultaSinistro_Click);
 			// 
 			// label18
 			// 
@@ -609,19 +612,19 @@
 			this.label19.TabIndex = 2;
 			this.label19.Text = "De:";
 			// 
-			// dateTimePicker5
+			// dateFinalSinistro
 			// 
-			this.dateTimePicker5.Location = new System.Drawing.Point(293, 34);
-			this.dateTimePicker5.Name = "dateTimePicker5";
-			this.dateTimePicker5.Size = new System.Drawing.Size(229, 20);
-			this.dateTimePicker5.TabIndex = 1;
+			this.dateFinalSinistro.Location = new System.Drawing.Point(293, 34);
+			this.dateFinalSinistro.Name = "dateFinalSinistro";
+			this.dateFinalSinistro.Size = new System.Drawing.Size(229, 20);
+			this.dateFinalSinistro.TabIndex = 1;
 			// 
-			// dateTimePicker6
+			// dateInicioSinistro
 			// 
-			this.dateTimePicker6.Location = new System.Drawing.Point(41, 35);
-			this.dateTimePicker6.Name = "dateTimePicker6";
-			this.dateTimePicker6.Size = new System.Drawing.Size(227, 20);
-			this.dateTimePicker6.TabIndex = 0;
+			this.dateInicioSinistro.Location = new System.Drawing.Point(41, 35);
+			this.dateInicioSinistro.Name = "dateInicioSinistro";
+			this.dateInicioSinistro.Size = new System.Drawing.Size(227, 20);
+			this.dateInicioSinistro.TabIndex = 0;
 			// 
 			// groupBox8
 			// 
@@ -668,14 +671,15 @@
 			this.dateSinistros.Location = new System.Drawing.Point(2, 40);
 			this.dateSinistros.Name = "dateSinistros";
 			this.dateSinistros.Size = new System.Drawing.Size(101, 20);
-			this.dateSinistros.TabIndex = 14;
+			this.dateSinistros.TabIndex = 1;
 			// 
 			// txtDescricaoSinistros
 			// 
 			this.txtDescricaoSinistros.Location = new System.Drawing.Point(219, 40);
+			this.txtDescricaoSinistros.MaxLength = 250;
 			this.txtDescricaoSinistros.Name = "txtDescricaoSinistros";
 			this.txtDescricaoSinistros.Size = new System.Drawing.Size(361, 46);
-			this.txtDescricaoSinistros.TabIndex = 13;
+			this.txtDescricaoSinistros.TabIndex = 3;
 			this.txtDescricaoSinistros.Text = "";
 			// 
 			// btnAddSinistros
@@ -683,7 +687,7 @@
 			this.btnAddSinistros.Location = new System.Drawing.Point(709, 40);
 			this.btnAddSinistros.Name = "btnAddSinistros";
 			this.btnAddSinistros.Size = new System.Drawing.Size(23, 20);
-			this.btnAddSinistros.TabIndex = 12;
+			this.btnAddSinistros.TabIndex = 5;
 			this.btnAddSinistros.Text = "+";
 			this.btnAddSinistros.UseVisualStyleBackColor = true;
 			this.btnAddSinistros.Click += new System.EventHandler(this.BtnAddSinistros_Click);
@@ -703,7 +707,7 @@
 			this.txtKmSinistro.MaxLength = 7;
 			this.txtKmSinistro.Name = "txtKmSinistro";
 			this.txtKmSinistro.Size = new System.Drawing.Size(100, 20);
-			this.txtKmSinistro.TabIndex = 1;
+			this.txtKmSinistro.TabIndex = 2;
 			this.txtKmSinistro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmSinistro_KeyPress);
 			// 
 			// txtValorSinistro
@@ -712,7 +716,7 @@
 			this.txtValorSinistro.MaxLength = 7;
 			this.txtValorSinistro.Name = "txtValorSinistro";
 			this.txtValorSinistro.Size = new System.Drawing.Size(100, 20);
-			this.txtValorSinistro.TabIndex = 9;
+			this.txtValorSinistro.TabIndex = 4;
 			this.txtValorSinistro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorSinistro_KeyPress);
 			// 
 			// label21
@@ -747,8 +751,6 @@
 			this.tabObrigacoes.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.tabObrigacoes.Controls.Add(this.txtTipoObrigacao);
 			this.tabObrigacoes.Controls.Add(this.dateObrigacoes);
-			this.tabObrigacoes.Controls.Add(this.lblValorTotalObrigacoes);
-			this.tabObrigacoes.Controls.Add(this.label28);
 			this.tabObrigacoes.Controls.Add(this.groupBox10);
 			this.tabObrigacoes.Controls.Add(this.label27);
 			this.tabObrigacoes.Controls.Add(this.btnAddObrigacoes);
@@ -766,9 +768,10 @@
 			// txtTipoObrigacao
 			// 
 			this.txtTipoObrigacao.Location = new System.Drawing.Point(129, 26);
+			this.txtTipoObrigacao.MaxLength = 50;
 			this.txtTipoObrigacao.Name = "txtTipoObrigacao";
 			this.txtTipoObrigacao.Size = new System.Drawing.Size(372, 20);
-			this.txtTipoObrigacao.TabIndex = 15;
+			this.txtTipoObrigacao.TabIndex = 2;
 			// 
 			// dateObrigacoes
 			// 
@@ -776,26 +779,7 @@
 			this.dateObrigacoes.Location = new System.Drawing.Point(15, 25);
 			this.dateObrigacoes.Name = "dateObrigacoes";
 			this.dateObrigacoes.Size = new System.Drawing.Size(97, 20);
-			this.dateObrigacoes.TabIndex = 14;
-			// 
-			// lblValorTotalObrigacoes
-			// 
-			this.lblValorTotalObrigacoes.AutoSize = true;
-			this.lblValorTotalObrigacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblValorTotalObrigacoes.Location = new System.Drawing.Point(618, 305);
-			this.lblValorTotalObrigacoes.Name = "lblValorTotalObrigacoes";
-			this.lblValorTotalObrigacoes.Size = new System.Drawing.Size(59, 18);
-			this.lblValorTotalObrigacoes.TabIndex = 12;
-			this.lblValorTotalObrigacoes.Text = "R$ 0,00";
-			// 
-			// label28
-			// 
-			this.label28.AutoSize = true;
-			this.label28.Location = new System.Drawing.Point(474, 309);
-			this.label28.Name = "label28";
-			this.label28.Size = new System.Drawing.Size(138, 13);
-			this.label28.TabIndex = 11;
-			this.label28.Text = "Valor Total das Obrigações:";
+			this.dateObrigacoes.TabIndex = 1;
 			// 
 			// groupBox10
 			// 
@@ -832,7 +816,7 @@
 			this.btnAddObrigacoes.Location = new System.Drawing.Point(645, 28);
 			this.btnAddObrigacoes.Name = "btnAddObrigacoes";
 			this.btnAddObrigacoes.Size = new System.Drawing.Size(75, 21);
-			this.btnAddObrigacoes.TabIndex = 6;
+			this.btnAddObrigacoes.TabIndex = 5;
 			this.btnAddObrigacoes.Text = "Adicionar";
 			this.btnAddObrigacoes.UseVisualStyleBackColor = true;
 			this.btnAddObrigacoes.Click += new System.EventHandler(this.BtnAddObrigacoes_Click);
@@ -843,7 +827,7 @@
 			this.txtValorObrigacoes.MaxLength = 7;
 			this.txtValorObrigacoes.Name = "txtValorObrigacoes";
 			this.txtValorObrigacoes.Size = new System.Drawing.Size(87, 20);
-			this.txtValorObrigacoes.TabIndex = 5;
+			this.txtValorObrigacoes.TabIndex = 3;
 			this.txtValorObrigacoes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorObrigacoes_KeyPress);
 			// 
 			// label26
@@ -858,9 +842,10 @@
 			// txtDescricaoObrigacoes
 			// 
 			this.txtDescricaoObrigacoes.Location = new System.Drawing.Point(13, 72);
+			this.txtDescricaoObrigacoes.MaxLength = 200;
 			this.txtDescricaoObrigacoes.Name = "txtDescricaoObrigacoes";
 			this.txtDescricaoObrigacoes.Size = new System.Drawing.Size(470, 20);
-			this.txtDescricaoObrigacoes.TabIndex = 3;
+			this.txtDescricaoObrigacoes.TabIndex = 4;
 			// 
 			// label25
 			// 
@@ -908,7 +893,7 @@
 			this.dateMultaVencimento.Location = new System.Drawing.Point(13, 65);
 			this.dateMultaVencimento.Name = "dateMultaVencimento";
 			this.dateMultaVencimento.Size = new System.Drawing.Size(103, 20);
-			this.dateMultaVencimento.TabIndex = 28;
+			this.dateMultaVencimento.TabIndex = 3;
 			// 
 			// dateMulta
 			// 
@@ -916,7 +901,7 @@
 			this.dateMulta.Location = new System.Drawing.Point(13, 25);
 			this.dateMulta.Name = "dateMulta";
 			this.dateMulta.Size = new System.Drawing.Size(103, 20);
-			this.dateMulta.TabIndex = 27;
+			this.dateMulta.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -940,7 +925,7 @@
 			this.btnSalvarMulta.Location = new System.Drawing.Point(486, 60);
 			this.btnSalvarMulta.Name = "btnSalvarMulta";
 			this.btnSalvarMulta.Size = new System.Drawing.Size(98, 23);
-			this.btnSalvarMulta.TabIndex = 20;
+			this.btnSalvarMulta.TabIndex = 6;
 			this.btnSalvarMulta.Text = "Gravar Multa";
 			this.btnSalvarMulta.UseVisualStyleBackColor = true;
 			this.btnSalvarMulta.Click += new System.EventHandler(this.BtnSalvarMulta_Click);
@@ -960,7 +945,7 @@
 			this.txtPontosMulta.MaxLength = 2;
 			this.txtPontosMulta.Name = "txtPontosMulta";
 			this.txtPontosMulta.Size = new System.Drawing.Size(69, 20);
-			this.txtPontosMulta.TabIndex = 18;
+			this.txtPontosMulta.TabIndex = 5;
 			this.txtPontosMulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPontosMulta_KeyPress);
 			// 
 			// label29
@@ -978,7 +963,7 @@
 			this.txtValorMulta.MaxLength = 10;
 			this.txtValorMulta.Name = "txtValorMulta";
 			this.txtValorMulta.Size = new System.Drawing.Size(100, 20);
-			this.txtValorMulta.TabIndex = 16;
+			this.txtValorMulta.TabIndex = 4;
 			this.txtValorMulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorMulta_KeyPress);
 			// 
 			// txtDescricaoMulta
@@ -986,7 +971,7 @@
 			this.txtDescricaoMulta.Location = new System.Drawing.Point(136, 25);
 			this.txtDescricaoMulta.Name = "txtDescricaoMulta";
 			this.txtDescricaoMulta.Size = new System.Drawing.Size(602, 20);
-			this.txtDescricaoMulta.TabIndex = 15;
+			this.txtDescricaoMulta.TabIndex = 2;
 			// 
 			// label30
 			// 
@@ -1086,11 +1071,11 @@
 		public System.Windows.Forms.TabControl TabCadastroVeiculos;
 		private System.Windows.Forms.TabPage tabAbastecimentos;
 		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnConsultaAbastecimento;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.DateTimePicker dateTimePicker2;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dateFinalAbastecimento;
+		private System.Windows.Forms.DateTimePicker dataInicioAbastecimento;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.DataGridView dataAbastecimento;
 		private System.Windows.Forms.GroupBox groupAbastecimento;
@@ -1106,11 +1091,11 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.TabPage tabManutencao;
 		private System.Windows.Forms.GroupBox groupBox5;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnConsultaManutencao;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.DateTimePicker dateTimePicker3;
-		private System.Windows.Forms.DateTimePicker dateTimePicker4;
+		private System.Windows.Forms.DateTimePicker dateFinalManutencao;
+		private System.Windows.Forms.DateTimePicker dateInicioManut;
 		private System.Windows.Forms.GroupBox groupBox6;
 		private System.Windows.Forms.DataGridView dataGridManutencao;
 		private System.Windows.Forms.GroupBox groupManutencao;
@@ -1123,11 +1108,11 @@
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.TabPage tabSinistros;
 		private System.Windows.Forms.GroupBox groupBox7;
-		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button btnConsultaSinistro;
 		private System.Windows.Forms.Label label18;
 		private System.Windows.Forms.Label label19;
-		private System.Windows.Forms.DateTimePicker dateTimePicker5;
-		private System.Windows.Forms.DateTimePicker dateTimePicker6;
+		private System.Windows.Forms.DateTimePicker dateFinalSinistro;
+		private System.Windows.Forms.DateTimePicker dateInicioSinistro;
 		private System.Windows.Forms.GroupBox groupBox8;
 		private System.Windows.Forms.DataGridView dataGridSinistros;
 		private System.Windows.Forms.GroupBox groupSinistros;
@@ -1140,8 +1125,6 @@
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.Label label23;
 		private System.Windows.Forms.TabPage tabObrigacoes;
-		private System.Windows.Forms.Label lblValorTotalObrigacoes;
-		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.GroupBox groupBox10;
 		private System.Windows.Forms.DataGridView dataGridObrigacoes;
 		private System.Windows.Forms.Label label27;

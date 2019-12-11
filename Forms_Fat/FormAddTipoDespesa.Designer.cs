@@ -36,6 +36,7 @@
 			// txtTipo
 			// 
 			this.txtTipo.Location = new System.Drawing.Point(24, 42);
+			this.txtTipo.MaxLength = 50;
 			this.txtTipo.Name = "txtTipo";
 			this.txtTipo.Size = new System.Drawing.Size(216, 20);
 			this.txtTipo.TabIndex = 0;

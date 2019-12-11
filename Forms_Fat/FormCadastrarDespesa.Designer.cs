@@ -70,7 +70,7 @@
 			this.comboTipo.Name = "comboTipo";
 			this.comboTipo.Size = new System.Drawing.Size(309, 21);
 			this.comboTipo.Sorted = true;
-			this.comboTipo.TabIndex = 3;
+			this.comboTipo.TabIndex = 2;
 			// 
 			// btnAddTipo
 			// 
@@ -78,6 +78,7 @@
 			this.btnAddTipo.Name = "btnAddTipo";
 			this.btnAddTipo.Size = new System.Drawing.Size(26, 21);
 			this.btnAddTipo.TabIndex = 4;
+			this.btnAddTipo.TabStop = false;
 			this.btnAddTipo.Text = "+";
 			this.btnAddTipo.UseVisualStyleBackColor = true;
 			this.btnAddTipo.Click += new System.EventHandler(this.BtnAddTipo_Click);
@@ -87,7 +88,7 @@
 			this.btnSalvar.Location = new System.Drawing.Point(623, 73);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(75, 21);
-			this.btnSalvar.TabIndex = 6;
+			this.btnSalvar.TabIndex = 5;
 			this.btnSalvar.Text = "Adicionar";
 			this.btnSalvar.UseVisualStyleBackColor = true;
 			this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -98,7 +99,7 @@
 			this.txtValor.MaxLength = 8;
 			this.txtValor.Name = "txtValor";
 			this.txtValor.Size = new System.Drawing.Size(87, 20);
-			this.txtValor.TabIndex = 5;
+			this.txtValor.TabIndex = 3;
 			this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValor_KeyPress);
 			// 
 			// label26
@@ -115,7 +116,7 @@
 			this.txtDescricao.Location = new System.Drawing.Point(18, 74);
 			this.txtDescricao.Name = "txtDescricao";
 			this.txtDescricao.Size = new System.Drawing.Size(599, 20);
-			this.txtDescricao.TabIndex = 7;
+			this.txtDescricao.TabIndex = 4;
 			// 
 			// label25
 			// 
@@ -181,7 +182,7 @@
 			this.dataDespesa.Location = new System.Drawing.Point(18, 32);
 			this.dataDespesa.Name = "dataDespesa";
 			this.dataDespesa.Size = new System.Drawing.Size(155, 20);
-			this.dataDespesa.TabIndex = 21;
+			this.dataDespesa.TabIndex = 1;
 			// 
 			// groupBox1
 			// 
@@ -241,6 +242,7 @@
 			// 
 			// FormCadastrarDespesa
 			// 
+			this.AcceptButton = this.btnSalvar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);

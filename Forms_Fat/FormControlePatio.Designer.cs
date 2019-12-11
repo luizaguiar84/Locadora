@@ -137,7 +137,7 @@ namespace Dll_Forms_Fat
 			this.brnSalvarSaida.Location = new System.Drawing.Point(118, 229);
 			this.brnSalvarSaida.Name = "brnSalvarSaida";
 			this.brnSalvarSaida.Size = new System.Drawing.Size(110, 43);
-			this.brnSalvarSaida.TabIndex = 9;
+			this.brnSalvarSaida.TabIndex = 8;
 			this.brnSalvarSaida.Text = "Registrar Saida";
 			this.brnSalvarSaida.UseVisualStyleBackColor = true;
 			this.brnSalvarSaida.Click += new System.EventHandler(this.BtnSalvarSaida_Click);
@@ -178,9 +178,10 @@ namespace Dll_Forms_Fat
 			// txtObservacoes
 			// 
 			this.txtObservacoes.Location = new System.Drawing.Point(9, 159);
+			this.txtObservacoes.MaxLength = 250;
 			this.txtObservacoes.Name = "txtObservacoes";
 			this.txtObservacoes.Size = new System.Drawing.Size(332, 64);
-			this.txtObservacoes.TabIndex = 8;
+			this.txtObservacoes.TabIndex = 7;
 			this.txtObservacoes.Text = "";
 			// 
 			// label1
@@ -391,6 +392,7 @@ namespace Dll_Forms_Fat
 			this.btnAddMotorista.Name = "btnAddMotorista";
 			this.btnAddMotorista.Size = new System.Drawing.Size(17, 23);
 			this.btnAddMotorista.TabIndex = 18;
+			this.btnAddMotorista.TabStop = false;
 			this.btnAddMotorista.Text = "+";
 			this.btnAddMotorista.UseVisualStyleBackColor = true;
 			this.btnAddMotorista.Click += new System.EventHandler(this.Button2_Click);
@@ -401,7 +403,8 @@ namespace Dll_Forms_Fat
 			this.txtVeiculo.Name = "txtVeiculo";
 			this.txtVeiculo.ReadOnly = true;
 			this.txtVeiculo.Size = new System.Drawing.Size(323, 20);
-			this.txtVeiculo.TabIndex = 90;
+			this.txtVeiculo.TabIndex = 2;
+			this.txtVeiculo.TabStop = false;
 			// 
 			// label14
 			// 
