@@ -29,12 +29,16 @@ namespace Dll_Forms_Fat
 			this.label = label;
 			dataGridView1.DataSource = resultado;
 			lblTituloPag.Text = label;
+			lblTituloPag.Left = (Width - lblTituloPag.Width) / 2;
+
 		}
 
 		public FormResultadoRelatorio(ICollection resultado, string label, string labelInferior) : this(resultado, label)
 		{
 			this.labelInferior = labelInferior;
 			lblInferior.Text = labelInferior;
+			lblInferior.Left = (Width - lblInferior.Width) / 2;
+
 		}
 
 		private void btnVoltar_Click(object sender, EventArgs e)
@@ -47,6 +51,11 @@ namespace Dll_Forms_Fat
 			};
 			voltar.Show();
 			this.Close();
+		}
+
+		private void FormResultadoRelatorio_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

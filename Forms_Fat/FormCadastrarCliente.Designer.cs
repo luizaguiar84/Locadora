@@ -124,7 +124,7 @@
 			this.maskedCEP.Mask = "00000-000";
 			this.maskedCEP.Name = "maskedCEP";
 			this.maskedCEP.Size = new System.Drawing.Size(73, 20);
-			this.maskedCEP.TabIndex = 14;
+			this.maskedCEP.TabIndex = 8;
 			this.maskedCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			this.maskedCEP.Leave += new System.EventHandler(this.MaskedCEP_Leave);
 			// 
@@ -213,7 +213,7 @@
 			this.txtNumero.MaxLength = 5;
 			this.txtNumero.Name = "txtNumero";
 			this.txtNumero.Size = new System.Drawing.Size(66, 20);
-			this.txtNumero.TabIndex = 15;
+			this.txtNumero.TabIndex = 9;
 			this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
 			// 
 			// txtComplemento
@@ -222,7 +222,7 @@
 			this.txtComplemento.MaxLength = 200;
 			this.txtComplemento.Name = "txtComplemento";
 			this.txtComplemento.Size = new System.Drawing.Size(202, 20);
-			this.txtComplemento.TabIndex = 16;
+			this.txtComplemento.TabIndex = 10;
 			// 
 			// txtCidade
 			// 
@@ -249,7 +249,7 @@
 			this.txtTelCel.Mask = "(00) 00000-0000";
 			this.txtTelCel.Name = "txtTelCel";
 			this.txtTelCel.Size = new System.Drawing.Size(94, 20);
-			this.txtTelCel.TabIndex = 253;
+			this.txtTelCel.TabIndex = 7;
 			this.txtTelCel.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// lblTelCel
@@ -266,7 +266,7 @@
 			this.txtProfissao.Location = new System.Drawing.Point(25, 182);
 			this.txtProfissao.Name = "txtProfissao";
 			this.txtProfissao.Size = new System.Drawing.Size(150, 20);
-			this.txtProfissao.TabIndex = 247;
+			this.txtProfissao.TabIndex = 6;
 			// 
 			// txtTelCom
 			// 
@@ -276,7 +276,7 @@
 			this.txtTelCom.Mask = "(00) 0000-0000";
 			this.txtTelCom.Name = "txtTelCom";
 			this.txtTelCom.Size = new System.Drawing.Size(81, 20);
-			this.txtTelCom.TabIndex = 251;
+			this.txtTelCom.TabIndex = 5;
 			this.txtTelCom.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// lblTelCom
@@ -305,7 +305,7 @@
 			this.maskedCpf.Mask = "999.999.999/9999-99";
 			this.maskedCpf.Name = "maskedCpf";
 			this.maskedCpf.Size = new System.Drawing.Size(136, 20);
-			this.maskedCpf.TabIndex = 246;
+			this.maskedCpf.TabIndex = 2;
 			this.maskedCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			// 
 			// lblCpf
@@ -352,14 +352,14 @@
 			this.txtRG.MaxLength = 9;
 			this.txtRG.Name = "txtRG";
 			this.txtRG.Size = new System.Drawing.Size(136, 20);
-			this.txtRG.TabIndex = 249;
+			this.txtRG.TabIndex = 4;
 			// 
 			// txtEmail
 			// 
 			this.txtEmail.Location = new System.Drawing.Point(28, 103);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(373, 20);
-			this.txtEmail.TabIndex = 248;
+			this.txtEmail.TabIndex = 3;
 			// 
 			// txtNome
 			// 
@@ -368,7 +368,7 @@
 			this.txtNome.MaxLength = 200;
 			this.txtNome.Name = "txtNome";
 			this.txtNome.Size = new System.Drawing.Size(373, 20);
-			this.txtNome.TabIndex = 245;
+			this.txtNome.TabIndex = 1;
 			// 
 			// btnSalvar
 			// 

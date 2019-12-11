@@ -96,16 +96,21 @@ namespace Dll_Forms_Fat
 				{
 					MensagemPlaca();
 				}
+				else if (!ConfereData())
+				{
+
+				}
 
 				else
 				{
 					var veiculo = GetVeiculo();
 					var lista = new MultasDao().GetAll()
 								.Where(m => m.VeiculoId == veiculo.Id)
+								.Where(m => m.DataMulta >= dateInicio.Value && m.DataMulta <= dateFim.Value)
 								.ToList();
 
 					resultado = lista;
-					nomeTela = $"Multas do veiculo {veiculo.Placa}";
+					nomeTela = $"Multas de {veiculo.Placa} - {dateInicio.Value.ToShortDateString()} a {dateFim.Value.ToShortDateString()}";
 					lbl2 = $"O total de multas do veiculo {veiculo.Placa} é de {lista.Sum(v => v.Valor).ToString("C")}";
 
 					AbreRelatorio(resultado, nomeTela, lbl2);
@@ -120,7 +125,7 @@ namespace Dll_Forms_Fat
 				{
 					MensagemPlaca();
 				}
-				else if (!ChecaDataValida())
+				else if (!ConfereData())
 				{
 				}
 				else
@@ -147,7 +152,7 @@ namespace Dll_Forms_Fat
 			#region Abastecimento Geral
 			else if (radioAbastecimentoGeral.Checked) // abastecimento geral
 			{
-				if (!ChecaDataValida())
+				if (!ConfereData())
 				{
 				}
 				else
@@ -172,7 +177,7 @@ namespace Dll_Forms_Fat
 				{
 					MensagemPlaca();
 				}
-				else if (!ChecaDataValida())
+				else if (!ConfereData())
 				{
 				}
 				else
@@ -192,10 +197,37 @@ namespace Dll_Forms_Fat
 			}
 			#endregion
 
+			#region Manutenção por veiculo
+			else if (radioManutencoesGeral.Checked) // Manutencao por veiculo
+			{
+				if (!ConfereData())
+				{
+
+				}
+				
+				else
+				{
+					var lista = new ManutencoesDao().GetAll()
+						.Where(m => m.Data >= dateInicio.Value && m.Data <= dateFim.Value)
+						.ToList();
+
+					resultado = lista;
+					nomeTela = $"Manutenções {dateInicio.Value.ToShortDateString()} a {dateFim.Value.ToShortDateString()}";
+					lbl2 = $"O total em manutenções no periodo selecionado é de {lista.Sum(l => l.Valor).ToString("C")}";
+					AbreRelatorio(resultado, nomeTela, lbl2);
+				}
+			}
+			#endregion
+
+			else if (radioListagemEstoque.Checked)
+			{
+
+			}
+
 			#region Manutenção Geral
 			else if (radioManutencoesGeral.Checked) // Manutencoes Geral
 			{
-				if (!ChecaDataValida())
+				if (!ConfereData())
 				{
 				}
 				else
@@ -217,14 +249,14 @@ namespace Dll_Forms_Fat
 
 
 		#region Validacoes
-		private bool ChecaDataValida()
+		private bool ConfereData()
 		{
-			if (dateInicio.Value == dateFim.Value)
-			{
-				MessageBox.Show("Favor selecionar as datas ao lado.");
-				return false;
-			}
-			else if (dateFim.Value < dateInicio.Value)
+			//if (dateInicio.Value == dateFim.Value)
+			//{
+			//	MessageBox.Show("Favor selecionar as datas ao lado.");
+			//	return false;
+			//}
+			if (dateFim.Value < dateInicio.Value)
 			{
 				MessageBox.Show("Favor selecionar as datas corretamente.");
 				return false;

@@ -20,20 +20,27 @@ namespace DbFat
 			var listaPneus = GetAll()
 						.Where(p => p.VeiculoId == veiculo.Id)
 						.ToList();
-			if (listaPneus.Count == 0) ret = true;
-			foreach (var pneu in listaPneus)
+			if (listaPneus.Count == 0) 
+			{ 
+				ret = true;
+			}
+			else
 			{
-				pneu.KmAtual = controle.KmRetorno - controle.KmSaida;
+				foreach (var pneu in listaPneus)
+				{
+					pneu.KmAtual = controle.KmRetorno - controle.KmSaida;
 
-				if (DbUpdate(pneu))
-				{
-					ret = true;
-				}
-				else
-				{
-					return ret;
+					if (DbUpdate(pneu))
+					{
+						ret = true;
+					}
+					else
+					{
+						return ret;
+					}
 				}
 			}
+			
 			return ret;
 		}
 

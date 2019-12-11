@@ -247,13 +247,13 @@ namespace Dll_Forms_Fat
 			{
 				MessageBox.Show("Favor preencher o CPF do funcionário.");
 			}
-			else if (!String.IsNullOrWhiteSpace(maskedCpf.Text))
-			{
-				if (!Utilidades.Utilidades.IsCpf(maskedCpf.Text))
-				{
-					MessageBox.Show("CPF inválido, favor conferir o número digitado.");
-				}
-			}
+			//else if (!String.IsNullOrWhiteSpace(maskedCpf.Text))
+			//{
+			//	if (!Utilidades.Utilidades.IsCpf(maskedCpf.Text))
+			//	{
+			//		MessageBox.Show("CPF inválido, favor conferir o número digitado.");
+			//	}
+			//}
 			else if (String.IsNullOrWhiteSpace(txtRG.Text))
 			{
 				MessageBox.Show("Favor preencher o RG do funcionário.");

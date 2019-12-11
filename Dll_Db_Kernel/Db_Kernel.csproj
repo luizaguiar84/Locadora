@@ -217,6 +217,14 @@
     <Compile Include="Migrations\20191211035445_tabelaCargos1.designer.cs">
       <DependentUpon>20191211035445_tabelaCargos1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191211205317_tabelaPneus.cs" />
+    <Compile Include="Migrations\20191211205317_tabelaPneus.designer.cs">
+      <DependentUpon>20191211205317_tabelaPneus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191211211310_tabelaPneus1.cs" />
+    <Compile Include="Migrations\20191211211310_tabelaPneus1.designer.cs">
+      <DependentUpon>20191211211310_tabelaPneus1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

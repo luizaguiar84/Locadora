@@ -4,14 +4,16 @@ using DbKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbKernel.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20191211205317_tabelaPneus")]
+    partial class tabelaPneus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -493,7 +495,11 @@ namespace DbKernel.Migrations
 
                     b.Property<DateTime>("DataAdicao");
 
+                    b.Property<string>("Estado");
+
                     b.Property<int>("KmAtual");
+
+                    b.Property<int>("KmInicial");
 
                     b.Property<string>("Marca")
                         .IsRequired();

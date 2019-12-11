@@ -22,16 +22,16 @@ namespace BsFat
 		#endregion
 		public string Modelo { get; set; }
 
-		#region Anotações
-		[Display(Name = "Estado")]
-		#endregion
-		public string Estado { get; set; }
+		//#region Anotações
+		//[Display(Name = "Estado")]
+		//#endregion
+		//public string Estado { get; set; }
 
-		#region Anotações
+		//#region Anotações
 
-		[Display(Name = "Km Inicial")]
-		#endregion
-		public int KmInicial { get; set; }
+		//[Display(Name = "Km Inicial")]
+		//#endregion
+		//public int KmInicial { get; set; }
 
 		#region Anotações
 		[Display(Name = "Km Atual")]
@@ -45,7 +45,6 @@ namespace BsFat
 		#endregion
 		public DateTime DataAdicao { get; set; }
 		public int VeiculoId { get; set; }
-		public virtual Veiculos Veiculo { get; set; }
 
 	}
 }

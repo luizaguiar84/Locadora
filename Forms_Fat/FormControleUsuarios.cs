@@ -60,7 +60,11 @@ namespace Dll_Forms_Fat
 			var usuarios = new UsuariosDao().GetAll();
 			comboUsuarios.DataSource = usuarios;
 			comboUsuarios.DisplayMember = "Login";
-			comboUsuarios.SelectedIndex = 0;
+			if (!(comboUsuarios.Items.Count == 0))
+			{
+				comboUsuarios.SelectedIndex = 0;
+			}
+			
 			
 		}
 

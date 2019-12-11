@@ -232,7 +232,6 @@ namespace Dll_Forms_Fat
 		{
 			controle.DataRetorno = dateRetorno.Value.Date;
 			controle.HoraRetorno = timeRetorno.Value.TimeOfDay;
-			//controle.EstadoRetorno = comboEstadoRetorno.Text;
 			controle.NivelCombustivelRetorno = comboCombustivelRetorno.Text;
 			controle.KmRetorno = Convert.ToInt32(txtkmRetorno.Text);
 			controle.Status = false;

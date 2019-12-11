@@ -39,12 +39,10 @@
 			this.radioMultasPorVeiculo = new System.Windows.Forms.RadioButton();
 			this.groupRelatorios = new System.Windows.Forms.GroupBox();
 			this.radioButton28 = new System.Windows.Forms.RadioButton();
-			this.radioButton16 = new System.Windows.Forms.RadioButton();
+			this.radioListagemEstoque = new System.Windows.Forms.RadioButton();
 			this.radioButton22 = new System.Windows.Forms.RadioButton();
-			this.radioButton24 = new System.Windows.Forms.RadioButton();
 			this.radioButton20 = new System.Windows.Forms.RadioButton();
 			this.radioButton21 = new System.Windows.Forms.RadioButton();
-			this.radioButton23 = new System.Windows.Forms.RadioButton();
 			this.radioButton19 = new System.Windows.Forms.RadioButton();
 			this.radioSinistroVeiculo = new System.Windows.Forms.RadioButton();
 			this.groupPlacas = new System.Windows.Forms.GroupBox();
@@ -156,13 +154,11 @@
 			// groupRelatorios
 			// 
 			this.groupRelatorios.Controls.Add(this.radioButton28);
-			this.groupRelatorios.Controls.Add(this.radioButton16);
+			this.groupRelatorios.Controls.Add(this.radioListagemEstoque);
 			this.groupRelatorios.Controls.Add(this.radioButton22);
-			this.groupRelatorios.Controls.Add(this.radioButton24);
 			this.groupRelatorios.Controls.Add(this.radioButton20);
 			this.groupRelatorios.Controls.Add(this.radioListagemVeiculos);
 			this.groupRelatorios.Controls.Add(this.radioButton21);
-			this.groupRelatorios.Controls.Add(this.radioButton23);
 			this.groupRelatorios.Controls.Add(this.radioButton19);
 			this.groupRelatorios.Controls.Add(this.radioListaManutencaoPorVeiculo);
 			this.groupRelatorios.Controls.Add(this.radioSinistroVeiculo);
@@ -190,16 +186,16 @@
 			this.radioButton28.Text = "Resumo de despesas";
 			this.radioButton28.UseVisualStyleBackColor = true;
 			// 
-			// radioButton16
+			// radioListagemEstoque
 			// 
-			this.radioButton16.AutoSize = true;
-			this.radioButton16.Location = new System.Drawing.Point(7, 258);
-			this.radioButton16.Name = "radioButton16";
-			this.radioButton16.Size = new System.Drawing.Size(123, 17);
-			this.radioButton16.TabIndex = 12;
-			this.radioButton16.TabStop = true;
-			this.radioButton16.Text = "Listagem de estoque";
-			this.radioButton16.UseVisualStyleBackColor = true;
+			this.radioListagemEstoque.AutoSize = true;
+			this.radioListagemEstoque.Location = new System.Drawing.Point(7, 258);
+			this.radioListagemEstoque.Name = "radioListagemEstoque";
+			this.radioListagemEstoque.Size = new System.Drawing.Size(123, 17);
+			this.radioListagemEstoque.TabIndex = 12;
+			this.radioListagemEstoque.TabStop = true;
+			this.radioListagemEstoque.Text = "Listagem de estoque";
+			this.radioListagemEstoque.UseVisualStyleBackColor = true;
 			// 
 			// radioButton22
 			// 
@@ -211,17 +207,6 @@
 			this.radioButton22.TabStop = true;
 			this.radioButton22.Text = "Resumo de locações por período";
 			this.radioButton22.UseVisualStyleBackColor = true;
-			// 
-			// radioButton24
-			// 
-			this.radioButton24.AutoSize = true;
-			this.radioButton24.Location = new System.Drawing.Point(7, 235);
-			this.radioButton24.Name = "radioButton24";
-			this.radioButton24.Size = new System.Drawing.Size(166, 17);
-			this.radioButton24.TabIndex = 11;
-			this.radioButton24.TabStop = true;
-			this.radioButton24.Text = "Km média rodada por locação";
-			this.radioButton24.UseVisualStyleBackColor = true;
 			// 
 			// radioButton20
 			// 
@@ -244,17 +229,6 @@
 			this.radioButton21.TabStop = true;
 			this.radioButton21.Text = "Resumo de locações por carro";
 			this.radioButton21.UseVisualStyleBackColor = true;
-			// 
-			// radioButton23
-			// 
-			this.radioButton23.AutoSize = true;
-			this.radioButton23.Location = new System.Drawing.Point(7, 216);
-			this.radioButton23.Name = "radioButton23";
-			this.radioButton23.Size = new System.Drawing.Size(135, 17);
-			this.radioButton23.TabIndex = 10;
-			this.radioButton23.TabStop = true;
-			this.radioButton23.Text = "Idade média dos carros";
-			this.radioButton23.UseVisualStyleBackColor = true;
 			// 
 			// radioButton19
 			// 
@@ -430,11 +404,9 @@
 		private System.Windows.Forms.DateTimePicker dateInicio;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.RadioButton radioButton24;
-		private System.Windows.Forms.RadioButton radioButton23;
 		private System.Windows.Forms.RadioButton radioSinistroVeiculo;
 		private System.Windows.Forms.RadioButton radioButton28;
-		private System.Windows.Forms.RadioButton radioButton16;
+		private System.Windows.Forms.RadioButton radioListagemEstoque;
 		private System.Windows.Forms.Button brnConsultar;
 	}
 }

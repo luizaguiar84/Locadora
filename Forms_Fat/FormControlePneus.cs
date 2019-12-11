@@ -39,14 +39,16 @@ namespace Dll_Forms_Fat
 		{
 			if (validacao())
 			{
-				var pneu = new Pneus();
 				var veiculo = GetVeiculo();
 
-				pneu.VeiculoId = veiculo.Id;
-				pneu.Marca = txtMarca.Text;
-				pneu.Estado = comboEstado.Text;
-				pneu.DataAdicao = datePneu.Value;
-				pneu.Modelo = txtModelo.Text;
+				var pneu = new Pneus
+				{
+					DataAdicao = datePneu.Value,
+					Marca = txtMarca.Text,
+					Modelo = txtModelo.Text,
+					VeiculoId = veiculo.Id,
+					KmAtual = 0
+				};
 
 				if (new PneusDao().DbAdd(pneu))
 				{
