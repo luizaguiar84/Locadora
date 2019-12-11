@@ -78,9 +78,8 @@ namespace Dll_Forms_Fat
 			
 			if (this.usuario != null)
 			{
-				usuario.Funcionario = funcionario;
-
-				var cadastro = new FormCadastrarUsuario(usuario)
+				
+				var cadastro = new FormCadastrarUsuario(usuario, funcionario)
 				{
 					MdiParent = this.MdiParent,
 					ControlBox = false,

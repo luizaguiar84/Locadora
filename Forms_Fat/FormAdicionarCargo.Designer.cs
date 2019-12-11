@@ -31,13 +31,11 @@
 			this.btnSalvar = new System.Windows.Forms.Button();
 			this.txtCargo = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.comboNivel = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.Location = new System.Drawing.Point(230, 56);
+			this.btnSalvar.Location = new System.Drawing.Point(340, 15);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(75, 23);
 			this.btnSalvar.TabIndex = 0;
@@ -61,36 +59,11 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Cargo:";
 			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(334, 19);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(89, 13);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Nivel De Acesso:";
-			// 
-			// comboNivel
-			// 
-			this.comboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboNivel.FormattingEnabled = true;
-			this.comboNivel.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-			this.comboNivel.Location = new System.Drawing.Point(430, 13);
-			this.comboNivel.Name = "comboNivel";
-			this.comboNivel.Size = new System.Drawing.Size(47, 21);
-			this.comboNivel.Sorted = true;
-			this.comboNivel.TabIndex = 4;
-			// 
 			// FormAdicionarCargo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(570, 101);
-			this.Controls.Add(this.comboNivel);
-			this.Controls.Add(this.label2);
+			this.ClientSize = new System.Drawing.Size(463, 63);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.txtCargo);
 			this.Controls.Add(this.btnSalvar);
@@ -109,7 +82,5 @@
 		private System.Windows.Forms.Button btnSalvar;
 		private System.Windows.Forms.TextBox txtCargo;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox comboNivel;
 	}
 }

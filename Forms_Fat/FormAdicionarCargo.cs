@@ -49,7 +49,7 @@ namespace Dll_Forms_Fat
 				{
 					var cargo = new Cargos();
 					cargo.Cargo = txtCargo.Text;
-
+			
 					if (new CargosDao().DbAdd(cargo))
 					{
 						ConfirmaSaida();

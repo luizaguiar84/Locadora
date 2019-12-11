@@ -18,6 +18,7 @@ namespace Dll_Forms_Fat
 			var usuario = new Usuarios();
 			usuario.Login = txtUsuario.Text;
 			usuario.Password = TxtSenha.Text;
+
 			if (txtUsuario.Text == "1" && TxtSenha.Text == "1")
 			{
 				AbrePrograma();
@@ -32,6 +33,8 @@ namespace Dll_Forms_Fat
 			}
 			else if (new UsuariosDao().ConfereUsuario(usuario))
 			{
+				usuario = new UsuariosDao().GetByLogin(txtUsuario.Text, TxtSenha.Text);
+				
 				AbrePrograma(usuario);
 			}
 			else
@@ -69,6 +72,7 @@ namespace Dll_Forms_Fat
 				(MessageBox.Show("Tem certeza que deseja sair da aplicação?", "Confirmação", MessageBoxButtons.YesNo,
 				MessageBoxIcon.Question) == DialogResult.Yes)
 			{
+				this.Dispose();
 				Environment.Exit(0);
 			}
 

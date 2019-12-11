@@ -9,16 +9,18 @@ namespace Dll_Forms_Fat
 	public partial class FormCadastrarUsuario : Form
 	{
 		private Usuarios usuario;
+		private Funcionarios funcionario;
 
 		public FormCadastrarUsuario()
 		{
 			InitializeComponent();
 		}
 
-		public FormCadastrarUsuario(Usuarios usuario)
+		public FormCadastrarUsuario(Usuarios usuario, Funcionarios funcionario)
 		{
 			InitializeComponent();
 			this.usuario = usuario;
+			this.funcionario = funcionario;
 			PreencheDados();
 		}
 
@@ -29,15 +31,16 @@ namespace Dll_Forms_Fat
 			txtCargo.ReadOnly = true;
 			//txtNivelAcesso.ReadOnly = true;
 
-			txtRegistroFunc.Text = usuario.FuncionariosId.ToString();
-			txtNome.Text = usuario.Funcionario.Nome;
-			txtCargo.Text = new CargosDao().GetById(usuario.Funcionario.CargoId).Cargo;
+			txtRegistroFunc.Text = funcionario.Id.ToString();
+			txtNome.Text = funcionario.Nome;
+			txtCargo.Text = new CargosDao().GetById(funcionario.CargoId).Cargo;
 			//txtNivelAcesso.Text = usuario.Funcionario.Cargo.NivelAcesso.ToString();
 		}
 
 		private void FormCadastrarUsuario_Load(object sender, EventArgs e)
 		{
 			Centralizar();
+			comboNivel.SelectedIndex = 0;
 		}
 
 		private void Centralizar()
@@ -50,11 +53,12 @@ namespace Dll_Forms_Fat
 		{
 			if (validaUsuario())
 			{
+				usuario.FuncionariosId = funcionario.Id;
 				usuario.Login = txtUsuario.Text;
 				usuario.Password = txtSenha.Text;
 				usuario.ConfirmaSenha = txtConfirmaSenha.Text;
 				usuario.IsAtivo = true;
-				usuario.Nivel = Convert.ToInt32(txtNivelAcesso.Text);
+				usuario.Nivel = Convert.ToInt32(comboNivel.SelectedItem.ToString());
 				
 				if (new UsuariosDao().DbAdd(usuario))
 				{

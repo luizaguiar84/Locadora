@@ -7,7 +7,6 @@ namespace BsFat
 	{
 		public Usuarios()
 		{
-			this.Funcionario = new Funcionarios();
 		}
 
 		#region Anotações
@@ -50,7 +49,8 @@ namespace BsFat
 		public string ConfirmaSenha { get; set; }
 
 		public int FuncionariosId { get; set; }
-		public Funcionarios Funcionario { get; set; }
+
+		//public Funcionarios Funcionario { get; set; }
 
 		public bool ConfereUsuario(List<Usuarios> usuarios)
 		{
@@ -63,7 +63,6 @@ namespace BsFat
 			}
 			return true;
 		}
-
 		public bool ConfirmarSenha(string senha, string confirmacao)
 		{
 			if (senha == confirmacao)
@@ -72,11 +71,6 @@ namespace BsFat
 			}
 			return false;
 		}
-
-
-
-
-
 		//public virtual ICollection<Cliente> cliente { get; set; }
 		//public virtual ICollection<Funcionarios> funcionarios { get; set; }
 	}

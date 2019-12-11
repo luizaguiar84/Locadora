@@ -213,6 +213,10 @@
     <Compile Include="Migrations\20191211032919_tabelaCargos.designer.cs">
       <DependentUpon>20191211032919_tabelaCargos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191211035445_tabelaCargos1.cs" />
+    <Compile Include="Migrations\20191211035445_tabelaCargos1.designer.cs">
+      <DependentUpon>20191211035445_tabelaCargos1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

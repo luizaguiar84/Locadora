@@ -6,11 +6,13 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormPrincipal : Form
 	{
+		private Usuarios usuario;
 
 		public FormPrincipal(BsFat.Usuarios usuario)
 		{
 			InitializeComponent();
-			// = usuario;
+			this.usuario = usuario;
+			controleDeAcesso(usuario);
 		}
 
 		public FormPrincipal()
@@ -20,45 +22,88 @@ namespace Dll_Forms_Fat
 
 		private void controleDeAcesso(Usuarios usuario)
 		{
-			cadastrarClienteToolStripMenuItem.Visible = false;
+			cadastrarToolStripMenuItem.Visible = true;
+			sobreToolStripMenuItem.Visible = true;
+
+			cadastrarNovoUsuárioToolStripMenuItem1.Visible = false; // cadastrar novo usuario
+			cadastrarNovoVeículoToolStripMenuItem.Visible = false; // Cadastrar Novo Veiculo
+			funcionáriosToolStripMenuItem.Visible = false; // Cadastrar Funcionário
+			cadastrarClienteToolStripMenuItem.Visible = false; // Cadastrar Cliente
+			controleDePreçosToolStripMenuItem.Visible = false; // Adicionar ou Editar Cargos
+
+			clientesToolStripMenuItem1.Visible = false; // Busca Cliente
+			veiculosToolStripMenuItem.Visible = false; // Busca Veiculos
+			consultarEditarUsuáriosToolStripMenuItem.Visible = false; // consultar / editar usuarios
+			consultarEditarMotoristasToolStripMenuItem.Visible = false; // consultar e editar motoristas
+			monitorarVeículosAtivosToolStripMenuItem.Visible = false; // Monitorar Veiculos
+			
+			consultarComprovantesToolStripMenuItem.Visible = false; // Consultar Comprovantes
+			relatóriosToolStripMenuItem2.Visible = false; //Relatorios
+			controleDePátioToolStripMenuItem.Visible = false; // controle de patio
+			controleDePneusToolStripMenuItem.Visible = false; // controle de pneus
+			estoqueToolStripMenuItem1.Visible = false; // controle de estoque
+			consultarEditarEstoqueDePeçasToolStripMenuItem.Visible = false; // controle de estoque
+			registrarAlertaToolStripMenuItem.Visible = false; // registrar alerta
+			despesasToolStripMenuItem.Visible = false; // registrar despesas
+			despesasDeCarrosToolStripMenuItem.Visible = false; // despesas de carros
+
 			if (usuario.Nivel == 3)
 			{
+				// Acesso Total
+				cadastrarNovoUsuárioToolStripMenuItem1.Visible = true; // cadastrar novo usuario
+				cadastrarNovoVeículoToolStripMenuItem.Visible = true; // Cadastrar Novo Veiculo
+				funcionáriosToolStripMenuItem.Visible = true; // Cadastrar Funcionário
+				cadastrarClienteToolStripMenuItem.Visible = true; // Cadastrar Cliente
+				controleDePreçosToolStripMenuItem.Visible = true; // Adicionar ou Editar Cargos
 
+				cadastrarNovoVeículoToolStripMenuItem.Visible = true; // Cadastrar Novo Veiculo
+				clientesToolStripMenuItem1.Visible = true; // Busca Cliente
+				veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
+				cadastrarClienteToolStripMenuItem.Visible = true; // Cadastrar Cliente
+				monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
+				consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
+				relatóriosToolStripMenuItem2.Visible = true; //Relatorios
+				cadastrarNovoUsuárioToolStripMenuItem1.Visible = true; // cadastrar novo usuario
+				controleDePátioToolStripMenuItem.Visible = true; // controle de patio
+				controleDePneusToolStripMenuItem.Visible = true; // controle de pneus
+				estoqueToolStripMenuItem1.Visible = true; // controle de estoque
+				controleDePreçosToolStripMenuItem.Visible = true; // Editar Cargos
+				consultarEditarEstoqueDePeçasToolStripMenuItem.Visible = true; // controle de estoque
+				consultarEditarUsuáriosToolStripMenuItem.Visible = true; // consultar / editar usuarios
+				consultarEditarMotoristasToolStripMenuItem.Visible = true; // consultar e editar motoristas
+				registrarAlertaToolStripMenuItem.Visible = true; // registrar alerta
+				despesasToolStripMenuItem.Visible = true; // registrar despesas
+				despesasDeCarrosToolStripMenuItem.Visible = true; // despesas de carros
 			}
 			else if (usuario.Nivel == 2)
 			{
+				//Pode editar mas nao cadastrar
 
+				clientesToolStripMenuItem1.Visible = true; // Busca Cliente
+				veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
+				monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
+				consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
+				controleDePátioToolStripMenuItem.Visible = true; // controle de patio
+				controleDePneusToolStripMenuItem.Visible = true; // controle de pneus
+				estoqueToolStripMenuItem1.Visible = true; // controle de estoque
+				consultarEditarEstoqueDePeçasToolStripMenuItem.Visible = true; // controle de estoque
+				consultarEditarUsuáriosToolStripMenuItem.Visible = true; // consultar / editar usuarios
+				consultarEditarMotoristasToolStripMenuItem.Visible = true; // consultar e editar motoristas
+				registrarAlertaToolStripMenuItem.Visible = true; // registrar alerta
+				despesasToolStripMenuItem.Visible = true; // registrar despesas
+				despesasDeCarrosToolStripMenuItem.Visible = true; // despesas de carros
 			}
 			else
 			{
-				cadastrarToolStripMenuItem.Visible = false;
-				cadastrarClienteToolStripMenuItem.Visible = false;
-				cadastrarNovoVeículoToolStripMenuItem.Visible = false;
-				monitorarVeículosAtivosToolStripMenuItem.Visible = false;
-				consultarComprovantesToolStripMenuItem.Visible = false;
-				relatóriosToolStripMenuItem2.Visible = false;
-				cadastrarNovoUsuárioToolStripMenuItem1.Visible = false;
-				controleDePneusToolStripMenuItem.Visible = false;
-				controleDePreçosToolStripMenuItem.Visible = false;
+				manutençãoToolStripMenuItem.Visible = false;
+				controleDePátioToolStripMenuItem.Visible = true; // controle de patio
+				controleDePneusToolStripMenuItem.Visible = true; // controle de pneus
+				estoqueToolStripMenuItem1.Visible = true; // controle de estoque
+				consultarEditarEstoqueDePeçasToolStripMenuItem.Visible = true; // controle de estoque
+				despesasToolStripMenuItem.Visible = true; // registrar despesas
+				despesasDeCarrosToolStripMenuItem.Visible = true; // despesas de carros
 			}
-			//sobreToolStripMenuItem.Visible = true;
-			//clientesToolStripMenuItem1.Visible = true; // Busca Cliente
-			//veiculosToolStripMenuItem.Visible = true; // Busca Veiculos
-			//cadastrarClienteToolStripMenuItem.Visible = true; // Cadastrar Cliente
-			//monitorarVeículosAtivosToolStripMenuItem.Visible = true; // Monitorar Veiculos
-			//consultarComprovantesToolStripMenuItem.Visible = true; // Consultar Comprovantes
-			//relatóriosToolStripMenuItem2.Visible = true; //Relatorios
-			//cadastrarNovoUsuárioToolStripMenuItem1.Visible = true; // cadastrar novo usuario
-			//controleDePátioToolStripMenuItem.Visible = true; // controle de patio
-			//controleDePneusToolStripMenuItem.Visible = true; // controle de pneus
-			//estoqueToolStripMenuItem1.Visible = true; // controle de estoque
-			//controleDePreçosToolStripMenuItem.Visible = true; // Editar Cargos
-			//consultarEditarEstoqueDePeçasToolStripMenuItem.Visible = true; // controle de estoque
-			//consultarEditarUsuáriosToolStripMenuItem.Visible = true; // consultar / editar usuarios
-			//consultarEditarMotoristasToolStripMenuItem.Visible = true; // consultar e editar motoristas
-			//registrarAlertaToolStripMenuItem.Visible = true; // registrar alerta
-			//despesasToolStripMenuItem.Visible = true; // registrar despesas
-			//despesasDeCarrosToolStripMenuItem.Visible = true; // despesas de carros
+			
 		}
 		private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -71,6 +116,7 @@ namespace Dll_Forms_Fat
 
 			if (MessageBox.Show("Tem certeza que deseja sair da aplicação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
+				this.Dispose();
 				Environment.Exit(0);
 			}
 
@@ -84,6 +130,7 @@ namespace Dll_Forms_Fat
 			}
 			else
 			{
+				this.Dispose();
 				Environment.Exit(0);
 			}
 
@@ -94,8 +141,8 @@ namespace Dll_Forms_Fat
 			if (MessageBox.Show("Tem certeza que deseja sair da aplicação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				var login = new FormLogin();
+				this.Dispose();
 				login.Show();
-				this.Close();
 			}
 		}
 

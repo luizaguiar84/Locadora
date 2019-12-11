@@ -208,6 +208,12 @@
     <Compile Include="FormRelatorios.Designer.cs">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResultadoRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResultadoRelatorio.Designer.cs">
+      <DependentUpon>FormResultadoRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSobre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRelatorios.resx">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResultadoRelatorio.resx">
+      <DependentUpon>FormResultadoRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSobre.resx">
       <DependentUpon>FormSobre.cs</DependentUpon>

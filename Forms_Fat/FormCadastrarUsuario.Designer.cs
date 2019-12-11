@@ -44,9 +44,9 @@
 			this.txtSenha = new System.Windows.Forms.TextBox();
 			this.txtConfirmaSenha = new System.Windows.Forms.TextBox();
 			this.groupCadastro = new System.Windows.Forms.GroupBox();
-			this.button2 = new System.Windows.Forms.Button();
 			this.txtCargo = new System.Windows.Forms.TextBox();
-			this.txtNivelAcesso = new System.Windows.Forms.TextBox();
+			this.button2 = new System.Windows.Forms.Button();
+			this.comboNivel = new System.Windows.Forms.ComboBox();
 			this.groupCadastro.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -175,7 +175,7 @@
 			// 
 			// groupCadastro
 			// 
-			this.groupCadastro.Controls.Add(this.txtNivelAcesso);
+			this.groupCadastro.Controls.Add(this.comboNivel);
 			this.groupCadastro.Controls.Add(this.txtCargo);
 			this.groupCadastro.Controls.Add(this.button2);
 			this.groupCadastro.Controls.Add(this.btnSalvar);
@@ -198,6 +198,13 @@
 			this.groupCadastro.TabIndex = 13;
 			this.groupCadastro.TabStop = false;
 			// 
+			// txtCargo
+			// 
+			this.txtCargo.Location = new System.Drawing.Point(15, 143);
+			this.txtCargo.Name = "txtCargo";
+			this.txtCargo.Size = new System.Drawing.Size(194, 20);
+			this.txtCargo.TabIndex = 274;
+			// 
 			// button2
 			// 
 			this.button2.AccessibleName = "Buscar Cliente";
@@ -210,19 +217,18 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2_Click);
 			// 
-			// txtCargo
+			// comboNivel
 			// 
-			this.txtCargo.Location = new System.Drawing.Point(15, 143);
-			this.txtCargo.Name = "txtCargo";
-			this.txtCargo.Size = new System.Drawing.Size(194, 20);
-			this.txtCargo.TabIndex = 274;
-			// 
-			// txtNivelAcesso
-			// 
-			this.txtNivelAcesso.Location = new System.Drawing.Point(228, 142);
-			this.txtNivelAcesso.Name = "txtNivelAcesso";
-			this.txtNivelAcesso.Size = new System.Drawing.Size(53, 20);
-			this.txtNivelAcesso.TabIndex = 275;
+			this.comboNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboNivel.FormattingEnabled = true;
+			this.comboNivel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+			this.comboNivel.Location = new System.Drawing.Point(226, 141);
+			this.comboNivel.Name = "comboNivel";
+			this.comboNivel.Size = new System.Drawing.Size(54, 21);
+			this.comboNivel.TabIndex = 275;
 			// 
 			// FormCadastrarUsuario
 			// 
@@ -263,7 +269,7 @@
 		private System.Windows.Forms.TextBox txtConfirmaSenha;
 		private System.Windows.Forms.GroupBox groupCadastro;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.TextBox txtNivelAcesso;
 		private System.Windows.Forms.TextBox txtCargo;
+		private System.Windows.Forms.ComboBox comboNivel;
 	}
 }

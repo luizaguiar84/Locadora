@@ -42,13 +42,20 @@ namespace DbFat
 			}		
    		return false;
 		}
+		public Usuarios GetByLogin(string login, string password)
+		{
+			var usuario = GetAll()
+				.Where(u => (u.Login == login) && (u.Password == password))
+				.SingleOrDefault();
+
+			return usuario;
+		}
 
 		public Usuarios GetById(int usuarioId)
 		{
 			var usuario = GetAll()
 				.Where(u => u.Id == usuarioId)
 				.SingleOrDefault();
-			usuario.Funcionario = new FuncionariosDao().GetById(usuario.FuncionariosId);
 
 			return usuario;
 		}
@@ -58,7 +65,6 @@ namespace DbFat
 			var usuario = GetAll()
 				.Where(u => u.FuncionariosId == funcionarioId)
 				.SingleOrDefault();
-			usuario.Funcionario = new FuncionariosDao().GetById(usuario.FuncionariosId);
 
 			return usuario;
 		}

@@ -215,16 +215,43 @@ namespace Dll_Forms_Fat
 
 		private void CarregaMontadoras()
 		{
-			var _marcas = api.GetMarcas();
-			comboMontadora.DataSource = _marcas;
-			comboMontadora.DisplayMember = "name";
+			try
+			{
+				var _marcas = api.GetMarcas();
+				comboMontadora.DataSource = _marcas;
+				comboMontadora.DisplayMember = "name";
+			}
+			catch (Exception)
+			{
+				txtMontadora.ReadOnly = false;
+				comboMontadora.Visible = false;
+				txtMontadora.Visible = true;
+				txtMontadora.Name = "comboMontadora";
+				txtCombustivel.ReadOnly = false;
+				txtValorAtualCarro.ReadOnly = false;
+				txtValorAtualCarro.Text = "0";
+			}					
 		}
 
 		private void CarregaModelos(string marca)
 		{
-			var Veiculos = api.GetVeiculos(marca); // Sync
-			comboModelo.DataSource = Veiculos;
-			comboModelo.DisplayMember = "name";
+			try
+			{
+				var Veiculos = api.GetVeiculos(marca); // Sync
+				comboModelo.DataSource = Veiculos;
+				comboModelo.DisplayMember = "name";
+			}
+			catch (Exception)
+			{
+				comboModelo.Visible = false;
+				txtModelo.ReadOnly = false;
+				txtModelo.Visible = true;
+				txtModelo.Name = "comboModelo";
+				comboAno.Visible = false;
+				txtAnoModelo.Visible = true;
+				txtAnoModelo.Name = "comboAno";
+				MessageBox.Show("Api da Fipe fora do ar, favor digitar os dados manualmente.\nDesculpe pelo transtorno.");
+			}
 		}
 
 		private void ComboModelo_SelectedIndexChanged(object sender, EventArgs e)
