@@ -62,14 +62,14 @@ namespace DbFat
 		public bool RegistraRetorno(ControlePatio controle, Veiculos veiculo)
 		{
 			bool ret = false;
-			int kmAtual = controle.KmRetorno - controle.KmSaida;
+			int kmAtual = (int)controle.KmRetorno - controle.KmSaida;
 
 			var func = new FuncionariosDao().GetById(controle.ClienteId);
 			func.Disponivel = true;
 
 			if (new PneusDao().DbUpdateKm(kmAtual, veiculo.Id))
 			{
-				if (new VeiculosDao().RegistrarKmDb(veiculo, controle.KmRetorno))
+				if (new VeiculosDao().RegistrarKmDb(veiculo, (int)controle.KmRetorno))
 				{
 					if (DbUpdate(controle))
 					{

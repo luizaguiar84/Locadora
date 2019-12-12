@@ -77,7 +77,7 @@ namespace BsFat
 		[Display(Name = "Km")]
 
 		#endregion
-		public int KmRetorno { get; set; }
+		public int? KmRetorno { get; set; }
 
 		//#region Anotações
 		//[Display(Name = "Liberado por")]

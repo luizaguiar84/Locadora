@@ -312,11 +312,6 @@
     <Content Include="Views\Pneus\Editar.cshtml" />
     <Content Include="Views\Pneus\Deletar.cshtml" />
     <Content Include="Views\ControlePatio\RegistrarRetorno.cshtml" />
-    <Content Include="Views\Estoque\Index.cshtml" />
-    <Content Include="Views\Estoque\Detalhes.cshtml" />
-    <Content Include="Views\Estoque\Adicionar.cshtml" />
-    <Content Include="Views\Estoque\Remover.cshtml" />
-    <Content Include="Views\Estoque\Deletar.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
@@ -331,6 +326,10 @@
     <Content Include="Views\Menu\Details.cshtml" />
     <Content Include="Views\Menu\Edit.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Estoque\Index.cshtml" />
+    <Content Include="Views\Estoque\Detalhes.cshtml" />
+    <Content Include="Views\Estoque\Adicionar.cshtml" />
+    <Content Include="Views\Estoque\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

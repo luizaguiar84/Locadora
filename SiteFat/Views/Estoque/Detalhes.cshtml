@@ -8,7 +8,7 @@
 <h2>Detalhes</h2>
 
 <div>
-    <h4>Detalhes do Item</h4>
+    <h4>Estoque</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -59,33 +59,9 @@
             @Html.DisplayFor(model => model.Quantidade)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacoes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Observacoes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IncluidoPor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IncluidoPor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RetiradoPor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RetiradoPor)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Remover", "Remover", new { id = Model.Id }) |
-    @Html.ActionLink("Voltar à Lista", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

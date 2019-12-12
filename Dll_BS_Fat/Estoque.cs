@@ -11,8 +11,8 @@ namespace BsFat
 		public int Id { get; set; }
 
 		#region Anotações
-		[Required(ErrorMessage = "Favor informar o nome da peça")]
-		[Display(Name = "Peça")]
+		[Required(ErrorMessage = "Favor informar o nome do Item")]
+		[Display(Name = "Item")]
 		#endregion
 		public string Peca { get; set; }
 

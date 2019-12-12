@@ -146,14 +146,15 @@ namespace Dll_Forms_Fat
 			if (new FuncionariosDao().DbAdd(funcionario))
 			{
 				MessageBox.Show("Funcionário adicionado com Sucesso.", "Alerta");
+				LimpaTela();
 				if (!CriarCnh(funcionario))
 				{
 					ConfirmaSaida();
-				}
-				else
-				{
-					MessageBox.Show("Erro na adição do funcionario, tente novamente!");
-				}
+				}			
+			}
+			else
+			{
+				MessageBox.Show("Erro na adição do funcionario, tente novamente!");
 			}
 		}
 

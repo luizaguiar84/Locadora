@@ -233,6 +233,14 @@
     <Compile Include="Migrations\20191212043612_AGORAVAIPNEU.designer.cs">
       <DependentUpon>20191212043612_AGORAVAIPNEU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191212055254_estoque.cs" />
+    <Compile Include="Migrations\20191212055254_estoque.designer.cs">
+      <DependentUpon>20191212055254_estoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191212055904_camposNulosJoao.cs" />
+    <Compile Include="Migrations\20191212055904_camposNulosJoao.designer.cs">
+      <DependentUpon>20191212055904_camposNulosJoao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

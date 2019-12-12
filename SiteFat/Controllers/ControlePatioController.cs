@@ -13,7 +13,7 @@ namespace SiteFat.Controllers
         // GET: ControlePatio
         public ActionResult Index()
         {
-			var controle = new ControlePatioDao().GetAll();
+			var controle = new ControlePatioDao().GetCarrosFora();
             return View(controle);
         }
 
@@ -43,6 +43,8 @@ namespace SiteFat.Controllers
 				controle.DataSaida = DateTime.Now;
 				controle.HoraSaida = DateTime.Now.TimeOfDay;
 				controle.Status = true;
+                controle.NivelCombustivelSaida = "Cheio";
+
 
 				new ControlePatioDao().DbAdd(controle);
 

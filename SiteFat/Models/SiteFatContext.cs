@@ -22,5 +22,7 @@ namespace SiteFat.Models
         public System.Data.Entity.DbSet<BsFat.Usuarios> Usuarios { get; set; }
 
         public System.Data.Entity.DbSet<BsFat.Menu> Menus { get; set; }
+
+        public System.Data.Entity.DbSet<BsFat.Estoque> Estoques { get; set; }
     }
 }

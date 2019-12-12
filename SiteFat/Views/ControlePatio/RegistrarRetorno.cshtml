@@ -50,24 +50,11 @@
             @Html.HiddenFor(model => model.NivelCombustivelSaida)
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LiberadoSaida, htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.DisplayFor(model => model.LiberadoSaida, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.HiddenFor(model => model.LiberadoSaida)
-        </div>
-
+       
         <div class="form-group">
             @Html.LabelFor(model => model.ObservacoesSaida, htmlAttributes: new { @class = "control-label col-md-2" })
             @Html.DisplayFor(model => model.ObservacoesSaida, new { htmlAttributes = new { @class = "form-control" } })
             @Html.HiddenFor(model => model.ObservacoesSaida)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EstadoRetorno, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EstadoRetorno, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EstadoRetorno, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
@@ -86,13 +73,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RecolhidoRetorno, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RecolhidoRetorno, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RecolhidoRetorno, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

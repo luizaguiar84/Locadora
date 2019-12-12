@@ -49,7 +49,7 @@ namespace SiteFat.Controllers
         }
 
         // GET: Estoque/Edit/5
-        public ActionResult Remover(int id)
+        public ActionResult Edit(int id)
         {
 			var pecaEstoque = new EstoqueDao().GetById(id);
             return View(pecaEstoque);
@@ -57,11 +57,13 @@ namespace SiteFat.Controllers
 
         // POST: Estoque/Edit/5
         [HttpPost]
-        public ActionResult Remover(Estoque estoque)
+        public ActionResult Edit(Estoque estoque)
         {
             try
             {
-				estoque.DataSaida = DateTime.Now;
+				estoque.DataAdicao = DateTime.Now;
+                estoque.DataSaida = DateTime.Now;
+
 				new EstoqueDao().DbUpdate(estoque);
 
                 return RedirectToAction("Index");
@@ -73,7 +75,7 @@ namespace SiteFat.Controllers
         }
 
         // GET: Estoque/Delete/5
-        public ActionResult Deletar(int id)
+        public ActionResult Delete(int id)
         {
 			var pecaEstoque = new EstoqueDao().GetById(id);
             return View(pecaEstoque);
@@ -81,7 +83,7 @@ namespace SiteFat.Controllers
 
         // POST: Estoque/Delete/5
         [HttpPost]
-        public ActionResult Deletar(Estoque estoque)
+        public ActionResult Delete(Estoque estoque)
         {
             try
             {
