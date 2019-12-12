@@ -160,7 +160,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "FormLogin";
-			this.Text = "Dream Car\'s - Login";
+			this.Text = "Fat Car\'s - Login";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing_1);
 			this.Load += new System.EventHandler(this.Login_Load);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormLogin_KeyPress);

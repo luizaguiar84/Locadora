@@ -173,7 +173,7 @@ namespace Dll_Forms_Fat
 		{
 			if (MessageBox.Show("Gostaria de Adicionar os pneus referentes ao veiculo?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				var cadastroPneu = new FormControlePneus
+				var cadastroPneu = new FormControlePneus(veiculo)
 				{
 					MdiParent = this.MdiParent,
 					WindowState = FormWindowState.Maximized,

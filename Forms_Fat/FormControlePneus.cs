@@ -10,9 +10,19 @@ namespace Dll_Forms_Fat
 {
 	public partial class FormControlePneus : Form
 	{
+		private Veiculos veiculo;
+
 		public FormControlePneus()
 		{
 			InitializeComponent();
+		}
+
+		public FormControlePneus(Veiculos veiculo)
+		{
+			InitializeComponent();
+			this.veiculo = veiculo;
+			comboPlaca.SelectedItem = veiculo;
+
 		}
 
 		private void FormControlePneus_Load(object sender, EventArgs e)
@@ -32,6 +42,7 @@ namespace Dll_Forms_Fat
 
 			comboPlaca.DataSource = lista;
 			comboPlaca.ValueMember = "Placa";
+		
 		}
 
 		private void BtnAddPneu_Click(object sender, EventArgs e)
