@@ -27,10 +27,9 @@ namespace SiteFat.Controllers
         // GET: ControlePatio/Create
         public ActionResult Adicionar()
         {
-			  ViewBag.ListaCarros = new SelectList(
-				new VeiculosDao().GetVeiculosAtivos(),
-				"Placa"
-				);
+            ViewBag.ListaCarros = new SelectList(new VeiculosDao().GetVeiculosAtivos(),"Id", "Placa");
+           // ViewBag.listaCarros = new VeiculosDao().GetVeiculosAtivos();
+            ViewBag.listaMotoristas = new FuncionariosDao().GetMotoristas();
             return View();
         }
 

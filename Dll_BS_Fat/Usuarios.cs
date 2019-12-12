@@ -23,13 +23,13 @@ namespace BsFat
 		#region Anotações
 		[Required(ErrorMessage = "Favor Informar o nível do usuário")]
 		[Display(Name = "Nivel do usuário")]
-		[Range(1,4, ErrorMessage = "O nivel do usuário deve estar entre 1 e 4")]
+		[Range(1,3, ErrorMessage = "O nivel do usuário deve estar entre 1 e 3")]
 		#endregion
 		public int Nivel { get; set; }
 
 		#region Anotações
 		[Required(ErrorMessage = "Login deve ser informado!")]
-		[StringLength(50, MinimumLength = 5, ErrorMessage = "Login deve ter entre 5 e 50 caracteres!")]
+		[StringLength(50, MinimumLength = 1, ErrorMessage = "Login deve ter entre 1 e 50 caracteres!")]
 		#endregion
 		public string Login { get; set; }
 
