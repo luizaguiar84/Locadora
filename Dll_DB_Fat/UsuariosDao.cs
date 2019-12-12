@@ -75,9 +75,12 @@ namespace DbFat
 
 		public Usuarios GetUsuarioDoFuncionario(int funcionarioId)
 		{
-			var usuario = GetAll()
-				.Where(u => u.FuncionariosId == funcionarioId)
-				.SingleOrDefault();
+			var usuario = new FuncionariosDao().GetById(funcionarioId).Usuario;
+				
+				
+				//GetAll()
+				//.Where(u => u.FuncionariosId == funcionarioId)
+				//.SingleOrDefault();
 
 			return usuario;
 		}

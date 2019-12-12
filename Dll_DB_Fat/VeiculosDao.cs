@@ -79,6 +79,8 @@ namespace DbFat
 
 		}
 
+		
+
 		/// <summary>
 		/// Registra a Km rodada do carro
 		/// </summary>
@@ -95,7 +97,7 @@ namespace DbFat
 				.Where(v => v.Id == veiculoId)
 				.SingleOrDefault();
 
-			veiculo.Pneu = new PneusDao().GetPneus(veiculo.Id);
+			//veiculo.Pneu = new PneusDao().GetPneus(veiculo.Id);
 			veiculo.Abastecimentos = new AbastecimentosDao().GetAbastecimentos(veiculo.Id);
 			veiculo.Manutencao = new ManutencoesDao().GetManutencoes(veiculo.Id);
 			veiculo.Sinistros = new SinistrosDao().GetSinistros(veiculo.Id);

@@ -10,7 +10,7 @@ namespace BsFat
 		#region Construtores
 		public Veiculos()
 		{
-			this.Pneu = new HashSet<Pneus>();
+			this.Pneus = new List<VeiculosPneus>();
 			this.Abastecimentos = new HashSet<Abastecimentos>();
 			this.Manutencao = new HashSet<Manutencoes>();
 			this.Sinistros = new HashSet<Sinistros>();
@@ -45,12 +45,13 @@ namespace BsFat
 			Abs = abs;
 			IsAtivo = isAtivo;
 
-			this.Pneu = new HashSet<Pneus>();
 			this.Abastecimentos = new HashSet<Abastecimentos>();
 			this.Manutencao = new HashSet<Manutencoes>();
 			this.Sinistros = new HashSet<Sinistros>();
 			this.Obrigacoes = new HashSet<Obrigacoes>();
 			this.Multas = new HashSet<Multas>();
+			this.Pneus = new List<VeiculosPneus>();
+
 		}
 
 		#endregion
@@ -142,6 +143,10 @@ namespace BsFat
 		[DefaultValue(true)]
 		public bool Disponivel { get; set; }
 
+		
+
+
+
 
 		//#region Anotações
 		//[Required(ErrorMessage = "Favor informar o valor da diária.")]
@@ -213,7 +218,7 @@ namespace BsFat
 		public virtual ICollection<Sinistros> Sinistros { get; set; }
 		public virtual ICollection<Obrigacoes> Obrigacoes { get; set; }
 		public virtual ICollection<Multas> Multas { get; set; }
-		public virtual ICollection<Pneus> Pneu { get; set; } 
+		public virtual ICollection<VeiculosPneus> Pneus { get; set; } 
 		#endregion
 
 		public int CompareTo(object obj)
@@ -222,6 +227,10 @@ namespace BsFat
 			return Modelo.CompareTo(outro.Modelo);
 		}
 
+		public void AddPneu(Pneus pneu)
+		{
+			this.Pneus.Add(new VeiculosPneus() { Pneus = pneu });
+		}
 		//public virtual Contratocarro contratocarro { get; set; }
 		//public virtual ICollection<Contratocarro> contratocarro1 { get; set; }
 		//public virtual ICollection<Entradasaida> entradasaida { get; set; }

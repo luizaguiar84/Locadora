@@ -87,7 +87,8 @@ namespace Dll_Forms_Fat
 		private void comboUsuarios_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			usuario = GetUsuario();
-			funcionario = new FuncionariosDao().GetById(usuario.FuncionariosId);
+
+			funcionario = new FuncionariosDao().getByUsuario(usuario);//.GetById(usuario.FuncionariosId);
 
 			txtRegFuncionario.Text = funcionario.Id.ToString();
 			txtNome.Text = funcionario.Nome;

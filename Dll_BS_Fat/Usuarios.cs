@@ -51,7 +51,6 @@ namespace BsFat
 		#endregion
 		public string ConfirmaSenha { get; set; }
 
-		public int FuncionariosId { get; set; }
 
 		//public Funcionarios Funcionario { get; set; }
 

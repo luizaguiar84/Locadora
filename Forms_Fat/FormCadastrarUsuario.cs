@@ -53,18 +53,19 @@ namespace Dll_Forms_Fat
 		{
 			if (validaUsuario())
 			{
-				usuario.FuncionariosId = funcionario.Id;
 				usuario.Login = txtUsuario.Text;
 				usuario.Password = txtSenha.Text;
 				usuario.ConfirmaSenha = txtConfirmaSenha.Text;
 				usuario.IsAtivo = true;
 				usuario.Nivel = Convert.ToInt32(comboNivel.SelectedItem.ToString());
-				
-				if (new UsuariosDao().DbAdd(usuario))
-				{
+
+				funcionario.Usuario = usuario;
+				//if (new UsuariosDao().DbAdd(usuario))
+				if (new FuncionariosDao().DbUpdate(funcionario))
+					{
 					MessageBox.Show("Usuário Cadastrado com Sucesso!");
 					this.Controls.LimparTextBoxes();
-					this.Hide();
+					this.Close();
 				}
 				else
 				{

@@ -75,22 +75,28 @@ namespace Dll_Forms_Fat
 			int funcionarioId = Convert.ToInt32(dataGridView1["Id", e.RowIndex].Value);
 
 			var funcionario = new FuncionariosDao().GetById(funcionarioId);
-			
+
 			if (this.usuario != null)
 			{
-				
-				var cadastro = new FormCadastrarUsuario(usuario, funcionario)
+				if (funcionario.UsuariosId != null)
 				{
-					MdiParent = this.MdiParent,
-					ControlBox = false,
-					WindowState = FormWindowState.Maximized
-				};
-				cadastro.Show();
-				this.Close();
+					MessageBox.Show("Funcionário já contém usuário registrado!");
+				}
+				else
+				{
+					var cadastro = new FormCadastrarUsuario(usuario, funcionario)
+					{
+						MdiParent = this.MdiParent,
+						ControlBox = false,
+						WindowState = FormWindowState.Maximized
+					};
+					cadastro.Show();
+					this.Close();
+				}
 			}
 			else
 			{
-			var form = new FormCadastrarFuncionario(funcionario)
+				var form = new FormCadastrarFuncionario(funcionario)
 				{
 					MdiParent = this.ParentForm
 				};

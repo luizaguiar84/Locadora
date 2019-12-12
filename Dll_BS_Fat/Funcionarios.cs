@@ -151,6 +151,8 @@ namespace BsFat
 		public Enderecos Endereco { get; set; }
 		public int EnderecoId { get; set; }
 		public bool Disponivel { get; set; }
+		public Usuarios Usuario { get; set; }
+		public int? UsuariosId { get; set; }
 
 
 		//#region Anotações

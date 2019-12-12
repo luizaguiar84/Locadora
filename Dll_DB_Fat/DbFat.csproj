@@ -136,6 +136,7 @@
     <Compile Include="TipoDespesaDao.cs" />
     <Compile Include="UsuariosDao.cs" />
     <Compile Include="VeiculosDao.cs" />
+    <Compile Include="VeiculosPneusDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dll_BS_Fat\BsFat.csproj">

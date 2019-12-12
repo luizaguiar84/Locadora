@@ -225,6 +225,14 @@
     <Compile Include="Migrations\20191211211310_tabelaPneus1.designer.cs">
       <DependentUpon>20191211211310_tabelaPneus1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20191212035418_testeUsuarioEPneu.cs" />
+    <Compile Include="Migrations\20191212035418_testeUsuarioEPneu.designer.cs">
+      <DependentUpon>20191212035418_testeUsuarioEPneu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20191212043612_AGORAVAIPNEU.cs" />
+    <Compile Include="Migrations\20191212043612_AGORAVAIPNEU.designer.cs">
+      <DependentUpon>20191212043612_AGORAVAIPNEU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LocadoraContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -45,12 +45,13 @@ namespace Dll_Forms_Fat
 					DataAdicao = datePneu.Value.Date,
 					Marca = txtMarca.Text,
 					Modelo = txtModelo.Text,
-					VeiculoId = veiculo.Id,
 					KmAtual = 0
 				};
+				veiculo.AddPneu(pneu);
+				//veiculo.Pneus.Add(pneu);
 
-				if (new PneusDao().DbAdd(pneu))
-				{
+				if (new VeiculosDao().DbUpdate(veiculo))
+					{
 					MessageBox.Show($"Pneu vinculado ao veiculo {veiculo.Placa} com sucesso");
 					LimpaTela();
 					PreencheTabela(veiculo);
@@ -84,9 +85,19 @@ namespace Dll_Forms_Fat
 		private void PreencheTabela(Veiculos veiculo)
 		{
 
-			var lista = new PneusDao().GetPneus(veiculo.Id);
+			var lista = new VeiculosPneusDao().GetAll().Where(v => v.VeiculosId == veiculo.Id).ToList();
+			var listaPneus = new PneusDao().GetAll();
 
-			dataGridPneus.DataSource = lista;
+			var source = from pneu in listaPneus
+						 join item in lista on pneu.Id equals item.PneusId
+						 select new
+						 {
+							 Marca = pneu.Marca,
+							 Modelo = pneu.Modelo,
+							 Km = pneu.KmAtual
+						 };
+
+			dataGridPneus.DataSource = source.ToList();
 		}
 
 		private Veiculos GetVeiculo()

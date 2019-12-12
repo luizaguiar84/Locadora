@@ -18,9 +18,8 @@ namespace DbFat
 		{
 			bool ret = false;
 
-			var listaPneus = GetAll()
-						.Where(p => p.VeiculoId == veiculoId)
-						.ToList();
+			var listaPneus = GetPneusVeiculo(veiculoId);
+						
 			if (listaPneus.Count == 0) 
 			{ 
 				return true;
@@ -81,17 +80,26 @@ namespace DbFat
 			return new DbKernel.Db_Kernel().DbAdd<Pneus>(Add);
 		}
 
-		public List<Pneus> GetPneus(int veiculoId)
-		{
-			return GetAll().Where
-				(p => p.VeiculoId == veiculoId)
-				.ToList();
-		}
+		
 		public Pneus GetById(int pneuId)
 		{
 			return GetAll()
 				.Where(p => p.Id == pneuId)
 				.SingleOrDefault();
+		}
+		public List<Pneus> GetPneusVeiculo(int veiculoId)
+		{
+			List<Pneus> listaPneusVeiculo = new List<Pneus>();
+
+			var veiculo = new VeiculosDao().GetById(veiculoId);
+			var listaPneus = new VeiculosPneusDao().GetAll().Where(v => v.VeiculosId == veiculoId).ToList();
+			foreach (var pneu in listaPneus)
+			{
+				listaPneusVeiculo.Add(GetById(pneu.PneusId));
+			}
+
+			return listaPneusVeiculo;
+
 		}
 	}
 }

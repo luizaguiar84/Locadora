@@ -4,14 +4,16 @@ using DbKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbKernel.Migrations
 {
     [DbContext(typeof(LocadoraContext))]
-    partial class LocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20191212035418_testeUsuarioEPneu")]
+    partial class testeUsuarioEPneu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -504,7 +506,11 @@ namespace DbKernel.Migrations
 
                     b.Property<string>("Modelo");
 
+                    b.Property<int?>("VeiculosId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("VeiculosId");
 
                     b.ToTable("Pneus");
                 });
@@ -619,6 +625,8 @@ namespace DbKernel.Migrations
                         .IsRequired()
                         .HasMaxLength(8);
 
+                    b.Property<int?>("PneuId");
+
                     b.Property<int>("Portas");
 
                     b.Property<int>("Quilometragem");
@@ -635,26 +643,9 @@ namespace DbKernel.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PneuId");
+
                     b.ToTable("Veiculos");
-                });
-
-            modelBuilder.Entity("BsFat.VeiculosPneus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("PneusId");
-
-                    b.Property<int>("VeiculosId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PneusId");
-
-                    b.HasIndex("VeiculosId");
-
-                    b.ToTable("VeiculosPneus");
                 });
 
             modelBuilder.Entity("BsFat.Abastecimentos", b =>
@@ -746,6 +737,13 @@ namespace DbKernel.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("BsFat.Pneus", b =>
+                {
+                    b.HasOne("BsFat.Veiculos")
+                        .WithMany("Pneus")
+                        .HasForeignKey("VeiculosId");
+                });
+
             modelBuilder.Entity("BsFat.Sinistros", b =>
                 {
                     b.HasOne("BsFat.Veiculos", "Veiculo")
@@ -754,17 +752,11 @@ namespace DbKernel.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("BsFat.VeiculosPneus", b =>
+            modelBuilder.Entity("BsFat.Veiculos", b =>
                 {
-                    b.HasOne("BsFat.Pneus", "Pneus")
+                    b.HasOne("BsFat.Pneus", "Pneu")
                         .WithMany()
-                        .HasForeignKey("PneusId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("BsFat.Veiculos", "Veiculos")
-                        .WithMany("Pneus")
-                        .HasForeignKey("VeiculosId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("PneuId");
                 });
 #pragma warning restore 612, 618
         }

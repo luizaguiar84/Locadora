@@ -44,7 +44,6 @@ namespace BsFat
 		[Display(Name = "Data da adição")]
 		#endregion
 		public DateTime DataAdicao { get; set; }
-		public int VeiculoId { get; set; }
 
 	}
 }

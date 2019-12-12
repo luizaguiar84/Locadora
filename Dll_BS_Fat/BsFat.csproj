@@ -85,6 +85,7 @@
     <Compile Include="Usuarios.cs" />
     <Compile Include="Veiculos.cs" />
     <Compile Include="VeiculosBuilder.cs" />
+    <Compile Include="VeiculosPneus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_ClassDiagram1.cd" />

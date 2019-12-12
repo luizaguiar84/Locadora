@@ -115,6 +115,12 @@ namespace DbFat
 			return funcionario;
 		}
 
+		public Funcionarios getByUsuario(Usuarios usuario)
+		{
+			return GetAll().Where(u => u.UsuariosId == usuario.Id)
+				.SingleOrDefault();
+		}
+
 		public bool DbAdd(Funcionarios registro)
 		{
 			return new DbKernel.Db_Kernel().DbAdd<Funcionarios>(registro);
