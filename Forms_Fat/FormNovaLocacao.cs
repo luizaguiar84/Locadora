@@ -158,7 +158,7 @@ namespace Dll_Forms_Fat
 
 		private int GetDias()
 		{
-			return (int)Math.Ceiling((decimal)dateTimeDevolucao.Value.Subtract(dateTimeRetirada.Value).Days);
+			return 0;//(int)Math.Ceiling((decimal)dateTimeDevolucao.Value.Subtract(dateTimeRetirada.Value).Days);
 		}
 
 		private void FormNovaLocacao_Load(object sender, EventArgs e)
@@ -214,8 +214,8 @@ namespace Dll_Forms_Fat
 			locacao.DataContrato = DateTime.Now;
 			locacao.VeiculoId = veiculo.Id;
 
-			locacao.DataInicio = dateTimeRetirada.Value;
-			locacao.HoraInicio = timeRetirada.Value.TimeOfDay;
+			//locacao.DataInicio = dateTimeRetirada.Value;
+			//locacao.HoraInicio = timeRetirada.Value.TimeOfDay;
 			locacao.DataFinal = dateTimeDevolucao.Value;
 			locacao.HoraFinal = timeDevolucao.Value.TimeOfDay;
 
@@ -225,10 +225,10 @@ namespace Dll_Forms_Fat
 			//locacao.ValorSeguroTerceiros = dias * Program.Valores.ValorSeguroTerceiros;
 
 			locacao.KmInicial = veiculo.Quilometragem;
-			locacao.NivelCombustivel = comboCombustivel.Text;
+			//locacao.NivelCombustivel = comboCombustivel.Text;
 			locacao.ValorAntecipado = Convert.ToDecimal(txtPagoRetirada.Text);
-			locacao.LiberadoPor = comboLiberado.Text;
-			locacao.FormaDePagamento = comboFormaPagamento.Text;
+			//locacao.LiberadoPor = comboLiberado.Text;
+			//locacao.FormaDePagamento = comboFormaPagamento.Text;
 			//locacao.ValorTotal = locacao.CalculaValorTotal(locacao, veiculo);
 
 			new LocacoesDao().DbAdd(locacao);

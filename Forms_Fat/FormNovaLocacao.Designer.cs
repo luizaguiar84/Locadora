@@ -33,15 +33,10 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.dateTimeRetirada = new System.Windows.Forms.DateTimePicker();
 			this.label4 = new System.Windows.Forms.Label();
 			this.dateTimeDevolucao = new System.Windows.Forms.DateTimePicker();
 			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.comboFormaPagamento = new System.Windows.Forms.ComboBox();
 			this.btnAddLocacao = new System.Windows.Forms.Button();
-			this.lblHoraRetirada = new System.Windows.Forms.Label();
 			this.lblHoraDevolucao = new System.Windows.Forms.Label();
 			this.checkSegRoubo = new System.Windows.Forms.CheckBox();
 			this.groupSeguro = new System.Windows.Forms.GroupBox();
@@ -67,13 +62,8 @@
 			this.label9 = new System.Windows.Forms.Label();
 			this.txtKm = new System.Windows.Forms.TextBox();
 			this.label18 = new System.Windows.Forms.Label();
-			this.comboLiberado = new System.Windows.Forms.ComboBox();
-			this.lblRecebidoPor = new System.Windows.Forms.Label();
-			this.comboCombustivel = new System.Windows.Forms.ComboBox();
-			this.label23 = new System.Windows.Forms.Label();
 			this.comboCarro = new System.Windows.Forms.ComboBox();
 			this.comboCliente = new System.Windows.Forms.ComboBox();
-			this.timeRetirada = new System.Windows.Forms.DateTimePicker();
 			this.timeDevolucao = new System.Windows.Forms.DateTimePicker();
 			this.groupSeguro.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -117,26 +107,10 @@
 			this.label2.TabIndex = 8;
 			this.label2.Text = "Carro";
 			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(14, 113);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(86, 13);
-			this.label3.TabIndex = 9;
-			this.label3.Text = "Data da retirada:";
-			// 
-			// dateTimeRetirada
-			// 
-			this.dateTimeRetirada.Location = new System.Drawing.Point(17, 130);
-			this.dateTimeRetirada.Name = "dateTimeRetirada";
-			this.dateTimeRetirada.Size = new System.Drawing.Size(231, 20);
-			this.dateTimeRetirada.TabIndex = 10;
-			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(14, 169);
+			this.label4.Location = new System.Drawing.Point(14, 138);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(101, 13);
 			this.label4.TabIndex = 11;
@@ -144,7 +118,7 @@
 			// 
 			// dateTimeDevolucao
 			// 
-			this.dateTimeDevolucao.Location = new System.Drawing.Point(17, 185);
+			this.dateTimeDevolucao.Location = new System.Drawing.Point(17, 154);
 			this.dateTimeDevolucao.Name = "dateTimeDevolucao";
 			this.dateTimeDevolucao.Size = new System.Drawing.Size(231, 20);
 			this.dateTimeDevolucao.TabIndex = 12;
@@ -158,34 +132,6 @@
 			this.label5.TabIndex = 14;
 			this.label5.Text = "(=) Valor Restante:";
 			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(278, 335);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(110, 13);
-			this.label6.TabIndex = 15;
-			this.label6.Text = "Forma de pagamento:";
-			// 
-			// comboFormaPagamento
-			// 
-			this.comboFormaPagamento.AutoCompleteCustomSource.AddRange(new string[] {
-            "Dinheiro",
-            "Cartão de crédito",
-            "Cartão de débito",
-            "Boleto Bancário"});
-			this.comboFormaPagamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-			this.comboFormaPagamento.FormattingEnabled = true;
-			this.comboFormaPagamento.Items.AddRange(new object[] {
-            "Dinheiro",
-            "Cartão de crédito",
-            "Cartão de débito",
-            "Boleto bancário"});
-			this.comboFormaPagamento.Location = new System.Drawing.Point(281, 352);
-			this.comboFormaPagamento.Name = "comboFormaPagamento";
-			this.comboFormaPagamento.Size = new System.Drawing.Size(130, 21);
-			this.comboFormaPagamento.TabIndex = 16;
-			// 
 			// btnAddLocacao
 			// 
 			this.btnAddLocacao.Location = new System.Drawing.Point(296, 388);
@@ -196,19 +142,10 @@
 			this.btnAddLocacao.UseVisualStyleBackColor = true;
 			this.btnAddLocacao.Click += new System.EventHandler(this.Button5_Click);
 			// 
-			// lblHoraRetirada
-			// 
-			this.lblHoraRetirada.AutoSize = true;
-			this.lblHoraRetirada.Location = new System.Drawing.Point(262, 113);
-			this.lblHoraRetirada.Name = "lblHoraRetirada";
-			this.lblHoraRetirada.Size = new System.Drawing.Size(86, 13);
-			this.lblHoraRetirada.TabIndex = 18;
-			this.lblHoraRetirada.Text = "Hora da retirada:";
-			// 
 			// lblHoraDevolucao
 			// 
 			this.lblHoraDevolucao.AutoSize = true;
-			this.lblHoraDevolucao.Location = new System.Drawing.Point(262, 169);
+			this.lblHoraDevolucao.Location = new System.Drawing.Point(262, 138);
 			this.lblHoraDevolucao.Name = "lblHoraDevolucao";
 			this.lblHoraDevolucao.Size = new System.Drawing.Size(101, 13);
 			this.lblHoraDevolucao.TabIndex = 19;
@@ -231,7 +168,7 @@
 			this.groupSeguro.Controls.Add(this.lblValorSegRoubo);
 			this.groupSeguro.Controls.Add(this.checkSegTerceiros);
 			this.groupSeguro.Controls.Add(this.checkSegRoubo);
-			this.groupSeguro.Location = new System.Drawing.Point(17, 223);
+			this.groupSeguro.Location = new System.Drawing.Point(17, 192);
 			this.groupSeguro.Name = "groupSeguro";
 			this.groupSeguro.Size = new System.Drawing.Size(380, 70);
 			this.groupSeguro.TabIndex = 23;
@@ -272,7 +209,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(278, 296);
+			this.label8.Location = new System.Drawing.Point(145, 265);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(117, 13);
 			this.label8.TabIndex = 25;
@@ -280,7 +217,7 @@
 			// 
 			// txtPagoRetirada
 			// 
-			this.txtPagoRetirada.Location = new System.Drawing.Point(281, 312);
+			this.txtPagoRetirada.Location = new System.Drawing.Point(148, 281);
 			this.txtPagoRetirada.Name = "txtPagoRetirada";
 			this.txtPagoRetirada.Size = new System.Drawing.Size(100, 20);
 			this.txtPagoRetirada.TabIndex = 26;
@@ -451,7 +388,7 @@
 			// 
 			// txtKm
 			// 
-			this.txtKm.Location = new System.Drawing.Point(17, 312);
+			this.txtKm.Location = new System.Drawing.Point(17, 281);
 			this.txtKm.Name = "txtKm";
 			this.txtKm.ReadOnly = true;
 			this.txtKm.Size = new System.Drawing.Size(100, 20);
@@ -461,51 +398,11 @@
 			// label18
 			// 
 			this.label18.AutoSize = true;
-			this.label18.Location = new System.Drawing.Point(14, 296);
+			this.label18.Location = new System.Drawing.Point(14, 265);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(67, 13);
 			this.label18.TabIndex = 31;
 			this.label18.Text = "Km do carro:";
-			// 
-			// comboLiberado
-			// 
-			this.comboLiberado.FormattingEnabled = true;
-			this.comboLiberado.Location = new System.Drawing.Point(17, 352);
-			this.comboLiberado.Name = "comboLiberado";
-			this.comboLiberado.Size = new System.Drawing.Size(254, 21);
-			this.comboLiberado.TabIndex = 36;
-			// 
-			// lblRecebidoPor
-			// 
-			this.lblRecebidoPor.AutoSize = true;
-			this.lblRecebidoPor.Location = new System.Drawing.Point(14, 335);
-			this.lblRecebidoPor.Name = "lblRecebidoPor";
-			this.lblRecebidoPor.Size = new System.Drawing.Size(70, 13);
-			this.lblRecebidoPor.TabIndex = 35;
-			this.lblRecebidoPor.Text = "Liberado Por:";
-			// 
-			// comboCombustivel
-			// 
-			this.comboCombustivel.FormattingEnabled = true;
-			this.comboCombustivel.Items.AddRange(new object[] {
-            "Cheio",
-            "3/4",
-            "1/2",
-            "1/4",
-            "Reserva"});
-			this.comboCombustivel.Location = new System.Drawing.Point(140, 311);
-			this.comboCombustivel.Name = "comboCombustivel";
-			this.comboCombustivel.Size = new System.Drawing.Size(121, 21);
-			this.comboCombustivel.TabIndex = 38;
-			// 
-			// label23
-			// 
-			this.label23.AutoSize = true;
-			this.label23.Location = new System.Drawing.Point(137, 296);
-			this.label23.Name = "label23";
-			this.label23.Size = new System.Drawing.Size(110, 13);
-			this.label23.TabIndex = 37;
-			this.label23.Text = "Nivel de combustível:";
 			// 
 			// comboCarro
 			// 
@@ -525,19 +422,10 @@
 			this.comboCliente.Size = new System.Drawing.Size(299, 21);
 			this.comboCliente.TabIndex = 41;
 			// 
-			// timeRetirada
-			// 
-			this.timeRetirada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-			this.timeRetirada.Location = new System.Drawing.Point(259, 130);
-			this.timeRetirada.Name = "timeRetirada";
-			this.timeRetirada.ShowUpDown = true;
-			this.timeRetirada.Size = new System.Drawing.Size(89, 20);
-			this.timeRetirada.TabIndex = 42;
-			// 
 			// timeDevolucao
 			// 
 			this.timeDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-			this.timeDevolucao.Location = new System.Drawing.Point(259, 186);
+			this.timeDevolucao.Location = new System.Drawing.Point(259, 155);
 			this.timeDevolucao.Name = "timeDevolucao";
 			this.timeDevolucao.ShowUpDown = true;
 			this.timeDevolucao.Size = new System.Drawing.Size(89, 20);
@@ -550,13 +438,8 @@
 			this.ClientSize = new System.Drawing.Size(718, 444);
 			this.ControlBox = false;
 			this.Controls.Add(this.timeDevolucao);
-			this.Controls.Add(this.timeRetirada);
 			this.Controls.Add(this.comboCliente);
 			this.Controls.Add(this.comboCarro);
-			this.Controls.Add(this.comboCombustivel);
-			this.Controls.Add(this.label23);
-			this.Controls.Add(this.comboLiberado);
-			this.Controls.Add(this.lblRecebidoPor);
 			this.Controls.Add(this.txtKm);
 			this.Controls.Add(this.label18);
 			this.Controls.Add(this.groupBox2);
@@ -564,14 +447,9 @@
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.groupSeguro);
 			this.Controls.Add(this.lblHoraDevolucao);
-			this.Controls.Add(this.lblHoraRetirada);
 			this.Controls.Add(this.btnAddLocacao);
-			this.Controls.Add(this.comboFormaPagamento);
-			this.Controls.Add(this.label6);
 			this.Controls.Add(this.dateTimeDevolucao);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.dateTimeRetirada);
-			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button2);
@@ -595,15 +473,10 @@
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.DateTimePicker dateTimeRetirada;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DateTimePicker dateTimeDevolucao;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.ComboBox comboFormaPagamento;
 		private System.Windows.Forms.Button btnAddLocacao;
-		private System.Windows.Forms.Label lblHoraRetirada;
 		private System.Windows.Forms.Label lblHoraDevolucao;
 		private System.Windows.Forms.CheckBox checkSegRoubo;
 		private System.Windows.Forms.GroupBox groupSeguro;
@@ -629,13 +502,8 @@
 		private System.Windows.Forms.Label lblValorSegRoubo;
 		private System.Windows.Forms.TextBox txtKm;
 		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.ComboBox comboLiberado;
-		private System.Windows.Forms.Label lblRecebidoPor;
-		private System.Windows.Forms.ComboBox comboCombustivel;
-		private System.Windows.Forms.Label label23;
 		private System.Windows.Forms.ComboBox comboCarro;
 		private System.Windows.Forms.ComboBox comboCliente;
-		private System.Windows.Forms.DateTimePicker timeRetirada;
 		private System.Windows.Forms.DateTimePicker timeDevolucao;
 	}
 }

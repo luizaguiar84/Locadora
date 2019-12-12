@@ -211,6 +211,8 @@ namespace BsFat
 		[Display(Name = "Veiculo Ativo?")]
 		#endregion
 		public bool IsAtivo { get; set; }
+		
+		public bool VeiculoProprio { get; set; }
 
 
 		public virtual ICollection<Abastecimentos> Abastecimentos { get; set; }
