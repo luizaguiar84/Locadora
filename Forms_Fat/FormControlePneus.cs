@@ -39,6 +39,7 @@ namespace Dll_Forms_Fat
 			if (validacao())
 			{
 				var veiculo = GetVeiculo();
+				veiculo.Pneus = new VeiculosPneusDao().GetAll().Where(v => v.VeiculosId == veiculo.Id).ToList();
 
 				var pneu = new Pneus
 				{
@@ -47,20 +48,45 @@ namespace Dll_Forms_Fat
 					Modelo = txtModelo.Text,
 					KmAtual = 0
 				};
-				veiculo.AddPneu(pneu);
-				//veiculo.Pneus.Add(pneu);
 
-				if (new VeiculosDao().DbUpdate(veiculo))
+				if (veiculo.Pneus.Count != 0)
+				{
+					if (MessageBox.Show("Veiculo já possui pneus cadastrados, trocar eles?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
 					{
-					MessageBox.Show($"Pneu vinculado ao veiculo {veiculo.Placa} com sucesso");
-					LimpaTela();
-					PreencheTabela(veiculo);
+						while (veiculo.Pneus.Count != 0)
+						{
+							var _pneu = veiculo.Pneus.First();
+							var sefoi = new VeiculosPneusDao().DeleteRegistro(_pneu);
+							veiculo.Pneus.Remove(_pneu);
+
+						}
+						CadastrarPneus(veiculo, pneu);
+					}
 				}
 				else
 				{
-					MessageBox.Show("Erro na adição do Pneu");
+					CadastrarPneus(veiculo, pneu);
 				}
-			}		   
+			}
+		}
+
+		private void CadastrarPneus(Veiculos veiculo, Pneus pneu)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				veiculo.AddPneu(pneu);
+			}
+
+			if (new VeiculosDao().DbUpdate(veiculo))
+			{
+				MessageBox.Show($"Pneus vinculado ao veiculo {veiculo.Placa} com sucesso");
+				LimpaTela();
+				PreencheTabela(veiculo);
+			}
+			else
+			{
+				MessageBox.Show("Erro na adição do Pneu");
+			}
 		}
 
 		private bool validacao()

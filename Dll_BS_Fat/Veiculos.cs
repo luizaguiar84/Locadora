@@ -231,6 +231,10 @@ namespace BsFat
 		{
 			this.Pneus.Add(new VeiculosPneus() { Pneus = pneu });
 		}
+		public void RemovePneu(Pneus pneu)
+		{
+			this.Pneus.Remove(new VeiculosPneus() { Pneus = pneu });
+		}
 		//public virtual Contratocarro contratocarro { get; set; }
 		//public virtual ICollection<Contratocarro> contratocarro1 { get; set; }
 		//public virtual ICollection<Entradasaida> entradasaida { get; set; }

@@ -22,7 +22,7 @@ namespace DbFat
 
 		public bool DeleteRegistro(VeiculosPneus registro)
 		{
-			throw new NotImplementedException();
+			return new Db_Kernel().DeleteRegistro(registro);
 		}
 
 		public List<VeiculosPneus> GetAll()
