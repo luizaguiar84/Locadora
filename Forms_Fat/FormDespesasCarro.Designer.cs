@@ -347,7 +347,7 @@
 			// txtQtdLitrosAbastecimento
 			// 
 			this.txtQtdLitrosAbastecimento.Location = new System.Drawing.Point(275, 41);
-			this.txtQtdLitrosAbastecimento.MaxLength = 3;
+			this.txtQtdLitrosAbastecimento.MaxLength = 5;
 			this.txtQtdLitrosAbastecimento.Name = "txtQtdLitrosAbastecimento";
 			this.txtQtdLitrosAbastecimento.Size = new System.Drawing.Size(100, 20);
 			this.txtQtdLitrosAbastecimento.TabIndex = 3;

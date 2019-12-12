@@ -22,7 +22,8 @@
 		{
 			if (!(Char.IsNumber(e.KeyChar) ||
 				  Char.IsControl(e.KeyChar) ||
-				  Char.IsDigit(e.KeyChar)
+				  Char.IsDigit(e.KeyChar) ||
+				  Char.IsPunctuation(e.KeyChar)
 				  ))
 			{
 				e.Handled = true;
