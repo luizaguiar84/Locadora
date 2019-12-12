@@ -448,6 +448,19 @@
 			// 
 			this.comboCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboCor.FormattingEnabled = true;
+			this.comboCor.Items.AddRange(new object[] {
+            "Amarelo",
+            "Azul",
+            "Bege",
+            "Branco",
+            "Cinza",
+            "Dourado",
+            "Laranja",
+            "Marrom",
+            "Prata",
+            "Preto",
+            "Verde",
+            "Vermelho"});
 			this.comboCor.Location = new System.Drawing.Point(79, 103);
 			this.comboCor.Name = "comboCor";
 			this.comboCor.Size = new System.Drawing.Size(92, 21);

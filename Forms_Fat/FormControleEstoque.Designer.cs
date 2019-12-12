@@ -31,18 +31,12 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormControleEstoque));
 			this.TabCotroleEstoque = new System.Windows.Forms.TabControl();
 			this.tabConsultaEstoque = new System.Windows.Forms.TabPage();
-			this.comboFiltro = new System.Windows.Forms.ComboBox();
-			this.label14 = new System.Windows.Forms.Label();
 			this.btnBuscar = new System.Windows.Forms.Button();
 			this.txtPesquisar = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.tabCadEntradas = new System.Windows.Forms.TabPage();
-			this.dateEntrada = new System.Windows.Forms.DateTimePicker();
 			this.txtIncluidoPor = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.txtObservacoes = new System.Windows.Forms.RichTextBox();
-			this.label3 = new System.Windows.Forms.Label();
 			this.txtValorUnitEntrada = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.txtQuantidadeEntrada = new System.Windows.Forms.TextBox();
@@ -53,12 +47,8 @@
 			this.tabCadSaidas = new System.Windows.Forms.TabPage();
 			this.txtIdSaida = new System.Windows.Forms.TextBox();
 			this.label15 = new System.Windows.Forms.Label();
-			this.dateSaida = new System.Windows.Forms.DateTimePicker();
-			this.txtRetirado = new System.Windows.Forms.TextBox();
+			this.txrDescricaoSaida = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.txtObservacoesSaida = new System.Windows.Forms.RichTextBox();
-			this.label5 = new System.Windows.Forms.Label();
 			this.txtValorUnitSaida = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.txtQuantidadeSaida = new System.Windows.Forms.TextBox();
@@ -67,6 +57,10 @@
 			this.txtNomeSaida = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.dataGridConsulta = new System.Windows.Forms.DataGridView();
+			this.dateBuscaInicial = new System.Windows.Forms.DateTimePicker();
+			this.dateBuscaFinal = new System.Windows.Forms.DateTimePicker();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.TabCotroleEstoque.SuspendLayout();
 			this.tabConsultaEstoque.SuspendLayout();
 			this.tabCadEntradas.SuspendLayout();
@@ -88,8 +82,10 @@
 			// tabConsultaEstoque
 			// 
 			this.tabConsultaEstoque.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.tabConsultaEstoque.Controls.Add(this.comboFiltro);
-			this.tabConsultaEstoque.Controls.Add(this.label14);
+			this.tabConsultaEstoque.Controls.Add(this.label3);
+			this.tabConsultaEstoque.Controls.Add(this.label2);
+			this.tabConsultaEstoque.Controls.Add(this.dateBuscaFinal);
+			this.tabConsultaEstoque.Controls.Add(this.dateBuscaInicial);
 			this.tabConsultaEstoque.Controls.Add(this.btnBuscar);
 			this.tabConsultaEstoque.Controls.Add(this.txtPesquisar);
 			this.tabConsultaEstoque.Controls.Add(this.label13);
@@ -99,27 +95,6 @@
 			this.tabConsultaEstoque.Size = new System.Drawing.Size(716, 271);
 			this.tabConsultaEstoque.TabIndex = 2;
 			this.tabConsultaEstoque.Text = "Consulta de estoque";
-			// 
-			// comboFiltro
-			// 
-			this.comboFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboFiltro.FormattingEnabled = true;
-			this.comboFiltro.Items.AddRange(new object[] {
-            "Peça",
-            "Código"});
-			this.comboFiltro.Location = new System.Drawing.Point(84, 37);
-			this.comboFiltro.Name = "comboFiltro";
-			this.comboFiltro.Size = new System.Drawing.Size(137, 21);
-			this.comboFiltro.TabIndex = 1;
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(233, 21);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(53, 13);
-			this.label14.TabIndex = 3;
-			this.label14.Text = "Pesquisa:";
 			// 
 			// btnBuscar
 			// 
@@ -133,30 +108,27 @@
 			// 
 			// txtPesquisar
 			// 
-			this.txtPesquisar.Location = new System.Drawing.Point(236, 37);
+			this.txtPesquisar.Location = new System.Drawing.Point(179, 36);
 			this.txtPesquisar.MaxLength = 20;
 			this.txtPesquisar.Name = "txtPesquisar";
-			this.txtPesquisar.Size = new System.Drawing.Size(167, 20);
+			this.txtPesquisar.Size = new System.Drawing.Size(222, 20);
 			this.txtPesquisar.TabIndex = 2;
 			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(81, 21);
+			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.label13.Location = new System.Drawing.Point(135, 37);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(32, 13);
+			this.label13.Size = new System.Drawing.Size(38, 17);
 			this.label13.TabIndex = 0;
-			this.label13.Text = "Filtro:";
+			this.label13.Text = "Item:";
 			// 
 			// tabCadEntradas
 			// 
 			this.tabCadEntradas.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.tabCadEntradas.Controls.Add(this.dateEntrada);
 			this.tabCadEntradas.Controls.Add(this.txtIncluidoPor);
 			this.tabCadEntradas.Controls.Add(this.label1);
-			this.tabCadEntradas.Controls.Add(this.label2);
-			this.tabCadEntradas.Controls.Add(this.txtObservacoes);
-			this.tabCadEntradas.Controls.Add(this.label3);
 			this.tabCadEntradas.Controls.Add(this.txtValorUnitEntrada);
 			this.tabCadEntradas.Controls.Add(this.label10);
 			this.tabCadEntradas.Controls.Add(this.txtQuantidadeEntrada);
@@ -171,56 +143,22 @@
 			this.tabCadEntradas.TabIndex = 0;
 			this.tabCadEntradas.Text = "Cadastro de entradas";
 			// 
-			// dateEntrada
-			// 
-			this.dateEntrada.Location = new System.Drawing.Point(86, 20);
-			this.dateEntrada.Name = "dateEntrada";
-			this.dateEntrada.Size = new System.Drawing.Size(229, 20);
-			this.dateEntrada.TabIndex = 1;
-			// 
 			// txtIncluidoPor
 			// 
 			this.txtIncluidoPor.Location = new System.Drawing.Point(83, 101);
 			this.txtIncluidoPor.MaxLength = 50;
 			this.txtIncluidoPor.Name = "txtIncluidoPor";
 			this.txtIncluidoPor.Size = new System.Drawing.Size(465, 20);
-			this.txtIncluidoPor.TabIndex = 4;
+			this.txtIncluidoPor.TabIndex = 5;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(83, 85);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(67, 13);
+			this.label1.Size = new System.Drawing.Size(58, 13);
 			this.label1.TabIndex = 67;
-			this.label1.Text = "Incluído por:";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(80, 3);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(87, 13);
-			this.label2.TabIndex = 66;
-			this.label2.Text = "Data da entrada:";
-			// 
-			// txtObservacoes
-			// 
-			this.txtObservacoes.Location = new System.Drawing.Point(83, 155);
-			this.txtObservacoes.MaxLength = 250;
-			this.txtObservacoes.Name = "txtObservacoes";
-			this.txtObservacoes.Size = new System.Drawing.Size(476, 68);
-			this.txtObservacoes.TabIndex = 5;
-			this.txtObservacoes.Text = "";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(80, 139);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(73, 13);
-			this.label3.TabIndex = 62;
-			this.label3.Text = "Observações:";
+			this.label1.Text = "Descrição:";
 			// 
 			// txtValorUnitEntrada
 			// 
@@ -228,7 +166,7 @@
 			this.txtValorUnitEntrada.MaxLength = 8;
 			this.txtValorUnitEntrada.Name = "txtValorUnitEntrada";
 			this.txtValorUnitEntrada.Size = new System.Drawing.Size(77, 20);
-			this.txtValorUnitEntrada.TabIndex = 3;
+			this.txtValorUnitEntrada.TabIndex = 4;
 			this.txtValorUnitEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorUnitEntrada_KeyPress);
 			// 
 			// label10
@@ -246,12 +184,12 @@
 			this.txtQuantidadeEntrada.MaxLength = 8;
 			this.txtQuantidadeEntrada.Name = "txtQuantidadeEntrada";
 			this.txtQuantidadeEntrada.Size = new System.Drawing.Size(61, 20);
-			this.txtQuantidadeEntrada.TabIndex = 58;
+			this.txtQuantidadeEntrada.TabIndex = 3;
 			this.txtQuantidadeEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidadeEntrada_KeyPress);
 			// 
 			// btnSalvarEntrada
 			// 
-			this.btnSalvarEntrada.Location = new System.Drawing.Point(259, 225);
+			this.btnSalvarEntrada.Location = new System.Drawing.Point(246, 150);
 			this.btnSalvarEntrada.Name = "btnSalvarEntrada";
 			this.btnSalvarEntrada.Size = new System.Drawing.Size(105, 40);
 			this.btnSalvarEntrada.TabIndex = 59;
@@ -290,12 +228,8 @@
 			this.tabCadSaidas.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.tabCadSaidas.Controls.Add(this.txtIdSaida);
 			this.tabCadSaidas.Controls.Add(this.label15);
-			this.tabCadSaidas.Controls.Add(this.dateSaida);
-			this.tabCadSaidas.Controls.Add(this.txtRetirado);
+			this.tabCadSaidas.Controls.Add(this.txrDescricaoSaida);
 			this.tabCadSaidas.Controls.Add(this.label9);
-			this.tabCadSaidas.Controls.Add(this.label4);
-			this.tabCadSaidas.Controls.Add(this.txtObservacoesSaida);
-			this.tabCadSaidas.Controls.Add(this.label5);
 			this.tabCadSaidas.Controls.Add(this.txtValorUnitSaida);
 			this.tabCadSaidas.Controls.Add(this.label6);
 			this.tabCadSaidas.Controls.Add(this.txtQuantidadeSaida);
@@ -312,7 +246,7 @@
 			// 
 			// txtIdSaida
 			// 
-			this.txtIdSaida.Location = new System.Drawing.Point(488, 19);
+			this.txtIdSaida.Location = new System.Drawing.Point(84, 19);
 			this.txtIdSaida.MaxLength = 4;
 			this.txtIdSaida.Name = "txtIdSaida";
 			this.txtIdSaida.ReadOnly = true;
@@ -324,61 +258,29 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(487, 3);
+			this.label15.Location = new System.Drawing.Point(84, 3);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(16, 13);
 			this.label15.TabIndex = 72;
 			this.label15.Text = "Id";
 			// 
-			// dateSaida
+			// txrDescricaoSaida
 			// 
-			this.dateSaida.Location = new System.Drawing.Point(84, 19);
-			this.dateSaida.Name = "dateSaida";
-			this.dateSaida.Size = new System.Drawing.Size(230, 20);
-			this.dateSaida.TabIndex = 1;
-			// 
-			// txtRetirado
-			// 
-			this.txtRetirado.Location = new System.Drawing.Point(84, 101);
-			this.txtRetirado.MaxLength = 50;
-			this.txtRetirado.Name = "txtRetirado";
-			this.txtRetirado.Size = new System.Drawing.Size(465, 20);
-			this.txtRetirado.TabIndex = 3;
+			this.txrDescricaoSaida.Location = new System.Drawing.Point(84, 101);
+			this.txrDescricaoSaida.MaxLength = 50;
+			this.txrDescricaoSaida.Name = "txrDescricaoSaida";
+			this.txrDescricaoSaida.ReadOnly = true;
+			this.txrDescricaoSaida.Size = new System.Drawing.Size(465, 20);
+			this.txrDescricaoSaida.TabIndex = 3;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Location = new System.Drawing.Point(84, 85);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(68, 13);
+			this.label9.Size = new System.Drawing.Size(58, 13);
 			this.label9.TabIndex = 53;
-			this.label9.Text = "Retirado por:";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(81, 3);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(78, 13);
-			this.label4.TabIndex = 52;
-			this.label4.Text = "Data da saída:";
-			// 
-			// txtObservacoesSaida
-			// 
-			this.txtObservacoesSaida.Location = new System.Drawing.Point(84, 155);
-			this.txtObservacoesSaida.Name = "txtObservacoesSaida";
-			this.txtObservacoesSaida.Size = new System.Drawing.Size(476, 68);
-			this.txtObservacoesSaida.TabIndex = 4;
-			this.txtObservacoesSaida.Text = "";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(81, 139);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(73, 13);
-			this.label5.TabIndex = 48;
-			this.label5.Text = "Observações:";
+			this.label9.Text = "Descrição:";
 			// 
 			// txtValorUnitSaida
 			// 
@@ -401,7 +303,7 @@
 			// 
 			// txtQuantidadeSaida
 			// 
-			this.txtQuantidadeSaida.Location = new System.Drawing.Point(405, 58);
+			this.txtQuantidadeSaida.Location = new System.Drawing.Point(198, 144);
 			this.txtQuantidadeSaida.MaxLength = 8;
 			this.txtQuantidadeSaida.Name = "txtQuantidadeSaida";
 			this.txtQuantidadeSaida.Size = new System.Drawing.Size(61, 20);
@@ -421,18 +323,18 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(404, 42);
+			this.label7.Location = new System.Drawing.Point(84, 147);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(62, 13);
+			this.label7.Size = new System.Drawing.Size(108, 13);
 			this.label7.TabIndex = 43;
-			this.label7.Text = "Quantidade";
+			this.label7.Text = "Quantidade Retirada:";
 			// 
 			// txtNomeSaida
 			// 
 			this.txtNomeSaida.Location = new System.Drawing.Point(84, 58);
 			this.txtNomeSaida.Name = "txtNomeSaida";
 			this.txtNomeSaida.ReadOnly = true;
-			this.txtNomeSaida.Size = new System.Drawing.Size(315, 20);
+			this.txtNomeSaida.Size = new System.Drawing.Size(370, 20);
 			this.txtNomeSaida.TabIndex = 42;
 			this.txtNomeSaida.TabStop = false;
 			// 
@@ -453,10 +355,42 @@
 			this.dataGridConsulta.Location = new System.Drawing.Point(2, 315);
 			this.dataGridConsulta.Name = "dataGridConsulta";
 			this.dataGridConsulta.ReadOnly = true;
-			this.dataGridConsulta.Size = new System.Drawing.Size(734, 188);
+			this.dataGridConsulta.Size = new System.Drawing.Size(734, 192);
 			this.dataGridConsulta.TabIndex = 32;
 			this.dataGridConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridConsulta_CellClick);
 			this.dataGridConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridConsulta_CellContentClick);
+			// 
+			// dateBuscaInicial
+			// 
+			this.dateBuscaInicial.Location = new System.Drawing.Point(84, 94);
+			this.dateBuscaInicial.Name = "dateBuscaInicial";
+			this.dateBuscaInicial.Size = new System.Drawing.Size(200, 20);
+			this.dateBuscaInicial.TabIndex = 4;
+			// 
+			// dateBuscaFinal
+			// 
+			this.dateBuscaFinal.Location = new System.Drawing.Point(296, 94);
+			this.dateBuscaFinal.Name = "dateBuscaFinal";
+			this.dateBuscaFinal.Size = new System.Drawing.Size(200, 20);
+			this.dateBuscaFinal.TabIndex = 5;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(81, 78);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(60, 13);
+			this.label2.TabIndex = 6;
+			this.label2.Text = "Data Inicial";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(293, 78);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(55, 13);
+			this.label3.TabIndex = 7;
+			this.label3.Text = "Data Final";
 			// 
 			// FormControleEstoque
 			// 
@@ -488,9 +422,6 @@
 		private System.Windows.Forms.TabPage tabCadEntradas;
 		private System.Windows.Forms.TextBox txtIncluidoPor;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.RichTextBox txtObservacoes;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txtValorUnitEntrada;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txtQuantidadeEntrada;
@@ -499,11 +430,8 @@
 		private System.Windows.Forms.TextBox txtNomeEntrada;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TabPage tabCadSaidas;
-		private System.Windows.Forms.TextBox txtRetirado;
+		private System.Windows.Forms.TextBox txrDescricaoSaida;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.RichTextBox txtObservacoesSaida;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox txtValorUnitSaida;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txtQuantidadeSaida;
@@ -515,13 +443,13 @@
 		private System.Windows.Forms.Button btnBuscar;
 		private System.Windows.Forms.TextBox txtPesquisar;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.ComboBox comboFiltro;
-		private System.Windows.Forms.Label label14;
 		public System.Windows.Forms.TabControl TabCotroleEstoque;
-		private System.Windows.Forms.DateTimePicker dateEntrada;
-		private System.Windows.Forms.DateTimePicker dateSaida;
 		private System.Windows.Forms.TextBox txtIdSaida;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.DataGridView dataGridConsulta;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.DateTimePicker dateBuscaFinal;
+		private System.Windows.Forms.DateTimePicker dateBuscaInicial;
 	}
 }

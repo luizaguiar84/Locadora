@@ -50,21 +50,5 @@ namespace BsFat
 		#endregion
 		public int Quantidade { get; set; }
 
-		#region Anotações
-		[Display(Name = "Observações")]
-		[DataType(DataType.MultilineText)]
-
-		#endregion
-		public string Observacoes { get; set; }
-
-		#region Anotações
-		[Display(Name = "Incluido por")]
-		#endregion
-		public string IncluidoPor { get; set; }
-
-		#region Anotações
-		[Display(Name = "Retirado por")]
-		#endregion
-		public string RetiradoPor { get; set; }
 	}
 }

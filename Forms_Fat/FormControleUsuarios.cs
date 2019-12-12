@@ -62,6 +62,7 @@ namespace Dll_Forms_Fat
 		private void FormControleUsuarios_Load(object sender, EventArgs e)
 		{
 			CarregaUsuarios();
+			ComboNivelAcesso.SelectedIndex = 0;
 		}
 
 		private void CarregaUsuarios()

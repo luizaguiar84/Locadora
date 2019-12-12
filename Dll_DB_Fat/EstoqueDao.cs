@@ -40,5 +40,12 @@ namespace DbFat
 		{
 			return new DbKernel.Db_Kernel().DbUpdate<Estoque>(update);
 		}
+
+		public List<Estoque> PesquisaItem(string busca)
+		{
+			return GetAll()
+				.Where(e => e.Peca.Contains(busca))
+				.ToList();
+		}
 	}
 }

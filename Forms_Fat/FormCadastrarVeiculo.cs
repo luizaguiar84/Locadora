@@ -201,7 +201,7 @@ namespace Dll_Forms_Fat
 		private void FormCadastrarNovoVeiculo_Load(object sender, EventArgs e)
 		{
 			CarregaMontadoras();
-			CarregarCores();
+			//CarregarCores();
 			comboStatus.SelectedIndex = 0;
 			comboCor.SelectedIndex = 0;
 			LimpaTela();

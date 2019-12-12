@@ -155,10 +155,6 @@ namespace Dll_Forms_Fat
 			}
 			#endregion
 
-			else if (radioMultaPorMotorista.Checked) // multa por motorista
-			{
-
-			}
 			#region Abastecimento Geral
 			else if (radioAbastecimentoGeral.Checked) // abastecimento geral
 			{

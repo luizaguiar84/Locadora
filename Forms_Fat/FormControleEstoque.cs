@@ -28,11 +28,11 @@ namespace Dll_Forms_Fat
 			{
 				Estoque estoque = new Estoque();
 
+				estoque.DataAdicao = DateTime.Now.Date;
 				estoque.Peca = txtNomeEntrada.Text;
 				estoque.Quantidade = Convert.ToInt32(txtQuantidadeEntrada.Text);
 				estoque.ValorUnitario = Convert.ToDecimal(txtValorUnitEntrada.Text);
-				estoque.IncluidoPor = txtIncluidoPor.Text;
-				estoque.Observacoes = txtObservacoes.Text;
+				estoque.Descricao = txtIncluidoPor.Text;
 
 				if (new EstoqueDao().DbAdd(estoque))
 				{
@@ -85,15 +85,14 @@ namespace Dll_Forms_Fat
 			if (validaSaida())
 			{
 				peca.Quantidade -= Convert.ToInt32(txtQuantidadeSaida.Text);
-				peca.RetiradoPor = txtRetirado.Text;
-				peca.Observacoes = txtObservacoes.Text;
+				txrDescricaoSaida.Text = peca.Descricao;
+				peca.DataSaida = DateTime.Now.Date;
 
 				if (new EstoqueDao().DbUpdate(peca))
 				{
 					MessageBox.Show("Saida registrada com sucesso!");
 					AtualizaTabela();
 					this.txtQuantidadeSaida.Text = "";
-					this.txtObservacoesSaida.Text = "";
 					this.txtQuantidadeSaida.Text = "";
 				}
 			}
@@ -119,7 +118,7 @@ namespace Dll_Forms_Fat
 			{
 				MessageBox.Show("Favor informar o valor unitário das peças retiradas do estoque.");
 			}
-			else if (String.IsNullOrWhiteSpace(txtRetirado.Text))
+			else if (String.IsNullOrWhiteSpace(txrDescricaoSaida.Text))
 			{
 				MessageBox.Show("Favor informar o nome de quem retirou as peças do estoque.");
 			}
@@ -132,7 +131,23 @@ namespace Dll_Forms_Fat
 
 		private void BtnBuscar_Click(object sender, EventArgs e)
 		{
-
+				if (dateBuscaFinal.Value < dateBuscaInicial.Value)
+				{
+					MessageBox.Show("Favor selecionar as datas corretamente.");
+				}
+				else if (dateBuscaFinal.Value > DateTime.Now)
+				{
+					MessageBox.Show("Não selecionar data final futura.");
+				}
+				else
+				{
+				var busca = new EstoqueDao().PesquisaItem(txtPesquisar.Text)
+														.Where(es => es.DataAdicao >= dateBuscaInicial.Value && es.DataAdicao <= dateBuscaFinal.Value)
+														.ToList();
+				dataGridConsulta.DataSource = busca;
+			}
+			
+			
 		}
 
 		private void dataGridConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
