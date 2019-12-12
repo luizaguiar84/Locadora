@@ -212,8 +212,6 @@ namespace BsFat
 		#endregion
 		public bool IsAtivo { get; set; }
 		
-		public bool VeiculoProprio { get; set; }
-
 
 		public virtual ICollection<Abastecimentos> Abastecimentos { get; set; }
 		public virtual ICollection<Manutencoes> Manutencao { get; set; }

@@ -156,6 +156,7 @@ namespace Dll_Forms_Fat
 			var veiculo = veiculoBuilder.Build();
 			veiculo.DataAquisicao = DateTime.Now.Date;
 			veiculo.Disponivel = true;
+			
 
 			if (new VeiculosDao().DbAdd(veiculo))
 			{
@@ -196,6 +197,7 @@ namespace Dll_Forms_Fat
 			this.Controls.LimparTextBoxes();
 			this.TabCadastroVeiculos.Controls.LimparTextBoxes();
 			this.tabInformacoes.Controls.LimparTextBoxes();
+			txtOdometro.Text = "0";
 		}
 
 		private void FormCadastrarNovoVeiculo_Load(object sender, EventArgs e)
