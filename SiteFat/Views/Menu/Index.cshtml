@@ -1,0 +1,30 @@
+﻿@model BsFat.Funcionarios
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/cad.css" />
+
+<h5>@ViewBag.Id</h5>
+
+<div class="conteudo">
+    <img src="~/Images/profile.png">
+    <h5 class="texto">Bem vindo @Html.DisplayFor(model => model.Nome)</h5>
+    <ul class="menuV">
+        <h5 style="font-size:20px;" id="botao">Menu</h5>
+        <li class="texto">
+            @Html.ActionLink("Controle de Pátio", "Index", "ControlePatio")
+        </li>
+        <li class="texto">
+            @Html.ActionLink("Clientes", "Index", "ClientePj")
+        </li>
+        <li class="texto">
+            @Html.ActionLink("Funcionarios", "Index", "Funcionarios")
+        </li>
+        <li class="texto" id="botao2">
+            @Html.ActionLink("Veiculos", "Index", "Veiculos")
+        </li>
+    </ul>
+</div>

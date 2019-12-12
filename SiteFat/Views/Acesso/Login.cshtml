@@ -1,0 +1,64 @@
+﻿@model BsFat.Usuarios
+
+@{
+    ViewBag.Title = "Login";
+}
+<style>
+    .texto{
+        font-size: 54px;
+       position: center;
+       margin-left: 45%;
+       margin-top: 5%;
+    }
+    .caixa{
+        padding-left: 210px;
+    }
+    .caixa2{
+        padding-left: 210px;
+        padding-bottom: 20px;
+         padding-top: 20px;
+    }
+    .caixa3{
+        margin-left: 200px;
+    }
+</style>
+
+@using (Html.BeginForm("Login", "Acesso", FormMethod.Post))
+{
+    //cria a tag do formulário
+    @Html.AntiForgeryToken() // previne o ataque CSRF
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+
+    
+
+    <table>
+        <h2 class="texto">Login</h2>
+        <tr>
+            <td class="caixa">@Html.LabelFor(l => l.Login)</td>
+            <td class="caixa">@Html.TextBoxFor(l => l.Login)</td>
+            <td >@Html.ValidationMessageFor(l => l.Login)</td>
+        </tr>
+        <tr>
+            <td class="caixa2">@Html.LabelFor(s => s.Password)</td>
+            <td class="caixa2">@Html.PasswordFor(s => s.Password)</td>
+            <td >@Html.ValidationMessageFor(s => s.Password)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input class="caixa3" type="submit" value="Login" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,44 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i');
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.conteudo {
+    text-align: center;
+    padding-top: 80px;
+}
+
+.texto {
+    padding-top: 10px;
+    font-size: 18px;
+}
+
+.menuV {
+    padding-top: 15px;
+    list-style: none;
+    text-decoration: none;
+}
+
+#botao {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#botao2 {
+    border-bottom: 1px solid black;
+}
+
+.menuV a {
+    margin-bottom: 10px;
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+    .menuV a:hover {
+        text-decoration: none;
+        list-style: none;
+        color: red;
+    }
